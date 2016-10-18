@@ -1,0 +1,374 @@
+\documentclass[12pt,titlepage]{article}
+
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\usepackage{mathtools}
+\usepackage[pd,col,3d]{mgtex_24}
+\usepackage{tikz}
+\usepackage{marvosym}
+
+
+\begin{titlepage}
+	\title{Mathematik III}
+	\date{18.10.2016}
+\end{titlepage}
+
+
+\newcommand{\R}{\mathds{R}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\uline}[1]{\underline{#1}}
+\renewcommand{\>}{\rightarrow}
+\renewcommand{\*}{\cdot}
+\renewcommand{\O}{\mathcal{O}}
+
+\newcount\colveccount
+\newcommand*\colvec[1]{
+	\global\colveccount#1
+	\begin{pmatrix}
+		\colvecnext
+	}
+	\def\colvecnext#1{
+		#1
+		\global\advance\colveccount-1
+		\ifnum\colveccount>0
+		\\
+		\expandafter\colvecnext
+		\else
+	\end{pmatrix}
+	\fi
+}
+\renewenvironment{rcases}{% 
+	\left.\renewcommand*\lbrace.% 
+	\begin{cases}}% 
+	{\end{cases}\right\rbrace}
+\renewcommand{\vec}[1]{\colvec{#1}}
+\newcommand{\vecspace}[2]{\langle#1\rangle_{#2}}
+\newcommand{\vecspaceR}[1]{\vecspace{#1}{\R}}
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\newpage
+	\section{Vektorräume}
+	\small{Bemerkung: 1.1-1.10 identisch mit 8.1-8.10 aus Mathematik 2, SS16}
+	\subsection{Definition (Reelle Vektorräume)}
+	Ein \underline{$\R$-Vektorraum V} ist eine nichtleere Menge, deren Elemente \underline{Vektoren} genannt werden (Bezeichnung mittels kleiner lateinischer Buchstaben, $v,w,x,y,...$), auf der eine Addition $+$ definiert ist, $+\colon V\times V\>V$; und eine Multiplikation mit reellen Zahlen ('Skalare') (Bezeichnung mittels kleiner griechischer Buchstaben $\alpha, \beta, \gamma, \lambda,\mu,...$), $\*\colon\R\times V\>V$, so dass gilt:
+	\begin{itemize}
+		\item[(1.1)] $u+v+w=u+(v+w)\qquad\forall u,v,w\in V$
+		\item[(1.2)] Es existiert ein Vektor $\O\in V$ ('\underline{Nullvektor}') mit $v+\O=\O+v=v\qquad\forall v\in V$
+		\item[(1.3)] Zu jedem $v\in V$ existiert ein Vektor $-v\in V$ mit $v+(-v)=\O$
+		\item[(1.4)] $u+v=v+u\qquad\forall u,v\in V$
+	\end{itemize}
+	(Diese Eigenschaften (1.1) bis (1.4) kann man zusammenfassen als '$(V,+)$ ist eine kommutative Gruppe').
+	\begin{itemize}
+		\item[(2.1)] $\overset{\textrm{Addition in }\R}{(\lambda+\mu)}\*v=\lambda\*v\overset{\textrm{Addition in }V}{+}\mu\*v\qquad\forall\lambda,\mu\in\R,v\in V$
+		\item[(2.2)] $\lambda(v+w)=\lambda v+\lambda w\qquad\forall\lambda\in\R,v,w\in V$
+		\item[(2.3)] $\overset{\textrm{Multiplikation in }\R}{(\lambda\*\mu)}\*v=\lambda\*\overset{\textrm{Multiplikation mit Skalar}}{(\mu\*v)}\qquad\forall\lambda,\mu\in\R,v\in V$
+		\item[(2.4)] $1\*v=v\qquad\forall v\in V$
+	\end{itemize}
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] trivialer Vektorraum Nullraum: $V=\{\O\}$\\
+		Es gilt $\O+\O\coloneqq\O,\quad\lambda\*\O\coloneqq\O\qquad\forall\lambda\in\R$
+		\item[b)] $V=\R^n$, Raum aller 'Spaltenvektoren' der Länge $n$ über $\R$, Elemente haben die Form $\vec3{x_1}{...}{x_n}$ mit $x_1,...,x_n\in\R$.\\
+		$\O=\vec3{0}{...}{0},\quad\vec3{x_1}{...}{x_n}+\vec3{y_1}{...}{y_n}=\vec3{x_1+y_1}{...}{x_n+y_n},\quad\lambda\*\vec3{x_1}{...}{x_n}=\vec3{\lambda\*x_1}{...}{\lambda\*x_n}$
+		\item[c)] $\R$ ist ein $\R$-Vektorraum.\\
+		Vektoren: reelle Zahlen.\\
+		Skalare: reelle Zahlen.\\
+		$\O=0$
+		\item[d)] Funktionenraum:\\
+		$M\neq\emptyset$ Menge. $V=\mathcal{F}(M,\R)\coloneqq\{f\colon M\>\R\}$\\
+		Menge der auf $M$ definierten reellen Funktionen.\\
+		Für $f,g\in V,\quad\lambda\in\R$ sei
+		\begin{itemize}
+			\item $f+g\colon M\>\R,\quad(f+g)(x)=f(x)+g(x)\quad\forall x\in M$
+			\item $\lambda\*f\colon M\>\R,\quad(\lambda\*f)(x)=\lambda\*f(x)\quad\forall x\in M$
+		\end{itemize}
+		Dann ist $V$ mit $\R,+,\*$ ein Vektorraum. Nullvektor ist $f=0\colon M\>\R,\quad f(x)=0\qquad\forall x\in M$.\\
+		(kurz: $f\equiv0$, identisch Null)
+	\end{itemize}
+	\subsection{Lemma}
+	Sei $V$ ein $\R$-Vektorraum, $v\in V,\quad\lambda\in\R$
+	\begin{itemize}
+		\item[a)] $0\*v=\O$
+		\item[b)] $\lambda\*\O=\O$
+		\item[c)] Zu jedem $v\in V$ ist der Vektor $-v$ aus (1.3) in 8.1 eindeutig bestimmt.
+		\item[d)] $(-1)\*v=-v$
+	\end{itemize}
+	\subsubsection*{Beweis}
+	\begin{itemize}
+		\item[a)] \begin{align*}
+		\O\overset{\textrm{(1.3)}}{=}\overbrace{\underbracket{0\*v}_{}}^{x}+\overbrace{(-0\*v)}^{-x}&=\underbracket{(0+0)v}_{}+(-0\*v)\\
+		&\overset{\textrm{(2.1)}}{=}(0\*v+0\*v)+(-0\*v)\\
+		&\overset{\textrm{(1.1)}}{=}0\*v+(0*v+(-0\*v))\\
+		&\overset{\textrm{(1.3)}}{=}0\*v+\O\\
+		&\overset{\textrm{(1.2)}}{=}0\*v
+		\end{align*}
+		\item[b)] Wie a), starte mit $\O=\lambda\*\O+(-\lambda\*\O)$, erhalte $\O=\lambda\*\O$
+		\item[d)] \begin{align*}
+		\underbracket{v+(-1\*v)}_{}&=1\*v+(-1\*v)\\
+		&\overset{\textrm{(2.1)}}{=}(1+(-1))v\\
+		&=0\*v\\
+		&\overset{\textrm{a)}}{=}\O\\
+		&\overset{\textrm{(1.3)}}{=}v+(-v)
+		\end{align*}
+		Addiere auf beiden Seiten $-v$:
+		\begin{align*}
+		\underbracket{v+(-1)v}_{}+(-v)&=v+(-v)+(-v)\\
+		&\Rightarrow-1\*v=-v		
+		\end{align*}
+		\item[c)] Angenommen, zu $v\in V$ gibt es $-v$ und $-v^\prime$ mit $v+(-v)=\O$ und $v+(-v^\prime)=\O$. Dann ist $v+(-v)=v+(-v^\prime)\overset{+(-v)\textrm{auf beiden Seiten}}{\Rightarrow}-v=-v^\prime$
+	\end{itemize}
+	\hfill$\square$
+	\subsection{Definition}
+	Sei $V$ ein $\R$-Vektorraum.\\
+	Eine Teilmenge $U\subseteq V,\quad U\neq\emptyset$ heißt \underline{Unter(vektor)raum von $V$}, falls $U$ bezüglich der Addition auf $V$ und der Multiplikation mit Skalaren selbst ein Vektorraum ist.
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] $V=\R^2,\quad U=\{\vec2{0}{0}\}$ ist Unterraum von $V$
+		\item[b)] $V=\R^2,\quad U=\{\vec2{1}{2}\}$ ist kein Unterraum von $V$, z.B. (1.2) ist verletzt, Addition funktioniert auch nicht: $\vec2{1}{2}+\vec2{1}{2}=\vec2{2}{4}\notin U$
+		\item[c)] $V=\R^2,\quad U=\{\vec2{\lambda}{0}|\lambda\in\R\}$ ist ein Unterraum von $V$ (prüfe alle Eigenschaften von Definition 8.1) $\>$ umständlich, einfacher geht es mit 8.6
+	\end{itemize}
+	\subsection{Satz (Unterraumkriterium)}
+	Sei $V$ ein $\R$-Vektorraum, sei $\emptyset\neq U\subseteq V$.\\
+	Dann ist $U$ Unterraum von $V$ genau dann, wenn gilt ($\Leftrightarrow$):
+	\begin{itemize}
+		\item[(1)] $v\in U,\quad\lambda\in\R\Rightarrow\lambda\*v\in U$
+		\item[(2)] $v,w\in U\Rightarrow v+w\in U$
+	\end{itemize}
+	(oder äquivalent: $\forall v,w\in U, \forall\lambda,\mu\in\R$ ist $\lambda\*v+\mu\*w\in U$)\\
+	Man sagt: $U$ ist abgeschlossen bezüglich der Vektoraddition und der Multiplikation mit Skalaren.
+	\subsubsection*{Beweis}
+	\begin{itemize}
+		\item[$\Rightarrow$] ist klar, da $U$ laut Definition 8.4 selbst Vektorraum
+		\item[$\Leftarrow$] rechne die Vektorraumaxiome nach (Definition 8.1, also z.B. $\O\in U$,...)
+	\end{itemize}
+	\hfill$\square$
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item[a)] $\quad$\\
+		\begin{minipage}[c]{0.5\textwidth}
+			$V$ ist ein $\R$-Vektorraum, $\O\neq v\in V$.\\
+			Dann ist $G=\{\lambda\*v|\lambda\in\R\}$ ein Unterraum.\\
+			$V=\R^2,\R^3$: $G$ ist Gerade durch Nullpunkt (geometrisch), z.B.\\ $v=\vec2{2}{1},w=\vec2{1}{2}$\\
+			Aber: $G^\prime=\{w+\lambda\*v|\lambda\in\R,\quad w\in V\}$ ist kein Unterraum für $w\neq \mu\*v,\quad \mu\in\R$. Warum? Z.B. $\O\notin G^\prime$
+		\end{minipage}
+		\begin{minipage}[c]{0.25\textwidth}$\quad$
+			\begin{tikzpicture}[scale=0.5]
+			\draw[->]
+			(-0.2,0) -- (5,0) node[right] {$x$};
+			\draw[->]
+			(0,-0.5) -- (0,5) node[above] {$f(x)$};
+			\draw[color=blue, thick, ->]
+			(0,0)--(2,1)node[below]{$v$};
+			\draw[color=blue, thick, ->]
+			(0,0)--(1,2)node[above]{$w$};
+			\draw[color=blue, ->]
+			(0,0)--(4,2)node[below]{$\quad2\*v$, $G$};
+			\draw[color=blue, ->]
+			(0,0)--(2,4)node[above]{$2\*w$};
+			\draw[color=blue, ->]
+			(0,1.5)--(3,3)node[right]{$G^\prime$};
+			\end{tikzpicture}
+		\end{minipage}
+		\item[b)] $V=\R^3,\qquad U_1=\{\vec3{x_1}{x_2}{x_3}\in\R^3|x_1+x_2-x_3=0\}$ ist Unterraum. Wir zeigen (1), (2) aus 8.6:
+		\begin{itemize}
+			\item $U_1\neq\emptyset$, z.B. $\O=\vec3{0}{0}{0}\in U_1$, denn $\overset{x_1}{0}+\overset{x_2}{0}-\overset{x_3}{0}=0$
+			\item[(1)] Sei $\lambda\in\R,\quad v=\vec3{v_1}{v_2}{v_3}\in U_1$, d.h. $v_1+v_2-v_3=0$\\
+			Prüfe: Ist $\lambda\*v\in U_1$? $\lambda\*v=\vec3{\lambda\*v_1}{\lambda\*v_2}{\lambda\*v_3}$
+			\begin{align*}
+			\lambda\*v_1+\lambda\*v_2-\lambda\*v_3&=\lambda(v_1+v_2-v_3)\\
+			&=\lambda\*0\\
+			&=0
+			\end{align*}
+			Also ist $\lambda\*v\in U_1$
+			\item[(2)] Seien $v=\vec3{v_1}{v_2}{v_3},\quad w=\vec3{w_1}{w_2}{w_3}\in U_1$, d.h. $v_1+v_2-v_3=0,\quad w_1+w_2-w_3=0$. Gilt $v+w\in U_1$?  $v+w=\vec3{v_1+w_1}{v_2+w_2}{v_3+w_3}$
+			\begin{align*}
+			(v_1+w_1)+(v_2+w_2)-(v_3+w_3)&=\underbrace{(v_1+v_2-v_3)}_{=0}+\underbrace{(w_1+w_2-w_3)}_{=0}\\
+			&=0
+			\end{align*}
+			Also $v+w\in U_1$
+			\item Geometrische Interpretation:\\
+			\begin{align*}
+			U_1&=\{\vec3{x_1}{x_2}{x_1+x_2}|x_1,\quad x_2\in\R\}\\
+			&=\{x_1\*\vec3{1}{0}{1}+x_2\*\vec3{0}{1}{1}|x_1,\quad x_2\in\R\}
+			\end{align*}
+			D.h. $U_1$ ist die Ebene durch $O=\vec3{0}{0}{0}$ mit den Richtungsvektoren $\vec3{1}{0}{1}$ und $\vec3{0}{1}{1}$
+		\end{itemize}
+		\item[c)] $U_2=\{\vec3{x_1}{x_2}{x_3}\in\R^3|x_1+x_2-x_3=1\}$ ist kein Unterraum. Z.B. $\vec3{0}{0}{0}=\O\notin U_2$: $0+0-0=0\neq1$.\\
+		Anderes Argument: Sei $\lambda\in\R,\quad x=\vec3{x_1}{x_2}{x_3}\in U_2$, d.h. $x_1+x_2-x_3=1$. Gilt $\lambda\*x\in U_2$? $\lambda\*x=\vec3{\lambda x_1}{\lambda x_2}{\lambda x_3}$
+		\begin{align*}
+		\lambda x_1+\lambda x_2-\lambda x_3&=\lambda\underbrace{(x_1+x_2-x_3)}_{=1}\\
+		&=\underbrace{\lambda=1}_{\textrm{nur für }\lambda=1}
+		\end{align*}
+		$\Rightarrow$ nicht erfüllt für $\lambda\neq1$.\\
+		Geometrische Interpretation:\\
+		\begin{align*}
+		U_2&=\{\vec3{x_1}{x_2}{x_1+x_2-1}|x_1,\quad x_2\in\R\}\\
+		&=\{\vec3{0}{0}{-1}+x_1\*\vec3{1}{0}{1}+x_2\*\vec3{0}{1}{1}|x_1,\quad x_2\in\R\}
+		\end{align*}
+		Ebene durch $\vec3{0}{0}{-1}$ mit Richtungsvektoren $\vec3{1}{0}{1}$ und $\vec3{0}{1}{1}$
+		\item[d)] $U_3=\{\vec3{x_1}{x_2}{x_3}\in\R^3|x_1^2+x_2^2+x_3^2\leq1\}$ ist kein Unterraum, z.B.\\
+		$\vec3{1}{0}{0}\in U_3,\qquad1^2+0^2+^2\leq1\quad\checkmark$, aber\\
+		$2\*\vec3{1}{0}{0}=\vec3{2}{0}{0}\notin U_3$, denn $2^2+0^2+0^2\nleq1$\\
+		Geometrische Interpretation:\\
+		$U_3$ ist eine Kugel um $\vec3{0}{0}{0}$ mit Radius 1
+		\item[e)] $I\subseteq\R$ Intervall\\Menge $C(I)$ ($C$: continuous, stetig) der stetigen Funktionen auf $I$ ist Unterraum von $\mathcal{F}(I,\R)$ (vgl. Beispiel 8.2d)).\\
+		Menge der diffbaren Funktionen auf $I$ ist Unterraum von $C(I)$.
+	\end{itemize}
+	\subsection{Satz}
+	$V$ ist ein $\R$.Vektorraum, $U_1,U_2$ sind Unterräume von $V$.
+	\begin{itemize}
+		\item[a)] $U_1\cap U_2=\{u\in V|u\in U_1\wedge u\in U_2\}$ ist Unterraum von $V$.
+		\item[b)] $U_1+U_2\coloneqq\{u_1+u_2|u_1\in U_1\wedge u_2\in U_2\}$ \underline{Summe} von $U_1,U_2$ ist Unterraum von $V$\\
+		(das ist nicht die Vereinigung $U_1\cap U_2$!)
+	\end{itemize}
+	\subsubsection*{Beweis}
+	Prüfe Unterraumkriterium 8.6
+	\begin{itemize}
+		\item[a)] Übung: Prüfe $\O\in U_1\cap U_2$? $\checkmark$, (1), (2)
+		\item[b)] \begin{itemize}
+			\item $U_1+U_2\neq\emptyset$, denn $U_1+U_2\ni\O=\underbrace{\O}_{\in U_1}+\underbrace{\O}_{\in U_2}$
+			\item Seien $v=u_1+u_2, \quad u_1\in U_1,\quad u_2\in U_2$ und\\
+			$w=u_1^\prime+u_2^\prime,\quad u_1^\prime\in U_1,\quad u_2^\prime\in U_2$,\\
+			also $v,w\in U_1+U_2$ und $\lambda,\mu\in\R$.\\
+			\begin{align*}
+			\Rightarrow\qquad\lambda v+\mu v&=\lambda(u_1+u_2)+\mu(u_1^\prime+u_2^\prime)\\
+			&=\underbrace{\lambda u_1+\mu u_1^\prime}_{\in U_1}+\underbrace{\lambda u_2+\mu u_2^\prime}_{\in U_2}
+			&\in U_1+U_2
+			\end{align*}
+		\end{itemize}
+	\end{itemize}
+	\subsection{Bemerkung}
+	\begin{itemize}
+		\item[a)] lässt sich für unendlich viele Unterräume ausweiten
+		\item[b)] lässt sich für endlich viele Unterräume ausweiten
+		\item $U_1\cup U_2$ ist im Allgemeinen \underline{kein} Unterraum
+	\end{itemize}
+	\subsection{Beispiel}
+	\begin{itemize}
+		\item $v=\vec2{1}{0}\in\R^2\qquad\qquad G_1=\{\lambda v|\lambda\in\R\}$
+		\item $w=\vec2{2}{1}\in\R^2\qquad\qquad G_2=\{\mu w|\mu\in\R\}$
+	\end{itemize}
+	(vgl. 8.7a), Geraden durch $\vec2{0}{0}$, Unterräume
+	\begin{itemize}
+		\item $G_1+G_2$ ist Ebene
+		\item $G_1\cap G_2$ ist $\O=\vec2{0}{0}$
+	\end{itemize}
+
+%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%
+%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%
+%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%
+
+	\subsection{Beispiel}
+	\begin{minipage}[c]{0.5\textwidth}
+	\InitGraph{5}{8}{1}{1}{0.7cm}
+	\Viewpoint(300,70,10,8)[1]
+	\SetCMYKColor(0.5,0,0,0)
+	\ShowFullPlaneThrough(2.1,1,1)NormalTo(0,2,-2)(2.1)
+	\Text[t]{$E$}
+	\SetCMYKColor(0,0,0,255)
+	\DDArrowAt(0,0,0)(6,0,0)
+	\Text[b]{x}
+	\SetDashed
+	\DDArrowAt(0,0,0)(0,1000,0)
+	\Text[b]{y}
+	\SetNormal
+	\DDArrowAt(0,30,0)(0,1000,0)
+	\DDArrowAt(0,0,0)(0,0,6)
+	\Text[l]{z}
+	\SetCMYKColor(0,1,1,0)
+	\DDArrowAt(0,0,0)(2,0,0)
+	\Text[b]{$v$}
+	\SetCMYKColor(1,1,0,0)
+	\DDArrowAt(0,0,0)(0,1,1)
+	\Text[t]{$u$}
+	\SetCMYKColor(0,0,0,1)
+	\DDArrowAt(0,0,0)(4,1,1)
+	\Text[t]{$u+2v$}
+	\CloseGraph
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+		\begin{itemize}
+			\item $ u = \vec3{0}{1}{1}$
+			\item $ v = \vec3{2}{0}{0}$
+			\item $ E = \{ \lambda_1 \cdot \vec3{0}{1}{1} + \lambda_2 \cdot \vec3{2}{0}{0} | \lambda_1, \lambda_2 \in \R\}$
+		\end{itemize}
+	\end{minipage}
+\\
+\\
+\\
+\begin{itemize}
+	\item E $\subseteq \R^3 $ ist Untervektorraum (UVR) und wird \uline{aufgespannt/erzeugt} von $u$ und $v$. Man nennt $\{\vec3{0}{1}{1},\vec3{2}{0}{0}\}$ \uline{Erzeugendensystem} von $E$.
+	\item D.h. $w \in E \Leftrightarrow \exists \lambda_1, \lambda_2 \in \R: w = \underbrace{\lambda_1 \cdot u + \lambda_2 \cdot v}_{\text{Linearkombination von $u$ und $v$}}$
+	\item $w \notin E$, z.B. $w = \vec3{0}{0}{1}$ ergibt: \\
+	$\vec3{0}{0}{1} = \lambda_1 \cdot u + \lambda_2 \cdot v = \lambda_1 \vec3{0}{1}{1} + \lambda_2 \vec3{2}{0}{0} \\
+	\\
+	 \Rightarrow \begin{rcases}
+	 	\textrm{Letzte Zeile: }1=\lambda_1\\
+	 	\textrm{Zweite Zeile: }0=\lambda_1
+	 \end{rcases}$\Lightning
+ \\
+	$\Rightarrow \vec3{0}{0}{1} \notin E$
+\end{itemize}
+\subsection{Definition (Linearkombination, Erzeugendensystem)}
+$V: \R$-VR (V ist Vektorraum in den reellen Zahlen) \\
+\begin{itemize}
+	\item[(i)] $v_1, ... , v_m \in V$ und $\lambda_1,...,\lambda_m \in \R$\\ Der Vektor $\lambda_1 \* v_1 + ... + \lambda_m \* v_m$ heißt \uline{Linearkombination} von $v_1,...,v_m$.
+	\item[(ii)] Sei $M \subseteq V$. Dann ist
+	\begin{center}
+		$\langle M \rangle_{\R} = \{ \sum_{k = 1}^{n} \lambda_k \cdot v_k \vert \lambda_k \in \R, v_k \in M, n \in \mathbb{N}\}$
+	\end{center}
+	der \underline{von $M$ aufgespannte/erzeugte UVR} von V \\
+	\\
+	Vereinbarung: $\langle \emptyset \rangle = \{0\}$\\
+	Schreibweise: $M = \{v_1,...,v_m\}_{\R}$\\
+	\noindent\hspace*{22mm}$\langle M \rangle_{\R} = \langle v_1,..., v_m\rangle_{\R} $
+	\item[(iii)]
+	Ist $v = \langle M \rangle_{\R}$, so heißt $M$ ein \uline{Erzeugendensystem} von $V$. $V$ heißt \uline{endlich erzeugt}, falls es ein endliches Erzeugendensystem gibt.
+\end{itemize}
+\subsection{Bemerkung}
+$M \subseteq V \Rightarrow \langle M \rangle_{\R}$ ist der kleinste UVR von $V$, der $M$ enthält.\\
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item $\langle M \rangle_{\R}$ ist UVR. erfüllt Kriterien von 1.6, daher klar: \\
+	1.6 2) erfüllt. $u \in \langle M \rangle_{\R} \Rightarrow u = \lambda_1 \cdot v_1 + ... + \lambda_n \cdot v_n\quad(M = \{v_1, ..., v_n \}) \Rightarrow \lambda \cdot u = \underbrace{\lambda  \lambda_1}_{\in \R} \cdot v_1 + ... + \underbrace{\lambda \lambda_n}_{\in \R} \cdot v_n$\\
+	1.6 3) ähnlich.
+	\item Angenommen $U$ ist der kleinste UVR, so dass $M \subseteq U$. \\
+	Z. z.: $\langle M \rangle_{\R} = U.$\\
+	Wegen 1.6 enthält $U$ alle Linearkombinationen von Vektoren aus M. \\
+	$\Rightarrow \langle M \rangle_{\R} \subseteq U \Rightarrow U$ kann nicht kleiner sein als $\langle M \rangle_{\R} \Rightarrow \langle M \rangle_{\R} = U$\hfill$\square$
+\end{itemize}
+\subsection{Fortsetzung Bsp. 1.11}
+\begin{itemize}
+	\item[a)] $E = \langle \vec3{0}{1}{1}, \vec3{2}{0}{0} \rangle_{\R}$
+	\item[b)] $\R^n$ wird erzeugt von $e_j = \vec5{0}{\vdots}{1}{\vdots}{0}$, wobei j die Stelle ist, an der der Vektor 1 ist. \\
+	$R^n = \vecspaceR{\vec4{1}{0}{0}{\vdots}, \vec4{0}{1}{0}{\vdots}, ...,\vec4{0}{0}{\vdots}{1}}$ "kanonische Einheitsvektoren" \\
+	$v = \vec3{v_1}{\vdots}{v_n} = v_1 \cdot e_1 + v_2 \cdot e_2 + ... + e_n \cdot v_n$
+	\item[c)] Spannen $\vec2{1}{1}$ und $\vec2{1}{2}$ den $\R^2$ auf? \\
+	Wenn ja, dann muss für $\vec2{x}{y} \in  \R^2\qquad \alpha, \beta \in \R$ existieren mit 
+	\begin{align*}
+	&&\alpha \cdot \vec2{1}{1} + \beta \cdot \vec2{1}{2} &= \vec2{x}{y}\\
+	\Leftrightarrow&& \alpha + \beta &= x \\
+	&&\alpha + 2\beta &= y \\
+	\Rightarrow &&\alpha &= x - \beta\\
+	&& & = y - 2 \beta \\
+	\Leftrightarrow &&\beta &= y - x\\
+	&&\alpha &= 2x -y 
+	\end{align*}
+	$\Rightarrow$\quad Allg. $ \vec2{x}{y} = (2x-y) \cdot \vec2{1}{1} + (y-x)\cdot \vec2{1}{2} \Rightarrow \R^2 = \langle \vec2{1}{1}, \vec2{1}{2} \rangle_{\R}$
+	\item[d)] Spannen $\vec2{1}{2}$ und $\vec2{3}{6}$ den $\R^2$ auf? \\
+	Nein, denn $\vec2{3}{6}$ ist $3 \cdot \vec2{1}{2} \Rightarrow \langle\vec2{1}{2}, \vec2{3}{6} \rangle_{\R} =  \langle \vec2{1}{2} \rangle_{\R} 
+	= \{\lambda \cdot \vec2{1}{2}\vert \lambda \in \R \} \subsetneq \R^2$
+	\item[e)]
+	$\langle \vec2{0}{1}, \vec2{0}{1} \rangle_{\R} = \langle \vec2{1}{1}, \vec2{1}{2} \rangle_{\R} = \R^2$, d.h. Erzeugendensysteme sind \uline{nicht} eindeutig!
+	\item[f)] 
+	$\langle \vec2{1}{1}, \vec2{1}{2}, \vec2{2}{3} \rangle_{\R} = \langle \vec2{1}{1}, \vec2{1}{2} \rangle_{\R}$, da $\vec2{2}{3} = 
+	\vec2{1}{1} + \vec2{1}{2}$.\\
+	D.h. $M = \{\vec2{1}{1}, \vec2{1}{2}, \vec2{2}{3} \}$ ist kein \uline{minimales} Erzeugendensystem des $\R^2$, denn $v \in M$ kann immer dargestellt werden als Linearkombination von Vektoren aus $M \setminus {v}$. \\
+	Man sagt: $\vec2{1}{1}, \vec2{1}{2}, \vec2{2}{3}$ sind \uline{linear abhängig}.
+\end{itemize}
+\end{document}
