@@ -286,7 +286,7 @@
 	\SetCMYKColor(1,1,0,0)
 	\DDArrowAt(0,0,0)(0,1,1)
 	\Text[t]{$u$}
-	\SetCMYKColor(0,0,0,1)
+	\SetCMYKColor(1,1,1,1)
 	\DDArrowAt(0,0,0)(4,1,1)
 	\Text[t]{$u+2v$}
 	\CloseGraph
@@ -335,14 +335,14 @@ $M \subseteq V \Rightarrow \langle M \rangle_{\R}$ ist der kleinste UVR von $V$,
 \subsubsection*{Beweis}
 \begin{itemize}
 	\item $\langle M \rangle_{\R}$ ist UVR. erfüllt Kriterien von 1.6, daher klar: \\
-	1.6 2) erfüllt. $u \in \langle M \rangle_{\R} \Rightarrow u = \lambda_1 \cdot v_1 + ... + \lambda_n \cdot v_n\quad(M = \{v_1, ..., v_n \}) \Rightarrow \lambda \cdot u = \underbrace{\lambda  \lambda_1}_{\in \R} \cdot v_1 + ... + \underbrace{\lambda \lambda_n}_{\in \R} \cdot v_n$\\
+	1.6 2) erfüllt. $u \in \langle M \rangle_{\R} \Rightarrow u = \lambda_1 \cdot v_1 + ... + \lambda_n \cdot v_n\quad(M = \{v_1, ..., v_n \})\\ \Rightarrow \lambda \cdot u = \underbrace{\lambda  \lambda_1}_{\in \R} \cdot v_1 + ... + \underbrace{\lambda \lambda_n}_{\in \R} \cdot v_n$\\
 	1.6 3) ähnlich.
 	\item Angenommen $U$ ist der kleinste UVR, so dass $M \subseteq U$. \\
 	Z. z.: $\langle M \rangle_{\R} = U.$\\
 	Wegen 1.6 enthält $U$ alle Linearkombinationen von Vektoren aus M. \\
 	$\Rightarrow \langle M \rangle_{\R} \subseteq U \Rightarrow U$ kann nicht kleiner sein als $\langle M \rangle_{\R} \Rightarrow \langle M \rangle_{\R} = U$\hfill$\square$
 \end{itemize}
-\subsection{Fortsetzung Bsp. 1.11}
+\subsection*{Fortsetzung Bsp. 1.11}
 \begin{itemize}
 	\item[a)] $E = \langle \vec3{0}{1}{1}, \vec3{2}{0}{0} \rangle_{\R}$
 	\item[b)] $\R^n$ wird erzeugt von $e_j = \vec5{0}{\vdots}{1}{\vdots}{0}$, wobei j die Stelle ist, an der der Vektor 1 ist. \\
@@ -371,4 +371,127 @@ $M \subseteq V \Rightarrow \langle M \rangle_{\R}$ ist der kleinste UVR von $V$,
 	D.h. $M = \{\vec2{1}{1}, \vec2{1}{2}, \vec2{2}{3} \}$ ist kein \uline{minimales} Erzeugendensystem des $\R^2$, denn $v \in M$ kann immer dargestellt werden als Linearkombination von Vektoren aus $M \setminus {v}$. \\
 	Man sagt: $\vec2{1}{1}, \vec2{1}{2}, \vec2{2}{3}$ sind \uline{linear abhängig}.
 \end{itemize}
+\subsection*{Ergänzung zu 1.13}
+	Bsp: $M = \{\vec3{0}{1}{1} \} \Rightarrow \vecspaceR{M} = \{ \lambda \vec3{0}{1}{1} \vert  \lambda  \in  \R \}$ Gerade 
+	\begin{itemize}
+		\item $\vecspaceR{M} \supseteq M$
+		\item $ E = \{\lambda_1 \vec3{0}{1}{1}  + \lambda_2 \vec3{2}{0}{0} \vert \lambda_1, \lambda_2 \in \R \} \supseteq M $
+	\end{itemize}
+	$\vecspaceR{M}$ Gerade, E Ebene, d.h. E ist größer als $\vecspaceR{M}$\\
+	$\vecspaceR{M}$ ist der kleinste UVR von $\R^3$, der M enthält.
+	\subsection{Definition: Lineare Unabhängigkeit}	
+	\begin{itemize}
+		\item $V\colon\quad\R - VR,\quad v_1,...,v_n$ heißen \uline{linear unabhängig}, wenn gilt: 
+		\begin{center}
+			$\begin{rcases}
+			\lambda_1 \cdot v_1 + ... + \lambda_m \cdot v_m = 0 \\
+			\lambda_1,...,\lambda_m\in\R
+			\end{rcases}
+			\Rightarrow \underbrace{\lambda = \lambda_2 = ... = \lambda_m = 0}_{\textrm{einzige Lösung!}}$
+		\end{center}
+		\item $M \subseteq V$ heißt linear unabhängig, wenn gilt: \\
+		Für beliebiges $m \in \N $ und $v_1,...,v_m \in M$ paarweise verschieden sind $v_1,...,v_m$ linear unabhängig
+		\item Ist in obigen beiden Fällen (mindestens) $\lambda_i \neq 0$, dann sind die Vektoren linear abhängig
+	\end{itemize}
+\subsection{Beispiel}
+\begin{itemize}
+	\item[a)] $\mathcal{O}$ ist linear abhängig, da $\lambda \cdot \mathcal{O} = 0 \qquad \forall \lambda \neq 0$
+	\item[b)] Sind $\vec2{1}{2} , \vec2{-3}{1}, \vec2{1}{-5}$ linear abhängig in $\R^2$ ? \\
+	$\lambda_1 \cdot \vec2{1}{2} + \lambda_2 \cdot \vec2{-3}{1} + \lambda_3 \cdot \vec2{1}{-5} = \mathcal{O}$\\
+	$\begin{cases}
+	\text{I}  \qquad \lambda_1 -3\lambda_2 + \lambda_3  &= 0 \\
+	\text{II} \qquad 2 \lambda_1 + \lambda_2 - 5 \lambda_3 &= 0
+	\end{cases}$\quad
+	Erfüllt für $\lambda_1 = \lambda_2 = \lambda_3 = 0$. Aber hier gibt es noch die Lösung: $\lambda_1 = 2,\quad \lambda_2 = \lambda_3 = 1$!\\
+	$\Rightarrow$ Vektoren sind linear abhängig 
+	\item[c)] 
+	$\vec3{1}{0}{0}, \vec3{0}{1}{0}, \vec3{0}{0}{1}$ linear unabhängig (l.u.) in $\R^3$ 
+	\item[d)]
+	$v \neq \mathcal{O},\quad v \in V,\quad v$, ist linear unabhängig \\
+	Angenommen es existiert $\lambda \neq 0$ mit $\lambda \cdot v = 0$. \\
+	$\Rightarrow v = (\frac{1}{\lambda} \cdot \lambda)\* v = \frac{1}{\lambda} \cdot (\lambda \cdot v) = \mathcal{O}$ \Lightning
+	\item[e)]
+	\begin{align*}
+	v,w \text{ linear abhängig } &\Leftrightarrow v = \lambda w \text{ , für ein } \lambda \in \R \\
+	&\Leftrightarrow v \in \vecspaceR{w}
+	\end{align*}
+	\item[f)]In $V = \mathcal{F}(\R{, \R}) = \{ f: \R \rightarrow \R \vert \text{ f Abbildung} \} $ sind die Vektoren
+	\begin{itemize}
+		\item $f(x) = x,\quad g(x) = x^2 $ linear unabhängig
+		\item $f(x) = \sin^2(x),\quad g(x) = \cos^2(x), \quad h(x) = 2$ linear abhängig: \\
+		\begin{align*}
+		2&=2\*(\sin^2x+\cos^2x)\\
+		&=2\sin^2x+2\cos^2x\\
+		0&=\underbrace{2}_{\lambda_1}\sin^2x+\underbrace{2}_{\lambda_2}\cos^2x\underbrace{-1}_{\lambda_3}\*2
+		\end{align*}
+	\end{itemize}
+\end{itemize}
+	\subsection{Satz}
+$M = \{v_1,...,v_n \} \subseteq V$\\
+\begin{itemize}
+	\item[(i)] $M$ linear unabhängig $\Leftrightarrow  \text{ Zu jedem } v \in \vecspaceR{M}$ gibt es eindeutig bestimmte \\
+	\noindent\hspace*{43mm}$\lambda_1, ... \lambda_n  \in \R:v = \sum_{i= 1}^{n} \lambda_i \cdot v_i$
+	\item[(ii)] $M$ linear unabhängig, $v \notin \vecspaceR{M} \Rightarrow M \cup \{ v \} $ linear unabhängig 
+\end{itemize}
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item[(i)] 
+	\begin{itemize}
+		\item[($\Leftarrow$)] $ \mathcal{O} \in \vecspaceR{M} \Rightarrow \exists$ eindeutig bestimmte $\lambda_1, ... , \lambda_m \in \R:$\\
+		\noindent\hspace*{23mm}$\mathcal{O} = \lambda_1 \cdot v_1 + ... + \lambda_n \cdot v_n$ \\
+		Gleichung erfüllt für $\lambda_1 = ... = \lambda_n = 0$ (eindeutige Lösung)
+		\item[($\Rightarrow$)] Sei $M$ linear unabhängig, $v \in \vecspaceR{M}$\\
+		Angenommen $v = \sum_{i = 1}^{n} \lambda_i \cdot v_i = \sum_{i = 1}^{n} \mu_i \cdot v_i $\\
+		\noindent\hspace*{25mm}$\Leftrightarrow  \sum_{i=1}^{n} \underbrace{(\lambda_i - \mu_i)}_{=0\textrm{, da }M\textrm{ linear unabhängig}} \cdot v_i = \mathcal{O}$\\
+		\noindent\hspace*{25mm}$\Rightarrow \lambda_i = \mu_i \qquad \forall i = 1,...,n$
+	\end{itemize}
+	\item[(ii)] Z.z.: $\sum_{i=1}^{n} \lambda_i \cdot v_i + \lambda \cdot v = \mathcal{O} \Rightarrow \lambda_i = 0 \quad\forall i, \lambda = 0$ \\
+	Annahme: $\lambda \neq 0 \Rightarrow v = \underbrace{-\frac{\lambda_1}{\lambda}}_{\in\R} \cdot v_1 - ... - \frac{\lambda_n}{\lambda} \cdot v_n $\\
+	\noindent\hspace*{29mm}$\Rightarrow v \in \vecspaceR{M}$\Lightning. Also $\lambda = 0$ \\
+	$\lambda_i = 0$, weil M linear unabhängig.\hfill$\square$
+\end{itemize}
+\subsection{Satz}
+$M \subseteq V$ linear unabhängig genau dann, wenn gilt:
+\begin{align*}
+	N \subseteq M,\quad \vecspaceR{N} &= \vecspaceR{M} \Rightarrow N = M 
+\end{align*}
+In Worten: Man kann von $M$ keinen Vektor weglassen, ohne dass der von $M$ aufgespannte Raum sich verkleinert.  \\
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item[$(\Rightarrow)$] Sei $M \subseteq V$ linear unabhängig. \\
+	Angenommen: Man kann doch aus $M$ Vektoren weglassen, d.h.
+	\begin{align*}
+		N\subseteq M,\quad\vecspaceR{N}=\vecspaceR{M}\textrm{ und }N\neq M
+	\end{align*}
+	\begin{align*}
+		N\neq M&\Rightarrow\exists x\in M\setminus N&\textrm{(da }N\subseteq M\textrm{)}\\
+		&\Rightarrow\exists v_1,...,v_n\in N&\textrm{paarweise verschieden und}\\
+		&\qquad\exists\lambda_1,...,\lambda_n\in\R&\textrm{so dass}\\
+		&\qquad x=\lambda_1v_1+...+\lambda_nv_n&\textrm{(da }\vecspaceR{N}=\vecspaceR{M}\textrm{)}\\
+		&\Rightarrow\lambda_1v_1+...+\lambda_nv_n-x=\mathcal{O}\\
+		&\qquad\underbrace{v_1,...,v_n}_{\in N},\quad \underbrace{x}_{\in M\setminus N}\textrm{ paarweise verschieden}
+	\end{align*}
+	Da $N\subseteq M$, ist $\underbrace{v_1,...,v_n,x}_{\textrm{linear abhängig}}\in M\Rightarrow M$ linear abhängig\Lightning\\
+	Also muss $N=M$ gelten.
+	\item[$(\Leftarrow)$] Sei $M$ linear abhängig. \\
+	Z.z. Man kann Vektoren aus $M$ weglassen, d.h.:
+	\begin{align*}
+		\exists N \subseteq M,\quad \vecspaceR{N} = \vecspaceR{M}\textrm{ und }N \neq M
+	\end{align*}
+	$M$ linear abhängig $\Rightarrow \exists n \in \N\quad \exists v_1, ..., v_n \in M$\\
+	\noindent\hspace*{37mm}$\exists \lambda_1,...,\lambda_n \in \R $ (mit $\lambda_i \neq 0$ für ein i) \\
+	\noindent\hspace*{37mm}$\lambda_1 \cdot v_1 + ... + \lambda_n \cdot v_n = 0$\\
+	\\
+	O.B.d.A: $\lambda_1 \neq 0 \Rightarrow v_1 = -\frac{\lambda_2}{\lambda_1} \cdot v_2 - \frac{\lambda_3}{\lambda_1} \cdot v_3 - ... -\frac{\lambda_n}{\lambda_1} \cdot v_n$\\
+	Setze $N = M \setminus \{v_1 \} \Rightarrow N \neq M$\\
+	Da $v_1$ Linearkombination von $v_2,...,v_n$ folgt:\\
+	 Jede Linearkombination von $v_1,...,v_n$ lässt sich ausdrücken als Linearkombination von $v_2,...,v_n \Rightarrow \vecspaceR{N} = \vecspaceR{M}$\hfill$\square$
+\end{itemize}
+
+
+
+
+
+
+
 \end{document}
