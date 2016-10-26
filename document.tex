@@ -606,4 +606,110 @@ Dann sind äquivalent:
 	 $\Rightarrow\langle B\rangle_\R\subsetneq V\Rightarrow\exists v\in V\setminus\langle B\rangle_\R\colon B\cup\{v\}$ linear unabhängig
 	\item[i)$\Rightarrow$iii)] Satz 1.17 
 \end{itemize}\hfill$\square$
+\subsection{Definition: Dimension}
+$V: \R $-VR\\
+\begin{itemize}
+	\item[i)] Ist $V$ endlich erzeugbar, $B$ Basis von $V,\quad|B| = n$ so hat $V$ die Dimension $n$, $\dim(V) = n$
+	\item[ii)] Ist $V$ nicht endlich erzeugbar, so heißt $V$ unendlichdimensional. 
+\end{itemize}
+\subsection{Korollar}
+dim $V = n, B \subseteq V, |B| = n$.\\
+Dann ist $B$ Basis von $V$, wenn $B$ linear unabhängig oder $\vecspaceR{B} = V$
+\subsubsection*{Beweis} Folgt aus 1.24
+		\subsection{Beispiel}
+\begin{itemize}
+	\item[a)] $\{e_1,...,e_n\}$ Basis von $\R^n \Rightarrow \dim( \R^n) = n$
+	\item[b)] $\vecspaceR{\emptyset} = \{\mathcal{O}\} \Rightarrow dim(\{\mathcal{O}\}) = 0$
+	\item[c)] Bilden $\vec3{1}{0}{0}, \vec3{0}{1}{0}, \vec3{0}{1}{1}$ Basis von $V$? \\
+	Ja, weil linear unabhängig (siehe Korollar 1.26).
+	\item[d)] $V = \R^4, U = \vecspaceR{u_1 = \vec4{1}{2}{0}{1},u_2 = \vec4{0}{2}{1}{0}}$ \\
+	$u_1, u_2$ linear unabhängig $\Rightarrow \dim(U) = 2$ \\
+	Ergänze $u_1,u_2$ zu Basis von $V = \R^4$ \\
+	\begin{itemize}
+		\item 1. Möglichkeit (Austauschlemma + Steinitz) \\
+		$\{e_1,e_2,e_3,e_4 \}$ Basis von $\R^4$ \\
+		$u_1 = \vec4{1}{2}{0}{1} = e_1 + 2e_2 + e_4 \Rightarrow \{u_1, e_2,e_3, e_4\}$ Basis von $\R^4$ \\
+		$u_2 = \vec4{0}{2}{1}{0} = 2 e_2 + e_3 \Rightarrow \{u_1,u_2, e_3,e_4 \}$ Basis von $\R^4$ \\
+		(Basis könnte auch anders aussehen, nur beispielhaft dargestellt)
+		\item 2. Möglichkeit (1.16) \\
+		\begin{itemize}
+			\item $e_1 \notin U$ ($\star$)(nachrechnen) \\
+			$\overset{1.16}{\Rightarrow} \{u_1,u_2,e_1\}$ linear unabhängig
+			\item $e_4 \notin \vecspaceR{\{u_1,u_2,e_1\}}$ (nachrechnen) \\
+			$\overset{1.16}{\Rightarrow} \{u_1,u_2,e_1,e_4\}$ linear unabhängig und damit Basis (Korollar 1.26)
+		\end{itemize}
+		($\star$) Angenommen: 
+		\begin{align*}
+		e_1 = \vec4{1}{0}{0}{0} &= \lambda_1 \cdot u_1 + \lambda_2 \cdot u_2 \\
+		\vec4{1}{0}{0}{0} &= \lambda_1 \vec4{1}{2}{0}{1} + \lambda_2 \vec4{0}{2}{1}{0} \\
+		&\Leftrightarrow 
+		\begin{cases}
+		I\qquad &1 = \lambda_1 \\
+		II\qquad&0 = 2 \lambda_1 + 2 \lambda_2 \\
+		III\qquad&0 = \lambda_2  \\
+		IV\qquad&0 = \lambda_1 \textrm{\qquad \Lightning\quad zu I} 								
+		\end{cases} 
+		\\
+		&\Rightarrow e_1 \notin \vecspaceR{\{u_1,u_2\}} \Rightarrow \{u_1,u_2,e_1\} \text{ linear unabhängig}
+		\end{align*}
+	\end{itemize}
+\end{itemize}
+		\subsection{Dimensionssatz}
+$V\quad\R$-VR, $\dim(V) = n$ \\
+\begin{itemize}
+	\item[i)] $U \subseteq V $ ist UVR $ \Rightarrow \dim(U) \leq n$
+	\item[ii)] $U \subseteq W \subseteq V,\qquad U,W \textrm{ sind } UVR$ mit $\dim(U) = \dim(W) \Rightarrow U = W$
+	\item[iii)] $\dim(U+W) = \dim(U) + \dim(W) - \dim(U \cap W)$
+\end{itemize}	
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item[i)] Basis von $U$ kann man zu Basis von $V$ ergänzen $\Rightarrow \dim(U) \leq \dim(V)$
+	\item[ii)] $\dim(U)= \dim(W) \overset{U\subseteq W}{\Rightarrow}$ Basis von $U$ auch Basis von $W \Rightarrow U = W$
+	\item[iii)] Sei $\{v_1,...,v_k\}$ Basis von $U \cap W$ \\
+	Ergänze $\{v_1,...,v_k\}$ zu 
+	\begin{itemize}
+		\item[a)] Basis $\{v_1,...,v_k, u_{k+1},...,u_m\}$ von $U$
+		\item[b)] Basis $\{v_1,...,v_k,w_{k+1},...,w_l \}$ Basis von $W$
+	\end{itemize}
+	\uline{Behauptung:} $B = \{v_1,...,v_k,w_{k+1},...,w_l,u_{k+1},...,u_m\}$ Basis von $U+W$ \\
+	\begin{itemize}
+		\item[1)] $B$ linear unabhängig\\
+		Sei\\
+		$\overbrace{\lambda_1 v_1 + ...+ \lambda_k v_k}^{=v} + \overbrace{\mu_{k+1} u_{k+1} + ... + \mu_m u_m}^{=u} + \overbrace{\gamma_{k+1} w_{k+1} +... + \gamma_l w_l}^{=w} = 0$\\
+		$ \qquad \lambda_i, \mu_j, \gamma_r \in \R$ \\
+		\\
+		Es ist $w \in U \cap W$, da
+		\begin{itemize}
+			\item $w = \underbrace{\gamma_{k+1} w_{k+1}}_{\in W} + ... + \underbrace{\gamma_l w_l}_{\in W} \in W $
+			\item $w = -\underbrace{u}_{\in U}- \underbrace{v}_{\in U} \in U$ \\
+			Also: $w \in U \cap W$.
+			\\
+			\\
+			$\Rightarrow \exists \alpha_1,...,\alpha_k \in \R: w = \alpha_1 v_1 + ... + \alpha_k v_k$ \\
+			$\Rightarrow w = \gamma_{k+1} w_{k+1} + ... + \gamma_l w_l = \alpha_1 v_1 + ... + \alpha_k v_k$ \\
+			$\Rightarrow  \gamma_{k+1} w_{k+1} + ... + \gamma_l w_l - \alpha_1 v_1 - ... - \alpha_k v_k = 0$ \\
+			$\{v_1,...,v_k,w_{k+1} , ... , w_l\}$ linear unabhängig\\
+			$\Rightarrow 
+			\gamma_{k+1} = ... = \gamma_l = \alpha_1 = ... = \alpha_k = 0$\\
+			$\Rightarrow w = \mathcal{O}$ und $ v + u + w = v + u = \lambda_1 v_1 + ... + \lambda_k v_k + \mu_{k+1}u_{k+1} + ... + \mu_m u_m = 0$\\
+			$\{v_1, ..., v_k, u_{k+1}, ... , u_m \}$ linear unabhängig (Basis von $U$) \\
+			$\Rightarrow \lambda_1 = ... = \lambda_k = \mu_{k+1} = ...= \mu_m = 0$
+		\end{itemize}
+		\item[2)] $\vecspaceR{B} = U + W$, da: 
+		\begin{itemize}
+			\item $\vecspaceR{B} \subseteq U + W$ (da $\underbrace{u+v}_{\in U} + \underbrace{w}_{\in W} \in U + W$) 
+			\item $U \subseteq \vecspaceR{B}$ (da Basis von $U$ in $B$) \\
+			\item$W \subseteq \vecspaceR{B} $
+		\end{itemize}
+		$\Rightarrow U + W  \subseteq \vecspaceR{B}$
+		
+	\end{itemize}
+\end{itemize}\hfill$\square$
+\subsection{Bemerkung (Koordinaten)}
+Geg.: Basis $\{v_1,...,v_n\}$ von $V$,	 Vektor $u \in V$ \\
+$\Rightarrow u = \lambda_1 v_1 + ... + \lambda_n v_n$\\
+$\lambda_i$ eindeutig und heißen Koordinaten von $u$ bezüglich der Basis $B$. \\
+z.B.: $\vec3{2}{1}{3} = \vec3{1}{0}{0} + \vec3{0}{1}{0} + 3 \vec3{\frac{1}{3}}{0}{1} \Rightarrow \vec3{2}{1}{3}$ hat Koordinaten 1,1,3 bezüglich $B = \{\vec3{1}{0}{0}, \vec3{0}{1}{0}, \vec3{\frac{1}{3}}{0}{1}\}$
+
+
 \end{document}
