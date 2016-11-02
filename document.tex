@@ -48,6 +48,7 @@
 \renewcommand{\>}{\rightarrow}
 \renewcommand{\*}{\cdot}
 \renewcommand{\O}{\mathcal{O}}
+\renewcommand{\phi}{\varphi}
 \renewenvironment{rcases}{% 
 	\left.\renewcommand*\lbrace.% 
 	\begin{cases}}% 
@@ -710,6 +711,258 @@ Geg.: Basis $\{v_1,...,v_n\}$ von $V$,	 Vektor $u \in V$ \\
 $\Rightarrow u = \lambda_1 v_1 + ... + \lambda_n v_n$\\
 $\lambda_i$ eindeutig und heißen Koordinaten von $u$ bezüglich der Basis $B$. \\
 z.B.: $\vec3{2}{1}{3} = \vec3{1}{0}{0} + \vec3{0}{1}{0} + 3 \vec3{\frac{1}{3}}{0}{1} \Rightarrow \vec3{2}{1}{3}$ hat Koordinaten 1,1,3 bezüglich $B = \{\vec3{1}{0}{0}, \vec3{0}{1}{0}, \vec3{\frac{1}{3}}{0}{1}\}$
+
+%%2. Matrizen und lineare Gleichungssysteme%%
+%%2. Matrizen und lineare Gleichungssysteme%%
+%%2. Matrizen und lineare Gleichungssysteme%%
+\newpage
+\section{Matrizen und lineare Gleichungssysteme}
+\subsection{Beispiel}
+\begin{itemize}
+	\item Ein Bauer besitzt Kühe und Gänse
+	\item Insgesamt 18 Tiere mit 40 Beinen
+	\item Frage: Wieviele der Tiere sind Kühe?
+\end{itemize}
+\uline{Lineares Gleichungssystem (LGS):}
+$\ast
+\begin{cases}
+I:\qquad k + g &= 18 \\
+II: \quad4k + 2g &= 40\qquad \Leftrightarrow\quad 2k +g = 20 \\
+\end{cases}$ \\
+\noindent\hspace*{49mm}
+$\Rightarrow g = 20 -2k = 18-k \Leftrightarrow k = 2 \Rightarrow g = 16$\\
+\\
+\uline{Vektorenschreibweise von $\ast$:} \\
+$\vec2{k+g}{4k+2g} = \vec2{18}{40}$ oder $k\vec2{1}{4} + g\vec2{1}{2} = \vec2{18}{40}$\\
+\\
+\uline{Matrixschreibweise:} \\
+$\underbrace{\begin{pmatrix}
+1&1 \\
+4&2 \\
+\end{pmatrix}}_{\textrm{Matrix}} \cdot \vec2{k}{g} = \vec2{18}{40}$
+\subsection{Definition}
+Allgemeines lineares Gleichungssystem: \\
+Gegeben:
+\begin{itemize}
+	\item Unbekannte $x_1,...,x_n \in \R, n \in \mathbb{N}$
+	\item $m \in \mathbb{N}$ Gleichungen
+	\item Koeffizienten $a_{ij} \in \R, i = 1,...,m; j = 1,...,n$
+\end{itemize}
+$a_{11}x_1 + a_{12}x_2 + ... + a_{1n}x_n = b_1$\\
+$a_{21}x_1 + a_{22}x_2 + ... + a_{2n}x_n = b_2$\\
+$\vdots \qquad \qquad \vdots \quad \qquad \vdots \qquad \quad \vdots\quad\qquad\vdots$\\
+$a_{m1}x_1 + a_{m2}x_2 + ... + a_{mn}x_n = b_m$\\
+\\
+\\
+\\
+\\\\
+\uline{Matrixschreibweise:} \\
+$A x = b$ mit \\
+\begin{itemize}
+	\item$A=\underset{\textrm{Spalte}}{\begin{pmatrix}
+	a_{11}&a_{12}&\cdots&a_{1n}\\
+	a_{21}&a_{22}&\cdots&a_{2n}\\
+	\vdots&\vdots&\ddots&\vdots\\
+	a_{m1}&\underset{\uparrow}{a_{m2}}&\cdots&a_{mn}
+	\end{pmatrix}}\leftarrow\textrm{Zeile}$
+	\item
+	$x = \vec3{x_1}{\vdots}{x_n} \in \R^n$
+	\item$b = \vec3{b_1}{\vdots}{b_m} \in \R^m$
+\end{itemize}
+	Man schreibt $A = (a_{ij})_{\substack{i=1,...,m\\j = 1,...,n}}$ oder nur $A =(a_{ij})$, wenn $m,n$ schon bekannt.
+	\begin{itemize}
+	\item $a_{ij} \in \R$ - \uline{Eingänge} der Matrix $A$
+	\item $A$ - reelle $m\times n$- Matrix
+	\item $\mathcal{M}_{m,n}(\R)$ - Menge aller reellen $m \times n$ - Matrizen
+	\item $\mathcal{M}_{n,n}(\R) = M_n (\R)$ - quadratische Matrizen 
+\end{itemize}
+$(\ast\ast)\quad$Dabei ist\\
+$Ax\coloneqq x_1 \vec3{a_{11}}{\vdots}{a_{m1}} + x_2 \vec3{a_{12}}{\vdots}{a_{m2}} + \cdots + x_n \vec3{a_{1m}}{\vdots}{a_{mn}} =
+\begin{pmatrix}
+a_{11}x_1 + a_{12}x_2 + ... + a_{1n}x_n \\
+\vdots\quad+\quad\vdots\quad+\quad\vdots\quad+\quad\vdots \\
+a_{m1}x_1 + a_{m2}x_2 + ... + a_{mn}x_n \\
+\end{pmatrix} \in \R^m$
+\subsection{Bemerkung}
+Aus $(\ast\ast)$ ergibt sich: $A: \R^n \rightarrow \R^m , x \longmapsto A \cdot x$ für $A \in \mathcal{M}_{m,n}(\R)$\\
+$A$ bildet Vektoren auf Vektoren ab.\\
+\\\\\\\\
+Matrizen können nicht nur zur Lösung von LGS verwendet werden, sondern auch in der Geometrie: \\
+\subsection{Beispiel:}
+\begin{itemize}
+	\item[a)] Spiegelung $S_y$ ain $\R^2$ an $y$-Achse\\
+	\begin{minipage}[c]{0.5\textwidth}
+		\InitGraph{6}{3.5}{2.5}{0}{1cm}
+		\Coordinates(4,2)(4,2)
+		\SetDarkgrey
+		\TextAt(3.5,0)[b]{$x$}
+		\TextAt(0,3.5)[l]{$y$}
+		\MoveTo(0,0)
+		\PaintTriangle(2,0)(0,2)(0,0)
+		\Text[tr]{$D$}
+		\SetLightgrey
+		\PaintTriangle(-2,0)(0,2)(0,0)
+		\Text[tl]{$D'$}
+		\SetBlack
+		\MoveTo(1.5,1.5)
+		\Text[r]{$\vec2{x}{y}$}
+		\MoveTo(1,2)
+		\Text[t]{$S_y$}
+		\Bezier(-1.5,1.5)(1,3)(1.5,1.5)
+		\MoveTo(-1.5,1.5)
+		\ArrowDirection(200,0.1)
+		\Text[l]{$\vec2{-x}{y}$}
+		\CloseGraph
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+		
+		$S_y: \vec2{x}{y} \mapsto \vec2{-x}{y}\quad x,y \in \R$\\
+		$S_y: \begin{pmatrix}
+		s_{11} &s_{12} \\
+		s_{21} &s_{22} \\
+		\end{pmatrix} \\
+		S_y \vec2{x}{y} = \begin{pmatrix}
+		s_{11} +s_{12} \\
+		s_{21} +s_{22} \\
+		\end{pmatrix} = \vec2{-x}{y}$\\
+		$\Rightarrow s_{11} = -1\quad s_{12} = 0\quad s_{21} = 0\quad s_{22} = 1\\
+		 S_y = \begin{pmatrix}
+		-1 &0 \\
+		0 &1 \\
+		\end{pmatrix}$\\
+		$S_y$ bildet $D$ auf $D'$ ab.
+	\end{minipage}
+	\item[b)] Drehung $D_\phi$ um $\phi \in [0,2\pi)$ \\
+	Vorüberlegung am Einheitskreis:\\
+	\\
+	
+	\InitGraph{15}{4.5}{0}{0}{1cm}
+	\OpenWindowAt(1,1)(5,4)(1,1)
+	\TextAt(3,1.5)[c]{$\vec2{1}{0} \overset{D_{\phi}}{\rightarrow}\vec2{\cos\phi}{\sin\phi}$}
+	\Axes
+	\SetDotted
+	\CircleAt(0,0)(2)
+	\SetNormal
+	
+	\ArrowAt(0,0,2,0)
+	\ArrowAt(0,0,1,1.72)
+	\EllipticArcAt(0,0)(1,1)(0,60)
+	\TextAt(0.2,0)[tr]{$\phi$}
+	\SetDashed
+	\LineAt(0,-1,1,-1)
+	\TextAt(0.5,-0.6)[c]{$\cos\phi$}
+	\LineAt(-1,0,-1,1.72)
+	\TextAt(-1,1)[c]{$\sin\phi$}
+	\SetNormal
+	\CloseWindow
+	\OpenWindowAt(7,1)(5,4)(4,1)
+	\TextAt(-3,2.5)[c]{$\vec2{0}{1}\overset{D_{\phi}}{\rightarrow}\vec2{-\sin\phi}{\cos\phi}$}
+	\Axes
+	\SetDotted
+	\CircleAt(0,0)(2)
+	\SetNormal
+	
+	\ArrowAt(0,0,0,2)
+	\ArrowAt(0,0,-1.72,1)
+	\EllipticArcAt(0,0)(1,1)(90,60)
+	\TextAt(0,0.2)[tl]{$\phi$}
+	\SetDashed
+	\LineAt(0,-1,-1.72,-1)
+	\TextAt(-0.8,-0.6)[c]{$-\sin\phi$}
+	\LineAt(1,0,1,1.72)
+	\TextAt(1,1)[c]{$\cos\phi$}
+	\SetNormal
+	
+	\CloseWindow
+	\CloseGraph
+\\
+	\begin{minipage}[c]{0.5\textwidth}
+	 \InitGraph{6}{3.5}{2.5}{0}{1cm}
+	 \Coordinates(4,2)(4,2)
+	 \TextAt(3.5,0)[b]{$x$}
+	 \TextAt(0,3.5)[l]{$y$}
+	 \MoveTo(0,0)
+	 \Text[tr]{$\phi$}
+	 \MoveTo(1.5,1.5)
+	 \Text[r]{$\vec2{x}{y}$}
+	 \MoveTo(1,2)
+	 \Text[t]{$D_\phi$}
+	 \Bezier(-1.5,1.8)(1,3)(1.5,1.5)
+	 \MoveTo(-1.5,1.8)
+	 \ArrowDirection(200,0.1)
+	 \Text[l]{$\vec2{x'}{y'}$}
+	 \ArrowAt(0,0,2,1)
+	 \ArrowAt(0,0,-1.5,1.5)
+	 \EllipticArcAt(0,0)(0.8,0.8)(30,105)
+	 \CloseGraph
+	\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+			$D_{\phi}: \vec2{x}{y} \rightarrow \vec2{x'}{y'}$\\
+		$D_{\phi}= \begin{pmatrix}
+		d_{11} &d_{12} \\
+		d_{21} &d_{22} \\
+		\end{pmatrix}\\
+		\quad\Rightarrow D_{\phi}  \vec2{1}{0} = \vec2{d_{11}}{d_{21}} = \vec2{\cos \phi}{\sin\phi}$\textrm{ und }\\
+		$D_\phi \vec2{0}{1} = \vec2{d_{12}}{d_{22}}= \vec2{-\sin\phi}{\cos\phi}$\\
+		$\Rightarrow D_\phi = (D_\phi \cdot e_1, D_\phi \cdot e_2) = \begin{pmatrix}
+		\cos\phi &- \sin\phi \\
+		\sin\phi &\cos\phi \\
+		\end{pmatrix}$
+	\end{minipage}
+\end{itemize}
+\subsection{Bemerkung}
+Aus Beispiel 2.4 b) und Def 2.2 ergibt sich: \\
+$A \cdot e_j = 1 \cdot \vec3{a_{1j}}{\vdots}{a_{mj}}\quad$ ($j$-te Spalte von $A\in\mathcal{M}_{m,n}(\R)$) \\
+$\Rightarrow A = (\underbrace{A_{e_1}, A_{e_2},...,A_{e_n}}_{\textrm{Spalten}})$
+\subsection{Satz}
+$A \in \mathcal{M}_{m,n}(\R)\qquad x,y \in \R^n$\\
+\begin{itemize}
+	\item[i)] $A(\lambda x) = \lambda (A \cdot x) \qquad \lambda \in \R$
+	\item[ii)] $A(x+y) = Ax +  Ay$
+\end{itemize}
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item[i)] \begin{align*}
+	A(\lambda x) &= (\lambda x_1) \underbrace{A \cdot e_1}_{\textrm{1. Spalte}} + (\lambda x_2)A e_2 +...+ (\lambda x_n)\underbrace{A e_n}_{n\textrm{-te Spalte}}\\
+	&= \lambda[x_1 (Ae_1) + ... + x_n (Ae_n)] \\
+	&= \lambda (Ax)
+	\end{align*}
+	\item[ii)] Übung
+\end{itemize}
+\subsection{Beispiel (Folien 02.11.2016)}
+\begin{itemize}
+	\item[a)] $A \cdot x = (D_\pi \circ S_y) \cdot x = D_\pi \vec2{-x_1}{x_2} = \begin{pmatrix}
+	-1& 0 \\
+	0 &1 \\
+	\end{pmatrix} \vec2{-x_1}{x_2} = \vec2{x_1}{-x_2}\\
+	\Rightarrow \vec2{x_1}{x_2} \overset{A}{\mapsto} \vec2{x_1}{-x_2} \qquad A = \begin{pmatrix}
+	1  &0 \\
+	0 &-1 \\
+	\end{pmatrix}$
+	\item[b)]
+	Berechnung Matrixprodukt (Verknüpfung) $A\*B$ \\
+	\begin{align*}
+		\underbrace{\begin{pmatrix}
+			a&b\\c&d
+			\end{pmatrix}}_{A}\underbrace{\begin{pmatrix}
+			e&f\\g&h
+			\end{pmatrix}}_{B}\vec2{x_1}{x_2}&=\begin{pmatrix}
+		a&b\\c&d
+	\end{pmatrix}[\underbrace{x_1\vec2{e}{g}+x_2\vec2{f}{h}}_{\in\R^2}]\\
+	&\overset{2.6}{=}\quad x_1\lbrack\underbrace{e\vec2{a}{c}+g\vec2{b}{d}}_{\in\R^2}]+x_2[\underbrace{f\vec2{a}{c}+h\vec2{b}{d}}_{\in\R^2}]\\
+	&=\underbrace{\begin{pmatrix}
+		ea+gb&fa+hb\\ec+gd&fc+hd
+		\end{pmatrix}}_{\textrm{Matrixprodukt }A\*B}\vec2{x_1}{x_2}
+ 	\end{align*}
+\end{itemize}	
+\subsection{Definition (Matrixprodukt)}
+$A=(a_{ij})\in\mathcal{M}_{m,n}(\R)\qquad B=(b_{ij})\in\mathcal{M}_{m,n}(\R)$
+\begin{align*}
+	A\*B&=(c_{ik})\quad\in\mathcal{M}_{m,l}(\R)\\
+	c_{ik}&=(i\textrm{-te Zeile von }A)\*(k\textrm{-te Spalte von }B)\\
+	&=a_{i1}b_{1k}+a_{i2}b_{2k}+\cdots+a_{in}b_{nk}\\
+	&=\sum_{j=1}^{n}a_{ij}b_{jk}
+\end{align*}	
 
 
 \end{document}
