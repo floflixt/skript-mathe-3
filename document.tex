@@ -1,4 +1,4 @@
-\documentclass[12pt,titlepage]{article}
+\documentclass[12pt,titlepage, pdf]{article}
 
 %Packages%
 
@@ -11,12 +11,16 @@
 \usepackage[pd,col,3d]{mgtex_24}
 \usepackage{tikz}
 \usepackage{marvosym}
+\usepackage{ mathrsfs }
+\usepackage{gensymb}
+\usepackage{framed}
+\usepackage{arydshln}
 
 %TitlePage%
 
 \begin{titlepage}
 	\title{Mathematik III}
-	\date{18.10.2016}
+	\date{08.11.2016}
 \end{titlepage}
 
 %NewCommands%
@@ -24,6 +28,7 @@
 \newcommand{\R}{\mathds{R}}
 \newcommand{\N}{\mathds{N}}
 \newcommand{\uline}[1]{\underline{#1}}
+\newcommand{\id}{\textrm{id}}
 \newcount\colveccount
 \newcommand*\colvec[1]{
 	\global\colveccount#1
@@ -273,6 +278,7 @@
 %MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%
 
 	\subsection{Beispiel}
+	\marginpar{18.10.16}
 	\begin{minipage}[c]{0.5\textwidth}
 	\InitGraph{5}{8}{1}{1}{0.7cm}
 	\Viewpoint(300,70,10,8)[1]
@@ -380,6 +386,7 @@ $M \subseteq V \Rightarrow \langle M \rangle_{\R}$ ist der kleinste UVR von $V$,
 	Man sagt: $\vec2{1}{1}, \vec2{1}{2}, \vec2{2}{3}$ sind \uline{linear abhängig}.
 \end{itemize}
 \subsection*{Ergänzung zu 1.13}
+\marginpar{19.10.16}
 	Bsp: $M = \{\vec3{0}{1}{1} \} \Rightarrow \vecspaceR{M} = \{ \lambda \vec3{0}{1}{1} \vert  \lambda  \in  \R \}$ Gerade 
 	\begin{itemize}
 		\item $\vecspaceR{M} \supseteq M$
@@ -496,6 +503,7 @@ In Worten: Man kann von $M$ keinen Vektor weglassen, ohne dass der von $M$ aufge
 	 Jede Linearkombination von $v_1,...,v_n$ lässt sich ausdrücken als Linearkombination von $v_2,...,v_n \Rightarrow \vecspaceR{N} = \vecspaceR{M}$\hfill$\square$
 \end{itemize}
 \subsection*{Basis und Dimension}
+\marginpar{25.10.16}
 Ein minimales Erzeugendensystem heißt Basis.
 \subsection{Definition (Basis)}
 $V$ \underline{endlich} erzeugter $\R$-VR. Eine endliche Menge $B\subseteq V$ heißt \underline{Basis}, falls
@@ -608,6 +616,7 @@ Dann sind äquivalent:
 	\item[i)$\Rightarrow$iii)] Satz 1.17 
 \end{itemize}\hfill$\square$
 \subsection{Definition: Dimension}
+\marginpar{26.10.16}
 $V: \R $-VR\\
 \begin{itemize}
 	\item[i)] Ist $V$ endlich erzeugbar, $B$ Basis von $V,\quad|B| = n$ so hat $V$ die Dimension $n$, $\dim(V) = n$
@@ -717,6 +726,7 @@ z.B.: $\vec3{2}{1}{3} = \vec3{1}{0}{0} + \vec3{0}{1}{0} + 3 \vec3{\frac{1}{3}}{0
 %%2. Matrizen und lineare Gleichungssysteme%%
 \newpage
 \section{Matrizen und lineare Gleichungssysteme}
+\marginpar{02.11.16}
 \subsection{Beispiel}
 \begin{itemize}
 	\item Ein Bauer besitzt Kühe und Gänse
@@ -963,6 +973,370 @@ $A=(a_{ij})\in\mathcal{M}_{m,n}(\R)\qquad B=(b_{ij})\in\mathcal{M}_{m,n}(\R)$
 	&=a_{i1}b_{1k}+a_{i2}b_{2k}+\cdots+a_{in}b_{nk}\\
 	&=\sum_{j=1}^{n}a_{ij}b_{jk}
 \end{align*}	
+(Skalarprodukt)
+\subsection{Beispiel}
+\marginpar{08.11.16}
+$A = \begin{pmatrix}
+\uline{1} &\uline{0} & \uline{-1}\\
+2 & -3 & 1\\
+\end{pmatrix},\quad B = \begin{pmatrix}
+1 & \uline{2} & -1 \\
+0 & \uline{0} & 0\\
+0 & \uline{1} & 0 \\
+\end{pmatrix}, \qquad
+A \cdot B = \begin{pmatrix}
+1 & \uline{1} & -1 \\
+2 & 3 & -2 \\
+\end{pmatrix}$\\
+$B\cdot A$ nicht definiert!
+\subsection{Satz + Definition}
+$\mathcal{M}_{m,n}(\R)$ ist Vektorraum mit 
+\begin{itemize}
+	\item $A + B = (a_{ij} + b_{ij}) \qquad A,B \in \mathcal{M}_{m,n}(\R)$
+	\item $\lambda \cdot A = (\lambda a_{ij})\qquad A \in \mathcal{M}_{m,n}(\R), \lambda \in \R$
+\end{itemize}
+Beweis: Siehe Hausaufgabe 03 Aufgabe 4a)
+\subsection{Beispiel}
+$A = \begin{pmatrix}
+1 & 2 & 3 \\
+-1 & 0 & 2 \\
+\end{pmatrix}\qquad B = \begin{pmatrix}
+0& 0& -3 \\
+1&0&1 \\
+\end{pmatrix} \\
+A + B = \begin{pmatrix}
+1 & 2 & 0 \\
+0 & 0 & 3 \\
+\end{pmatrix}, \qquad (-2) \cdot A = \begin{pmatrix}
+-2 & -4 & -6 \\
+2 & 0 & -4 \\
+\end{pmatrix}$
+\subsection{Definition (Matrizentransponierung)}
+\begin{itemize}
+	\item[i)] 
+	$A \in \mathcal{M}_{m,n}(\R),\quad A = (a_{ij})$.\\
+	 Die zu \uline{$A$ transponierte Matrix} (Tauschen von Zeilen und Spalten):
+	\begin{center}
+		$A^T = \begin{pmatrix}
+		a_{11} & a_{21} & \cdots & a_{m1} \\
+		a_{12} & a_{22} & \cdots & a_{m2} \\
+		\vdots &\vdots&\ddots&\vdots\\
+		a_{1n} & a_{2n} & \cdots & a_{mn} \\
+		\end{pmatrix} \in \mathcal{M}_{m,n}(\R)$
+	\end{center}
+	z.B.: $A = \begin{pmatrix}
+	1 & 2 & 0 \\
+	-1 & 1 & 2 \\
+	\end{pmatrix} \Rightarrow A^T = \begin{pmatrix}
+	1 & -1 \\
+	2 & 1 \\
+	0 & 2 \\
+	\end{pmatrix} $\\
+	Eine Matix heißt \uline{symmetrisch}, wenn $A = A^T$, z.B.: 
+	\begin{center}
+		$A=\begin{pmatrix}
+		1 & 2 & 0 \\
+		2 & 3 & 4 \\
+		0 & 4 & -1 \\
+		\end{pmatrix}$
+	\end{center}
+	\item[ii)]
+	\begin{itemize}
+		\item Nullmatrix: 
+		$\mathcal{O}_{m,n} = \begin{pmatrix}
+		0 & \cdots & 0 \\
+		\vdots & \ddots & \vdots \\
+		0 & \cdots & 0 \\
+		\end{pmatrix} \in \mathcal{M}_{m,n}(\R)$
+		\item Einheitsmatrix (nur Hauptdiagonale): 
+		$E_n = \begin{pmatrix}
+		1 & \dots & 0 \\
+		\vdots& \ddots &\vdots \\
+		0 & \dots& 1 \\
+		\end{pmatrix} \in \mathcal{M}_{n}(\R)$
+	\end{itemize}
+\end{itemize}
+\subsection{Beispiel}
+\begin{itemize}
+	\item[a)] $A = \begin{pmatrix}
+	1 & 1 \\
+	1 & 1 \\
+	\end{pmatrix}\qquad B = \begin{pmatrix}
+	2 & 0 \\
+	3 & 0 \\
+	\end{pmatrix}\\
+	A \cdot B = \begin{pmatrix}
+	5 & 0 \\
+	5 & 0 \\
+	\end{pmatrix} \neq B \cdot A = \begin{pmatrix}
+	2 & 2 \\
+	3 & 3 \\
+	\end{pmatrix}$ Matrixmultiplikation nicht kommutativ!
+	\item[b)]
+	$A \in \mathcal{M}_{m,n}(\R)$ \\
+	$A \cdot E_n = A$ und $E_m \cdot A = A$
+\end{itemize}
 
 
+\newpage
+\section{Gruppen}
+\subsection{Beispiel (Wiederholung zu Permutationen)}
+Geg.: Menge $\{A,B,C\}$\\
+Anordnungen: ABC, CAB, ACB, ... $\rightarrow$ $3 \cdot 2 \cdot 1= 3!$ Möglichkeiten\\
+Jede Anordnung kann man auffassen als eineindeutige (bijektive) Abbildung\\
+$\pi : \{A,B,C\} \rightarrow \{A,B,C\} \\
+\pi: \begin{tabular}{c|c | c | c }
+x&A & B & C \\ \hline
+$\pi(x)$&A & C & B \\
+\end{tabular}$
+\subsection{Definition}	
+\begin{itemize}
+	\item Eine \uline{Permutation} ist eine eineindeutige Abbildung einer endlichen Menge auf sich selbst. Im Allgemeinen verwendet man die Menge $\{1,...,n\}$ und schreibt eine Permutation $\pi$ als Wertetabelle $\pi = \begin{pmatrix}
+	1~~~...~~~n\\\pi(1)~...~\pi(n)
+	\end{pmatrix}$ oder als geordnete Liste der Werte $\pi = \pi(1)... \pi(n)$ 
+	\item $\mathscr{S}_n$- Menge aller Permutationen von $\{1,...,n \},\qquad | \mathscr{S}_n| = n!$
+\end{itemize}
+Beispiel: $\mathscr{S}_2=\{\id,(AB)\}=\{\id,(12)\},\quad|\mathscr{S}_2|=2!=2$\\ mit $\id=\begin{pmatrix}
+AB\\AB
+\end{pmatrix},\qquad \pi=\begin{pmatrix}
+AB\\BA
+\end{pmatrix}$
+\subsection{Beispiel}
+\begin{minipage}[c]{0.5\textwidth}
+	\begin{itemize}
+		\item $M = \{1,2,...,5\}$ \\
+		$\pi = \pi(1)...\pi(5) = 23154$\\
+		oder $\pi = (\begin{cases}
+		12345 \\
+		23154 \\
+		\end{cases})$
+		\item id(i) $= i \qquad \forall i \in \{1,..,n\}$
+	\end{itemize}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+	\begin{tikzpicture}
+	
+	\node (v1) at (0,0) {1};
+	\node (v2) at (0.5,-1.5) {2};
+	\node (v3) at (-1,-1.5) {3};
+	\draw [->] (v1) edge (v2);
+	\draw [->] (v2) edge (v3);
+	\draw [->] (v3) edge (v1);
+	\node (v4) at (2,0) {4};
+	\node (v5) at (2,-1.5) {5};
+	\draw [->] (v4) edge (v5);
+	\draw [->](1.7454,-1.4777) .. controls (1,-1) and (1.5,-0.5) .. (1.7657,-0.1725);
+	\end{tikzpicture}\\
+	Graph der Permutation
+\end{minipage}
+\subsection{Bemerkung}
+In Literatur oft \uline{Zyklenschreibweise}:\\
+Zyklus $(a_1 a_2... a_k)$ bedeutet $\pi(a_i) = a_{i+1}$ und $\pi(a_k) = a_1$\\
+z.B.: $\pi = (123)(45)$ 
+\subsection*{Verknüpfung von Permutationen}
+\subsection{Beispiel}
+\begin{minipage}[c]{0.5\textwidth}
+	\begin{tikzpicture}
+	
+	\node (v1) at (0,0) {1};
+	\node (v2) at (0.5,-1.5) {2};
+	\node (v3) at (-1,-1.5) {3};
+	\draw [->] (v1) edge (v2);
+	\draw [->] (v2) edge (v3);
+	\draw [->] (v3) edge (v1);
+	\node (v4) at (2,0) {4};
+	\node (v5) at (2,-1.5) {5};
+	\draw [->] (v4) edge (v5);
+	\draw [->](1.7454,-1.4777) .. controls (1,-1) and (1.5,-0.5) .. (1.7657,-0.1725);
+	\end{tikzpicture}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+	$\pi = \begin{pmatrix}
+	12345 \\
+	23154 \\
+	\end{pmatrix} = (123)(45)$
+\end{minipage}\\
+\begin{minipage}[c]{0.5\textwidth}
+	\begin{tikzpicture}
+	
+	\node (v1) at (-2,1.5) {1};
+	\node (v2) at (0,1.5) {2};
+	\node (v3) at (0,-0.5) {3};
+	\node (v4) at (-2,-0.5) {4};
+	\node at (2,0.5) {5};
+	\draw [->] (v1) edge (v2);
+	\draw [->] (v2) edge (v3);
+	\draw [->] (v3) edge (v4);
+	\draw [->] (v4) edge (v1);
+	\draw [->](1.976,0.765) .. controls (2.5,1.5) and (2.5,-0.5) .. (1.952,0.2238);
+	\end{tikzpicture}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+	$\sigma = \begin{pmatrix}
+	12345 \\
+	23415 \\
+	\end{pmatrix} = (1234)(5)$
+\end{minipage}\\
+\begin{minipage}[c]{0.5\textwidth}
+	\begin{tikzpicture}
+	
+	
+	\node (v1) at (-1.5,1.5) {1};
+	\node (v2) at (0.5,1.5) {3};
+	\node (v3) at (2,0) {5};
+	\node (v4) at (0.5,-1) {4};
+	\node (v5) at (-1.5,-1) {2};
+	\draw [->] (v1) edge (v2);
+	\draw [->] (v2) edge (v3);
+	\draw [->] (v3) edge (v4);
+	\draw [->] (v4) edge (v5);
+	\draw [->] (v5) edge (v1);
+	\end{tikzpicture} 
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+	$\pi\sigma= \begin{pmatrix}
+	12345 \\
+	31524 \\
+	\end{pmatrix} = (13542)$
+\end{minipage}\\
+\subsection{Bemerkung} 
+\begin{itemize}
+	\item[a)] Die Verknüpfung von 2 Permutationen $\pi, \sigma$ ist wieder Permutation $\eta$ mit $\eta(i) = \pi \circ \sigma(i) = \pi(\sigma(i))$
+	\item[b)] Fixpunkte mit $\pi(i)= i$ lässt man weg, z.B. $\underbrace{(123)(4)}_{\in \mathscr{S}_4} = (123)$
+	\item[c)] Jede Permutation kann als Produkt disjunkter Zyklen geschrieben werden, z.B.: $ \underset{\textrm{Verkettung }\circ}{(34)\*(345)}  = (3)(45) = (45)$.\\
+	Zwei Zyklen heißen \uline{disjunkt}, wenn $\{a_1...a_k\}\cap\{b_1...b_j\}=\emptyset$.
+	\item[d)] Permutationen sind nur in sehr seltenen Fällen kommutativ: \\
+	$(123)(23) = (12) \neq (23)(123) = (13)$
+	\item[e)] Zyklendarstellung nicht eindeutig, z.B.: \\
+	$(123) = (231)$ oder $(34)(12) = (12)(34)$
+\end{itemize}
+\subsection{Beispiel}
+\marginpar{09.11.16}
+\begin{minipage}[c]{0.8\textwidth}
+	\renewcommand{\arraystretch}{1.7}
+	\begin{tabular}{ l | c c c c }
+		$\substack{\textrm{Symmetrie-}\\\textrm{operationen des}\\\textrm{Rechtecks}}$& Identität & $\substack{\textrm{Spiegelung}\\\textrm{y-Achse}}$ & $\substack{\textrm{Spiegelung}\\\textrm{x-Achse}}$ & Drehung $180 \degree$ \\&
+		\frame{\begin{tabular}{ c c }
+				D & C \\ 
+				A & B \\
+		\end{tabular}}&
+		\frame{\begin{tabular}{ c : c }
+				C&D \\ 
+				B&A \\
+		\end{tabular}} &
+		\frame{\begin{tabular}{ c c }
+				
+				A&B \\ \hdashline
+				D&C \\ 
+		\end{tabular}} &
+		\frame{\begin{tabular}{ c c }
+				
+				B&A \\ 
+				C&D \\ 
+		\end{tabular}}  \\ \hline
+		$\substack{\textrm{als Matrix}}$ &
+		$E_2 = \begin{pmatrix}
+		1 & 0 \\
+		0 & 1 \\
+		\end{pmatrix}$ & $S_y = \begin{pmatrix}
+		-1 & 0 \\
+		0 & 1\\
+		\end{pmatrix}$ & $S_x = \begin{pmatrix}
+		1 & 0 \\
+		0 & -1 \\
+		\end{pmatrix}$ & $D_\pi = \begin{pmatrix}
+		-1 & 0 \\
+		0 & -1 \\
+		\end{pmatrix}$ \\ \hline
+		$\substack{\textrm{als Permutation}\\ \textrm{der Ecken}}$ & id & 
+		$\pi = (AB)(CD)$ &
+		$\sigma = (AD)(BC)$ &
+		$\eta = (AC)(BD)$ \\
+		
+	\end{tabular}
+\end{minipage} \\
+\\
+\\
+\subsubsection*{Verknüpfungstafel}
+\begin{tabular}{c | c c c c}
+	$\overset{Matrixmultiplikation}{\cdot} $ & $E_2$ & $S_y $ & $S_x$ & $D_\pi$ \\ \hline
+	$E_2$ & $E_2$ & $S_y$ & $S_x$ & $D_ \pi$ \\
+	$S_y$ & $S_y$ & $E_2$ & $D_\pi$ & $S_x$ \\
+	$S_x$ & $S_x$ & $D_\pi$ & $E_2$ & $S_y$ \\
+	$D_\pi$ & $D_\pi$ & $S_x$ & $S_y$ & $E_2$ \\
+\end{tabular}
+\subsection{Definition (Grundbegriffe)}
+\begin{itemize}
+	\item Seien $X,Y$ nichtleere Mengen, Eine Verknüpfung ' $\cdot$ ' ist eine Abbildung
+	\begin{center}
+		$X \times X \rightarrow Y\qquad (a,b) \rightarrow a \cdot b  \qquad( \leftarrow$ 'Produkt' von a und b)
+	\end{center}
+	\item Eine Menge $X \neq \emptyset$ heißt \uline{abgeschlossen} bzgl. einer Verknüpfung ' $\cdot$ ', falls $a \cdot b \in  X \qquad \forall a,b \in X$. \\
+	Beispiel: $X=\{-1,1\}$ mit '$\*$' Addition $\Rightarrow(-1)\*(1)=-1+1=0$
+\end{itemize}
+	Die Menge $\{id, \pi ,\sigma, \eta \}$ aus Beispiel 3.7 ist abgeschlossen bzgl. der Verkettung von Permutationen \\
+	\subsubsection*{Bemerkung} Die Verknüpfung von Elementen einer endlichen Menge stellt man anhand der Verknüpfungstafel dar, siehe Bsp. 3.7
+\subsection{Definition (Gruppe)}
+\begin{itemize}
+	\item[a)] Eine \uline{Gruppe} ist ein Paar $(G, \cdot) $ mit Menge $G \neq \emptyset$ und einer Verknüpfung $\cdot : \underbrace{G \times G \rightarrow G}_{\text{abgeschlossen!}}$, die folgende Eigenschaften erfüllt:
+	\begin{itemize}
+		\item[1)] $(a \cdot b) \cdot c = a \cdot (b \cdot c) \qquad \forall a,b,c \in G\qquad~$ Assoziativität
+		\item[2)] $\exists e \in G: a \cdot e = e \cdot a = a \qquad \forall a \in G\qquad$ Neutralelement
+		\item[3)] $\forall a \in G\quad \exists a^{-1} \in G: a \cdot a^{-1} = a^{-1}*a = e\qquad$ Inverse
+	\end{itemize}
+		Falls zusätzlich 
+		\begin{itemize}
+			\item[4)] $a \cdot b = b \cdot a \qquad  \forall a,b \in G\qquad$ Kommutativität \end{itemize}
+		gilt, dann heißt $G$ \uline{abelsche Gruppe}.
+	
+	\item[b)] $| G |$ heißt \uline{Ordnung} der Gruppe $G$.
+\end{itemize}
+\subsection{Beispiel}
+\begin{itemize}
+	\item[a)] $(\{e\}, \cdot )$ ist Gruppe
+	\item[b)] $\R, \mathbb{Z}, \mathbb{Q}$ mit ' + ' ist abelsche Gruppe. Inverse zu a ist -a.
+	\item[c)] $\R, \mathbb{Z}, \mathbb{Q}$ mit ' $\cdot$ ' keine Gruppen. Problem: 0 besitz keine Inverse, weil \\
+	$0 \cdot a = 1$\Lightning
+	\item[$\Rightarrow$]  $\R, \mathbb{Q}$ mit ' $\cdot$ ' Gruppen, wenn man 0 weglässt
+	\item[d)] Einzige \uline{endliche} Gruppen von reellen Zahlen: 
+	\begin{itemize}
+		\item $(\{1\}, \cdot )$ bzw. $(\{0\}, + )$
+		\item $(\{1,-1\}, \cdot)$
+	\end{itemize}
+	Für weitere endliche Gruppen muss man Restklassen (Beispiel 3.12) Matrizen oder Permutationen betrachten
+	\item[e)] $\mathscr{S}_2 = \{\id, (12)\}$ und \\
+	$\mathscr{S}_3 = \{\id, (12), (23),(13),(123),(132)\}$ sind Gruppen (s. 3.11)
+\end{itemize}
+\subsection{Satz}
+$\mathscr{S}_n$ ist eine \uline{nicht} abelsche Gruppe. (Name: Symmetrische Gruppe) \\
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item assoziativ: $\pi, \sigma, \eta \in \mathscr{S}_n \Rightarrow \underbrace{(\pi \cdot \sigma) \cdot \eta}_{\textrm{Verknüpfung von Abbildungen}} = \overset{\textrm{bijektive Abbildungen}}{\pi \overset{\uparrow}{\cdot} (\sigma \overset{\uparrow}{\cdot} \eta)}$
+	\item Neutralelement: id, denn \\
+	$\id \cdot \pi = \pi \cdot \id = \pi\qquad\forall\pi\in\mathscr{S}_n$
+	\item Inverse: Alle Pfeile eines Zyklus werden umgedreht, d.h. die Zyklen werden rückwärts gelesen:\\
+	\begin{tikzpicture}
+	
+	\node (v3) at (-0.5,2) {1};
+	\node (v1) at (0.5,0) {2};
+	\node (v2) at (-1.5,0) {3};
+	\draw [->] (v1) edge (v2);
+	\draw [->] (v2) edge (v3);
+	\draw [->] (v3) edge (v1);
+	\node (v6) at (3.5,2) {1};
+	\node (v5) at (4.5,0) {2};
+	\node (v4) at (2.5,0) {3};
+	\draw [->] (v4) edge (v5);
+	\draw [->] (v5) edge (v6);
+	\draw [->] (v6) edge (v4);
+	\node (v7) at (1,1) {};
+	\node (v8) at (2,1) {};
+	\draw [->] (v7) edge (v8);
+	\end{tikzpicture}\\
+	$\pi=(123)\qquad\qquad\qquad\pi^{-1}=(132)$\\
+Fixpunkte und 2er-Zyklen ändern sich dabei nicht:\\
+$\sigma = (1678)(23)\Rightarrow\sigma^{-1} = (1876)(23)$\\
+Setzt man die Pfeile von den Graphen $\pi$ und $\pi^{-1}$ zusammen, ändert sich nichts, d.h. $\pi \cdot  \pi^{-1}(i) = i \Rightarrow \pi \cdot  \pi^{-1} = \id = \pi \cdot  \pi^{-1}$
+\item nicht abelsch: Bem. 3.6d)
+\end{itemize}
 \end{document}
