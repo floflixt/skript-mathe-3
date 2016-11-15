@@ -20,7 +20,7 @@
 
 \begin{titlepage}
 	\title{Mathematik III}
-	\date{08.11.2016}
+	\date{15.11.2016}
 \end{titlepage}
 
 %NewCommands%
@@ -137,7 +137,7 @@
 		\item[c)] Angenommen, zu $v\in V$ gibt es $-v$ und $-v^\prime$ mit $v+(-v)=\O$ und $v+(-v^\prime)=\O$. Dann ist $v+(-v)=v+(-v^\prime)\overset{+(-v)\textrm{auf beiden Seiten}}{\Rightarrow}-v=-v^\prime$
 	\end{itemize}
 	\hfill$\square$
-	\subsection{Definition}
+	\subsection{Definition (Untervektorraum)}
 	Sei $V$ ein $\R$-Vektorraum.\\
 	Eine Teilmenge $U\subseteq V,\quad U\neq\emptyset$ heißt \underline{Unter(vektor)raum von $V$}, falls $U$ bezüglich der Addition auf $V$ und der Multiplikation mit Skalaren selbst ein Vektorraum ist.
 	\subsection{Beispiel}
@@ -328,35 +328,8 @@
  \\
 	$\Rightarrow \vec3{0}{0}{1} \notin E$
 \end{itemize}
-\subsection{Definition (Linearkombination, Erzeugendensystem)}
-$V: \R$-VR (V ist Vektorraum in den reellen Zahlen) \\
-\begin{itemize}
-	\item[(i)] $v_1, ... , v_m \in V$ und $\lambda_1,...,\lambda_m \in \R$\\ Der Vektor $\lambda_1 \* v_1 + ... + \lambda_m \* v_m$ heißt \uline{Linearkombination} von $v_1,...,v_m$.
-	\item[(ii)] Sei $M \subseteq V$. Dann ist
-	\begin{center}
-		$\langle M \rangle_{\R} = \{ \sum_{k = 1}^{n} \lambda_k \cdot v_k \vert \lambda_k \in \R, v_k \in M, n \in \mathbb{N}\}$
-	\end{center}
-	der \underline{von $M$ aufgespannte/erzeugte UVR} von V \\
-	\\
-	Vereinbarung: $\langle \emptyset \rangle = \{0\}$\\
-	Schreibweise: $M = \{v_1,...,v_m\}$\\
-	\noindent\hspace*{22mm}$\langle M \rangle_{\R} = \langle v_1,..., v_m\rangle_{\R} $
-	\item[(iii)]
-	Ist $V = \langle M \rangle_{\R}$, so heißt $M$ ein \uline{Erzeugendensystem} von $V$. $V$ heißt \uline{endlich erzeugt}, falls es ein endliches Erzeugendensystem gibt.
-\end{itemize}
-\subsection{Bemerkung}
-$M \subseteq V \Rightarrow \langle M \rangle_{\R}$ ist der kleinste UVR von $V$, der $M$ enthält.\\
-\subsubsection*{Beweis}
-\begin{itemize}
-	\item $\langle M \rangle_{\R}$ ist UVR. erfüllt Kriterien von 1.6, daher klar: \\
-	1.6 2) erfüllt. $u \in \langle M \rangle_{\R} \Rightarrow u = \lambda_1 \cdot v_1 + ... + \lambda_n \cdot v_n\quad(M = \{v_1, ..., v_n \})\\ \Rightarrow \lambda \cdot u = \underbrace{\lambda  \lambda_1}_{\in \R} \cdot v_1 + ... + \underbrace{\lambda \lambda_n}_{\in \R} \cdot v_n$\\
-	1.6 3) ähnlich.
-	\item Angenommen $U$ ist der kleinste UVR, so dass $M \subseteq U$. \\
-	Z. z.: $\langle M \rangle_{\R} = U.$\\
-	Wegen 1.6 enthält $U$ alle Linearkombinationen von Vektoren aus M. \\
-	$\Rightarrow \langle M \rangle_{\R} \subseteq U \Rightarrow U$ kann nicht kleiner sein als $\langle M \rangle_{\R} \Rightarrow \langle M \rangle_{\R} = U$\hfill$\square$
-\end{itemize}
 \subsection*{Fortsetzung Bsp. 1.11}
+\marginpar{(Nachtrag vom 19.10.2016)}
 \begin{itemize}
 	\item[a)] $E = \langle \vec3{0}{1}{1}, \vec3{2}{0}{0} \rangle_{\R}$
 	\item[b)] $\R^n$ wird erzeugt von $e_j = \vec5{0}{\vdots}{1}{\vdots}{0}$, wobei j die Stelle ist, an der der Vektor 1 ist. \\
@@ -385,6 +358,34 @@ $M \subseteq V \Rightarrow \langle M \rangle_{\R}$ ist der kleinste UVR von $V$,
 	D.h. $M = \{\vec2{1}{1}, \vec2{1}{2}, \vec2{2}{3} \}$ ist kein \uline{minimales} Erzeugendensystem des $\R^2$, denn $v \in M$ kann immer dargestellt werden als Linearkombination von Vektoren aus $M \setminus {v}$. \\
 	Man sagt: $\vec2{1}{1}, \vec2{1}{2}, \vec2{2}{3}$ sind \uline{linear abhängig}.
 \end{itemize}
+\subsection{Definition (Linearkombination, Erzeugendensystem)}
+$V: \R$-VR (V ist Vektorraum in den reellen Zahlen) \\
+\begin{itemize}
+	\item[(i)] $v_1, ... , v_m \in V$ und $\lambda_1,...,\lambda_m \in \R$\\ Der Vektor $\lambda_1 \* v_1 + ... + \lambda_m \* v_m$ heißt \uline{Linearkombination} von $v_1,...,v_m$.
+	\item[(ii)] Sei $M \subseteq V$. Dann ist
+	\begin{center}
+		$\langle M \rangle_{\R} = \{ \sum_{k = 1}^{n} \lambda_k \cdot v_k \vert \lambda_k \in \R, v_k \in M, n \in \mathbb{N}\}$
+	\end{center}
+	der \underline{von $M$ aufgespannte/erzeugte UVR} von V \\
+	\\
+	Vereinbarung: $\langle \emptyset \rangle = \{0\}$\\
+	Schreibweise: $M = \{v_1,...,v_m\}$\\
+	\noindent\hspace*{22mm}$\langle M \rangle_{\R} = \langle v_1,..., v_m\rangle_{\R} $
+	\item[(iii)]
+	Ist $V = \langle M \rangle_{\R}$, so heißt $M$ ein \uline{Erzeugendensystem} von $V$. $V$ heißt \uline{endlich erzeugt}, falls es ein endliches Erzeugendensystem gibt.
+\end{itemize}
+\subsection{Bemerkung}
+$M \subseteq V \Rightarrow \langle M \rangle_{\R}$ ist der kleinste UVR von $V$, der $M$ enthält.\\
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item $\langle M \rangle_{\R}$ ist UVR. erfüllt Kriterien von 1.6, daher klar: \\
+	1.6 2) erfüllt. $u \in \langle M \rangle_{\R} \Rightarrow u = \lambda_1 \cdot v_1 + ... + \lambda_n \cdot v_n\quad(M = \{v_1, ..., v_n \})\\ \Rightarrow \lambda \cdot u = \underbrace{\lambda  \lambda_1}_{\in \R} \cdot v_1 + ... + \underbrace{\lambda \lambda_n}_{\in \R} \cdot v_n$\\
+	1.6 3) ähnlich.
+	\item Angenommen $U$ ist der kleinste UVR, so dass $M \subseteq U$. \\
+	Z. z.: $\langle M \rangle_{\R} = U.$\\
+	Wegen 1.6 enthält $U$ alle Linearkombinationen von Vektoren aus M. \\
+	$\Rightarrow \langle M \rangle_{\R} \subseteq U \Rightarrow U$ kann nicht kleiner sein als $\langle M \rangle_{\R} \Rightarrow \langle M \rangle_{\R} = U$\hfill$\square$
+\end{itemize}
 \subsection*{Ergänzung zu 1.13}
 \marginpar{19.10.16}
 	Bsp: $M = \{\vec3{0}{1}{1} \} \Rightarrow \vecspaceR{M} = \{ \lambda \vec3{0}{1}{1} \vert  \lambda  \in  \R \}$ Gerade 
@@ -394,7 +395,7 @@ $M \subseteq V \Rightarrow \langle M \rangle_{\R}$ ist der kleinste UVR von $V$,
 	\end{itemize}
 	$\vecspaceR{M}$ Gerade, E Ebene, d.h. E ist größer als $\vecspaceR{M}$\\
 	$\vecspaceR{M}$ ist der kleinste UVR von $\R^3$, der M enthält.
-	\subsection{Definition: Lineare Unabhängigkeit}	
+	\subsection{Definition (Lineare Unabhängigkeit)}	
 	\begin{itemize}
 		\item $V\colon\quad\R - VR,\quad v_1,...,v_n$ heißen \uline{linear unabhängig}, wenn gilt: 
 		\begin{center}
@@ -615,7 +616,7 @@ Dann sind äquivalent:
 	 $\Rightarrow\langle B\rangle_\R\subsetneq V\Rightarrow\exists v\in V\setminus\langle B\rangle_\R\colon B\cup\{v\}$ linear unabhängig
 	\item[i)$\Rightarrow$iii)] Satz 1.17 
 \end{itemize}\hfill$\square$
-\subsection{Definition: Dimension}
+\subsection{Definition (Dimension)}
 \marginpar{26.10.16}
 $V: \R $-VR\\
 \begin{itemize}
@@ -664,7 +665,7 @@ Dann ist $B$ Basis von $V$, wenn $B$ linear unabhängig oder $\vecspaceR{B} = V$
 		\end{align*}
 	\end{itemize}
 \end{itemize}
-		\subsection{Dimensionssatz}
+		\subsection{Satz (Dimensionssatz)}
 $V\quad\R$-VR, $\dim(V) = n$ \\
 \begin{itemize}
 	\item[i)] $U \subseteq V $ ist UVR $ \Rightarrow \dim(U) \leq n$
@@ -750,7 +751,7 @@ $\underbrace{\begin{pmatrix}
 1&1 \\
 4&2 \\
 \end{pmatrix}}_{\textrm{Matrix}} \cdot \vec2{k}{g} = \vec2{18}{40}$
-\subsection{Definition}
+\subsection{Definition (Matrix)}
 Allgemeines lineares Gleichungssystem: \\
 Gegeben:
 \begin{itemize}
@@ -1089,7 +1090,7 @@ $\pi : \{A,B,C\} \rightarrow \{A,B,C\} \\
 x&A & B & C \\ \hline
 $\pi(x)$&A & C & B \\
 \end{tabular}$
-\subsection{Definition}	
+\subsection{Definition (Permutation)}	
 \begin{itemize}
 	\item Eine \uline{Permutation} ist eine eineindeutige Abbildung einer endlichen Menge auf sich selbst. Im Allgemeinen verwendet man die Menge $\{1,...,n\}$ und schreibt eine Permutation $\pi$ als Wertetabelle $\pi = \begin{pmatrix}
 	1~~~...~~~n\\\pi(1)~...~\pi(n)
@@ -1306,6 +1307,7 @@ z.B.: $\pi = (123)(45)$
 	Für weitere endliche Gruppen muss man Restklassen (Beispiel 3.12) Matrizen oder Permutationen betrachten
 	\item[e)] $\mathscr{S}_2 = \{\id, (12)\}$ und \\
 	$\mathscr{S}_3 = \{\id, (12), (23),(13),(123),(132)\}$ sind Gruppen (s. 3.11)
+	\item[f)] $V_4 = \{\id, \pi, \sigma, \eta \}$ aus Beispiel 3.7 ist die Symmetriegruppe des Rechtecks und heißt 'Kleinsche Vierergruppe' ($V_4$ Gruppe: s. 3.16 e).
 \end{itemize}
 \subsection{Satz}
 $\mathscr{S}_n$ ist eine \uline{nicht} abelsche Gruppe. (Name: Symmetrische Gruppe) \\
@@ -1338,5 +1340,141 @@ Fixpunkte und 2er-Zyklen ändern sich dabei nicht:\\
 $\sigma = (1678)(23)\Rightarrow\sigma^{-1} = (1876)(23)$\\
 Setzt man die Pfeile von den Graphen $\pi$ und $\pi^{-1}$ zusammen, ändert sich nichts, d.h. $\pi \cdot  \pi^{-1}(i) = i \Rightarrow \pi \cdot  \pi^{-1} = \id = \pi \cdot  \pi^{-1}$
 \item nicht abelsch: Bem. 3.6d)
+\end{itemize}\newpage
+\marginpar{15.11.2016}
+\subsection{Beispiel}	
+Restklassen modulo $n:  \mathbb{Z}_n = \{0,1,...,n-1\}$, \\
+\\
+z. Bsp. $n=3$\\ 
+\begin{minipage}[c]{0.5\textwidth}
+	\begin{tikzpicture}[scale=0.5]
+	\node at (-8,4) {$\mathds{Z}$};
+	\draw  (-3,4) ellipse (3.5 and 5);
+	\draw (-6,6) -- (0,6);
+	\draw (-6,1.5) -- (0,1.5);
+	\node at (-5,1) {0};
+	\node at (-4,1) {$\pm$3};
+	\node at (-3.5,0) {$\pm$6};
+	\node at (-2.5,0.5) {$\pm$9};
+	\node at (-1.5,0.5) {...};
+	\node at (-5.5,5) {1};
+	\node at (-4,5) {4};
+	\node at (-2.5,5) {7};
+	\node at (-5.5,3) {-2};
+	\node at (-4,3) {-5};
+	\node at (-2.5,3) {-8};
+	\node at (-0.5,4) {...};
+	\node at (-4.5,8) {2};
+	\node at (-3,8) {5};
+	\node at (-1.5,8) {8};
+	\node at (-5,6.5) {-1};
+	\node at (-3.5,6.5) {-4};
+	\node at (-2,6.5) {-7};
+	\node at (-1,7.5) {...};
+	\draw (1.2588,6.1319) arc (-20.0001:20:4);
+	\draw (0.5642,1.4288) arc (-40.0003:20:4);
+	\draw (0.8492,0.8551) arc (20.0013:-20:2.5);
+	\node at (2.75,7.5) {Rest 2};
+	\node at (2.75,3.5) {Rest 1};
+	\node at (2.75,0) {Rest 0};
+	\end{tikzpicture}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+	bei Division durch 3
+\end{minipage}\\
+$\mathbb{Z}_3 = \{\underbrace{0,\qquad1,\qquad2}_{\textrm{Restklassen, Repräsentanten}}\}$ \\
+\begin{itemize}
+	\item[a)] $(\mathbb{Z}_n, \oplus)$ mit $a \oplus b = a+b \mod n$. Z.B. in $\mathbb{Z}_3$ ist $2 \oplus 1 = 0$ \\
+	\\
+	\uline{$(\mathbb{Z}_n, \oplus)$ ist abelsche Gruppe}:
+	\begin{itemize}
+		\item abgeschlossen: $a+b \mod n \in \{0,...,n-1\}$
+		\item assoziativ: $a + (b + c) \mod n = (a + b) + c \mod n$
+		\item Neutralelement: $a + 0 \equiv 0  + a \equiv a\quad\pmod{n}$
+		\item Inverse zu $ a \in \mathbb{Z}_n$: Für welches $b \in \mathbb{Z}_n$ ist $a+b \mod n = 0$ ?\\
+		Wähle $b$ so, dass $a+b = n$, falls $a \neq 0$ (sonst b = 0) \\
+		z.B. in $\mathbb{Z}_3: a = 1 \Rightarrow b = 2,\quad a = 2 \Rightarrow b = 1,\quad a = 0, b = 0$
+		\item kommutativ: $a+b \mod n = b +a \mod n$
+	\end{itemize}
+\item[b)] $(\mathbb{Z}_n, \odot)$ mit $a \odot b = ab \mod n$ \\
+Ist i.A. keine Gruppe:
+\begin{itemize}
+	\item assoziativ $\checkmark$
+	\item Neutralelement: $e = 1$ $\checkmark$
+	\item Aber: 0 hat keine Inverse! Es gibt kein $a \in \mathbb{Z}_n\colon \underbrace{0 \cdot a \mod n}_{0} = 1$ (\Lightning) \\
+	Hat $z \neq 0$ eine Inverse bzgl. $\odot$? \\
+	\\
+	$\bar{z}$ invers zu $z$, wenn $\bar{z} \cdot z \equiv 1\pmod{n}$ \\
+	z.B. in $\mathbb{Z}_15$ gilt: 
+	\begin{itemize}
+		\item $2 \cdot 8 = \quad16 \equiv 1 \pmod{15}$, d.h. 2 und 8 sind zueinander invers
+		\item Alle Vielfachen von 5 haben Rest $0,5,10$, d.h. \\
+		$k\cdot 5 \mod 15 \in \{0,5,10 \} \quad\forall k \in \mathbb{Z} \Rightarrow 5$ hat kein Inverses
+	\end{itemize}
+	Allgemein: 
+	\begin{align*}
+	z \text{ invertierbar } &\Leftrightarrow \exists \bar{z} \in  \mathbb{Z}_n: z \odot \bar{z} = 1 \\
+	& \Leftrightarrow \exists \bar{z} \in \mathbb{Z}_n\quad \exists q \in \mathbb{Z}: \bar{z} \cdot z = qn +1 \\
+	&\Leftrightarrow \exists \bar{z},q \in \mathbb{Z}: \bar{z} \cdot z - qn = 1 \\
+	&\overset{*}{\Leftrightarrow} \text{ggT}(z,n)= 1
+	\end{align*}
+\end{itemize} 
 \end{itemize}
+\subsubsection*{Beweis von *}
+\begin{itemize}
+	\item['$\Leftarrow$'] Lemma von Bézout/Erweiterter Euklidischer Algorithmus (EEA): \\
+	$a,b \in \mathbb{Z} \Rightarrow \exists s,t \in \mathbb{Z}: \text{ggT}(a,b)= s \cdot a + t \cdot b$\\
+	Hier: $a = z,\quad b = n,\quad s = \bar{z},\quad t = -q$
+	\item['$\Rightarrow$'] Übung (Übungsblatt 5, A1c)
+\end{itemize}
+Also: Nur die zu $n$ teilerfremden Zahlen in $\mathbb{Z}_n$ haben Inverse. Z.B.: In $\mathbb{Z}_{15}$ sind $1,2,4,7,8,11,13,14$ bzgl. $\odot$ invertierbar. \\
+\uline{Bezeichnung}: $\mathbb{Z}^*_n = \{z \in \mathbb{Z}_n \mid \text{ggT}(z,n)= 1\}$ ist Gruppe mit Ordnung $| \mathbb{Z}^*_n | = \phi(n)$\\
+ (Eulersche $\phi-$Funktion, $\phi(n)$ ist Anzahl der zu $n$ teilerfremden Zahlen zwischen 1 und $n$).\\
+ \\
+Berechnung der Inversen in $\mathbb{Z}^*_n$: 
+\begin{align*}		
+\text{EEA}:\qquad z \in \mathbb{Z}^*_n &\Rightarrow \exists s,t \in \mathbb{Z}: sz + tn = 1 \\
+&\Rightarrow s \cdot z \equiv 1 \pmod{n}\\
+& \Rightarrow s \text{ invers zu } z
+\end{align*}
+\newpage
+\subsection{Satz (Eigenschaften von Gruppen)} 
+$G$ Gruppe.
+\begin{itemize}
+	\item[i)] Das Neutralelement von $G$ ist eindeutig. 
+	\item[ii)] Die Inverse zu jedem $a \in G$ ist eindeutig.
+	\item[iii)] $a,b \in G \Rightarrow (ab)^{-1} = b^{-1} \cdot a^{-1}$
+\end{itemize}
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item[i)] Angenommen $e_1,e_2$ Neutralelemente \\
+	$\Rightarrow e_1 = e_1 \cdot e_2 = e_2$
+	\item[ii)] Angenommen $a \in G$ hat 2 Inversen $x,y$\\
+	 $x,y \in G \Rightarrow x = x\underbrace{(ay)}_{e} = \underbrace{(xa)}_e y = y$
+	\item[iii)] 
+	\begin{itemize}
+		\item[$\ast$] $(ab)^{-1} \cdot (ab) \underset{\textrm{Vor.}}{=} (b^{-1}a^{-1})(ab) = b^{-1}\underbrace{(a^{-1}a)}_e b = \underbrace{b^{-1}b}_e = e$
+		\item[$\ast$] $(ab)(ab^{-1})$ analog
+	\end{itemize}
+\hfill$\square$
+\end{itemize}
+\subsection{Satz (Gleichungen lösen in Gruppen)}
+$G$ Gruppe, $a,b \in G$
+\begin{itemize}
+	\item[i)] $\exists! x \in G: a \cdot x = b$. \quad Es ist $x = a^{-1} \cdot b$
+	\item[ii)] $\exists! y \in G: y \cdot a = b$. \quad Es ist $y = b \cdot a^{-1}$
+	\item[iii)] $ax = bx$ für ein $x \in G \Rightarrow a = b$\\
+	bzw. $ya = yb$ für ein $y \in G \Rightarrow a = b$ (Kürzungsregel)
+\end{itemize}
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item[i)] $x = a^{-1}b$ erfüllt $ax = a(a^{-1}b) = \underbrace{(aa^{-1})}_e b = b$
+	\item[ii)] Analog zu i)
+	\item[iii)] $a = a\underbrace{(xx^{-1})}_{e} = (ax)x^{-1} = (bx)x^{-1} = b\underbrace{(xx^{-1})}_{e} = b$ 
+\end{itemize}
+\hfill$\square$
+\subsubsection*{Untergruppen und Nebenklassen}
+\subsection{Definition (Untergruppe)}
+$(G, \cdot)$ Gruppe, $\emptyset \neq U \subseteq G$.\\
+ $U$ heißt \uline{Untergruppe} von $G$ $(U \leq G)$, wenn $U$ bzgl. '$\cdot$' eine Gruppe ist.
 \end{document}
