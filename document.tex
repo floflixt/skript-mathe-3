@@ -15,6 +15,7 @@
 \usepackage{gensymb}
 \usepackage{framed}
 \usepackage{arydshln}
+\usetikzlibrary{decorations.pathreplacing}
 
 %TitlePage%
 
@@ -26,6 +27,7 @@
 %NewCommands%
 
 \newcommand{\R}{\mathds{R}}
+\newcommand{\Z}{\mathds{Z}}
 \newcommand{\N}{\mathds{N}}
 \newcommand{\uline}[1]{\underline{#1}}
 \newcommand{\id}{\textrm{id}}
@@ -364,7 +366,7 @@ $V: \R$-VR (V ist Vektorraum in den reellen Zahlen) \\
 	\item[(i)] $v_1, ... , v_m \in V$ und $\lambda_1,...,\lambda_m \in \R$\\ Der Vektor $\lambda_1 \* v_1 + ... + \lambda_m \* v_m$ heißt \uline{Linearkombination} von $v_1,...,v_m$.
 	\item[(ii)] Sei $M \subseteq V$. Dann ist
 	\begin{center}
-		$\langle M \rangle_{\R} = \{ \sum_{k = 1}^{n} \lambda_k \cdot v_k \vert \lambda_k \in \R, v_k \in M, n \in \mathbb{N}\}$
+		$\langle M \rangle_{\R} = \{ \sum_{k = 1}^{n} \lambda_k \cdot v_k \vert \lambda_k \in \R, v_k \in M, n \in \mathds{N}\}$
 	\end{center}
 	der \underline{von $M$ aufgespannte/erzeugte UVR} von V \\
 	\\
@@ -755,8 +757,8 @@ $\underbrace{\begin{pmatrix}
 Allgemeines lineares Gleichungssystem: \\
 Gegeben:
 \begin{itemize}
-	\item Unbekannte $x_1,...,x_n \in \R, n \in \mathbb{N}$
-	\item $m \in \mathbb{N}$ Gleichungen
+	\item Unbekannte $x_1,...,x_n \in \R, n \in \mathds{N}$
+	\item $m \in \mathds{N}$ Gleichungen
 	\item Koeffizienten $a_{ij} \in \R, i = 1,...,m; j = 1,...,n$
 \end{itemize}
 $a_{11}x_1 + a_{12}x_2 + ... + a_{1n}x_n = b_1$\\
@@ -1295,10 +1297,10 @@ z.B.: $\pi = (123)(45)$
 \subsection{Beispiel}
 \begin{itemize}
 	\item[a)] $(\{e\}, \cdot )$ ist Gruppe
-	\item[b)] $\R, \mathbb{Z}, \mathbb{Q}$ mit ' + ' ist abelsche Gruppe. Inverse zu a ist -a.
-	\item[c)] $\R, \mathbb{Z}, \mathbb{Q}$ mit ' $\cdot$ ' keine Gruppen. Problem: 0 besitz keine Inverse, weil \\
+	\item[b)] $\R, \mathds{Z}, \mathds{Q}$ mit ' + ' ist abelsche Gruppe. Inverse zu a ist -a.
+	\item[c)] $\R, \mathds{Z}, \mathds{Q}$ mit ' $\cdot$ ' keine Gruppen. Problem: 0 besitz keine Inverse, weil \\
 	$0 \cdot a = 1$\Lightning
-	\item[$\Rightarrow$]  $\R, \mathbb{Q}$ mit ' $\cdot$ ' Gruppen, wenn man 0 weglässt
+	\item[$\Rightarrow$]  $\R, \mathds{Q}$ mit ' $\cdot$ ' Gruppen, wenn man 0 weglässt
 	\item[d)] Einzige \uline{endliche} Gruppen von reellen Zahlen: 
 	\begin{itemize}
 		\item $(\{1\}, \cdot )$ bzw. $(\{0\}, + )$
@@ -1343,7 +1345,7 @@ Setzt man die Pfeile von den Graphen $\pi$ und $\pi^{-1}$ zusammen, ändert sich
 \end{itemize}\newpage
 \marginpar{15.11.2016}
 \subsection{Beispiel}	
-Restklassen modulo $n:  \mathbb{Z}_n = \{0,1,...,n-1\}$, \\
+Restklassen modulo $n:  \mathds{Z}_n = \{0,1,...,n-1\}$, \\
 \\
 z. Bsp. $n=3$\\ 
 \begin{minipage}[c]{0.5\textwidth}
@@ -1382,40 +1384,40 @@ z. Bsp. $n=3$\\
 \begin{minipage}[c]{0.5\textwidth}
 	bei Division durch 3
 \end{minipage}\\
-$\mathbb{Z}_3 = \{\underbrace{0,\qquad1,\qquad2}_{\textrm{Restklassen, Repräsentanten}}\}$ \\
+$\mathds{Z}_3 = \{\underbrace{0,\qquad1,\qquad2}_{\textrm{Restklassen, Repräsentanten}}\}$ \\
 \begin{itemize}
-	\item[a)] $(\mathbb{Z}_n, \oplus)$ mit $a \oplus b = a+b \mod n$. Z.B. in $\mathbb{Z}_3$ ist $2 \oplus 1 = 0$ \\
+	\item[a)] $(\mathds{Z}_n, \oplus)$ mit $a \oplus b = a+b \mod n$. Z.B. in $\mathds{Z}_3$ ist $2 \oplus 1 = 0$ \\
 	\\
-	\uline{$(\mathbb{Z}_n, \oplus)$ ist abelsche Gruppe}:
+	\uline{$(\mathds{Z}_n, \oplus)$ ist abelsche Gruppe}:
 	\begin{itemize}
 		\item abgeschlossen: $a+b \mod n \in \{0,...,n-1\}$
 		\item assoziativ: $a + (b + c) \mod n = (a + b) + c \mod n$
 		\item Neutralelement: $a + 0 \equiv 0  + a \equiv a\quad\pmod{n}$
-		\item Inverse zu $ a \in \mathbb{Z}_n$: Für welches $b \in \mathbb{Z}_n$ ist $a+b \mod n = 0$ ?\\
+		\item Inverse zu $ a \in \mathds{Z}_n$: Für welches $b \in \mathds{Z}_n$ ist $a+b \mod n = 0$ ?\\
 		Wähle $b$ so, dass $a+b = n$, falls $a \neq 0$ (sonst b = 0) \\
-		z.B. in $\mathbb{Z}_3: a = 1 \Rightarrow b = 2,\quad a = 2 \Rightarrow b = 1,\quad a = 0, b = 0$
+		z.B. in $\mathds{Z}_3: a = 1 \Rightarrow b = 2,\quad a = 2 \Rightarrow b = 1,\quad a = 0, b = 0$
 		\item kommutativ: $a+b \mod n = b +a \mod n$
 	\end{itemize}
-\item[b)] $(\mathbb{Z}_n, \odot)$ mit $a \odot b = ab \mod n$ \\
+\item[b)] $(\mathds{Z}_n, \odot)$ mit $a \odot b = ab \mod n$ \\
 Ist i.A. keine Gruppe:
 \begin{itemize}
 	\item assoziativ $\checkmark$
 	\item Neutralelement: $e = 1$ $\checkmark$
-	\item Aber: 0 hat keine Inverse! Es gibt kein $a \in \mathbb{Z}_n\colon \underbrace{0 \cdot a \mod n}_{0} = 1$ (\Lightning) \\
+	\item Aber: 0 hat keine Inverse! Es gibt kein $a \in \mathds{Z}_n\colon \underbrace{0 \cdot a \mod n}_{0} = 1$ (\Lightning) \\
 	Hat $z \neq 0$ eine Inverse bzgl. $\odot$? \\
 	\\
 	$\bar{z}$ invers zu $z$, wenn $\bar{z} \cdot z \equiv 1\pmod{n}$ \\
-	z.B. in $\mathbb{Z}_15$ gilt: 
+	z.B. in $\mathds{Z}_15$ gilt: 
 	\begin{itemize}
 		\item $2 \cdot 8 = \quad16 \equiv 1 \pmod{15}$, d.h. 2 und 8 sind zueinander invers
 		\item Alle Vielfachen von 5 haben Rest $0,5,10$, d.h. \\
-		$k\cdot 5 \mod 15 \in \{0,5,10 \} \quad\forall k \in \mathbb{Z} \Rightarrow 5$ hat kein Inverses
+		$k\cdot 5 \mod 15 \in \{0,5,10 \} \quad\forall k \in \mathds{Z} \Rightarrow 5$ hat kein Inverses
 	\end{itemize}
 	Allgemein: 
 	\begin{align*}
-	z \text{ invertierbar } &\Leftrightarrow \exists \bar{z} \in  \mathbb{Z}_n: z \odot \bar{z} = 1 \\
-	& \Leftrightarrow \exists \bar{z} \in \mathbb{Z}_n\quad \exists q \in \mathbb{Z}: \bar{z} \cdot z = qn +1 \\
-	&\Leftrightarrow \exists \bar{z},q \in \mathbb{Z}: \bar{z} \cdot z - qn = 1 \\
+	z \text{ invertierbar } &\Leftrightarrow \exists \bar{z} \in  \mathds{Z}_n: z \odot \bar{z} = 1 \\
+	& \Leftrightarrow \exists \bar{z} \in \mathds{Z}_n\quad \exists q \in \mathds{Z}: \bar{z} \cdot z = qn +1 \\
+	&\Leftrightarrow \exists \bar{z},q \in \mathds{Z}: \bar{z} \cdot z - qn = 1 \\
 	&\overset{*}{\Leftrightarrow} \text{ggT}(z,n)= 1
 	\end{align*}
 \end{itemize} 
@@ -1423,17 +1425,17 @@ Ist i.A. keine Gruppe:
 \subsubsection*{Beweis von *}
 \begin{itemize}
 	\item['$\Leftarrow$'] Lemma von Bézout/Erweiterter Euklidischer Algorithmus (EEA): \\
-	$a,b \in \mathbb{Z} \Rightarrow \exists s,t \in \mathbb{Z}: \text{ggT}(a,b)= s \cdot a + t \cdot b$\\
+	$a,b \in \mathds{Z} \Rightarrow \exists s,t \in \mathds{Z}: \text{ggT}(a,b)= s \cdot a + t \cdot b$\\
 	Hier: $a = z,\quad b = n,\quad s = \bar{z},\quad t = -q$
 	\item['$\Rightarrow$'] Übung (Übungsblatt 5, A1c)
 \end{itemize}
-Also: Nur die zu $n$ teilerfremden Zahlen in $\mathbb{Z}_n$ haben Inverse. Z.B.: In $\mathbb{Z}_{15}$ sind $1,2,4,7,8,11,13,14$ bzgl. $\odot$ invertierbar. \\
-\uline{Bezeichnung}: $\mathbb{Z}^*_n = \{z \in \mathbb{Z}_n \mid \text{ggT}(z,n)= 1\}$ ist Gruppe mit Ordnung $| \mathbb{Z}^*_n | = \phi(n)$\\
+Also: Nur die zu $n$ teilerfremden Zahlen in $\mathds{Z}_n$ haben Inverse. Z.B.: In $\mathds{Z}_{15}$ sind $1,2,4,7,8,11,13,14$ bzgl. $\odot$ invertierbar. \\
+\uline{Bezeichnung}: $\mathds{Z}^*_n = \{z \in \mathds{Z}_n \mid \text{ggT}(z,n)= 1\}$ ist Gruppe mit Ordnung $| \mathds{Z}^*_n | = \phi(n)$\\
  (Eulersche $\phi-$Funktion, $\phi(n)$ ist Anzahl der zu $n$ teilerfremden Zahlen zwischen 1 und $n$).\\
  \\
-Berechnung der Inversen in $\mathbb{Z}^*_n$: 
+Berechnung der Inversen in $\mathds{Z}^*_n$: 
 \begin{align*}		
-\text{EEA}:\qquad z \in \mathbb{Z}^*_n &\Rightarrow \exists s,t \in \mathbb{Z}: sz + tn = 1 \\
+\text{EEA}:\qquad z \in \mathds{Z}^*_n &\Rightarrow \exists s,t \in \mathds{Z}: sz + tn = 1 \\
 &\Rightarrow s \cdot z \equiv 1 \pmod{n}\\
 & \Rightarrow s \text{ invers zu } z
 \end{align*}
@@ -1477,4 +1479,129 @@ $G$ Gruppe, $a,b \in G$
 \subsection{Definition (Untergruppe)}
 $(G, \cdot)$ Gruppe, $\emptyset \neq U \subseteq G$.\\
  $U$ heißt \uline{Untergruppe} von $G$ $(U \leq G)$, wenn $U$ bzgl. '$\cdot$' eine Gruppe ist.
+ 
+ \subsubsection*{Bemerkung}
+ \marginpar{22.11.2016}
+ \begin{itemize}
+ 	\item Abgeschlossenheit prüfen: $\forall u,v  \in U: uv \in U$
+ 	\item $e$ von $G$ ist auch $e$ von $U$
+ 	\item Inversen in $U$ gleich wie in $G$
+ \end{itemize}
+(wegen 3.13)
+\subsection{Beispiel}
+\begin{itemize}
+	\item[a)] $(\mathds{Z}, +) \leq (\mathds{Q}, + ) \leq (\R, + )$
+	\item[b)] $(\{-1,1\}, \cdot) \leq (\mathds{Q}\setminus \{0\}, \cdot) \leq (\R \setminus\{0\}, \cdot)$
+	\item[c)] $V_4 = \{\id,\underbrace{(AB)(CD)}_{\pi},\underbrace{(AC)(BD)}_{\sigma} \underbrace{(AD)(BC)}_{\eta}\} \leq \mathscr{S}_4$ (Bsp. 3.7, 3.10) weil $V_4$ abgeschlossen, $id \in V_4,\quad \gamma^{-1} = \gamma \qquad \forall \gamma \in V_4$
+\end{itemize}
+\subsection{Beispiel}
+Es ist $U = 3 \mathds{Z} = \{3k\mid k \in \mathds{Z}\}$ eine Untergruppe von $(\mathds{Z}, +)$.\\
+\\
+\begin{minipage}[c]{0.6\textwidth}
+	\begin{itemize}
+		\item Mehr Klassen gibt es nicht, da $3\mathds{Z} + 3 = 3\mathds{Z} + 0$, $3\Z+4=3\Z+1$, $3\Z-1=3\Z+2$
+		\item Repräsentanten sind nicht eindeutig, $-1$ auch Repräsentant von $3 \mathds{Z}  +2 = 3\mathds{Z} - 1$
+		\item Grundidee: Nebenklassen von $U$ unterteilen $G = \mathds{Z}$ in disjunkte Äquivalenzklassen.\\
+		Hier: $x \sim_U y \Leftrightarrow \exists u \in 3 \mathds{Z}: u + x = y$, z.B. $4 \sim_U 10$, da $\underbrace{6}_{\in 3\mathds{Z}} + 4 = 10$
+	\end{itemize}
+\end{minipage}
+\begin{minipage}[c]{0.4\textwidth}
+\begin{tikzpicture}[scale=0.5]
+
+\draw  (-1.5,3) ellipse (2.5 and 4);
+\draw (-3.8215,4.522) -- (0.8231,4.522);
+\draw (-3.7944,1.5188) -- (0.778,1.5188);
+\node at (-1.5,5.5) {$3\Z+0$};
+\node at (-1.5,3) {$3\Z+1$};
+\node at (-1.5,0.5) {$3\Z+2$};
+\draw [->] ;
+\draw [->] ;
+\draw [->] ;
+\node (v5) at (3,3.5) {};
+\draw [decorate, decoration={brace, amplitude=5pt}](-4.5,4.5) node (v1) {} -- (-4.5,7);node[sloped, below] {false}
+\draw [decorate, decoration={brace, amplitude=5pt}](-4.5,1.5) node (v2) {} -- (v1);
+\draw [decorate, decoration={brace, amplitude=5pt}](-4.5,-1) -- (v2);
+\node (v4) at (-6.0104,3.2103) {};
+\draw (v4) edge node[sloped, below] {Restklassen/Nebenklassen} (v4);
+\draw (v5) edge node[sloped, below] {Repräsentanten} (v5);
+\draw [->](-0.5,0.5) .. controls (2.5,0) and (3,1.5) .. (3,2);
+\draw [->](-0.5,5.5) .. controls (1.5,6) and (2,5) .. (3,4.5);
+\draw [->](-0.5,3.5) .. controls (2,3.5) and (1.5,3.5) .. (2.5,3.5);
+\end{tikzpicture}
+\end{minipage}
+\subsection{Satz + Definition}
+$G$ Gruppe, $U \leq G$. 
+\begin{itemize}
+	\item[i)] Für $x,y \in G: x \sim_U y \colon \Leftrightarrow \exists u \in U: ux = y$.\\
+	\uline{Behauptung}: $\sim_U$ Äquivalenzrelation.
+	\item[ii)] $Ux := \{ux \mid u \in U \}$ (mit $x \in G$) heißt \uline{Rechtsnebenklasse} von $U$ in $G$. $x$ heißt \uline{Repräsentant} der Klasse $Ux$ [Linksnebenklassen analog: $xU$]
+	\item[iii)] $G/U := \{Ux\mid x \in G \}$ Menge der Rechtsnebenklassen von $U$ in $G$.\\
+	\uline{Behauptung}: $G/U$ ist eine disjunkte Zerlegung von $G$ in Äquivalenzklassen $Ux$.
+\end{itemize}
+
+\begin{tikzpicture}[scale=0.5]
+
+\draw  (-1,1.5) ellipse (5.5 and 2);
+\node (v7) at (-4.4909,3.0058) {};
+\node (v8) at (-4.527,-0.0425) {};
+\node (v6) at (-2.4618,3.4116) {};
+\node (v5) at (-2.4888,-0.3635) {};
+\node (v3) at (-0.5228,3.4874) {};
+\node (v4) at (-0.4506,-0.4771) {};
+\node (v1) at (1.5064,3.2656) {};
+\node (v2) at (1.5064,-0.2697) {};
+\draw  (v1) edge (v2);
+\draw  (v3) edge (v4);
+\draw  (v5) edge (v6);
+\draw  (v7) edge (v8);
+\node at (-5.5,1.5) {$Ue$};
+\node at (-3.5,1.5) {$Ux_1$};
+\node at (-1.5,1.5) {$Ux_2$};
+\node at (0.5,1.5) {$...$};
+\node at (2.5,1.5) {$Ux_n$};
+\node at (-1.5,6) {Repräsentanten};
+\node at (-1.5,4.5) {};
+\draw [->](-5.2315,1.7647) .. controls (-5.5,5) and (-3,5) .. (-3,5);
+\draw [->](2.5781,1.7557) .. controls (2.5,5) and (0,5) .. (0,5);
+\draw [->](-3.3354,1.7828) .. controls (-4,4.5) and (-2.5,4.5) .. (-2.5,4.5);
+\draw [->](-1.3222,1.8008) .. controls (-1.5,3.5) and (-1.5,4.5) .. (-1.5,4.5);
+\node at (-1,-2.5) {Rechtsnebenklassen};
+\draw [->](-3,-1.5) .. controls (-6,-1.5) and (-5.5,0) .. (-5.5,0);
+\draw [->](1.5,-1.5) .. controls (3,-1.5) and (3,0) .. (3,0);
+\draw [->](1,-1.5) .. controls (1.5154,-0.7401) and (0.9473,-0.5416) .. (0.9473,-0.5416);
+\draw [->](-2.6782,-1.2992) .. controls (-3.5801,-0.7401) and (-3.2644,-0.5146) .. (-3.2644,-0.5146);
+\draw [->](-1.5509,-1.2541) .. controls (-1.5689,-0.8844) and (-1.5599,-0.6769) .. (-1.5599,-0.6769);
+\end{tikzpicture}
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item[i)]
+	\begin{itemize}
+		\item $x \sim_U x$, da $\underbrace{e}_{\in U} \cdot x = x$ (Reflexivität)
+		\item (Symmetrie)\begin{align*}
+			x \sim_U y &\Rightarrow \exists u \in U: ux = y\\
+			 &\Rightarrow x = \underbrace{u^{-1}}_{\in U} y = x\\ &\Rightarrow y \sim_U x
+		\end{align*} 
+		\item  (Transitivität)\begin{align*}
+			x \sim_U y,~ y \sim_U z &\Rightarrow \exists u,u' \in U: ux = y,~ u'y = z\\& \Rightarrow u'y = u'(ux) = \underbrace{(u'u)}_{\in U}x = z \\&\Rightarrow x \sim_U z
+		\end{align*}
+	\end{itemize}
+	\item[iii)] 
+	\begin{itemize} 
+		\item$Ux = \{ux | u \in U \} = \{y \in G | \underbrace{\exists u : ux = y}_{y \sim_U x} \}= \{y \in G | y \sim_U x \} \Rightarrow Ux$ Äquivalenzklassen von $x  \in G$
+		\item Für je 2 Äquivalenzklassen $Ux, Uy$ gilt: $Ux = Uy$ oder $ Ux \cap Uy = \emptyset$ (wegen Transitivität)
+	\end{itemize} 
+\end{itemize}
+\subsection{Beispiel}
+$\mathds{Z}_3 := \mathds{Z}/3\mathds{Z} = \{3\mathds{Z} + 0,~ 3\mathds{Z} + 1, ~3\mathds{Z}  +2\}=\{3\Z+3,~3\Z-2,~3\ Z+11\}$ \\
+Man schreibt oft $\mathds{Z}_3 = \{\underline{0}, \underline{1},\underline{2}\}$ (wobei $j = 3\mathds{Z} +j$) oder einfach $\mathds{Z}_3 =\{0,1,2\}$\\
+Allgemein: $\mathds{Z}_n := \mathds{Z}/(n \cdot \mathds{Z}),~~ n \in \mathds{N}$ \\
+Beobachtung in $\mathds{Z}_3:$ Ist $x \in \underline{1}, y \in \underline{2},$ dann ist immer $x + y \in\underline{0}$
+\subsection{Kriterium}
+$G$ Gruppe, $U \leq G$. Für je 2 beliebige Klassen, $Ux, Uy ~~(x,y \in G)$ gelte: \\
+$x' \in Ux, ~y' \in Uy \Rightarrow x' \cdot y' \in U(xy)$
+\subsection{Definition}
+Wenn Kriterium 3.20 erfüllt ist, kann man auf $G/U$ eine Verknüpfung definieren: \\
+$*: G/U \times G/U \rightarrow G/U$ mit \\
+$(Ux) * (Uy) = U(\underbrace{xy}_{\text{Produkt in $G$}})$\\
+Man sagt: Wenn 3.20 erfüllt, ist '*' wohldefiniert.
 \end{document}
