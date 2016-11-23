@@ -15,17 +15,25 @@
 \usepackage{gensymb}
 \usepackage{framed}
 \usepackage{arydshln}
+\usepackage[loose]{units}
 \usetikzlibrary{decorations.pathreplacing}
 
 %TitlePage%
 
 \begin{titlepage}
 	\title{Mathematik III}
-	\date{15.11.2016}
+	\date{23.11.2016}
 \end{titlepage}
 
 %NewCommands%
-
+\newcommand\smallO{
+	\mathchoice
+	{{\scriptstyle\mathcal{O}}}% \displaystyle
+	{{\scriptstyle\mathcal{O}}}% \textstyle
+	{{\scriptscriptstyle\mathcal{O}}}% \scriptstyle
+	{\scalebox{.7}{$\scriptscriptstyle\mathcal{O}$}}%\scriptscriptstyle
+}
+\newcommand{\f}[2]{\nicefrac{#1}{#2}}
 \newcommand{\R}{\mathds{R}}
 \newcommand{\Z}{\mathds{Z}}
 \newcommand{\N}{\mathds{N}}
@@ -1285,7 +1293,7 @@ z.B.: $\pi = (123)(45)$
 	\begin{itemize}
 		\item[1)] $(a \cdot b) \cdot c = a \cdot (b \cdot c) \qquad \forall a,b,c \in G\qquad~$ Assoziativität
 		\item[2)] $\exists e \in G: a \cdot e = e \cdot a = a \qquad \forall a \in G\qquad$ Neutralelement
-		\item[3)] $\forall a \in G\quad \exists a^{-1} \in G: a \cdot a^{-1} = a^{-1}*a = e\qquad$ Inverse
+		\item[3)] $\forall a \in G\quad \exists a^{-1} \in G: a \cdot a^{-1} = a^{-1}\*a = e\qquad$ Inverse
 	\end{itemize}
 		Falls zusätzlich 
 		\begin{itemize}
@@ -1529,14 +1537,14 @@ Es ist $U = 3 \mathds{Z} = \{3k\mid k \in \mathds{Z}\}$ eine Untergruppe von $(\
 \draw [->](-0.5,3.5) .. controls (2,3.5) and (1.5,3.5) .. (2.5,3.5);
 \end{tikzpicture}
 \end{minipage}
-\subsection{Satz + Definition}
+\subsection{Satz + Definition (Rechtsnebenklasse, Repräsentant)}
 $G$ Gruppe, $U \leq G$. 
 \begin{itemize}
 	\item[i)] Für $x,y \in G: x \sim_U y \colon \Leftrightarrow \exists u \in U: ux = y$.\\
 	\uline{Behauptung}: $\sim_U$ Äquivalenzrelation.
 	\item[ii)] $Ux := \{ux \mid u \in U \}$ (mit $x \in G$) heißt \uline{Rechtsnebenklasse} von $U$ in $G$. $x$ heißt \uline{Repräsentant} der Klasse $Ux$ [Linksnebenklassen analog: $xU$]
-	\item[iii)] $G/U := \{Ux\mid x \in G \}$ Menge der Rechtsnebenklassen von $U$ in $G$.\\
-	\uline{Behauptung}: $G/U$ ist eine disjunkte Zerlegung von $G$ in Äquivalenzklassen $Ux$.
+	\item[iii)] $\f{G}{U} := \{Ux\mid x \in G \}$ Menge der Rechtsnebenklassen von $U$ in $G$.\\
+	\uline{Behauptung}: $\f{G}{U}$ ist eine disjunkte Zerlegung von $G$ in Äquivalenzklassen $Ux$.
 \end{itemize}
 
 \begin{tikzpicture}[scale=0.5]
@@ -1592,16 +1600,133 @@ $G$ Gruppe, $U \leq G$.
 	\end{itemize} 
 \end{itemize}
 \subsection{Beispiel}
-$\mathds{Z}_3 := \mathds{Z}/3\mathds{Z} = \{3\mathds{Z} + 0,~ 3\mathds{Z} + 1, ~3\mathds{Z}  +2\}=\{3\Z+3,~3\Z-2,~3\ Z+11\}$ \\
+$\mathds{Z}_3 := \f{\mathds{Z}}{3\mathds{Z}} = \{3\mathds{Z} + 0,~ 3\mathds{Z} + 1, ~3\mathds{Z}  +2\}=\{3\Z+3,~3\Z-2,~3\ Z+11\}$ \\
 Man schreibt oft $\mathds{Z}_3 = \{\underline{0}, \underline{1},\underline{2}\}$ (wobei $j = 3\mathds{Z} +j$) oder einfach $\mathds{Z}_3 =\{0,1,2\}$\\
-Allgemein: $\mathds{Z}_n := \mathds{Z}/(n \cdot \mathds{Z}),~~ n \in \mathds{N}$ \\
+Allgemein: $\mathds{Z}_n := \f{\mathds{Z}}{n \cdot \mathds{Z}},~~ n \in \mathds{N}$ \\
 Beobachtung in $\mathds{Z}_3:$ Ist $x \in \underline{1}, y \in \underline{2},$ dann ist immer $x + y \in\underline{0}$
 \subsection{Kriterium}
-$G$ Gruppe, $U \leq G$. Für je 2 beliebige Klassen, $Ux, Uy ~~(x,y \in G)$ gelte: \\
+$G$ Gruppe, $U \leq G$.\\ Für je 2 beliebige Klassen, $Ux, Uy ~~(x,y \in G)$ gelte: \\
 $x' \in Ux, ~y' \in Uy \Rightarrow x' \cdot y' \in U(xy)$
+\subsection{Definition (Wohldefiniertheit)}
+Wenn Kriterium 3.20 erfüllt ist, kann man auf $\f{G}{U}$ eine Verknüpfung definieren: \\
+$\ast: \f{G}{U} \times \f{G}{U} \rightarrow \f{G}{U}$ mit \\
+$(Ux) \ast (Uy) = U(\underbrace{xy}_{\text{Produkt in $G$}})$\\
+Man sagt: Wenn 3.20 erfüllt, ist '$\ast$' \uline{wohldefiniert}.
+\subsection{Beispiel}
+\marginpar{23.11.2016}
+\begin{itemize}
+	\item[a)] $\ast$ wohldefiniert auf $(\mathds{Z}_n, +)$ (ohne Beweis) \\
+	\uline{Bemerkung:} $x \sim_U y \Leftrightarrow \exists u \in 3 \mathds{Z}: u +x = y $\\
+	 \noindent\hspace*{34.5mm}$\Leftrightarrow x \equiv y \pmod{3}$ \\
+	Daraus ergibt sich die Def. aus Bsp. 3.12 mit $\mathds{Z}_3 = \{0,1,2\}$ und $x \oplus y = x +y \pmod{3}$
+	\item[b)] $U = \{\id, (12)\} \leq \mathscr{S}_3$. Auf $\f{\mathscr{S}_3}{U}$ ist $\ast$ nicht wohldefiniert (Übung).
+\end{itemize}
+\subsection{Satz (Faktorengruppe/Quotientengruppe)}
+$U \leq G,~~G$ Gruppe.\\ Wenn '$\ast$' aus Def 3.21 wohldefiniert, dann ist $(\f{G}{U}, \ast)$ eine Gruppe. \\ (Name: \uline{Quotientengruppe/Faktorengruppe}) \\
+\uline{Beweis:} Übung. \\
+\uline{Bemerkung:} $G$ abelsch $\Rightarrow$ '$\ast$' immer wohldefiniert, d.h.
+$\f{G}{U}$ Gruppe.
+\subsection{Lemma}
+$G$ Gruppe, $U \leq G,~~ U$ \uline{endlich} $\Rightarrow |Ux| = |U|\quad \forall x \in G$
+\subsubsection*{Beweis}
+$\phi: U \rightarrow Ux,~~ u \mapsto u \cdot x$ bijektiv:
+\begin{itemize}
+	\item surjektiv, da $\phi(U) = Ux$
+	\item injektiv, da $\phi(u_1) = \phi(u_2) \Rightarrow u_1x = u_2x$\\
+	\noindent\hspace*{44.5mm}$\overset{\cdot x^{-1}}{\Rightarrow} u_1 = u_2$
+\end{itemize}
+$ \Rightarrow |U| = |Ux|$
+\subsection{Theorem (Lagrange)}
+$G$ endliche Gruppe, $U \leq G \Rightarrow |U|$ teilt $|G|$ und $| \f{G}{U} | = \frac{|G|}{|U|}$.
+\subsubsection*{Beweis} Seien $U_{x_1},..., U_{x_q}$ die $q$ verschiedenen Rechtsnebenklassen von $U$ in $G$. \\
+$\Rightarrow G = \dot{\bigcup}^q_{i=1} Ux_i \Rightarrow |G| =  \sum_{i = 1}^{q}  \underbrace{|Ux_i|}_{=|U|} = q \cdot |U|.$
+\hfill$\square$
+\subsubsection*{Ordnung und zyklische Gruppen}
 \subsection{Definition}
-Wenn Kriterium 3.20 erfüllt ist, kann man auf $G/U$ eine Verknüpfung definieren: \\
-$*: G/U \times G/U \rightarrow G/U$ mit \\
-$(Ux) * (Uy) = U(\underbrace{xy}_{\text{Produkt in $G$}})$\\
-Man sagt: Wenn 3.20 erfüllt, ist '*' wohldefiniert.
+$(G, \cdot )$ Gruppe, $a \in G$.\\ Definiere $a^0 := e,\quad a^1 := a,\quad \underbrace{a^m := (a^{m-1}) \cdot a}_{\textrm{für }m \in \mathds{N}},\quad a^m := \underbrace{ (a^{-1})^{-m}}_{\textrm{für }m \in \mathds{Z}^-}$\\
+als \uline{Potenzen} von $a \in G$.
+\subsection{Satz}
+$G$ Gruppe, $a \in G$. Es gilt:
+\begin{itemize}
+	\item[i)] $(a^{-1})^m = (a^m)^{-1} = a^{-m} \qquad \forall m \in \mathbb{Z}$
+	\item[ii)] $a^ma^n = a^{m+n} \qquad \forall m,n \in \mathbb{Z}$
+	\item[iii)] $(a^m)^n = a^{m \cdot n} \qquad \forall m,n \in \mathbb{Z}$
+\end{itemize}
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item[i)] 
+	\begin{itemize}
+		\item[a)] $m$ positiv:
+		\begin{itemize}
+			\item Inverses für $a^m$, wenn $m \geq 0:$ \\
+			Es ist $a^m  \cdot \underbrace{(a^{-1})^m}_{\text{Inverse}} = \underbrace{a \cdot a \cdot ... \cdot a}_{\text{m-mal}} \cdot \underbrace{ a^{-1} \cdot ... \cdot a^{-1}}_{\text{m -mal}} = e$ \\
+			$\Rightarrow (a^m)^{-1}= (a^{-1})^m$
+			\item nach Definition: $a^{\overbracket{-m}^{\in \mathbb{Z^-}}} = (a^{-1})^{+m}$ \\
+			$\Rightarrow$ i) gilt für $m \geq 0$
+		\end{itemize}
+		\item[b)] $m$ negativ:
+		\begin{itemize}
+			\item $a^{\overbracket{-m}^{ \in \mathbb{N}}} = ((\underbrace{a^{-1}}_{\in G})^{-1})^{\overbracket{-m}^{ \in \mathbb{N}}} \overset{\textrm{Def.}}{=} (a^{-1})^m$
+			\item $a^{\overbracket{m}^{ \in \mathbb{Z}^-}} = (a^-1)^{\overbracket{-m}^{ \in \mathbb{N}}} \overset{\textrm{a)}}{=} (a^{-m})^{-1}$\\$ \Rightarrow (a^m)^{-1} = ((a^{-m})^{-1})^{-1} = a^{-m}$
+		\end{itemize}	
+	\end{itemize}
+	\item[ii) + iii)] analog mit $m$ oder $n$ negativ oder positiv 
+\end{itemize}
+\subsection{Satz + Definition (Ordnung, zyklische Gruppe)}
+$G$ endliche Gruppe, $g \in G$. 
+\begin{itemize}
+	\item[i)] Es gibt eine kleinste Zahl $n \in \mathbb{N}$ mit $g^n = e$.
+	$n$ heißt \uline{Ordnung} $\smallO(g)$ von g.
+	\item[ii)] $\{g^0 = e, g^1, g^2,...,g^{n-1}\} \leq G$ und heißt die von $g$ erzeugte \uline{zyklische Gruppe} $\langle g \rangle.$
+	\item[iii)] $g^{|G|} = e$
+\end{itemize}
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item[i)] $G$ \uline{endlich} $\Rightarrow \exists i,j \in \mathbb{N}: g^i = g^j$ und $i > j$ \\
+	\noindent\hspace*{17.5mm}$\Rightarrow g^{\overbracket{i-j}^{ \in \mathbb{N}}} = g^i g^{-j} = \underbrace{g^i}_{=g^j} (g^j)^{-1} = e$ \\
+	Wähle $n =\min\{k \in \mathbb{N}| g^k = e \}$.
+	\item[ii)] 
+	\begin{itemize}
+		\item $\langle g \rangle$ abgeschlossen, da $g^m \cdot g^k = g^{m+k} \in \langle g \rangle$ 
+		\item $g^0 = e \in \langle g \rangle$
+		\item $(g^m)^{-1} = g^{-m} = \underbrace{g^n}_{e} \cdot g^{-m} \in \langle g \rangle$
+	\end{itemize}
+	\item[iii)] Lagrange:\quad $n \mid |G| \Rightarrow n \cdot k = | G |$ für ein $k  \in \mathbb{N}$\\
+	\noindent\hspace*{32mm}$\Rightarrow g^{|G|} = g^{nk} =\underbrace{(g^n)^k}_{e} = e^k = e$
+\end{itemize}\hfill$\square$
+\subsection{Bemerkung}
+Eine endliche Gruppe heißt zyklisch, falls sie von einem Element erzeugt wird.
+\subsubsection*{Beispiel}
+\begin{itemize}
+	\item $(\mathbb{Z}_n, \oplus)$ zyklisch, da $1 \in \mathbb{Z}_n$ und $1^2 = 1 + 1 = 2,~~ 1^3 = 1 + 1 +1 = 3,~...,$\\$ 1^n = (1^{n-1}) \cdot 1 = (n -1) + 1 = n\textrm{ und } n \equiv 0 \pmod{n}$ \\
+	$\mathbb{Z}_n$ hat Ordnung $n$, da $1^n = 0$
+	\item Drehungen, die ein regelmäßiges $n-$Eck in sich selbst überführen, sind zyklisch: \\
+	$(ABC)^0 = id,~~ (ABC) = (ABC),~~ (ABC)^2 = (ACB),~~ (ABC)^3 = id$\\
+	$\langle (ABC) \rangle = \{\id, (ABC), (ACB)\} \leq \mathscr{S}_3$
+	\item $\mathscr{S}_3$ oder $V_4$ nicht zyklisch.
+\end{itemize}
+\subsection{Korollar}
+\begin{itemize}
+	\item[i)] Satz von Euler:\\ $n \in \mathbb{N},~~ a \in \mathbb{Z},~~ \text{ggT}(a,n) = 1 \Rightarrow a^{\phi(n)} \equiv 1 \pmod{n}$
+	\item[ii)] Kleiner Satz von Fermat:\\ $p$ Primzahl, $a \in \mathbb{Z},~~ p \not\vert a \Rightarrow a^{p-1} \equiv 1 \pmod{p}$
+\end{itemize}
+\subsubsection*{Beweis}
+Wir können annehmen, dass $1 \leq a < n$, denn \\$a^{\phi(n)} \mod n = {\underbrace{(a \mod n)}_{\{1,...,n-1\}}}^{\phi(n)}\mod n$ \\
+$\Rightarrow a \in \mathbb{Z}^*_n \\
+\mathbb{Z}^*_n$ endliche Gruppe $\Rightarrow a^{\overbracket{|\mathbb{Z}^*_n|}^{ = \phi(n)}} \equiv 1 \pmod{n}$\\
+ii) Folgt aus i) für $n = p,~~ \phi(p) = p-1$
+\hfill$\square$
+\newpage
+\section{Ringe und Körper}
+\subsection{Definition}
+Sei $\mathcal{R} \neq \emptyset$ eine Menge mit 2 Verknüpfungen + und $\cdot$.
+\begin{itemize}
+	\item[i)] Man nennt $(\mathcal{R}, + , \cdot)$ einen \uline{Ring}, wenn gilt: 
+	\begin{itemize}
+		\item[1)] $(\R, + )$ ist abelsche Gruppe mit Neutralelement 0 und Inverse $-a$ von $a$.
+		\item[2)] $(\R, \cdot)$ ist assoziativ. 
+		\item[3)] Distributivgesetze: $a \cdot (b+c) = ab + ac$\\
+		\noindent\hspace*{32.5mm}$ (a+b) \cdot c = ac + bc \qquad \forall a,b,c \in \mathcal{R}$
+	\end{itemize}
+\end{itemize}	
 \end{document}
