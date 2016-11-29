@@ -57,6 +57,7 @@
 }
 \newcommand{\vecspace}[2]{\langle#1\rangle_{#2}}
 \newcommand{\vecspaceR}[1]{\vecspace{#1}{\R}}
+\newcommand{\qed}{\hfill$\square$}
 
 %ReNewCommands%
 
@@ -1718,15 +1719,103 @@ ii) Folgt aus i) für $n = p,~~ \phi(p) = p-1$
 \hfill$\square$
 \newpage
 \section{Ringe und Körper}
-\subsection{Definition}
+\subsubsection*{Grundlegende Eigenschaften}
+\subsection{Definition (Ring)}
 Sei $\mathcal{R} \neq \emptyset$ eine Menge mit 2 Verknüpfungen + und $\cdot$.
 \begin{itemize}
 	\item[i)] Man nennt $(\mathcal{R}, + , \cdot)$ einen \uline{Ring}, wenn gilt: 
 	\begin{itemize}
 		\item[1)] $(\R, + )$ ist abelsche Gruppe mit Neutralelement 0 und Inverse $-a$ von $a$.
-		\item[2)] $(\R, \cdot)$ ist assoziativ. 
+		\item[2)] $(\R, \cdot)$ ist abgeschlossen und assoziativ (Halbgruppe).
 		\item[3)] Distributivgesetze: $a \cdot (b+c) = ab + ac$\\
 		\noindent\hspace*{32.5mm}$ (a+b) \cdot c = ac + bc \qquad \forall a,b,c \in \mathcal{R}$
 	\end{itemize}
+\marginpar{29.11.2016}
+		\item[ii)] $(\mathcal{R},+,\cdot)$ heißt \uline{kommutativ}, falls '$\cdot$' zusätzlich kommutativ ist
+		\item[iii)] $(\mathcal{R},+,\cdot)$ heißt \uline{Ring mit Eins}, falls es bezüglich '$\cdot$' ein Neutralelement 1 gibt mit $a \cdot 1 = 1 \cdot a = a \qquad \forall a \in \mathcal{R}$.
+		\item[iv)] Ist $(\mathcal{R},+,\cdot)$ Ring mit Eins, so heißen die bezüglich '$\cdot$' invertierbaren Elemente \uline{Einheiten}. \\
+		Bezeichnung: 
+		\begin{itemize}
+			\item $a^{-1}$ Inverse von $a$ bzgl. '$\cdot$' \item $\mathcal{R}^* :=$ Menge aller Einheiten in $\mathcal{R}$
+		\end{itemize}
+	\end{itemize}
+\subsection{Beispiel}
+\begin{itemize}
+	\item[a)] Trivialer Ring $(\{0\},+,0)$
+	\item[b)] $(\mathbb{Z}, +,\cdot)$ kommutativer Ring mit Eins. \\
+	Einheiten: $1, -1\Rightarrow \underbrace{\mathbb{Z}^* = \{-1,1\}}_{\text{kein Ring!}}$\\
+	Ebenso $(\mathbb{Q},+,\cdot)$ und $(\mathbb{R},+,\cdot)$ \\
+	mit $\mathbb{Q}^* = \mathbb{Q} \setminus \{0\}$ und $\mathbb{R}^* =  \mathbb{R} \setminus \{0\}$
+	\item[c)] $(2\mathbb{Z},+,\cdot)$ Ring, kommutativ, ohne Eins
+	\item[d)] $n \in \mathbb{N}_{\geq 2}: (\mathbb{Z}_n, \oplus, \odot)$ kommutativer Ring mit Eins
+	\item[e)] $(\R^n, + ,\cdot)$ kommutativer Ring mit Eins: ($\cdot$ und + Komponentenweise)\\
+	\uline{Bemerkung:} $\mathcal{R}_1,...,\mathcal{R}_n$ Ringe $\Rightarrow \mathcal{R}_1 \times ... \times \mathcal{R}_n$ Ring
+	\item[f)] $(M_n(\R),+, \cdot)$ (für $n\geq 2$) Ring mit Eins $(= E_n)$. Nicht kommutativ! 
+\end{itemize}
+\subsection{Satz (Rechenregeln für Ring)}
+$(\mathcal{R}, +,\cdot)$ Ring, $a,b,c \in \mathcal{R}$
+\begin{itemize}
+	\item[i)] $a \cdot 0 = 0 \cdot a = 0$
+	\item[ii)] $(-a) \cdot b = a \cdot (-b) = -(ab)$
+	\item[iii)] $(-a)(-b) = ab$
 \end{itemize}	
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item[i)] Es ist $a \cdot 0 = a \cdot (0 + 0)= a \cdot 0 + a \cdot 0$\\
+	Addiere $-a \cdot 0:\qquad a \cdot 0 - a \cdot 0 = a \cdot 0 + a \cdot 0 - a \cdot 0 $\\
+	\noindent\hspace*{30mm}$\Leftrightarrow \qquad\qquad~0 = a \cdot 0$\\
+	Analog: $0 = 0 \cdot a$
+	\item[ii)] Es ist $(-a)b + ab = \underbrace{(-a+a)}_{=0}b = 0 \cdot b \overset{\textrm{i)}}{=} 0\\
+	\Rightarrow (-a)b$ invers zu $ab$ und $(-a)b = -(ab)$ \\
+	Analog: $a(-b) = -(ab)$
+	\item[iii)] $(-a)(-b) \overset{\textrm{ii)}}{=} -(a(-b)) \overset{\textrm{ii)}}{=} -(-(ab)) = ab$
+\end{itemize}
+\hfill$\square$
+\subsection{Bemerkung}
+\begin{itemize}
+	\item[a)] $\mathcal{R}$ Ring mit Eins $\Rightarrow 1, -1 \in \mathcal{R}^*$ \\
+	Achtung! Z.B. in $(\mathbb{Z}_2, \oplus, \odot)$ ist $1 = -1$
+	\item[b)] In einem kommutativen Ring gilt der binomische Lehrsatz:\\
+	$(a+b)^n = \sum_{i = 0}^{n} {n\choose{i}} a^i \cdot b^{n-i}$
+	\item[c)] In 4.3: Rechenregeln für Multiplikation mit additiven Inversen, z.B.: $a\cdot(-b)$ Über Addition mit multiplikativen Inversen keine Aussage möglich (z.B. keine Regel für $a^{-1}+b$ ).
+\end{itemize}
+
+\subsection{Definition (Körper)}
+Ein kommutativer Ring mit Eins $(\mathcal{K}, +, \cdot)$ heißt \uline{Körper}, falls $\mathcal{K}^* = \mathcal{K} \setminus \{0\}$. D.h. jedes $x \in \mathcal{K} \setminus \{0\}$ ist bezüglich '$\cdot$' invertierbar.
+
+\subsection{Beispiel}
+\begin{itemize}
+	\item[a)] $(\mathbb{Q},+,\cdot),\quad (\mathbb{R},+,\cdot)$ Körper $[(\mathbb{C},+,\cdot)$ auch] \\
+	$(\mathbb{Z},+,\cdot)$ kein Körper, da $\mathbb{Z}^* = \{1,-1\}$.
+	\item[b)] $\mathbb{Z}_n^* = \{z \in \mathbb{Z}_n| \text{ggT}(z,n) = 1\}$ Gruppe bezüglich '$\odot$'\\
+	$\Rightarrow (\mathbb{Z}_n, \oplus, \odot)$ Körper $\Leftrightarrow n$ Primzahl
+\end{itemize}
+
+\subsection{Satz (Rechenregeln für Körper: Nullteilerfreiheit)}	
+$(\mathcal{K},+,\cdot)$ Körper, $a,b \in \mathcal{K}$. Dann gilt
+\begin{itemize}
+	\item[a)] alle Rechenregeln für Ringe gelten auch für Körper
+	\item[b)] $ab = 0 \Leftrightarrow a = 0\vee b = 0$ \qquad [Gegenbeispiel: $(\mathbb{Z}_6, \oplus, \odot)$, weil $2 \odot 3 = 0$]
+\end{itemize}
+
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item[$'\Leftarrow'$] klar (Satz 4.3.i)
+	\item[$'\Rightarrow'$] $ab = 0$. Angenommen $a \neq 0 \Rightarrow b=1 \cdot b = (a^{-1}a)b = a^{-1}\underbrace{(ab)}_{= 0} \overset{\textrm{4.3i)}}{=} 0$
+\end{itemize}
+\qed
+\subsection*{Strukturgleichheit von Ringen}
+\subsection{Definition (Ringhomomorphismus, Ringisomorphismus)}
+Geg. $(\mathcal{R}, + , \cdot),\quad (\mathcal{R}', \boxplus, \boxdot)$  Ringe
+\begin{itemize}
+	\item[i)]$\psi: \mathcal{R} \rightarrow \mathcal{R}'$ heißt \uline{Ringhomomorphismus}, falls $\psi(x+y) = \psi(x) \boxplus \psi(y)$ und $\psi(xy)= \psi(x) \boxdot \psi(y)\quad \forall x,y \in \mathcal{R}$
+	\item[ii)] Wenn $\psi$ bijektiv ist, heißt $\psi$ \uline{Ringisomorphismus}. In diesem Fall heißen $\mathcal{R}, \mathcal{R}'$ isomorph (d.h. sie sind strukturgleich). Man schreibt $\mathcal{R} \cong \mathcal{R}'$
+\end{itemize}
+
+\subsection{Beispiel}
+$\psi: (\mathbb{Z}, + ,\cdot) \rightarrow (\mathbb{Z}_n,\oplus, \odot)$\\
+\noindent\hspace*{17mm}$x \mapsto x \mod n$\\
+$x +y \rightarrow x+y \pmod{n},\quad x \cdot y \rightarrow x \cdot y \pmod{n}$\\
+$\psi$ Ringhomomorphismus\\
+Nicht injektiv: $\psi(1)=\psi(n+1)=1$
 \end{document}
