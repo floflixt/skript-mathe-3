@@ -22,7 +22,7 @@
 
 \begin{titlepage}
 	\title{Mathematik III}
-	\date{23.11.2016}
+	\date{30.11.2016}
 \end{titlepage}
 
 %NewCommands%
@@ -1797,13 +1797,12 @@ $(\mathcal{K},+,\cdot)$ Körper, $a,b \in \mathcal{K}$. Dann gilt
 	\item[a)] alle Rechenregeln für Ringe gelten auch für Körper
 	\item[b)] $ab = 0 \Leftrightarrow a = 0\vee b = 0$ \qquad [Gegenbeispiel: $(\mathbb{Z}_6, \oplus, \odot)$, weil $2 \odot 3 = 0$]
 \end{itemize}
-
 \subsubsection*{Beweis}
 \begin{itemize}
 	\item[$'\Leftarrow'$] klar (Satz 4.3.i)
-	\item[$'\Rightarrow'$] $ab = 0$. Angenommen $a \neq 0 \Rightarrow b=1 \cdot b = (a^{-1}a)b = a^{-1}\underbrace{(ab)}_{= 0} \overset{\textrm{4.3i)}}{=} 0$
+	\item[$'\Rightarrow'$] $ab = 0$. Angenommen $a \neq 0 \Rightarrow b=1 \cdot b = (a^{-1}a)b = a^{-1}\underbrace{(ab)}_{= 0} \overset{\textrm{4.3i)}}{=} 0$\qed
 \end{itemize}
-\qed
+
 \subsection*{Strukturgleichheit von Ringen}
 \subsection{Definition (Ringhomomorphismus, Ringisomorphismus)}
 Geg. $(\mathcal{R}, + , \cdot),\quad (\mathcal{R}', \boxplus, \boxdot)$  Ringe
@@ -1813,9 +1812,136 @@ Geg. $(\mathcal{R}, + , \cdot),\quad (\mathcal{R}', \boxplus, \boxdot)$  Ringe
 \end{itemize}
 
 \subsection{Beispiel}
-$\psi: (\mathbb{Z}, + ,\cdot) \rightarrow (\mathbb{Z}_n,\oplus, \odot)$\\
+\begin{itemize}
+\item[a)] $\psi: (\mathbb{Z}, + ,\cdot) \rightarrow (\mathbb{Z}_n,\oplus, \odot)$\\
 \noindent\hspace*{17mm}$x \mapsto x \mod n$\\
 $x +y \rightarrow x+y \pmod{n},\quad x \cdot y \rightarrow x \cdot y \pmod{n}$\\
 $\psi$ Ringhomomorphismus\\
 Nicht injektiv: $\psi(1)=\psi(n+1)=1$
+\marginpar{30.11.2016}
+\item[b)]  $(\{w,f\}, \text{XOR}, \land) \cong (\mathbb{Z}_2, \oplus, \odot)$\\
+ Boolsche Algebra, siehe PÜ
+\end{itemize}
+\subsubsection*{Chinesischer Restsatz}
+\subsection{Bemerkung}
+Gegeben: $m_1,...,m_n \in \mathbb{N},~~ a \in \mathds{Z},~~ M = m_1 \cdot ... \cdot m_n$ \\
+\noindent\hspace*{11mm}$\Rightarrow\underbrace{(a \mod M)}_{r} \mod m_i = a \mod m_i \quad\forall i$
+\subsubsection*{Beweis}
+Z.z.: $r \equiv a \pmod {m_i}$\\
+Division mit Rest: 
+\begin{align*}
+\exists q \in \mathbb{Z}: a &= qM + r \\
+&= \underbrace{(q \frac{M}{m_i})}_{\in \mathbb{Z}, \text{ da } m_i \vert M} m_i + r \\
+\Rightarrow a &\equiv r \pmod{m_i} \\
+\end{align*}
+\qed
+\subsection{Chinesischer Restsatz}
+Gegeben:
+\begin{itemize}
+	\item $m_1,...,m_n \in \mathbb{N}$ paarweise teilerfremd
+	\item $M = m_1 \cdot ... \cdot m_n$
+	\item $a_1,...,a_n \in \mathbb{Z}$
+\end{itemize}
+Dann existiert $0 \leq x < M$ mit \\
+
+$\begin{rcases}
+x &\equiv a_1 \pmod{m_1} \\
+x &\equiv a_2 \pmod{m_2} \\
+&\vdots \\
+x &\equiv a_n \pmod{m_n} \\
+\end{rcases}$ \uline{Simultane Kongruenz} 
+
+\subsubsection*{Beweis}
+Es ist ggT$(m_i, \underbrace{\frac{M}{m_i}}_{M_i}) = 1 \qquad \forall i \in \{1,...,n\}$. \\
+$\overset{\text{EEA}}{\Rightarrow } \exists~ s_i, t_i \in \mathbb{Z}: t_i m_i + s_i M_i = 1$ \\
+
+Setze: $e_i := s_i M_i \Rightarrow e_i \equiv \begin{cases*}
+1 \pmod{m_i} \\
+0 \pmod{m_j},~ j \neq i\\
+\end{cases*}$ \\
+\\
+$\Rightarrow x \overset{\textrm{4.10}}{=} \sum_{i = 1}^{n}a_i e_i \pmod{M} $ ist Lösung der simultanen Kongruenz.
+\subsection{Beispiel}
+\begin{itemize}
+	\item[a)] $m_1 = 3, ~~m_2 = 4, ~~m_3 = 5 \Rightarrow M = 60$\\
+	Finde $x \in [0,60)$ mit $x \equiv \begin{cases*}
+	2 \pmod 3~~(=a_1)\\
+	3 \pmod 4~~(=a_2)\\
+	2 \pmod 5~~(=a_3)\\
+	\end{cases*}$ \\
+	Es ist 
+	\begin{itemize}
+		\item $M_1 = \frac{M}{m_1} = \frac{60}{3} = 20$ 
+		\item  $M_2 = \frac{60}{4} = 15$
+		\item $M_3 = \frac{60}{5} = 12$ 
+	\end{itemize}
+	EEA: 
+	\begin{itemize}
+		\item $7 \cdot \overbrace{3}^{m_1} + \underbracket{(-1) \cdot \overbrace{20}^{M_1}}_{e_1} = 1$
+		\item $4 \cdot \overbrace{4}^{m_2} + \underbracket{(-1) \cdot \overbrace{15}^{M_2}}_{e_2} = 1$
+		\item $5 \cdot \overbrace{5}^{m_3} \underbracket{+ (-2) \cdot \overbrace{12}^{M_3}}_{e_3} = 1$
+	\end{itemize}
+	$\Rightarrow x = [2 \cdot (-20) + 3 \cdot (-15) + 2 \cdot (-24)] \mod 60  =-133\mod 60= 47$
+	\item[b)] Was ist $2^{1000} \mod \underbrace{1155}_{=\underset{m_1}{3} \cdot \underset{m_2}{5} \cdot \underset{m_3}{7} \cdot \underset{m_4}{11}}$ ?
+	\begin{itemize}
+		\item[1)] Berechne $2^{1000} \mod 3,5,7$ und $11$
+		\begin{itemize}
+			\item $2^{1000} \mod 3 = (-1)^{1000} \mod 3 = 1=a_1$
+			\item $2^{1000} \mod 5 = 4^{500} \mod 5 = (-1)^{500} = 1=a_2$
+			\item $2^{1000} \mod 7 = \underbracket{2^3}_{=8}~^{\*333+1} \mod 7 = 1 \cdot 2\mod 7 = 2=a_3$
+			\item $2^{1000} \mod 11 = \underbracket{2^5}_{=32}~{\*200} \mod 11 = (-1)^{200} = 1=a_4$
+		\end{itemize}
+		\item[2)] Suche $0 \leq x < 1155$ mit $x \equiv \begin{cases*}
+		1 \pmod{3}\\
+		1 \pmod {5}\\
+		2 \pmod {7}\\
+		1 \pmod{ 11}\\
+		\end{cases*}$\\
+		Chinesischer Restsatz: $x = 331$
+	\end{itemize}
+\end{itemize}
+\subsection{Satz (Eindeutigkeit Chines. Restsatz)}
+Die Lösung $x$ aus 4.11 ist eindeutig.
+\subsubsection*{Beweis}
+Z.z.: $\psi : \mathbb{Z}_M \rightarrow \mathbb{Z}_{m_1} \times ... \times \mathbb{Z}_{m_n},~~ x \mapsto (x \mod m_1,...,~x \mod m_n)$ ist bijektiv (Ringisomorphismus)
+\begin{itemize}
+	\item $\psi$ Ringhomomorphismus:
+	\begin{align*}
+	\psi (x \oplus y) &= \psi(x+y \mod M)\\
+	&= ((x+y \mod M) \mod m_1,..., (x+y \mod M) \mod m_n)\\
+	&\overset{\textrm{4.10}}{=~} (x+y \mod m_n,~..., ~x+y \mod m_n) \\
+	&= \psi(x) \oplus \psi(y)
+	\end{align*}
+	Analog mit $\psi(x \odot y) = \psi(x) \odot \psi(y)$
+	\item $\psi$ surjektiv:\\
+	Zu jedem $n$-Tupel aus $\underbrace{\mathbb{Z}_{m_1} \times ... \times \mathbb{Z}_{m_n}}_{\ni(a_1,...,a_n)}$ gibt es Lösung $x \in \mathbb{Z}_M$ (4.11).
+	\item $\psi$ injektiv: \\
+	Da $| \mathbb{Z}_M| = | \mathbb{Z}_{m_1} \times ... \times \mathbb{Z}_{m_n}| \Leftrightarrow M = m_1 \cdot ... \cdot m_n$ \\
+	D.h. kein Element word doppelt 'getroffen' \\
+\end{itemize}
+$\Rightarrow \psi$ bijektiv, also Isomorphismus 
+\qed
+\subsection{Beispiel}
+Gilt $\phi (a \cdot b) = \phi(a) \cdot \phi(b)$ ? Nein.\\
+z.B. $\underbrace{\mathbb{Z}_2^* = \{1\}}_{\phi(2 = 1)},~~~ \underbrace{\mathbb{Z}_4^* = \{1,3\}}_{\phi(4)= 2}$\\
+Aber: $\mathbb{Z}_8^* =\{1,3,5,7\}$ und $4 = \phi(8) \neq \phi(2) \cdot \phi(4)$
+\subsection{Korollar}
+\begin{itemize}
+	\item$M = m_1 \cdot .... \cdot m_n$ mit $m_i$  paarweise teilerfremd und $m_i \in M$ \\
+	$\Rightarrow \phi(M) =\phi(m_1) \cdot ... \cdot \phi(m_n)$
+	\item Insbesondere:\\ $M = p_1^{a_1} \cdot... \cdot p_k^{a_k},~~~ p_i \in \mathbb{P}\textrm{ (Primzahl)},~ p_i \neq p_j$ für $i \neq j,~~ a_i \in \mathbb{N}$\\
+	$\Rightarrow \phi(M) = (p_1 - 1)p_1^{a_1 - 1} \cdot ... \cdot (p_k - 1)p_k^{a_k - 1}$
+\end{itemize}
+\subsubsection*{Beweis}
+Wegen 4.13 ist $\mathbb{Z}_M \cong \mathbb{Z}_{m_1} \times ... \times \mathbb{Z}_{m_n}$ mittels $\psi$.\\
+$\Rightarrow x$ Einheit $\Leftrightarrow \psi(x)=(x\mod m_1,...,~x\mod m_n)$ Einheit\\
+\noindent\hspace*{22mm}$\Leftrightarrow x \mod m_i \text{ Einheit } \forall i$
+$\Rightarrow \phi(M) = \phi(m_1) \cdot ... \cdot \phi(m_n)$\\
+Es ist $\phi(p^a) = \underbrace{p^a}_{|\mathbb{Z}_{p^a}|} - \underbrace{p^{a-1}}_{\text{Vielfache von p in }\mathbb{Z}_{p^a}} = (p-1)p^{a-1}$ \\
+\begin{tabular}{l | l | l | l }
+	$a$ & $|\mathbb{Z}_{p^a}|$ & Vielfache von $p$ & $\phi(p^a) = |\mathbb{Z}_{p^a}^*|$\\ \hline 
+	1 & $p$ & $0 \cdot p = 0$ & $p-1 = p^1 - p^0$ \\
+	2 & $p^2$ & $k\cdot p,~ \underbrace{0\leq k \leq p -1}_{p\text{ Möglichkeiten}}$ & $p^2 - p^1$ \\
+	3 & $p^3$ & $kp + k'p^2,~ \underbrace{0 \leq k,k' \leq p-1}_{p^2\text{ Möglichkeiten}}$ & $p^3 - p^2$ \\
+\end{tabular}\\ \qed
 \end{document}
