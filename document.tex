@@ -16,6 +16,7 @@
 \usepackage{framed}
 \usepackage{arydshln}
 \usepackage[loose]{units}
+\usepackage{polynom}
 \usetikzlibrary{decorations.pathreplacing}
 
 %TitlePage%
@@ -33,10 +34,12 @@
 	{{\scriptscriptstyle\mathcal{O}}}% \scriptstyle
 	{\scalebox{.7}{$\scriptscriptstyle\mathcal{O}$}}%\scriptscriptstyle
 }
+\newcommand{\grad}[1]{\textrm{grad(}#1\textrm{)}}
 \newcommand{\f}[2]{\nicefrac{#1}{#2}}
 \newcommand{\R}{\mathds{R}}
 \newcommand{\Z}{\mathds{Z}}
 \newcommand{\N}{\mathds{N}}
+\newcommand{\K}{\mathcal{K}}
 \newcommand{\uline}[1]{\underline{#1}}
 \newcommand{\id}{\textrm{id}}
 \newcount\colveccount
@@ -1943,5 +1946,192 @@ Es ist $\phi(p^a) = \underbrace{p^a}_{|\mathbb{Z}_{p^a}|} - \underbrace{p^{a-1}}
 	1 & $p$ & $0 \cdot p = 0$ & $p-1 = p^1 - p^0$ \\
 	2 & $p^2$ & $k\cdot p,~ \underbrace{0\leq k \leq p -1}_{p\text{ Möglichkeiten}}$ & $p^2 - p^1$ \\
 	3 & $p^3$ & $kp + k'p^2,~ \underbrace{0 \leq k,k' \leq p-1}_{p^2\text{ Möglichkeiten}}$ & $p^3 - p^2$ \\
-\end{tabular}\\ \qed
+\end{tabular}~~~ \qed
+\subsubsection*{Polynomringe}
+\marginpar{06.12.2016}
+In Mathe I wurde für den Ring $(\mathds{Z},+,\*)$ folgendes eingeführt:
+\begin{itemize}
+	\item Division mit Rest
+	\item Erweiterter Euklidischer Algorithmus
+	\item kgV, ggT, Primzahlzerlegung
+\end{itemize}
+\subsection{Definition (Polynom)}
+$\mathcal{K}$ - Körper mit Nullelement $\mathcal{O}$ und Einselement $1$.
+\begin{itemize}
+	\item[i)] Ein \uline{Polynom} über $\mathcal{K}$ ist ein Ausdruck $f = \underbrace{a_0x^0}_{a_0} + \underbrace{a_1x^1}_{a_1x} + ... + a_nx^n $ mit $ n \in \N, ~~a_i \in \mathcal{K}$ Koeffizienten von $f$ (auch $f(x)$ anstatt $f$).\\
+	Ist $a_i = 0 \quad\forall \{1,...,n\}$, so schreibt man $f= 0$ (Nullpolynom)
+	\item[ii)] $\mathcal{K}[x]$ = Menge aller Polynome über $\mathcal{K}$ in einer Variablen $x$
+	\item[iii)] $f,g \in \mathcal{K}[x]$ sind gleich, wenn gilt
+	\begin{itemize}
+		\item[a)]  $f = a_0 + ... + a_n x^n$ \\
+		$g = b_0 +...+ b_mx^m$ mit $a_n \neq 0, ~b_m \neq 0$ \\
+		 $\Rightarrow m = n$ und $a_i = b_i ~~\forall i = 1,...,n$\\
+		oder
+		\item[b)] $f= 0$ und $g= 0$
+	\end{itemize}
+\end{itemize}
+\subsection{Beispiel}
+\begin{itemize}
+	\item[a)] $f(x) = f = 3x^2 - \frac{2}{3}x +1  \substack{\in\mathbb{Q}[x]\\ \in \mathbb{R}[x]}$
+	\item[b)] $g = x^7 + x^2 \in \mathbb{Z}_2[x]$, d.h. Koeffizienten $\in \{0,1\}$
+\end{itemize}
+\subsection{Satz + Definition}
+$\mathcal{K}$ Körper.\\
+ $\mathcal{K}[x]$ ist kommutativer Ring mit Eins. Dabei ist für $f = \sum_{i=0}^{n}a_ix^i,$\\$g = \sum_{j = 0}^{m} b_j x^j$
+\begin{itemize}
+	\item $f+g = \sum_{i = 0}^{\max\{m,n\}} (a_i + b_i)x^i$
+	\item $f \cdot g  = (a_0 + a_1x + ... + a_nx^n)(b_0 + b_1x + ... + b_mx m)$\\
+	\noindent\hspace*{8.5mm}$= \underbrace{a_0 \cdot b_0}_{c_0} + \underbrace{(a_0 \cdot b_1 + a_1 \cdot b_0)}_{c_1}x + ... + \underbrace{a_nb_m}_{c_{n+m}}x^{n+m}$\\
+	mit $c_i = \sum_{k = 0}^{i}a_k \cdot b_{i-k}$ (\uline{Faltungsprodukt})\\
+	$[\textrm{Anmerkung: }a_i = 0 = b_j$ für $i>n\textrm{ bzw. }j>m]$	
+	\item Einselement: $f=1$
+	\item Nullelement $f = 0$
+	\end{itemize}
+	$\mathcal{K}[x]$ heißt der \uline{Polynomring} in einer Variablen über $\mathcal{K}$.\\
+	\subsubsection*{Beweis}
+	Ringeigenschaften nachrechnen \qed
+\subsection{Bemerkung}
+\begin{itemize}
+	\item $a_0,~a_1x,~a_2x^2,...,~a_nx^n$ heißen \uline{Monome}
+	\item $a_nx^n$ heißt \uline{Leitterm} von $f= a_0 + ... + a_nx^n$ mit $ a_n \neq 0$
+\end{itemize}
+\subsection{Beispiel}
+In $\mathbb{Z}_3[x]$: \\
+$f = 2x^3 +1,~~~ g = x-1 = x +2$, da $-1 \equiv 2\pmod 3$
+\begin{itemize}
+	\item $f+g = 2x^3 + x + \underbrace{1+2}_{\equiv 0 \pmod 3} = 2x^3 + x$
+	\item $f \cdot g = (2x^3 + 1)(x+2) = 2x^4 + x + \underbrace{4x^3}_{\equiv 1\pmod{3}} + 2 = 2x^4 + x + x^3 + 2$
+\end{itemize}
+\subsubsection*{Grad eines Polynoms}
+\subsection{Definition}
+$f \in \K[x], ~~f = a_0 + ... + a_nx^n  \qquad a_n \neq 0$\\
+$n$ heißt der \uline{Grad} von $f$, $\grad{f}= n$\\
+$\grad{0}= -\infty,~~~\grad{g}= 0$, falls $g$ konstant
+\subsection{Satz}
+$\K$ Körper, $f,g \in \K[x]$.\\
+$\Rightarrow$ $\grad{f\*g} = \grad{f}+\grad{g}$ \\
+\uline{Konvention:} \qquad$-\infty - \infty = -\infty = -\infty + n = - \infty$
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item Stimmt für $f = 0 $ oder $g = 0$
+	\item Angenommen die Leitterme von $f$ bzw. $g$ sind $a_nx^n$ bzw. $b_mx^m$ mit\\ $a_n \neq 0,~~ b_m \neq 0$.\\
+	$\Rightarrow$ $\grad{f} = n,~~\grad{g} = m$ und $\underbrace{a_n \cdot b_m x^{n+m}}_{\neq0\textrm{, da }\K\textrm{ Körper (4.7)}}$ ist Leitterm von $f \cdot g $\\$
+	\Rightarrow \grad{fg} = n+m$ \qed
+\end{itemize}
+\subsection{Korollar (Inversen in $\K[x]$)}
+$\K[x]^* = \{f \in \K[x]\mid\grad{f}= 0 \}$ (nur konstante Polynome $\neq 0$ invertierbar)
+\subsubsection*{Beweis}
+$f \cdot f^{-1} = 1 \Rightarrow\grad{ff^{-1}}=\grad{f}+\grad{f^{-1}}\overset{\textrm{4.22}}{=}\grad{1}=0$\\
+\noindent\hspace*{19mm}$\Leftrightarrow\grad{f}=\grad{f^{-1}}=0$ \qed
+\subsubsection*{Polynomdivision mit Rest}
+\subsection{Bemerkung}
+Für $b \in \K$ ist $f(b) = \sum_{i = 0}^{n} a_i \cdot b^i$, falls $f = \sum_{i = 0}^{n} a_i \cdot x^i \in \K[x]$.\\
+Man kann zeigen, dass $\psi_b : \K[x] \rightarrow \K$\\
+\noindent\hspace*{52mm}$ f \mapsto f(b)$ ein surjektiver Homomorphismus ist.
+\subsection{Definition}
+$\K$ Körper, $f,g \in \K[x].$\\$ f \vert g,$ falls $q \in \K[x]$ existiert mit $g = gf$ (nach 4.22: $\grad{f}\leq\grad{g}$).
+\subsection{Satz (Division mit Rest in $\K[x])$}
+$\K$ Körper, $f \in \K[x], ~~0 \neq g \in \K[x]$.\\
+ Dann existieren eindeutig bestimmte Polynome $q,r \in \K[x]$ mit $f = qg + r$ und $\grad{r}<\grad{g}$.\\
+Bezeichnung: $r = f \mod g,~~~ q = f \text{ div } g$
+\subsubsection*{Beweis}
+vgl. Mathe I für $\mathbb{Z}$, Literatur \qed
+\subsection{Beispiel}
+$f = x^4 + 2x^3 - x +2,~~~ g = 3x^2-1 \in \mathbb{Q}[x]$\\
+$\polylongdiv[style=C, div=:]{x^4+2x^3-x+2}{3x^2-1}$
+\subsection{Korollar}
+$a \in \K,~~ f \in \K[x]$\\
+\\
+$(x -a)\vert f \Leftrightarrow f(a) = 0$
+\marginpar{07.12.2016}
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item[($\Rightarrow$)] $\exists q \in \K[x]: f = q(x-a) \Rightarrow f(a) = q(a)(a-a) = 0 $
+	\item[$(\Leftarrow)$] Division mit Rest: $f = q(x-a) +r$, $\grad{r}<\grad{x-a}$\\
+	$\Rightarrow$ $\grad{r} \leq 0$, d.h. $r = c \neq 0$ oder $r = 0$\\
+	$0 = f(a) = q(a) \underbrace{(a-a)}_{= 0} + r(a) \Rightarrow r = 0 $\qed
+\end{itemize}
+\subsection*{Euklidischer Algorithmus in $\K[x]$}
+\subsection{Definition (Normiertheit)}
+$\K$ Körper. 
+\begin{itemize}
+	\item[i)] $f = a_0 + ... + a_n x^n \in \K[x],~~ a_n \neq 0$ heißt \uline{normiert}, wenn $a_n = 1$
+	\item[ii)] $g,h \in \K[x],~~~g,h$ nicht beide 0.\\ $f = \text{ggT}(g,h),$ falls $f\in \K[x]$ normiertes Polynom von maximalem Grad ist, das $g$ und $h$ teilt.
+	\item[iii)] $g,h \in \K[x] \setminus \{0\}.$\\$ f = \text{kgV}(g,h),$ falls $f \in  \K[x]$ ein normiertes Polynom von minimalem Grad ist, das von $g$ und $h$ geteilt wird.
+\end{itemize}
+\subsection{Bemerkung}
+\begin{itemize}
+	\item[a)] $g = x,~~ h = x+1 \in \mathds{Q}[x]$
+	\begin{itemize}
+		\item $g \vert x(x+1),~~~ h \vert x(x+1)$
+		\item $g \vert 2x(x+1), ~~~h \vert 2x(x+1)$
+		\item kgV$(g,h) = x(x+1)  = x^2 + x$, da $2x^2 +2x$ nicht normiert!\\
+		$\rightarrow$ Normierung macht Ergebnisse eindeutig. 
+	\end{itemize}
+	\item[b)] Normierung erfolgt, indem man durch Koeffizienten des Leitterms 'teilt': \\
+	$f = a_n x^n + ... + a_0 \Rightarrow a_n^{-1} \cdot f = \underbrace{x^n + ... + a_n^{-1}a_0}_{\text{normiert}}$
+	\item[c)] kgV$(g,h)$ existiert und ist eindeutig.
+	\begin{itemize}
+		\item Existenz: $g \vert gh,~~~ h \vert gh$ (gemeinsames Vielfaches)
+		\item Eindeutig : $f_1 = \text{kgV}(g,h), ~~~f_2 = \text{kgV}(g,h)\\
+		\Rightarrow g,h \vert f_1$ und $g,h \vert f_2\\
+		\Rightarrow g,h \vert (f_1 - f_2)$\\
+		$f_1,f_2$ normiert und von gleichem (minimalen) Grad.\\
+		$\Rightarrow \text{grad }(f_1- f_2) < \text{grad } (f_1) \\
+		\Rightarrow f_1 - f_2 = 0$, denn sonst wäre kgV$(g,h) = f_1 - f_2$  \qquad \Lightning zur Minimalität des Grades.
+	\end{itemize}
+	\item[d)] ggT$(g,h)$ existiert und ist eindeutig. Beweis folgt wie in Mathe I für $\mathbb{Z}$ aus:
+\end{itemize}
+\subsection{Lemma von Bézout}
+$g,h \in \K[x]$ nicht beide gleich 0.\\
+$\Rightarrow \exists s,t \in \K[x]: sg + th = \text{ggT}(g,h)$ \\
+\subsubsection*{Beweis} Siehe 4.33 (EEA).
+\subsubsection*{Beweis Eindeutigkeit von ggT}
+	$f =\text{ggT}(g,h), ~~~f' = \text{ggT}(g,h)\\
+	 \Rightarrow \exists s',t' \in \K[x]: f' = s' \cdot g + t' \cdot h\\
+	 \\
+	 f \vert g \land f \vert h \Rightarrow f \vert f' \\
+	 \Rightarrow \exists q \in \K[x] : f' = qf\\
+	 \Rightarrow \text{grad}(f') = \text{grad } (q) + \text{grad } (f)\\
+	 \\
+	 \text{grad } (f)= \text{grad } (f') \Rightarrow \text{grad }(q) = 0 \\
+	 \text{grad } (q) = 0 \Rightarrow q = c \neq 0,~~ c \in \K \\
+	 \Rightarrow f' = cf\\
+	 f,f'$ normiert $\Rightarrow c = 1$\qed
+\subsection{Satz: EA in $\K[x]$}
+	 siehe Folien/moodle (wird auch noch ins Skript eingefügt)
+\subsection{Satz: EEA  in $\K[x]$}
+	 siehe Folien/moodle (s.o.)
+	\subsection{Beispiel}
+	$g = x^4 + x^3 + 2x^2 +1,~~~ h = x^3 + 2x^2 + 2\qquad  g,h \in \mathbb{Z}_3[x]$\\			
+	\begin{tabular}{c | c | c | c | c | c | c | c | c | c }
+		$x$ & $y$ & $s_1$ & $s_2$& $s$ & $t_1$ & $t_2$ & $t$ & $q$ & $r$ \\ \hline
+		g & h & 1 & 0 & & 0 & 1 & & & \\ 
+		h &$x^2 +x$  & 0 & 1 & 1& 1 &$2x+1$ &$2x+1$ &$x+2$  & $x^2 +x$\\
+		$x^2 +x$ & $2x+2$ & 1 & $2x+2$ &$2x+2$ &$2x+1$ &$x^2$ & $x^2$& $x+1$& $2x +2$ \\
+	\end{tabular} \\	
+\\	
+\\
+	NR: (Polynomdivision in $\mathbb{Z}_3[x]$, nicht normale Pol.div.)\\
+	\begin{itemize}
+		\item $(x^4 + x^3 + 2x^2 + 1)(x^3+2x^2+2) = \underbrace{x + 2}_{q}$\\
+		\item $ t = 1-(x+1)(2x+1) = 1-(2x^2 + 1) = x^2$ \\
+		\item $(x^2 + x):(2x + 2) = 2^{-1}x$ \\
+		\item Normierung von y: \\
+		\begin{align*}
+		&d = a_n^{-1} y = 2^{-1}(2x +2) = x +1 \\
+		&s = 2^{-1}(2x +2) = x+1 \\
+		&t = 2^{-1} \cdot x^2 = 2x^2,\text{ da } 2^{-1} = 2
+		\end{align*}
+		\item Probe: \\
+		\begin{align*}
+		d = sg + th &=(x+1)(x^4 + x^3 + 2x^2 + 1) + (2x^2)(x^3 + 2x^2 + 2) \\
+		&= x^5 + x^4 + 2x^3 + x + x^4 + x^3 + 2x^2 + 1 + 2x^5 x^4+ x^2 \\
+		&= 3x^5 + 3x^4 +3x^3 + 3x^2 + x+1 \\
+		&= 0x^5 + 0x^4 +0x^3 + 0x^2 + x+1 \\ 
+		&= x+1 = \text{ggT}(g,h)
+		\end{align*}
+	\end{itemize}
+\subsection*{Primelemente in $\K[x]$}
+\uline{Primelemente} sind Polynome, die sich nicht als Produkt von zwei Polynomen vom Grad $\geq 1$ darstellen lassen. So ist z.B. $2x^2 + 2x = 2x(x+1)$ kein Primelement.
 \end{document}
