@@ -17,22 +17,28 @@
 \usepackage{arydshln}
 \usepackage[loose]{units}
 \usepackage{polynom}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{upgreek}
+\usepackage{hyperref}
 \usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{arrows}
 
 %TitlePage%
 
 \begin{titlepage}
 	\title{Mathematik III}
-	\date{30.11.2016}
+	\date{\today}
+	\author{Marius Hobbhahn, Florian Friedrich}
 \end{titlepage}
 
 %NewCommands%
 \newcommand\smallO{
 	\mathchoice
-	{{\scriptstyle\mathcal{O}}}% \displaystyle
-	{{\scriptstyle\mathcal{O}}}% \textstyle
-	{{\scriptscriptstyle\mathcal{O}}}% \scriptstyle
-	{\scalebox{.7}{$\scriptscriptstyle\mathcal{O}$}}%\scriptscriptstyle
+	{{\scriptstyle\mathcal{O}}}
+	{{\scriptstyle\mathcal{O}}}
+	{{\scriptscriptstyle\mathcal{O}}}
+	{\scalebox{.7}{$\scriptscriptstyle\mathcal{O}$}}
 }
 \newcommand{\grad}[1]{\textrm{grad(}#1\textrm{)}}
 \newcommand{\f}[2]{\nicefrac{#1}{#2}}
@@ -40,8 +46,10 @@
 \newcommand{\Z}{\mathds{Z}}
 \newcommand{\N}{\mathds{N}}
 \newcommand{\K}{\mathcal{K}}
+\newcommand{\C}{\mathds{C}}
 \newcommand{\uline}[1]{\underline{#1}}
 \newcommand{\id}{\textrm{id}}
+\newcommand{\ggT}[1]{\textrm{ggT($#1$)}}
 \newcount\colveccount
 \newcommand*\colvec[1]{
 	\global\colveccount#1
@@ -62,8 +70,12 @@
 \newcommand{\vecspaceR}[1]{\vecspace{#1}{\R}}
 \newcommand{\qed}{\hfill$\square$}
 
-%ReNewCommands%
+%RenewCommands%
 
+\renewcommand{\Re}[1]{\text{Re}(#1)}
+\renewcommand{\Im}[1]{\text{Im}(#1)}
+\renewcommand{\i}{\textbf{\textit{i}}}
+\renewcommand{\div}{\textrm{  div }}
 \renewcommand{\>}{\rightarrow}
 \renewcommand{\*}{\cdot}
 \renewcommand{\O}{\mathcal{O}}
@@ -83,21 +95,23 @@
 	\section{Vektorräume}
 	\small{Bemerkung: 1.1-1.10 identisch mit 8.1-8.10 aus Mathematik 2, SS16}
 	\subsection{Definition (Reelle Vektorräume)}
+	\label{1.1}
 	Ein \underline{$\R$-Vektorraum V} ist eine nichtleere Menge, deren Elemente \underline{Vektoren} genannt werden (Bezeichnung mittels kleiner lateinischer Buchstaben, $v,w,x,y,...$), auf der eine Addition $+$ definiert ist, $+\colon V\times V\>V$; und eine Multiplikation mit reellen Zahlen ('Skalare') (Bezeichnung mittels kleiner griechischer Buchstaben $\alpha, \beta, \gamma, \lambda,\mu,...$), $\*\colon\R\times V\>V$, so dass gilt:
 	\begin{itemize}
-		\item[(1.1)] $u+v+w=u+(v+w)\qquad\forall u,v,w\in V$
-	   	\item[(1.2)] Es existiert ein Vektor $\O\in V$ ('\underline{Nullvektor}') mit $v+\O=\O+v=v\qquad\forall v\in V$
-	   	\item[(1.3)] Zu jedem $v\in V$ existiert ein Vektor $-v\in V$ mit $v+(-v)=\O$
+		\item[(1.1)] \label{1.1(1.1)}$u+v+w=u+(v+w)\qquad\forall u,v,w\in V$
+	   	\item[(1.2)] \label{1.1(1.2)}Es existiert ein Vektor $\O\in V$ ('\underline{Nullvektor}') mit $v+\O=\O+v=v\qquad\forall v\in V$
+	   	\item[(1.3)] \label{1.1(1.3)} Zu jedem $v\in V$ existiert ein Vektor $-v\in V$ mit $v+(-v)=\O$
 		\item[(1.4)] $u+v=v+u\qquad\forall u,v\in V$
 	\end{itemize}
 	(Diese Eigenschaften (1.1) bis (1.4) kann man zusammenfassen als '$(V,+)$ ist eine kommutative Gruppe').
 	\begin{itemize}
-		\item[(2.1)] $\overset{\textrm{Addition in }\R}{(\lambda+\mu)}\*v=\lambda\*v\overset{\textrm{Addition in }V}{+}\mu\*v\qquad\forall\lambda,\mu\in\R,v\in V$
+		\item[(2.1)] \label{1.1(2.1)}$\overset{\textrm{Addition in }\R}{(\lambda+\mu)}\*v=\lambda\*v\overset{\textrm{Addition in }V}{+}\mu\*v\qquad\forall\lambda,\mu\in\R,v\in V$
 		\item[(2.2)] $\lambda(v+w)=\lambda v+\lambda w\qquad\forall\lambda\in\R,v,w\in V$
 		\item[(2.3)] $\overset{\textrm{Multiplikation in }\R}{(\lambda\*\mu)}\*v=\lambda\*\overset{\textrm{Multiplikation mit Skalar}}{(\mu\*v)}\qquad\forall\lambda,\mu\in\R,v\in V$
 		\item[(2.4)] $1\*v=v\qquad\forall v\in V$
 	\end{itemize}
 	\subsection{Beispiel}
+	\label{1.2}
 	\begin{itemize}
 		\item[a)] trivialer Vektorraum Nullraum: $V=\{\O\}$\\
 		Es gilt $\O+\O\coloneqq\O,\quad\lambda\*\O\coloneqq\O\qquad\forall\lambda\in\R$
@@ -123,25 +137,25 @@
 	\begin{itemize}
 		\item[a)] $0\*v=\O$
 		\item[b)] $\lambda\*\O=\O$
-		\item[c)] Zu jedem $v\in V$ ist der Vektor $-v$ aus (1.3) in 8.1 eindeutig bestimmt.
+		\item[c)] Zu jedem $v\in V$ ist der Vektor $-v$ aus \hyperref[1.1]{(1.3)} in \hyperref[1.1]{1.1} eindeutig bestimmt.
 		\item[d)] $(-1)\*v=-v$
 	\end{itemize}
 	\subsubsection*{Beweis}
 	\begin{itemize}
 		\item[a)] \begin{align*}
-		\O\overset{\textrm{(1.3)}}{=}\overbrace{\underbracket{0\*v}_{}}^{x}+\overbrace{(-0\*v)}^{-x}&=\underbracket{(0+0)v}_{}+(-0\*v)\\
-		&\overset{\textrm{(2.1)}}{=}(0\*v+0\*v)+(-0\*v)\\
-		&\overset{\textrm{(1.1)}}{=}0\*v+(0*v+(-0\*v))\\
-		&\overset{\textrm{(1.3)}}{=}0\*v+\O\\
-		&\overset{\textrm{(1.2)}}{=}0\*v
+		\O\overset{\textrm{\hyperref[1.1]{(1.3)}}}{=}\overbrace{\underbracket{0\*v}_{}}^{x}+\overbrace{(-0\*v)}^{-x}&=\underbracket{(0+0)v}_{}+(-0\*v)\\
+		&\overset{\textrm{\hyperref[1.1]{(2.1)}}}{=}(0\*v+0\*v)+(-0\*v)\\
+		&\overset{\textrm{\hyperref[1.1]{(1.1)}}}{=}0\*v+(0*v+(-0\*v))\\
+		&\overset{\textrm{\hyperref[1.1]{(1.3)}}}{=}0\*v+\O\\
+		&\overset{\textrm{\hyperref[1.1]{(1.2)}}}{=}0\*v
 		\end{align*}
 		\item[b)] Wie a), starte mit $\O=\lambda\*\O+(-\lambda\*\O)$, erhalte $\O=\lambda\*\O$
 		\item[d)] \begin{align*}
 		\underbracket{v+(-1\*v)}_{}&=1\*v+(-1\*v)\\
-		&\overset{\textrm{(2.1)}}{=}(1+(-1))v\\
+		&\overset{\textrm{\hyperref[1.1]{(2.1)}}}{=}(1+(-1))v\\
 		&=0\*v\\
 		&\overset{\textrm{a)}}{=}\O\\
-		&\overset{\textrm{(1.3)}}{=}v+(-v)
+		&\overset{\textrm{\hyperref[1.1]{(1.3)}}}{=}v+(-v)
 		\end{align*}
 		Addiere auf beiden Seiten $-v$:
 		\begin{align*}
@@ -152,15 +166,17 @@
 	\end{itemize}
 	\hfill$\square$
 	\subsection{Definition (Untervektorraum)}
+	\label{1.4}
 	Sei $V$ ein $\R$-Vektorraum.\\
 	Eine Teilmenge $U\subseteq V,\quad U\neq\emptyset$ heißt \underline{Unter(vektor)raum von $V$}, falls $U$ bezüglich der Addition auf $V$ und der Multiplikation mit Skalaren selbst ein Vektorraum ist.
 	\subsection{Beispiel}
 	\begin{itemize}
 		\item[a)] $V=\R^2,\quad U=\{\vec2{0}{0}\}$ ist Unterraum von $V$
-		\item[b)] $V=\R^2,\quad U=\{\vec2{1}{2}\}$ ist kein Unterraum von $V$, z.B. (1.2) ist verletzt, Addition funktioniert auch nicht: $\vec2{1}{2}+\vec2{1}{2}=\vec2{2}{4}\notin U$
-		\item[c)] $V=\R^2,\quad U=\{\vec2{\lambda}{0}|\lambda\in\R\}$ ist ein Unterraum von $V$ (prüfe alle Eigenschaften von Definition 8.1) $\>$ umständlich, einfacher geht es mit 8.6
+		\item[b)] $V=\R^2,\quad U=\{\vec2{1}{2}\}$ ist kein Unterraum von $V$, z.B. \hyperref[1.1]{(1.2)} ist verletzt, Addition funktioniert auch nicht: $\vec2{1}{2}+\vec2{1}{2}=\vec2{2}{4}\notin U$
+		\item[c)] $V=\R^2,\quad U=\{\vec2{\lambda}{0}|\lambda\in\R\}$ ist ein Unterraum von $V$ (prüfe alle Eigenschaften von \hyperref[1.1]{Definition 1.1}) $\>$ umständlich, einfacher geht es mit \hyperref[1.6]{Definition 1.6}
 	\end{itemize}
 	\subsection{Satz (Unterraumkriterium)}
+	\label{1.6}
 	Sei $V$ ein $\R$-Vektorraum, sei $\emptyset\neq U\subseteq V$.\\
 	Dann ist $U$ Unterraum von $V$ genau dann, wenn gilt ($\Leftrightarrow$):
 	\begin{itemize}
@@ -171,11 +187,12 @@
 	Man sagt: $U$ ist abgeschlossen bezüglich der Vektoraddition und der Multiplikation mit Skalaren.
 	\subsubsection*{Beweis}
 	\begin{itemize}
-		\item[$\Rightarrow$] ist klar, da $U$ laut Definition 8.4 selbst Vektorraum
-		\item[$\Leftarrow$] rechne die Vektorraumaxiome nach (Definition 8.1, also z.B. $\O\in U$,...)
+		\item[$\Rightarrow$] ist klar, da $U$ laut \hyperref[1.4]{Definition 1.4} selbst Vektorraum
+		\item[$\Leftarrow$] rechne die Vektorraumaxiome nach (\hyperref[1.1]{Definition 1.1}, also z.B. $\O\in U$,...)
 	\end{itemize}
 	\hfill$\square$
 	\subsection{Beispiel}
+	\label{1.7}
 	\begin{itemize}
 		\item[a)] $\quad$\\
 		\begin{minipage}[c]{0.5\textwidth}
@@ -202,7 +219,7 @@
 			(0,1.5)--(3,3)node[right]{$G^\prime$};
 			\end{tikzpicture}
 		\end{minipage}
-		\item[b)] $V=\R^3,\qquad U_1=\{\vec3{x_1}{x_2}{x_3}\in\R^3|x_1+x_2-x_3=0\}$ ist Unterraum. Wir zeigen (1), (2) aus 8.6:
+		\item[b)] $V=\R^3,\qquad U_1=\{\vec3{x_1}{x_2}{x_3}\in\R^3|x_1+x_2-x_3=0\}$ ist Unterraum. Wir zeigen (1), (2) aus \hyperref[1.6]{1.6}:
 		\begin{itemize}
 			\item $U_1\neq\emptyset$, z.B. $\O=\vec3{0}{0}{0}\in U_1$, denn $\overset{x_1}{0}+\overset{x_2}{0}-\overset{x_3}{0}=0$
 			\item[(1)] Sei $\lambda\in\R,\quad v=\vec3{v_1}{v_2}{v_3}\in U_1$, d.h. $v_1+v_2-v_3=0$\\
@@ -244,7 +261,7 @@
 		$2\*\vec3{1}{0}{0}=\vec3{2}{0}{0}\notin U_3$, denn $2^2+0^2+0^2\nleq1$\\
 		Geometrische Interpretation:\\
 		$U_3$ ist eine Kugel um $\vec3{0}{0}{0}$ mit Radius 1
-		\item[e)] $I\subseteq\R$ Intervall\\Menge $C(I)$ ($C$: continuous, stetig) der stetigen Funktionen auf $I$ ist Unterraum von $\mathcal{F}(I,\R)$ (vgl. Beispiel 8.2d)).\\
+		\item[e)] $I\subseteq\R$ Intervall\\Menge $C(I)$ ($C$: continuous, stetig) der stetigen Funktionen auf $I$ ist Unterraum von $\mathcal{F}(I,\R)$ (vgl. \hyperref[1.2]{Beispiel 1.2}d)).\\
 		Menge der diffbaren Funktionen auf $I$ ist Unterraum von $C(I)$.
 	\end{itemize}
 	\subsection{Satz}
@@ -255,7 +272,7 @@
 		(das ist nicht die Vereinigung $U_1\cap U_2$!)
 	\end{itemize}
 	\subsubsection*{Beweis}
-	Prüfe Unterraumkriterium 8.6
+	Prüfe \hyperref[1.6]{Unterraumkriterium 1.6}
 	\begin{itemize}
 		\item[a)] Übung: Prüfe $\O\in U_1\cap U_2$? $\checkmark$, (1), (2)
 		\item[b)] \begin{itemize}
@@ -281,12 +298,15 @@
 		\item $v=\vec2{1}{0}\in\R^2\qquad\qquad G_1=\{\lambda v|\lambda\in\R\}$
 		\item $w=\vec2{2}{1}\in\R^2\qquad\qquad G_2=\{\mu w|\mu\in\R\}$
 	\end{itemize}
-	(vgl. 8.7a), Geraden durch $\vec2{0}{0}$, Unterräume
+	(vgl. \hyperref[1.7]{1.7}a), Geraden durch $\vec2{0}{0}$, Unterräume
 	\begin{itemize}
 		\item $G_1+G_2$ ist Ebene
 		\item $G_1\cap G_2$ ist $\O=\vec2{0}{0}$
 	\end{itemize}
 
+%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%
+%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%
+%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%
 %MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%
 %MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%
 %MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%%MATHEMATIK 3%
@@ -392,12 +412,12 @@ $V: \R$-VR (V ist Vektorraum in den reellen Zahlen) \\
 $M \subseteq V \Rightarrow \langle M \rangle_{\R}$ ist der kleinste UVR von $V$, der $M$ enthält.\\
 \subsubsection*{Beweis}
 \begin{itemize}
-	\item $\langle M \rangle_{\R}$ ist UVR. erfüllt Kriterien von 1.6, daher klar: \\
-	1.6 2) erfüllt. $u \in \langle M \rangle_{\R} \Rightarrow u = \lambda_1 \cdot v_1 + ... + \lambda_n \cdot v_n\quad(M = \{v_1, ..., v_n \})\\ \Rightarrow \lambda \cdot u = \underbrace{\lambda  \lambda_1}_{\in \R} \cdot v_1 + ... + \underbrace{\lambda \lambda_n}_{\in \R} \cdot v_n$\\
-	1.6 3) ähnlich.
+	\item $\langle M \rangle_{\R}$ ist UVR. erfüllt Kriterien von \hyperref[1.6]{1.6}, daher klar: \\
+	\hyperref[1.6]{1.6} 2) erfüllt. $u \in \langle M \rangle_{\R} \Rightarrow u = \lambda_1 \cdot v_1 + ... + \lambda_n \cdot v_n\quad(M = \{v_1, ..., v_n \})\\ \Rightarrow \lambda \cdot u = \underbrace{\lambda  \lambda_1}_{\in \R} \cdot v_1 + ... + \underbrace{\lambda \lambda_n}_{\in \R} \cdot v_n$\\
+	\hyperref[1.6]{1.6} 3) ähnlich.
 	\item Angenommen $U$ ist der kleinste UVR, so dass $M \subseteq U$. \\
 	Z. z.: $\langle M \rangle_{\R} = U.$\\
-	Wegen 1.6 enthält $U$ alle Linearkombinationen von Vektoren aus M. \\
+	Wegen \hyperref[1.6]{1.6} enthält $U$ alle Linearkombinationen von Vektoren aus M. \\
 	$\Rightarrow \langle M \rangle_{\R} \subseteq U \Rightarrow U$ kann nicht kleiner sein als $\langle M \rangle_{\R} \Rightarrow \langle M \rangle_{\R} = U$\hfill$\square$
 \end{itemize}
 \subsection*{Ergänzung zu 1.13}
@@ -457,6 +477,7 @@ $M \subseteq V \Rightarrow \langle M \rangle_{\R}$ ist der kleinste UVR von $V$,
 	\end{itemize}
 \end{itemize}
 	\subsection{Satz}
+	\label{1.16}
 $M = \{v_1,...,v_n \} \subseteq V$\\
 \begin{itemize}
 	\item[(i)] $M$ linear unabhängig $\Leftrightarrow  \text{ Zu jedem } v \in \vecspaceR{M}$ gibt es eindeutig bestimmte \\
@@ -481,6 +502,7 @@ $M = \{v_1,...,v_n \} \subseteq V$\\
 	$\lambda_i = 0$, weil M linear unabhängig.\hfill$\square$
 \end{itemize}
 \subsection{Satz}
+\label{1.17}
 $M \subseteq V$ linear unabhängig genau dann, wenn gilt:
 \begin{align*}
 	N \subseteq M,\quad \vecspaceR{N} &= \vecspaceR{M} \Rightarrow N = M 
@@ -536,12 +558,13 @@ Für $V=\{\mathcal{O}\}$ ist $B=\emptyset$ die Basis.
 	$\Rightarrow\vec{2}{1}{0},\vec{2}{0}{1}\in\langle B_2\rangle_\R\Rightarrow\R^2=\langle B_1\rangle_\R\subseteq\langle B_2\rangle_\R$
 \end{itemize}
 \subsection{Satz (Existenz von Basen)}
+\label{1.20}
 $V$ \underline{andlich} erzeugter $\R$-VR $\Rightarrow$ Jedes endliche Erzeugendensystem enthält Basis.
 \subsubsection*{Beweis}
 Sei $M\subseteq V$ endlich, $\langle M\rangle_\R=V$
 \begin{itemize}
 	\item $M$ linear unabhängig $\rightarrow$ fertig
-	\item $M$ linear abhängig $\overset{1.17}{\Rightarrow}$ Man kann aus $M$ einen Vektor $v\in M$ weglassen,\\
+	\item $M$ linear abhängig $\overset{\hyperref[1.17]{1.17}}{\Rightarrow}$ Man kann aus $M$ einen Vektor $v\in M$ weglassen,\\
 	\noindent\hspace*{38mm} so dass $\langle M\setminus\{v\}\rangle_\R=V=\langle M\rangle_\R$. Nach endlich vielen\\
 	\noindent\hspace*{38mm} Schritten liefert das Verfahren eine Basis.\hfill$\square$
 \end{itemize}
@@ -580,6 +603,7 @@ Z.z: ($\star$) ist Basis.
 	\end{align*}
 \end{itemize}
 \subsection{Satz (Steinitz'scher Austauschsatz)}
+\label{1.22}
 Geg. $w_1,...,w_m\in V$ linear unabhängig, $\{v_1,...,v_n\}$ Basis von $V$.\\
 Es folgt:
 \begin{itemize}
@@ -592,15 +616,16 @@ Es folgt:
 		\item[1)] $w_1\in V\Rightarrow w_1=\sum_{i=1}^{n}\lambda_iv_i$\\
 		Wären alle $\lambda_i=0$, dann wäre auch $w_1=0$. Da $\mathcal{O}\in V$ linear abhängig ist, wäre also auch $w_1,...,w_m$ linear abhängig. $\Lightning$\\
 		Also: Mindestens ein $\lambda_i\neq 0$\\
-		O.B.d.A. $\lambda_1\neq 0$ (sonst umnummerieren) $\overset{\textrm{1.20}}{\Rightarrow}\{w_1,v_2,...,v_n\}$ ist Basis von $V$
+		O.B.d.A. $\lambda_1\neq 0$ (sonst umnummerieren) $\overset{\textrm{\hyperref[1.20]{1.20}}}{\Rightarrow}\{w_1,v_2,...,v_n\}$ ist Basis von $V$
 		\item[2)]  $w_2\in V\Rightarrow \mu_1w_1+\sum_{i=2}^{n}\mu_iv_i$\\
 		Wären alle $\mu_2,...,\mu_n=0$, so wäre $w_2=\mu_1w_1$, also auch $w_1,w_2$ linear abhängig. $\Lightning$, da $\{w_1,...,w_m\}$ linear unabhängig.\\
 		$\Rightarrow$ Mindestens ein $\mu_i\neq 0,\quad i\in\{2,...,n\}$\\
-		O.B.d.A. $\mu_2\neq 0\overset{\textrm{1.20}}{\Rightarrow}\{w_1,w_2,v_3,...,v_n\}$ Basis von $V$
+		O.B.d.A. $\mu_2\neq 0\overset{\textrm{\hyperref[1.20]{1.20}}}{\Rightarrow}\{w_1,w_2,v_3,...,v_n\}$ Basis von $V$
 	\end{itemize}\hfill$\square$
 	\item[b)] $\rightarrow$ Übung
 \end{itemize}
 \subsection{Korollar}
+\label{1.23}
 $V$ endlich erzeugter $\R$-VR
 \begin{itemize}
 	\item[i)] Je zwei Basen von $V$ enthalten gleich viele Elemente.
@@ -610,12 +635,13 @@ $V$ endlich erzeugter $\R$-VR
 \subsubsection*{Beweis}
 \begin{itemize}
 	\item[i)] $B,\tilde{B}$ Basen\\
-	$B$ linear unabhängig $\overset{\textrm{1.22b)}}{\Rightarrow}|B|\leq|\tilde{B}|$\\
-	$\tilde{B}$ linear unabhängig $\overset{\textrm{1.22b)}}{\Rightarrow}|\tilde{B}|\leq|B|$\\
+	$B$ linear unabhängig $\overset{\textrm{\hyperref[1.22]{1.22}b)}}{\Rightarrow}|B|\leq|\tilde{B}|$\\
+	$\tilde{B}$ linear unabhängig $\overset{\textrm{\hyperref[1.22]{1.22}b)}}{\Rightarrow}|\tilde{B}|\leq|B|$\\
 	$\Rightarrow|B|=|\tilde{B}|$
-	\item[ii)] Wähle beliebige Basis von $V$ und tausche aus(1.22a)).
+	\item[ii)] Wähle beliebige Basis von $V$ und tausche aus(\hyperref[1.22]{1.22}a)).
 \end{itemize}
 \subsection{Satz}
+\label{1.24}
 $V$ endlich erzeugter $\R$-VR, $B\subseteq V$.\\
 Dann sind äquivalent:
 \begin{itemize}
@@ -625,10 +651,10 @@ Dann sind äquivalent:
 \end{itemize}
 \subsubsection*{Beweis}
 \begin{itemize}
-	\item[i)$\Rightarrow$ii)] Wegen 1.23 (linear unabhängige Menge zu Basis ergänzen, alle Basen gleich groß)
+	\item[i)$\Rightarrow$ii)] Wegen \hyperref[1.23]{1.23} (linear unabhängige Menge zu Basis ergänzen, alle Basen gleich groß)
 	\item[ii)$\Rightarrow$i)] (Bzw. $\neg$i)$\Rightarrow\neg$ii).) $B$ keine Basis, $B$ linear unabhängig\\
 	 $\Rightarrow\langle B\rangle_\R\subsetneq V\Rightarrow\exists v\in V\setminus\langle B\rangle_\R\colon B\cup\{v\}$ linear unabhängig
-	\item[i)$\Rightarrow$iii)] Satz 1.17 
+	\item[i)$\Rightarrow$iii)] \hyperref[1.17]{Satz 1.17} 
 \end{itemize}\hfill$\square$
 \subsection{Definition (Dimension)}
 \marginpar{26.10.16}
@@ -638,15 +664,16 @@ $V: \R $-VR\\
 	\item[ii)] Ist $V$ nicht endlich erzeugbar, so heißt $V$ unendlichdimensional. 
 \end{itemize}
 \subsection{Korollar}
+\label{1.26}
 dim $V = n, B \subseteq V, |B| = n$.\\
 Dann ist $B$ Basis von $V$, wenn $B$ linear unabhängig oder $\vecspaceR{B} = V$
-\subsubsection*{Beweis} Folgt aus 1.24
+\subsubsection*{Beweis} Folgt aus \hyperref[1.24]{1.24}
 		\subsection{Beispiel}
 \begin{itemize}
 	\item[a)] $\{e_1,...,e_n\}$ Basis von $\R^n \Rightarrow \dim( \R^n) = n$
 	\item[b)] $\vecspaceR{\emptyset} = \{\mathcal{O}\} \Rightarrow dim(\{\mathcal{O}\}) = 0$
 	\item[c)] Bilden $\vec3{1}{0}{0}, \vec3{0}{1}{0}, \vec3{0}{1}{1}$ Basis von $V$? \\
-	Ja, weil linear unabhängig (siehe Korollar 1.26).
+	Ja, weil linear unabhängig (siehe \hyperref[1.26]{Korollar 1.26}).
 	\item[d)] $V = \R^4, U = \vecspaceR{u_1 = \vec4{1}{2}{0}{1},u_2 = \vec4{0}{2}{1}{0}}$ \\
 	$u_1, u_2$ linear unabhängig $\Rightarrow \dim(U) = 2$ \\
 	Ergänze $u_1,u_2$ zu Basis von $V = \R^4$ \\
@@ -656,12 +683,12 @@ Dann ist $B$ Basis von $V$, wenn $B$ linear unabhängig oder $\vecspaceR{B} = V$
 		$u_1 = \vec4{1}{2}{0}{1} = e_1 + 2e_2 + e_4 \Rightarrow \{u_1, e_2,e_3, e_4\}$ Basis von $\R^4$ \\
 		$u_2 = \vec4{0}{2}{1}{0} = 2 e_2 + e_3 \Rightarrow \{u_1,u_2, e_3,e_4 \}$ Basis von $\R^4$ \\
 		(Basis könnte auch anders aussehen, nur beispielhaft dargestellt)
-		\item 2. Möglichkeit (1.16) \\
+		\item 2. Möglichkeit (\hyperref[1.16]{1.16}) \\
 		\begin{itemize}
 			\item $e_1 \notin U$ ($\star$)(nachrechnen) \\
-			$\overset{1.16}{\Rightarrow} \{u_1,u_2,e_1\}$ linear unabhängig
+			$\overset{\hyperref[1.16]{1.16}}{\Rightarrow} \{u_1,u_2,e_1\}$ linear unabhängig
 			\item $e_4 \notin \vecspaceR{\{u_1,u_2,e_1\}}$ (nachrechnen) \\
-			$\overset{1.16}{\Rightarrow} \{u_1,u_2,e_1,e_4\}$ linear unabhängig und damit Basis (Korollar 1.26)
+			$\overset{\hyperref[1.16]{1.16}}{\Rightarrow} \{u_1,u_2,e_1,e_4\}$ linear unabhängig und damit Basis (\hyperref[1.26]{Korollar 1.26})
 		\end{itemize}
 		($\star$) Angenommen: 
 		\begin{align*}
@@ -766,6 +793,7 @@ $\underbrace{\begin{pmatrix}
 4&2 \\
 \end{pmatrix}}_{\textrm{Matrix}} \cdot \vec2{k}{g} = \vec2{18}{40}$
 \subsection{Definition (Matrix)}
+\label{2.2}
 Allgemeines lineares Gleichungssystem: \\
 Gegeben:
 \begin{itemize}
@@ -814,6 +842,7 @@ $A$ bildet Vektoren auf Vektoren ab.\\
 \\\\\\\\
 Matrizen können nicht nur zur Lösung von LGS verwendet werden, sondern auch in der Geometrie: \\
 \subsection{Beispiel:}
+\label{2.4}
 \begin{itemize}
 	\item[a)] Spiegelung $S_y$ ain $\R^2$ an $y$-Achse\\
 	\begin{minipage}[c]{0.5\textwidth}
@@ -936,10 +965,11 @@ Matrizen können nicht nur zur Lösung von LGS verwendet werden, sondern auch in
 	\end{minipage}
 \end{itemize}
 \subsection{Bemerkung}
-Aus Beispiel 2.4 b) und Def 2.2 ergibt sich: \\
+Aus \hyperref[2.4]{Beispiel 2.4} b) und \hyperref[2.2]{Definition 2.2} ergibt sich: \\
 $A \cdot e_j = 1 \cdot \vec3{a_{1j}}{\vdots}{a_{mj}}\quad$ ($j$-te Spalte von $A\in\mathcal{M}_{m,n}(\R)$) \\
 $\Rightarrow A = (\underbrace{A_{e_1}, A_{e_2},...,A_{e_n}}_{\textrm{Spalten}})$
 \subsection{Satz}
+\label{2.6}
 $A \in \mathcal{M}_{m,n}(\R)\qquad x,y \in \R^n$\\
 \begin{itemize}
 	\item[i)] $A(\lambda x) = \lambda (A \cdot x) \qquad \lambda \in \R$
@@ -974,7 +1004,7 @@ $A \in \mathcal{M}_{m,n}(\R)\qquad x,y \in \R^n$\\
 			\end{pmatrix}}_{B}\vec2{x_1}{x_2}&=\begin{pmatrix}
 		a&b\\c&d
 	\end{pmatrix}[\underbrace{x_1\vec2{e}{g}+x_2\vec2{f}{h}}_{\in\R^2}]\\
-	&\overset{2.6}{=}\quad x_1\lbrack\underbrace{e\vec2{a}{c}+g\vec2{b}{d}}_{\in\R^2}]+x_2[\underbrace{f\vec2{a}{c}+h\vec2{b}{d}}_{\in\R^2}]\\
+	&\overset{\hyperref[2.6]{2.6}}{=}\quad x_1\lbrack\underbrace{e\vec2{a}{c}+g\vec2{b}{d}}_{\in\R^2}]+x_2[\underbrace{f\vec2{a}{c}+h\vec2{b}{d}}_{\in\R^2}]\\
 	&=\underbrace{\begin{pmatrix}
 		ea+gb&fa+hb\\ec+gd&fc+hd
 		\end{pmatrix}}_{\textrm{Matrixprodukt }A\*B}\vec2{x_1}{x_2}
@@ -1215,6 +1245,7 @@ z.B.: $\pi = (123)(45)$
 	\end{pmatrix} = (13542)$
 \end{minipage}\\
 \subsection{Bemerkung} 
+\label{3.6}
 \begin{itemize}
 	\item[a)] Die Verknüpfung von 2 Permutationen $\pi, \sigma$ ist wieder Permutation $\eta$ mit $\eta(i) = \pi \circ \sigma(i) = \pi(\sigma(i))$
 	\item[b)] Fixpunkte mit $\pi(i)= i$ lässt man weg, z.B. $\underbrace{(123)(4)}_{\in \mathscr{S}_4} = (123)$
@@ -1226,6 +1257,7 @@ z.B.: $\pi = (123)(45)$
 	$(123) = (231)$ oder $(34)(12) = (12)(34)$
 \end{itemize}
 \subsection{Beispiel}
+\label{3.7}
 \marginpar{09.11.16}
 \begin{minipage}[c]{0.8\textwidth}
 	\renewcommand{\arraystretch}{1.7}
@@ -1289,8 +1321,8 @@ z.B.: $\pi = (123)(45)$
 	\item Eine Menge $X \neq \emptyset$ heißt \uline{abgeschlossen} bzgl. einer Verknüpfung ' $\cdot$ ', falls $a \cdot b \in  X \qquad \forall a,b \in X$. \\
 	Beispiel: $X=\{-1,1\}$ mit '$\*$' Addition $\Rightarrow(-1)\*(1)=-1+1=0$
 \end{itemize}
-	Die Menge $\{id, \pi ,\sigma, \eta \}$ aus Beispiel 3.7 ist abgeschlossen bzgl. der Verkettung von Permutationen \\
-	\subsubsection*{Bemerkung} Die Verknüpfung von Elementen einer endlichen Menge stellt man anhand der Verknüpfungstafel dar, siehe Bsp. 3.7
+	Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abgeschlossen bzgl. der Verkettung von Permutationen \\
+	\subsubsection*{Bemerkung} Die Verknüpfung von Elementen einer endlichen Menge stellt man anhand der Verknüpfungstafel dar, siehe \hyperref[3.7]{Beispiel 3.7}.
 \subsection{Definition (Gruppe)}
 \begin{itemize}
 	\item[a)] Eine \uline{Gruppe} ist ein Paar $(G, \cdot) $ mit Menge $G \neq \emptyset$ und einer Verknüpfung $\cdot : \underbrace{G \times G \rightarrow G}_{\text{abgeschlossen!}}$, die folgende Eigenschaften erfüllt:
@@ -1307,6 +1339,7 @@ z.B.: $\pi = (123)(45)$
 	\item[b)] $| G |$ heißt \uline{Ordnung} der Gruppe $G$.
 \end{itemize}
 \subsection{Beispiel}
+\label{3.10}
 \begin{itemize}
 	\item[a)] $(\{e\}, \cdot )$ ist Gruppe
 	\item[b)] $\R, \mathds{Z}, \mathds{Q}$ mit ' + ' ist abelsche Gruppe. Inverse zu a ist -a.
@@ -1318,12 +1351,13 @@ z.B.: $\pi = (123)(45)$
 		\item $(\{1\}, \cdot )$ bzw. $(\{0\}, + )$
 		\item $(\{1,-1\}, \cdot)$
 	\end{itemize}
-	Für weitere endliche Gruppen muss man Restklassen (Beispiel 3.12) Matrizen oder Permutationen betrachten
+	Für weitere endliche Gruppen muss man Restklassen (\hyperref[3.12]{Beispiel 3.12}) Matrizen oder Permutationen betrachten
 	\item[e)] $\mathscr{S}_2 = \{\id, (12)\}$ und \\
-	$\mathscr{S}_3 = \{\id, (12), (23),(13),(123),(132)\}$ sind Gruppen (s. 3.11)
-	\item[f)] $V_4 = \{\id, \pi, \sigma, \eta \}$ aus Beispiel 3.7 ist die Symmetriegruppe des Rechtecks und heißt 'Kleinsche Vierergruppe' ($V_4$ Gruppe: s. 3.16 e).
+	$\mathscr{S}_3 = \{\id, (12), (23),(13),(123),(132)\}$ sind Gruppen (s. \hyperref[3.11]{3.11})
+	\item[f)] $V_4 = \{\id, \pi, \sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist die Symmetriegruppe des Rechtecks und heißt 'Kleinsche Vierergruppe' ($V_4$ Gruppe: s. \hyperref[3.16]{3.16} e).
 \end{itemize}
 \subsection{Satz}
+\label{3.11}
 $\mathscr{S}_n$ ist eine \uline{nicht} abelsche Gruppe. (Name: Symmetrische Gruppe) \\
 \subsubsection*{Beweis}
 \begin{itemize}
@@ -1353,10 +1387,11 @@ $\mathscr{S}_n$ ist eine \uline{nicht} abelsche Gruppe. (Name: Symmetrische Grup
 Fixpunkte und 2er-Zyklen ändern sich dabei nicht:\\
 $\sigma = (1678)(23)\Rightarrow\sigma^{-1} = (1876)(23)$\\
 Setzt man die Pfeile von den Graphen $\pi$ und $\pi^{-1}$ zusammen, ändert sich nichts, d.h. $\pi \cdot  \pi^{-1}(i) = i \Rightarrow \pi \cdot  \pi^{-1} = \id = \pi \cdot  \pi^{-1}$
-\item nicht abelsch: Bem. 3.6d)
+\item nicht abelsch: \hyperref[3.6]{Bemerkung 3.6}d)
 \end{itemize}\newpage
 \marginpar{15.11.2016}
 \subsection{Beispiel}	
+\label{3.12}
 Restklassen modulo $n:  \mathds{Z}_n = \{0,1,...,n-1\}$, \\
 \\
 z. Bsp. $n=3$\\ 
@@ -1453,6 +1488,7 @@ Berechnung der Inversen in $\mathds{Z}^*_n$:
 \end{align*}
 \newpage
 \subsection{Satz (Eigenschaften von Gruppen)} 
+\label{3.13}
 $G$ Gruppe.
 \begin{itemize}
 	\item[i)] Das Neutralelement von $G$ ist eindeutig. 
@@ -1499,12 +1535,13 @@ $(G, \cdot)$ Gruppe, $\emptyset \neq U \subseteq G$.\\
  	\item $e$ von $G$ ist auch $e$ von $U$
  	\item Inversen in $U$ gleich wie in $G$
  \end{itemize}
-(wegen 3.13)
+(wegen \hyperref[3.13]{Satz 3.13})
 \subsection{Beispiel}
+\label{3.16}
 \begin{itemize}
 	\item[a)] $(\mathds{Z}, +) \leq (\mathds{Q}, + ) \leq (\R, + )$
 	\item[b)] $(\{-1,1\}, \cdot) \leq (\mathds{Q}\setminus \{0\}, \cdot) \leq (\R \setminus\{0\}, \cdot)$
-	\item[c)] $V_4 = \{\id,\underbrace{(AB)(CD)}_{\pi},\underbrace{(AC)(BD)}_{\sigma} \underbrace{(AD)(BC)}_{\eta}\} \leq \mathscr{S}_4$ (Bsp. 3.7, 3.10) weil $V_4$ abgeschlossen, $id \in V_4,\quad \gamma^{-1} = \gamma \qquad \forall \gamma \in V_4$
+	\item[c)] $V_4 = \{\id,\underbrace{(AB)(CD)}_{\pi},\underbrace{(AC)(BD)}_{\sigma} \underbrace{(AD)(BC)}_{\eta}\} \leq \mathscr{S}_4$ (Bsp. \hyperref[3.7]{3.7}, \hyperref[3.10]{3.10}) weil $V_4$ abgeschlossen, $id \in V_4,\quad \gamma^{-1} = \gamma \qquad \forall \gamma \in V_4$
 \end{itemize}
 \subsection{Beispiel}
 Es ist $U = 3 \mathds{Z} = \{3k\mid k \in \mathds{Z}\}$ eine Untergruppe von $(\mathds{Z}, +)$.\\
@@ -1609,24 +1646,26 @@ Man schreibt oft $\mathds{Z}_3 = \{\underline{0}, \underline{1},\underline{2}\}$
 Allgemein: $\mathds{Z}_n := \f{\mathds{Z}}{n \cdot \mathds{Z}},~~ n \in \mathds{N}$ \\
 Beobachtung in $\mathds{Z}_3:$ Ist $x \in \underline{1}, y \in \underline{2},$ dann ist immer $x + y \in\underline{0}$
 \subsection{Kriterium}
+\label{3.20}
 $G$ Gruppe, $U \leq G$.\\ Für je 2 beliebige Klassen, $Ux, Uy ~~(x,y \in G)$ gelte: \\
 $x' \in Ux, ~y' \in Uy \Rightarrow x' \cdot y' \in U(xy)$
 \subsection{Definition (Wohldefiniertheit)}
-Wenn Kriterium 3.20 erfüllt ist, kann man auf $\f{G}{U}$ eine Verknüpfung definieren: \\
+\label{3.21}
+Wenn \hyperref[3.20]{Kriterium 3.20} erfüllt ist, kann man auf $\f{G}{U}$ eine Verknüpfung definieren: \\
 $\ast: \f{G}{U} \times \f{G}{U} \rightarrow \f{G}{U}$ mit \\
 $(Ux) \ast (Uy) = U(\underbrace{xy}_{\text{Produkt in $G$}})$\\
-Man sagt: Wenn 3.20 erfüllt, ist '$\ast$' \uline{wohldefiniert}.
+Man sagt: Wenn \hyperref[3.20]{3.20} erfüllt, ist '$\ast$' \uline{wohldefiniert}.
 \subsection{Beispiel}
 \marginpar{23.11.2016}
 \begin{itemize}
 	\item[a)] $\ast$ wohldefiniert auf $(\mathds{Z}_n, +)$ (ohne Beweis) \\
 	\uline{Bemerkung:} $x \sim_U y \Leftrightarrow \exists u \in 3 \mathds{Z}: u +x = y $\\
 	 \noindent\hspace*{34.5mm}$\Leftrightarrow x \equiv y \pmod{3}$ \\
-	Daraus ergibt sich die Def. aus Bsp. 3.12 mit $\mathds{Z}_3 = \{0,1,2\}$ und $x \oplus y = x +y \pmod{3}$
+	Daraus ergibt sich die Def. aus \hyperref[3.12]{Bsp. 3.12} mit $\mathds{Z}_3 = \{0,1,2\}$ und $x \oplus y = x +y \pmod{3}$
 	\item[b)] $U = \{\id, (12)\} \leq \mathscr{S}_3$. Auf $\f{\mathscr{S}_3}{U}$ ist $\ast$ nicht wohldefiniert (Übung).
 \end{itemize}
 \subsection{Satz (Faktorengruppe/Quotientengruppe)}
-$U \leq G,~~G$ Gruppe.\\ Wenn '$\ast$' aus Def 3.21 wohldefiniert, dann ist $(\f{G}{U}, \ast)$ eine Gruppe. \\ (Name: \uline{Quotientengruppe/Faktorengruppe}) \\
+$U \leq G,~~G$ Gruppe.\\ Wenn '$\ast$' aus \hyperref[3.21]{Def 3.21} wohldefiniert, dann ist $(\f{G}{U}, \ast)$ eine Gruppe. \\ (Name: \uline{Quotientengruppe/Faktorengruppe}) \\
 \uline{Beweis:} Übung. \\
 \uline{Bemerkung:} $G$ abelsch $\Rightarrow$ '$\ast$' immer wohldefiniert, d.h.
 $\f{G}{U}$ Gruppe.
@@ -1735,7 +1774,7 @@ Sei $\mathcal{R} \neq \emptyset$ eine Menge mit 2 Verknüpfungen + und $\cdot$.
 	\end{itemize}
 \marginpar{29.11.2016}
 		\item[ii)] $(\mathcal{R},+,\cdot)$ heißt \uline{kommutativ}, falls '$\cdot$' zusätzlich kommutativ ist
-		\item[iii)] $(\mathcal{R},+,\cdot)$ heißt \uline{Ring mit Eins}, falls es bezüglich '$\cdot$' ein Neutralelement 1 gibt mit $a \cdot 1 = 1 \cdot a = a \qquad \forall a \in \mathcal{R}$.
+		\item[iii)] $(\mathcal{R},+,\cdot)$ heißt \uline{Ring mit Eins}, falls es bezüglich '$\cdot$' ein Neutralelement $\upharpoonleft$ gibt mit $a \cdot \upharpoonleft = \upharpoonleft \cdot a = a \qquad \forall a \in \mathcal{R}$.
 		\item[iv)] Ist $(\mathcal{R},+,\cdot)$ Ring mit Eins, so heißen die bezüglich '$\cdot$' invertierbaren Elemente \uline{Einheiten}. \\
 		Bezeichnung: 
 		\begin{itemize}
@@ -1755,7 +1794,8 @@ Sei $\mathcal{R} \neq \emptyset$ eine Menge mit 2 Verknüpfungen + und $\cdot$.
 	\uline{Bemerkung:} $\mathcal{R}_1,...,\mathcal{R}_n$ Ringe $\Rightarrow \mathcal{R}_1 \times ... \times \mathcal{R}_n$ Ring
 	\item[f)] $(M_n(\R),+, \cdot)$ (für $n\geq 2$) Ring mit Eins $(= E_n)$. Nicht kommutativ! 
 \end{itemize}
-\subsection{Satz (Rechenregeln für Ring)}
+\subsection{Satz (Rechenregeln für Ringe)}
+\label{4.3}
 $(\mathcal{R}, +,\cdot)$ Ring, $a,b,c \in \mathcal{R}$
 \begin{itemize}
 	\item[i)] $a \cdot 0 = 0 \cdot a = 0$
@@ -1780,7 +1820,7 @@ $(\mathcal{R}, +,\cdot)$ Ring, $a,b,c \in \mathcal{R}$
 	Achtung! Z.B. in $(\mathbb{Z}_2, \oplus, \odot)$ ist $1 = -1$
 	\item[b)] In einem kommutativen Ring gilt der binomische Lehrsatz:\\
 	$(a+b)^n = \sum_{i = 0}^{n} {n\choose{i}} a^i \cdot b^{n-i}$
-	\item[c)] In 4.3: Rechenregeln für Multiplikation mit additiven Inversen, z.B.: $a\cdot(-b)$ Über Addition mit multiplikativen Inversen keine Aussage möglich (z.B. keine Regel für $a^{-1}+b$ ).
+	\item[c)] In \hyperref[4.3]{4.3}: Rechenregeln für Multiplikation mit additiven Inversen, z.B.: $a\cdot(-b)$ Über Addition mit multiplikativen Inversen keine Aussage möglich (z.B. keine Regel für $a^{-1}+b$ ).
 \end{itemize}
 
 \subsection{Definition (Körper)}
@@ -1794,7 +1834,8 @@ Ein kommutativer Ring mit Eins $(\mathcal{K}, +, \cdot)$ heißt \uline{Körper},
 	$\Rightarrow (\mathbb{Z}_n, \oplus, \odot)$ Körper $\Leftrightarrow n$ Primzahl
 \end{itemize}
 
-\subsection{Satz (Rechenregeln für Körper: Nullteilerfreiheit)}	
+\subsection{Satz (Rechenregeln für Körper: Nullteilerfreiheit)}
+\label{4.7}	
 $(\mathcal{K},+,\cdot)$ Körper, $a,b \in \mathcal{K}$. Dann gilt
 \begin{itemize}
 	\item[a)] alle Rechenregeln für Ringe gelten auch für Körper
@@ -1802,8 +1843,8 @@ $(\mathcal{K},+,\cdot)$ Körper, $a,b \in \mathcal{K}$. Dann gilt
 \end{itemize}
 \subsubsection*{Beweis}
 \begin{itemize}
-	\item[$'\Leftarrow'$] klar (Satz 4.3.i)
-	\item[$'\Rightarrow'$] $ab = 0$. Angenommen $a \neq 0 \Rightarrow b=1 \cdot b = (a^{-1}a)b = a^{-1}\underbrace{(ab)}_{= 0} \overset{\textrm{4.3i)}}{=} 0$\qed
+	\item[$'\Leftarrow'$] klar (\hyperref[4.3]{Satz 4.3}i))
+	\item[$'\Rightarrow'$] $ab = 0$. Angenommen $a \neq 0 \Rightarrow b=1 \cdot b = (a^{-1}a)b = a^{-1}\underbrace{(ab)}_{= 0} \overset{\textrm{\hyperref[4.3]{4.3}i)}}{=} 0$\qed
 \end{itemize}
 
 \subsection*{Strukturgleichheit von Ringen}
@@ -1827,6 +1868,7 @@ Nicht injektiv: $\psi(1)=\psi(n+1)=1$
 \end{itemize}
 \subsubsection*{Chinesischer Restsatz}
 \subsection{Bemerkung}
+\label{4.10}
 Gegeben: $m_1,...,m_n \in \mathbb{N},~~ a \in \mathds{Z},~~ M = m_1 \cdot ... \cdot m_n$ \\
 \noindent\hspace*{11mm}$\Rightarrow\underbrace{(a \mod M)}_{r} \mod m_i = a \mod m_i \quad\forall i$
 \subsubsection*{Beweis}
@@ -1839,6 +1881,7 @@ Division mit Rest:
 \end{align*}
 \qed
 \subsection{Chinesischer Restsatz}
+\label{4.11}
 Gegeben:
 \begin{itemize}
 	\item $m_1,...,m_n \in \mathbb{N}$ paarweise teilerfremd
@@ -1863,7 +1906,7 @@ Setze: $e_i := s_i M_i \Rightarrow e_i \equiv \begin{cases*}
 0 \pmod{m_j},~ j \neq i\\
 \end{cases*}$ \\
 \\
-$\Rightarrow x \overset{\textrm{4.10}}{=} \sum_{i = 1}^{n}a_i e_i \pmod{M} $ ist Lösung der simultanen Kongruenz.
+$\Rightarrow x \overset{\textrm{\hyperref[4.10]{4.10}}}{=} \sum_{i = 1}^{n}a_i e_i \pmod{M} $ ist Lösung der simultanen Kongruenz.
 \subsection{Beispiel}
 \begin{itemize}
 	\item[a)] $m_1 = 3, ~~m_2 = 4, ~~m_3 = 5 \Rightarrow M = 60$\\
@@ -1904,7 +1947,8 @@ $\Rightarrow x \overset{\textrm{4.10}}{=} \sum_{i = 1}^{n}a_i e_i \pmod{M} $ ist
 	\end{itemize}
 \end{itemize}
 \subsection{Satz (Eindeutigkeit Chines. Restsatz)}
-Die Lösung $x$ aus 4.11 ist eindeutig.
+\label{4.13}
+Die Lösung $x$ aus \hyperref[4.11]{4.11} ist eindeutig.
 \subsubsection*{Beweis}
 Z.z.: $\psi : \mathbb{Z}_M \rightarrow \mathbb{Z}_{m_1} \times ... \times \mathbb{Z}_{m_n},~~ x \mapsto (x \mod m_1,...,~x \mod m_n)$ ist bijektiv (Ringisomorphismus)
 \begin{itemize}
@@ -1912,12 +1956,12 @@ Z.z.: $\psi : \mathbb{Z}_M \rightarrow \mathbb{Z}_{m_1} \times ... \times \mathb
 	\begin{align*}
 	\psi (x \oplus y) &= \psi(x+y \mod M)\\
 	&= ((x+y \mod M) \mod m_1,..., (x+y \mod M) \mod m_n)\\
-	&\overset{\textrm{4.10}}{=~} (x+y \mod m_n,~..., ~x+y \mod m_n) \\
+	&\overset{\textrm{\hyperref[4.10]{4.10}}}{=~} (x+y \mod m_n,~..., ~x+y \mod m_n) \\
 	&= \psi(x) \oplus \psi(y)
 	\end{align*}
 	Analog mit $\psi(x \odot y) = \psi(x) \odot \psi(y)$
 	\item $\psi$ surjektiv:\\
-	Zu jedem $n$-Tupel aus $\underbrace{\mathbb{Z}_{m_1} \times ... \times \mathbb{Z}_{m_n}}_{\ni(a_1,...,a_n)}$ gibt es Lösung $x \in \mathbb{Z}_M$ (4.11).
+	Zu jedem $n$-Tupel aus $\underbrace{\mathbb{Z}_{m_1} \times ... \times \mathbb{Z}_{m_n}}_{\ni(a_1,...,a_n)}$ gibt es Lösung $x \in \mathbb{Z}_M$ (\hyperref[4.11]{4.11}).
 	\item $\psi$ injektiv: \\
 	Da $| \mathbb{Z}_M| = | \mathbb{Z}_{m_1} \times ... \times \mathbb{Z}_{m_n}| \Leftrightarrow M = m_1 \cdot ... \cdot m_n$ \\
 	D.h. kein Element word doppelt 'getroffen' \\
@@ -1936,7 +1980,7 @@ Aber: $\mathbb{Z}_8^* =\{1,3,5,7\}$ und $4 = \phi(8) \neq \phi(2) \cdot \phi(4)$
 	$\Rightarrow \phi(M) = (p_1 - 1)p_1^{a_1 - 1} \cdot ... \cdot (p_k - 1)p_k^{a_k - 1}$
 \end{itemize}
 \subsubsection*{Beweis}
-Wegen 4.13 ist $\mathbb{Z}_M \cong \mathbb{Z}_{m_1} \times ... \times \mathbb{Z}_{m_n}$ mittels $\psi$.\\
+Wegen \hyperref[4.13]{4.13} ist $\mathbb{Z}_M \cong \mathbb{Z}_{m_1} \times ... \times \mathbb{Z}_{m_n}$ mittels $\psi$.\\
 $\Rightarrow x$ Einheit $\Leftrightarrow \psi(x)=(x\mod m_1,...,~x\mod m_n)$ Einheit\\
 \noindent\hspace*{22mm}$\Leftrightarrow x \mod m_i \text{ Einheit } \forall i$
 $\Rightarrow \phi(M) = \phi(m_1) \cdot ... \cdot \phi(m_n)$\\
@@ -1956,7 +2000,7 @@ In Mathe I wurde für den Ring $(\mathds{Z},+,\*)$ folgendes eingeführt:
 	\item kgV, ggT, Primzahlzerlegung
 \end{itemize}
 \subsection{Definition (Polynom)}
-$\mathcal{K}$ - Körper mit Nullelement $\mathcal{O}$ und Einselement $1$.
+$\mathcal{K}$ - Körper mit Nullelement $\mathcal{O}$ und Einselement $\upharpoonleft$.
 \begin{itemize}
 	\item[i)] Ein \uline{Polynom} über $\mathcal{K}$ ist ein Ausdruck $f = \underbrace{a_0x^0}_{a_0} + \underbrace{a_1x^1}_{a_1x} + ... + a_nx^n $ mit $ n \in \N, ~~a_i \in \mathcal{K}$ Koeffizienten von $f$ (auch $f(x)$ anstatt $f$).\\
 	Ist $a_i = 0 \quad\forall \{1,...,n\}$, so schreibt man $f= 0$ (Nullpolynom)
@@ -2008,6 +2052,7 @@ $f \in \K[x], ~~f = a_0 + ... + a_nx^n  \qquad a_n \neq 0$\\
 $n$ heißt der \uline{Grad} von $f$, $\grad{f}= n$\\
 $\grad{0}= -\infty,~~~\grad{g}= 0$, falls $g$ konstant
 \subsection{Satz}
+\label{4.22}
 $\K$ Körper, $f,g \in \K[x]$.\\
 $\Rightarrow$ $\grad{f\*g} = \grad{f}+\grad{g}$ \\
 \uline{Konvention:} \qquad$-\infty - \infty = -\infty = -\infty + n = - \infty$
@@ -2015,13 +2060,13 @@ $\Rightarrow$ $\grad{f\*g} = \grad{f}+\grad{g}$ \\
 \begin{itemize}
 	\item Stimmt für $f = 0 $ oder $g = 0$
 	\item Angenommen die Leitterme von $f$ bzw. $g$ sind $a_nx^n$ bzw. $b_mx^m$ mit\\ $a_n \neq 0,~~ b_m \neq 0$.\\
-	$\Rightarrow$ $\grad{f} = n,~~\grad{g} = m$ und $\underbrace{a_n \cdot b_m x^{n+m}}_{\neq0\textrm{, da }\K\textrm{ Körper (4.7)}}$ ist Leitterm von $f \cdot g $\\$
+	$\Rightarrow$ $\grad{f} = n,~~\grad{g} = m$ und $\underbrace{a_n \cdot b_m x^{n+m}}_{\neq0\textrm{, da }\K\textrm{ Körper (\hyperref[4.7]{4.7})}}$ ist Leitterm von $f \cdot g $\\$
 	\Rightarrow \grad{fg} = n+m$ \qed
 \end{itemize}
 \subsection{Korollar (Inversen in $\K[x]$)}
 $\K[x]^* = \{f \in \K[x]\mid\grad{f}= 0 \}$ (nur konstante Polynome $\neq 0$ invertierbar)
 \subsubsection*{Beweis}
-$f \cdot f^{-1} = 1 \Rightarrow\grad{ff^{-1}}=\grad{f}+\grad{f^{-1}}\overset{\textrm{4.22}}{=}\grad{1}=0$\\
+$f \cdot f^{-1} = 1 \Rightarrow\grad{ff^{-1}}=\grad{f}+\grad{f^{-1}}\overset{\textrm{\hyperref[4.22]{4.22}}}{=}\grad{1}=0$\\
 \noindent\hspace*{19mm}$\Leftrightarrow\grad{f}=\grad{f^{-1}}=0$ \qed
 \subsubsection*{Polynomdivision mit Rest}
 \subsection{Bemerkung}
@@ -2029,27 +2074,29 @@ Für $b \in \K$ ist $f(b) = \sum_{i = 0}^{n} a_i \cdot b^i$, falls $f = \sum_{i 
 Man kann zeigen, dass $\psi_b : \K[x] \rightarrow \K$\\
 \noindent\hspace*{52mm}$ f \mapsto f(b)$ ein surjektiver Homomorphismus ist.
 \subsection{Definition}
-$\K$ Körper, $f,g \in \K[x].$\\$ f \vert g,$ falls $q \in \K[x]$ existiert mit $g = gf$ (nach 4.22: $\grad{f}\leq\grad{g}$).
+$\K$ Körper, $f,g \in \K[x].$\\$ f \vert g,$ falls $q \in \K[x]$ existiert mit $g = gf$ (nach \hyperref[4.22]{4.22}: $\grad{f}\leq\grad{g}$).
 \subsection{Satz (Division mit Rest in $\K[x])$}
 $\K$ Körper, $f \in \K[x], ~~0 \neq g \in \K[x]$.\\
  Dann existieren eindeutig bestimmte Polynome $q,r \in \K[x]$ mit $f = qg + r$ und $\grad{r}<\grad{g}$.\\
-Bezeichnung: $r = f \mod g,~~~ q = f \text{ div } g$
+\uline{Bezeichnung}: $r = f \mod g,~~~ q = f \text{ div } g$
 \subsubsection*{Beweis}
 vgl. Mathe I für $\mathbb{Z}$, Literatur \qed
 \subsection{Beispiel}
-$f = x^4 + 2x^3 - x +2,~~~ g = 3x^2-1 \in \mathbb{Q}[x]$\\
-$\polylongdiv[style=C, div=:]{x^4+2x^3-x+2}{3x^2-1}$
+$f = x^4 + 2x^3 - x +2$ und $ g = 3x^2-1 \in \mathbb{Q}[x]$\\
+$\polylongdiv[style=C, div=:]{x^4+2x^3-x+2}{3x^2-1}$\\
+Mit $\frac{1}{3}x^2+\frac{2}{3}x+\frac{1}{9}=q$ und $-\frac{1}{3}x+\frac{19}{9}=r$ (Rest).\\
+Aufhören bei $\grad{r}<\grad{g}$!
 \subsection{Korollar}
-$a \in \K,~~ f \in \K[x]$\\
+$\K$ Körper, $a \in \K,~~ f \in \K[x]$\\
 \\
-$(x -a)\vert f \Leftrightarrow f(a) = 0$
+$\underbrace{(x -a)}_{\textrm{teilt f restlos}}\vert f \Leftrightarrow f(a) = 0$
 \marginpar{07.12.2016}
 \subsubsection*{Beweis}
 \begin{itemize}
-	\item[($\Rightarrow$)] $\exists q \in \K[x]: f = q(x-a) \Rightarrow f(a) = q(a)(a-a) = 0 $
-	\item[$(\Leftarrow)$] Division mit Rest: $f = q(x-a) +r$, $\grad{r}<\grad{x-a}$\\
-	$\Rightarrow$ $\grad{r} \leq 0$, d.h. $r = c \neq 0$ oder $r = 0$\\
-	$0 = f(a) = q(a) \underbrace{(a-a)}_{= 0} + r(a) \Rightarrow r = 0 $\qed
+	\item[($\Rightarrow$)] $\exists q \in \K[x]: f = q(x-a) \Rightarrow f(a) = q(a)\underbrace{(a-a)}_{0} = 0 $
+	\item[$(\Leftarrow)$] Division mit Rest: $f = q(x-a) +r$, $\grad{r}<\grad{x-a}$\quad (da $q\vert f$)\\
+	\noindent\hspace*{27mm}$\Rightarrow$ $\grad{r} \leq 0$, d.h. $r = c \neq 0$ konstant oder $r = 0$\\
+	\noindent\hspace*{32mm}$0 = f(a) = q(a) \underbrace{(a-a)}_{= 0} + r(a) \Rightarrow r = 0 $\qed
 \end{itemize}
 \subsection*{Euklidischer Algorithmus in $\K[x]$}
 \subsection{Definition (Normiertheit)}
@@ -2060,6 +2107,7 @@ $\K$ Körper.
 	\item[iii)] $g,h \in \K[x] \setminus \{0\}.$\\$ f = \text{kgV}(g,h),$ falls $f \in  \K[x]$ ein normiertes Polynom von minimalem Grad ist, das von $g$ und $h$ geteilt wird.
 \end{itemize}
 \subsection{Bemerkung}
+\label{4.30}
 \begin{itemize}
 	\item[a)] $g = x,~~ h = x+1 \in \mathds{Q}[x]$
 	\begin{itemize}
@@ -2072,22 +2120,24 @@ $\K$ Körper.
 	$f = a_n x^n + ... + a_0 \Rightarrow a_n^{-1} \cdot f = \underbrace{x^n + ... + a_n^{-1}a_0}_{\text{normiert}}$
 	\item[c)] kgV$(g,h)$ existiert und ist eindeutig.
 	\begin{itemize}
-		\item Existenz: $g \vert gh,~~~ h \vert gh$ (gemeinsames Vielfaches)
+		\item Existenz: $g \vert gh,~~~ h \vert gh$ ($gh$ gemeinsames Vielfaches)
 		\item Eindeutig : $f_1 = \text{kgV}(g,h), ~~~f_2 = \text{kgV}(g,h)\\
 		\Rightarrow g,h \vert f_1$ und $g,h \vert f_2\\
 		\Rightarrow g,h \vert (f_1 - f_2)$\\
 		$f_1,f_2$ normiert und von gleichem (minimalen) Grad.\\
 		$\Rightarrow \text{grad }(f_1- f_2) < \text{grad } (f_1) \\
-		\Rightarrow f_1 - f_2 = 0$, denn sonst wäre kgV$(g,h) = f_1 - f_2$  \qquad \Lightning zur Minimalität des Grades.
+		\Rightarrow f_1 - f_2 = 0$, denn sonst wäre kgV$(g,h) = f_1 - f_2$  \qquad \Lightning zur Minimalität des Grades\\
+		$\Rightarrow$ kgV eindeutig.
 	\end{itemize}
 	\item[d)] ggT$(g,h)$ existiert und ist eindeutig. Beweis folgt wie in Mathe I für $\mathbb{Z}$ aus:
 \end{itemize}
 \subsection{Lemma von Bézout}
 $g,h \in \K[x]$ nicht beide gleich 0.\\
 $\Rightarrow \exists s,t \in \K[x]: sg + th = \text{ggT}(g,h)$ \\
-\subsubsection*{Beweis} Siehe 4.33 (EEA).
+\subsubsection*{Beweis} Siehe \hyperref[4.33]{4.33} (EEA).
 \subsubsection*{Beweis Eindeutigkeit von ggT}
-	$f =\text{ggT}(g,h), ~~~f' = \text{ggT}(g,h)\\
+	$f =\text{ggT}(g,h), ~~~f' = \text{ggT}(g,h)$\\
+	($f,f'$ Funktionen desselben Grades und normiert)\\$
 	 \Rightarrow \exists s',t' \in \K[x]: f' = s' \cdot g + t' \cdot h\\
 	 \\
 	 f \vert g \land f \vert h \Rightarrow f \vert f' \\
@@ -2098,28 +2148,92 @@ $\Rightarrow \exists s,t \in \K[x]: sg + th = \text{ggT}(g,h)$ \\
 	 \text{grad } (q) = 0 \Rightarrow q = c \neq 0,~~ c \in \K \\
 	 \Rightarrow f' = cf\\
 	 f,f'$ normiert $\Rightarrow c = 1$\qed
-\subsection{Satz: EA in $\K[x]$}
-	 siehe Folien/moodle (wird auch noch ins Skript eingefügt)
-\subsection{Satz: EEA  in $\K[x]$}
-	 siehe Folien/moodle (s.o.)
-	\subsection{Beispiel}
+\subsection{Satz: Euklidischer Algorithmus EA in $\K[x]$}
+	 \begin{algorithmic}[1]
+	 	\algrenewcommand\algorithmicrequire{\textbf{Eingabe:}}
+	 	\algrenewcommand\algorithmicensure{\textbf{Ausgabe:}}
+	 	\Statex
+	 	\Require $g,h\in\K[x]$, nicht beide gleich 0
+	 	\If{$h=0$} \State$y\coloneqq g$ \EndIf
+	 	\If{$h\vert g$} \State$y\coloneqq h$ \EndIf
+	 	\If{$h\neq0\wedge h\nmid g$}
+	 	\State $x\coloneqq g,~~y\coloneqq h$
+	 	\While{$(x\mod y)\neq0$}
+	 	\State $r\coloneqq x\mod y$
+	 	\State $x\coloneqq y,~~y\coloneqq r$
+	 	\EndWhile
+	 	\EndIf
+	 	\State $d\coloneqq a^{-1}_ny$ (Normierung von $y$, siehe \hyperref[4.30]{4.30})
+	 	\Ensure $d=\ggT{g,h}$
+	 \end{algorithmic}
+ \subsubsection*{Beweis}
+ Wie für $\Z$ in Mathe I.\\
+ Hinweis: $d\vert g$ und $d\vert h\Leftrightarrow d\vert (g\mod h)$ und $d\vert h$.\\
+ Begründung: $g=qh+(g\mod h)$.
+\subsection{Satz: Erweiterter Euklidischer Algorithmus EEA  in $\K[x]$}
+\label{4.33}
+	 \begin{algorithmic}[1]
+	 	\algrenewcommand\algorithmicrequire{\textbf{Eingabe:}}
+	 	\algrenewcommand\algorithmicensure{\textbf{Ausgabe:}}
+	 	\Statex
+	\Require $g,h\in \K[x]$, nicht beide gleich 0
+	\If{$h=0$}
+	\State $y\coloneqq g,~~s\coloneqq 1,~~t\coloneqq0$
+	\EndIf
+	 	\If{$h\vert g$}
+	 \State $y\coloneqq h,~~s\coloneqq 0,~~t\coloneqq1$
+	 \EndIf
+	 \If{$h\neq0\wedge h\nmid g$}
+	 \While{$(x\mod y)\neq0$}
+	 \State $q\coloneqq x\div y,~~r\coloneqq x\mod y$
+	 \State $s\coloneqq s_1-qs_2,~~t\coloneqq t_1-qt2$
+	 \State $s_1\coloneqq s_2,~~s_2\coloneqq s$
+	 \State $t_1\coloneqq t_2,~~t_2\coloneqq t$
+	 \State $x\coloneqq y,~~y\coloneqq r$
+	 \EndWhile
+	 \EndIf
+	 \State $d\coloneqq a^{-1}_ny$ (Normierung von $y$, siehe \hyperref[4.30]{4.30})
+	 \State $s\coloneqq a^{-1}_ns,~~t\coloneqq a^{-1}_nt$ (Normierung von $s,t$, siehe \hyperref[4.30]{4.30})
+	 \Ensure $d=\ggT{g,h},~~~s,t$ für $\ggT{g,h}=sh+tg$
+ \end{algorithmic}
+\subsection{Beispiel}
 	$g = x^4 + x^3 + 2x^2 +1,~~~ h = x^3 + 2x^2 + 2\qquad  g,h \in \mathbb{Z}_3[x]$\\			
 	\begin{tabular}{c | c | c | c | c | c | c | c | c | c }
 		$x$ & $y$ & $s_1$ & $s_2$& $s$ & $t_1$ & $t_2$ & $t$ & $q$ & $r$ \\ \hline
 		g & h & 1 & 0 & & 0 & 1 & & & \\ 
 		h &$x^2 +x$  & 0 & 1 & 1& 1 &$2x+1$ &$2x+1$ &$x+2$  & $x^2 +x$\\
-		$x^2 +x$ & $2x+2$ & 1 & $2x+2$ &$2x+2$ &$2x+1$ &$x^2$ & $x^2$& $x+1$& $2x +2$ \\
+		$x^2 +x$ & $\underbrace{2x+2}_{\textrm{ggT unnormiert}}$ & 1 & $2x+2$ &$2x+2$ &$2x+1$ &$x^2$ & $x^2$& $x+1$& $2x +2$ \\
 	\end{tabular} \\	
 \\	
 \\
-	NR: (Polynomdivision in $\mathbb{Z}_3[x]$, nicht normale Pol.div.)\\
+	NR: (\uline{Achtung:} Polynomdivision in $\mathbb{Z}_3[x]$, nicht normale Polynomdivision!)\\
 	\begin{itemize}
-		\item $(x^4 + x^3 + 2x^2 + 1)(x^3+2x^2+2) = \underbrace{x + 2}_{q}$\\
+		\item ~\\
+		$\begin{array}{r@{}c@{}r@{}c@{}r@{}c@{}r@{}c@{}rl}
+		(x^4 & + &  x^3 & + & 2x^2 &   &  & + & 1)& :  ~ (x^3+2x^2+2) = \overbrace{x+2}^{q}\\
+		{}-x^4 &- & 2x^3 &  & &-&2x \\ \cline{1-7} 
+		&  & 2x^3 & + & 2x^2 & + & x&+&1 \\
+		&- &2x^3 & - & x^2 &  & &-&1 \\ \cline{2-9}
+		&  &      &   & x^2 & +  &  x&&&\qquad (=r)
+		\end{array}$
+		\item ~\\
+		$\begin{array}{r@{}c@{}r@{}c@{}r@{}c@{}r@{}c@{}rl}
+		(x^3 & + &  2x^2&&&+&2)&~ :  ~ (x^2+x) =x+1\\
+		{}-x^3&-&x^2\\ \cline{1-3}
+		&&x^2&&&+2\\
+		&-&x^2&-&x\\\cline{2-5}
+		&&&&2x&+&2&\qquad (=r)
+		\end{array}$
 		\item $ t = 1-(x+1)(2x+1) = 1-(2x^2 + 1) = x^2$ \\
-		\item $(x^2 + x):(2x + 2) = 2^{-1}x$ \\
+		\item ~\\
+		$\begin{array}{r@{}c@{}r@{}c@{}r@{}c@{}r@{}c@{}rl}
+		(x^2 & + &  x)&~ :  ~ (2x+2) =2^{-1}x\\
+		{}-x^2&-&x\\ \cline{1-3}
+		&&0
+		\end{array}$
 		\item Normierung von y: \\
 		\begin{align*}
-		&d = a_n^{-1} y = 2^{-1}(2x +2) = x +1 \\
+		&d = a_n^{-1} y = 2^{-1}(2x +2) \\&~~= x +1 \\
 		&s = 2^{-1}(2x +2) = x+1 \\
 		&t = 2^{-1} \cdot x^2 = 2x^2,\text{ da } 2^{-1} = 2
 		\end{align*}
@@ -2133,5 +2247,268 @@ $\Rightarrow \exists s,t \in \K[x]: sg + th = \text{ggT}(g,h)$ \\
 		\end{align*}
 	\end{itemize}
 \subsection*{Primelemente in $\K[x]$}
-\uline{Primelemente} sind Polynome, die sich nicht als Produkt von zwei Polynomen vom Grad $\geq 1$ darstellen lassen. So ist z.B. $2x^2 + 2x = 2x(x+1)$ kein Primelement.
+\uline{Primelemente} sind Polynome, die sich nicht als Produkt von zwei Polynomen vom Grad $\geq 1$ darstellen lassen. So ist z.B. $2x^2 + 2x = 2x(x+1)$ kein Primelement, jedoch sind die Faktoren $2x$ und $x+1$ Primelemente.
+\subsection{Definition (Primelemente = irreduzible Polynome)}
+\marginpar{13.12.2016}
+$p \in \K[x]$ mit $\grad{p}\geq 1$ heißt \uline{irreduzibel}, falls gilt: 
+\begin{center}
+	$\forall f,g \in \K[x]: p = f \cdot g$ ist $\grad{f} = 0$ oder $\grad{g} = 0$
+\end{center}
+\subsection{Beispiel}
+\begin{itemize}
+	\item[a)]
+	$x+1,~~ 2x \in \R[x]$ irreduzibel.\\
+	Allg.: $ax +b \quad (a\neq 0)$ irreduzibel in $\K[x]$
+	\item[b)]
+	$x^2 - 2 \in \mathbb{Q}[x]$ ist irreduzibel: \\
+	Angenommen nicht, dann $x^2 - 2 = \underbrace{(ax + b)}_{\text{Nullstelle:} -\frac{b}{a}} \underbrace{(cx+d)}_{\text{Nullstelle:} -\frac{d}{c}}\qquad(a,c\neq0) \\
+	\Rightarrow x^2 -2$ hat auch Nullstelle $-\frac{b}{a} \in \mathbb{Q}$~\Lightning\\
+	Widerspruch: Nullstelle von $x^2 -2$ sind aus $\R$
+	\item[c)] $x^2 -2 \in \R[x]$ nicht irreduzibel: \\
+	$x^2 - 2 = \underbrace{(x\sqrt{2})}_{\in \R[x]} \cdot \underbrace{(x+\sqrt{2})}_{\in \R[x]}$
+	\item[d)] $x^2+1$ hat in $\R$ keine Nullstelle und ist somit irreduzibel in $\R[x]$. \\
+	\uline{Anmerkung:} In $\mathbb{C}[x]$ ist $x^2 +1$ kein Primelement (siehe \hyperref[5]{Kapitel 5})
+	\item[e)]
+	$x^2 +1 = (x+2)(x+3)$ in $\mathbb{Z}_5[x]$\\
+	$\rightarrow$ nicht irreduzibel in $\mathbb{Z}_5[x]$ 
+\end{itemize}
+\subsection{Satz}
+$f \in \K[x], ~~\grad{f} \geq 1$. Dann sind äquivalent: 
+\begin{itemize}
+	\item[(1)] $f$ irreduzibel
+	\item[(2)] $g,h \in \K[x], f \vert g\cdot h \Rightarrow f \vert g \lor f\vert h$
+\end{itemize}
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item[$(1)\Rightarrow (2)$] 
+	\begin{align*}
+	\text{Angenommen }f \nmid g &\overset{(1)}{\Rightarrow} \text{ggT}(f,g) = 1 \\&~~\mathclap{\overset{\textrm{Bézout}}{\Rightarrow}} ~~~~ \exists s,t \in \K[x]: sf  + tg = 1\\
+	&\Rightarrow sfh + tgh = h\\
+	&\text{ Wissen:} f \vert fsh \text{ und } f \vert tgh~~~ \text{($f\vert gh$ Voraussetzung von (2)}) \\
+	&\Rightarrow f \vert h 
+	\end{align*}
+	\item[$(2)\Rightarrow (1)$] 
+	\begin{align*}
+	\text{Angenommen }f&=gh\text{. Zeigen: }\grad{h}=0.\\
+	f = gh &\overset{(2)}{\Rightarrow} f \vert g \lor f \vert h ~~~~\text{O.B.d.A: } f \vert g \\
+	&\Rightarrow \grad{f} \underset{f\vert g}{\leq}  \grad{g}
+	 \underset{h\neq0}{\leq} \grad{h} + \grad{g} = \grad{\underbrace{h \cdot g}_{= f}} \\
+	 &\text{(damit müssen also alle '$\leq$' sein: '$=$')}\\
+	&\Rightarrow \grad{h} = 0
+	\end{align*}
+\end{itemize}
+\qed
+\subsection{Korollar}
+$f \in \K[x],~~ \grad{f} = n \geq 1$. Dann: 
+\begin{itemize}
+	\item[1)] $f$ hat höchstens $n$ Nullstellen $a_1,...,a_k \in \K$
+	\item[2)] $f = (x-a_1) \cdot ... \cdot (x -a_k) \cdot \bar{f}$ mit  $\grad{\bar{f}} = \grad{f -k}$.\\
+	$[f \text{ normiert, } k = n \Rightarrow f=(x-a_1) \cdot ... \cdot (x-a_n)]$
+\end{itemize}
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item[\uline{$n=1$:}] $f = ax +b$ hat Nullstelle $-a^{-1}b$
+	\item[\uline{$n>1$:}] Hat $f$ keine Nullstelle, so fertig. Sonst: \\
+	Sei $a$ Nullstelle $\Rightarrow f = (x-a)g, ~~\grad{g} = n-1$. \\
+	Sei $b \neq a$ weitere Nullstelle $\Rightarrow (x-b) \vert (x-a)g$\\
+	$x -b$ irreduzibel, $(x-b) \not \vert (x-a) \Rightarrow (x-b) \vert g\\ \Rightarrow b$ Nullstelle von $g$ 
+\end{itemize}
+Per Induktion hat $g \quad n-1$ Nullstellen. Behauptung folgt.\qed
+\subsection{Satz}
+$f \in \K[x]$ mit Leitterm $a_nx^n, ~~n \geq 1$ \\
+$\Rightarrow$ Es existieren eindeutig bestimmte irreduzible Polynome $p_1,...,p_l$ und $m_1,...,m_l\in \N$ mit $f = a_n p_1^{m_1} \cdot ... \cdot p_l^{m_l}$ 
+\subsubsection*{Beweis} Wie in $\mathbb{Z}$.\qed
+\subsection{Bemerkung}
+\label{4.40}
+$(\mathbb{Z}_n, \oplus, \odot)$ Körper $\Leftrightarrow n$ Primzahl \\
+Analog in $\K[x]$: \\
+Sei $f \in \K[x], ~~\grad{f} = n$ \\
+$(\K[x]_n, + , \odot_f)$ mit 
+\begin{itemize}
+	\item $\K[x]_n := \{g \in \K[x] \mid \grad{g} < n \}$
+	\item $g \odot_f h = (g \cdot h) \mod f$
+\end{itemize}
+ist kommutativer Ring mit Eins.\\
+\\
+$\K[x]_n^* = \{g \in \K[x]_n \mid \text{ggT}(g,f) = 1 \}$\\
+\\
+Man kann zeigen: 
+\begin{itemize}
+	\item[a)] $\mathbb{Z}_p[x]_n$ Körper der Ordnung $p^n \Leftrightarrow f$ irreduzibel, $p$ Primzahl.
+	\item[b)] Jeder endliche Körper hat Primzahlpotenzordnung und ist durch seine Ordnung bis auf Isomorphie eindeutig festgelegt.
+\end{itemize}
+\newpage
+\section{Komplexe Zahlen}
+\label{5}
+\subsubsection*{Problem (16 Jhdt.):} 
+\begin{itemize}
+	\item Gleichungen wie z.B. $x^2 = -1$ haben keine reelle Lösung. Dagegen hat\\ $x^2 = -1$ imaginäre Lösungen ('imaginaires' - Descartes) $x_{\nicefrac{1}{2}} = \pm \sqrt{-1}$
+	\item $x^4 = 1$ hat zwei reelle Lösungen $x = \pm 1$ und zwei imaginäre Lösungen $x = \pm \sqrt{-1}$
+	\item $x^2 + 2x +2$ hat die imaginären Lösungen $-1 \pm \sqrt{-1}$
+\end{itemize}
+\subsection{Definition}
+\begin{itemize}
+	\item $\i  := \sqrt{-1}$ heißt \uline{imaginäre Einheit} (Euler 1777)
+	\item $\mathbb{C} := \{a +b\i \mid a,b \in \R \}$ Menge der komplexen Zahlen
+	\item Für $z = a +b\i$ heißt $\Re{z} :=a$ \uline{Realteil} von $z$ und $\Im{z} := b$ \uline{Imaginärteil} von $z$
+\end{itemize}
+\subsection*{Gaußsche Zahlenebene und Polarkoordinaten}
+\subsection{Gaußsche Zahlenebene (1831)}
+\label{5.2}
+\begin{minipage}[c]{0.5\textwidth}
+	\begin{tikzpicture}[scale=0.75]
+	\node (v3) at (-3.5,0) {};
+	\node (v4) at (5,0) {$\R$};
+	\node (v2) at (0,5) {$\i\R$};
+	\node (v1) at (0,-3.5) {};
+	\draw [-latex] (v1) edge (v2);
+	\draw [-latex] (v3) edge (v4);
+	\draw [-latex] (0,0) node (v5) {} ellipse (2.5 and 2.5);
+	\node[below] at (2.5,0) {1};
+	\node[left] at (0,2.5) {$\i$};
+	\node[below] at (-2.5,0) {-1};
+	\node[left] at (0,-2.5) {$-\i$};
+	\node (v6) at (3.5,4) {};
+	\draw [-latex, thick] (v5) edge (v6);
+	\node[right] (v8) at (3.5,4) {$\vec2{a}{b}\leftrightarrow z$};
+	\node[below] (v9) at (3.5,0) {a};
+	\node[left] (v7) at (0,4) {b};
+	\draw [loosely dotted] (v7) edge (v8);
+	\draw [loosely dotted] (v9) edge (v6);
+	\draw [](1.1832,-0.038) arc (-0.847:40.6726:1.5);
+	\node at (0.67,0.297) {$\phi$};
+	\node (v10) at (1.6422,1.9183) {};
+	\node (v13) at (0,-0.5) {};
+	\node (v11) at (1.6422,-0.5) {};
+	\node (v12) at (1.6422,0) {};
+	\draw[very thin, densely dashed]  (v12) edge (v10);
+	\draw [densely dashed, very thin] (v11) edge (v13);
+	
+	\node at (0.7034,-0.8071) {cos $\phi$};
+	\node at (0,0) {};
+	\node (v15) at (-0.2395,0.2705) {};
+	\draw [decorate, decoration={brace, amplitude=5pt}] (v15) -- (3.0674,4.2231) node (v14){};
+	\node at (1.0617,2.5078) {r};
+	\node[right] at (1.8463,0.7981) {sin $\phi$};
+	\end{tikzpicture}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+	Beobachtung: $a + b\i \leftrightarrow\vec2{a}{b} \in \R^2$ ('korrespondiert eineindeutig zu')\\
+	\\
+	$r=\sqrt{a^2+b^2}$\\
+	$a = r \cdot \cos(\phi)$\\$b = r \cdot \sin(\phi)$
+\end{minipage}
+Daraus ergibt sich die Darstellung in Polarkoordinaten: \\
+$r \geq 0, \quad \phi \in [0,2 \pi)$ bzw. $(r,\phi)\in[0,\infty)\times[0,2\pi)$\\
+$\Rightarrow a+b\i = r(\cos(\phi) + \i \sin(\phi))$
+\subsection{Definition}
+\marginpar{14.12.2016}
+Für $z = a+b\i \in \C$ ist $|z| := \sqrt{a^2 + b^2}$ der Betrag von $z$.
+\subsection{Bemerkung}
+Jede Zahl $z = a+b\i \in \C \setminus \{0\} $ lässt sich durch den Winkel $\phi \in [0,2\pi)$ und durch den Betrag $|z|$ eineindeutig darstellen: 
+$z = |z|\underbrace{(\cos(\phi) + \i \sin(\phi)}_{e^{\i\phi}})$
+\subsection{Formel von Euler}
+$e^{\i\phi} = \cos(\phi) + \i \sin(\phi),~~~ \phi \in \R$
+\subsubsection*{Beweisidee (später mit Taylorreihen)}
+$\underbrace{\sum_{k = 0}^{\infty} \frac{(\i\phi)^k}{k!}}_{\text{später: }e^{\i\phi}} = \underbrace{\sum_{k = 0}^{\infty}(-1)^k \cdot \frac{\phi^{2k}}{(2k)!}}_{\cos(\phi)\textrm{, gerade }k} + \i \cdot \underbrace{ \sum_{k = 0}^{\infty}(-1)^k \cdot \frac{\phi^{2k+1}}{(2k+1)!}}_{\sin(\phi)\textrm{, ungerade }k}$\\
+\\
+\uline{Anmerkung:} $\i^0 = 1,~~ \i^1 = \i,~~ \i^2 = -1,~~ \i^3 = -\i,~~ \i^4 = \i^0 = 0$\\
+$\Rightarrow \langle \i \rangle$ zyklische Gruppe der Ordnung 4
+\subsection{Bemerkung}
+Damit ergibt sich für $z \in \C$ die Darstellung $z = |z| e^{\i\phi},~~~ \phi$ wie in \hyperref[5.2]{Abbildung 5.2}
+\subsection{Bemerkung}
+$e^{\i\phi}$ liegt für $\phi \in \R$ auf dem Einheitskreis, d.h. $\phi \rightarrow e^{\i\phi}$ ist Kreisfunktion. Für Frequenzanalyse (Fourierreihen): \\
+$t$... Zeit, $\omega \in \Z$... Frequenz. \\
+Dann beschreibt $e^{\i(t \cdot 2\pi) \omega}$ eine Schwingung, z.B.:
+\begin{itemize}
+	\item $\omega = 1:$ in einer Zeiteinheit (ZE) wird Einheitskreis 1 mal durchlaufen
+	\item $\omega = k:$ in einer ZE wird Einheitskreis $k$ mal durchlaufen
+\end{itemize}
+\subsection*{Verknüpfungen auf $\C$}
+\begin{itemize}
+	\item[1)] $(\C,+) \cong (\R^2, +)$, d.h. $(a+b\i)(a' +b'\i) = (a +a') + (b +b')\i$ (Vektoraddition)
+	\item[2)] Wie wählt man Multiplikation, so daß $\C$ Körper wird?\\
+	Man möchte, dass Potenzregel gilt, z.B:\\ $e^{\i \phi} \cdot e^{\i \phi'} = e^{\i(\phi + \phi')} \Leftrightarrow \\
+	(\cos \phi + \i \sin \phi)(\cos\phi' + \i \sin\phi') = \cos(\phi + \phi') + \i \sin(\phi + \phi')$\\
+	Damit scheidet die komponentenweise Multiplikation aus. Mit den üblichen Rechenregeln aus $\R$: \\
+	$(\cos\phi + \i\sin\phi)(\cos\phi' + \i\sin\phi') =\\
+	\underbrace{\cos\phi \cos\phi' - \sin\phi \sin\phi'}_{\cos(\phi + \phi')} + \i \underbrace{(\sin\phi\cos\phi' + \cos\phi \sin\phi')}_{\sin(\phi + \phi')}$\\
+	\\
+	\begin{minipage}[c]{0.5\textwidth}
+		Für $z = a+b\i = |z| e^{\i\phi}$ und \\$z' = a' + b'\i = |z'|e^{\i\phi'}$ ist das Produkt $zz' = z |z| e^{\i\phi'} = |z'| |z| e^{\i(\phi + \phi')}$ eine \\Drehstreckung des Vektors $\vec2{a}{b}$
+	\end{minipage}
+	\begin{minipage}[c]{0.05\textwidth}
+		~\\
+	\end{minipage}
+	\begin{minipage}[c]{0.45\textwidth}
+		SKIZZE\\SKIZZE\\SKIZZE\\SKIZZE\\
+	\end{minipage}
+	\item[3)] Die Inverse einer Drehstreckung $re^{\i\phi}$ ist dann eine Stauchung $\frac{1}{\phi}$ verknüpft mit einer Drehung um $-\phi:$\\
+	$z = re^{\i\phi} \Leftrightarrow z^{-1} = \frac{1}{r} e^{\i-\phi}$, da $zz^{-1} = r \frac{1}{r} e^{\i(\phi - \phi)} = 1 \cdot e^0 = 1$\\
+	\\
+	In der Schreibweise $z= a+b\i,~~ z' = a' + b'\i$ ergibt sich:\\ $zz' = (a +b\i)(a' + b'\i) = aa' -bb' + (ab' + ba')\i$, denn \\$a = r \cos \phi,~~ b= r \sin\phi,~~ a' = r' \cos\phi',~~ b' = r' \sin\phi'$.\\ \\
+	Für $z = a +b\i \in \C$ ist die Inverse\\ $z^{-1} = \frac{1}{a+b\i} = \frac{a -b\i}{(a+ b\i)(a -b\i)}= \frac{a-b\i}{a^2 - \i^2 b^2} = \frac{a-b\i}{a^2 +b^2}$
+		\subsection{Definition}
+	Falls $z = a+b\i \in \C,$ heißt $\bar{z} := a-b\i$ die zu $z$ \uline{Konjugierte}.
+\end{itemize}
+\subsection{Bemerkung}
+\begin{minipage}[c]{0.5\textwidth}
+	\begin{itemize}
+		\item Es folgt $z^{-1} = \frac{\bar{z}}{|z|^2}$
+		\item $z \cdot \bar{Z} = |z|^2 \in \R$
+		%Zeichnung		
+	\end{itemize}
+\end{minipage}
+\begin{minipage}[c]{0.5\textwidth}
+	SKIZZE\\SKIZZE\\SKIZZE\\SKIZZE\\
+\end{minipage}
+\subsection{Satz}
+$(\C, + , \cdot)$ mit 
+\begin{itemize}
+	\item $(a+b\i)+(a' +b'\i) = (a + a') + (b + b')\i$ und 
+	\item $(a+b\i)(a'+ b'\i) = aa' - bb' + (ab' + a'b)\i$
+\end{itemize}
+ist ein Körper.\\
+\\
+Nullelement: $\mathcal{O} = 0+0\i$\\
+Einselement: $\upharpoonleft = 1+0\i$
+\subsubsection*{Beweis} Nachrechnen.\qed
+\subsubsection*{Beispiel}
+\begin{itemize}
+	\item $(1+\i) = \sqrt{2} e^{\i\*\frac{\pi}{4}}$
+	\item $(2+\i)(3-4\i) = 6 +4 + (3-8)\i = 10 -5\i$
+	\item $\frac{\i+1}{2\i -1} = \frac{(\i+1)(2\i+1)}{\underbrace{(2\i-1)}_{z}\underbrace{(2\i+1)}_{\bar{z}}} =\frac{1-2 +\i(2+1)}{2^2 + 1^2} = -\frac{1}{5} + \frac{3}{5}\i$
+\end{itemize}
+\subsection{Rechenregeln (Konjunktion, Betrag)}
+$w,z \in \C$
+\begin{itemize}
+	\item[a)] $\overline{w \pm z} = \overline{w} \pm \overline{z}$\\
+	$\overline{w \cdot z} = \overline{w} \cdot \overline{z}$\\
+	$\bar{\bar{z}} = z$\\
+	$\Rightarrow z \mapsto \bar{z}$ Körperisomorphismus
+	\item[b)] $\Re{z} =  \frac{z + \bar{z}}{2},~~ \Im{z} = \frac{z - \bar{z}}{2\i}$
+	\item[c)] $|z| \geq 0,~~ |z| = 0 \Leftrightarrow z = 0$ (positive Definitheit)
+	\item[d)] $|z| = |\bar{z}| = \sqrt{z\bar{z}}$
+	\item[e)] $|wz| = |w| \cdot |z|$
+	\item[f)] $|w+z| \leq |w| + |z|$ Dreiecksungleichung \\
+	$|w-z| \geq |w| - |z|$ (Beweis: Übung)
+\end{itemize}
+\subsection{Bemerkung}
+\begin{itemize}
+	\item[a)] Alternative Konstruktion von $\C$.:\\
+	\hyperref[4.40]{4.40}: $\K[x]_n$ wird Körper, wenn man durch irreduzibles Polynom $f$ vom Grad $n$ teilt (Modulorechnung).\\
+	Mit $\K = \R, ~~n = 2,~~ f = x^2 +1$ ist 
+	\begin{align*}
+	(a+bx) \odot_f (a' + b'x) &= aa' + bb'x^2 + (ab' + ba')x \mod f\\
+	&= (aa' - bb') + (ab' + ba')x
+	\end{align*}
+	Statt $x$ schreibt man $\i,~~\i^2 = -1$
+	\item[b)]
+	$x^2 +1 = (x-\i)(x+\i)$ ist nicht irreduzibel in $\C[x]$.\\
+	Tatsächlich besitzt in $\C$ jede quadratische Gleichung 2 Lösungen.\\
+	\\ \uline{Allgemein}: Fundamentalsatz der Algebra: \\
+	$f \in \C[x],~~ a_nx^n$ Leitterm, $n \geq 1$. \\
+	$\Rightarrow f$ hat genau $n$ Nullstellen $b_1,...,b_n$ (nicht notw. verschieden) mit\\ $f = a_n(x-b_1) \cdot ... \cdot (x-b_n)$ \\
+	Das heißt, lineare Polynome $ax +b$ mit $a \neq 0$ sind die einzigen Primelemente in $\C[x]$.
+\end{itemize}
 \end{document}
