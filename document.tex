@@ -145,7 +145,7 @@
 		\item[a)] \begin{align*}
 		\O\overset{\textrm{\hyperref[1.1]{(1.3)}}}{=}\overbrace{\underbracket{0\*v}_{}}^{x}+\overbrace{(-0\*v)}^{-x}&=\underbracket{(0+0)v}_{}+(-0\*v)\\
 		&\overset{\textrm{\hyperref[1.1]{(2.1)}}}{=}(0\*v+0\*v)+(-0\*v)\\
-		&\overset{\textrm{\hyperref[1.1]{(1.1)}}}{=}0\*v+(0*v+(-0\*v))\\
+		&\overset{\textrm{\hyperref[1.1]{(1.1)}}}{=}0\*v+(0\*v+(-0\*v))\\
 		&\overset{\textrm{\hyperref[1.1]{(1.3)}}}{=}0\*v+\O\\
 		&\overset{\textrm{\hyperref[1.1]{(1.2)}}}{=}0\*v
 		\end{align*}
@@ -269,7 +269,7 @@
 	\begin{itemize}
 		\item[a)] $U_1\cap U_2=\{u\in V|u\in U_1\wedge u\in U_2\}$ ist Unterraum von $V$.
 		\item[b)] $U_1+U_2\coloneqq\{u_1+u_2|u_1\in U_1\wedge u_2\in U_2\}$ \underline{Summe} von $U_1,U_2$ ist Unterraum von $V$\\
-		(das ist nicht die Vereinigung $U_1\cap U_2$!)
+		(das ist nicht die Vereinigung $U_1\cup U_2$!)
 	\end{itemize}
 	\subsubsection*{Beweis}
 	Prüfe \hyperref[1.6]{Unterraumkriterium 1.6}
@@ -552,14 +552,14 @@ Für $V=\{\mathcal{O}\}$ ist $B=\emptyset$ die Basis.
 \subsection{Beispiel}
 \begin{itemize}
 	\item[a)] $\{e_1,...,e_n\}$ ist Basis von $\R^n$ ('Standard-/kanonische Basis')
-	\item[b)] Basisi ist nicht eindeutig.\\
+	\item[b)] Basis ist nicht eindeutig.\\
 	$B_1=\{\vec{2}{1}{0},\vec{2}{0}{1}\},\qquad B_2=\{\vec{2}{1}{1},\vec{2}{1}{2}$\\
 	$\Rightarrow \langle B_1\rangle_\R=\langle B_2\rangle_\R$, da: $\vec{2}{1}{0}=2\vec{2}{1}{1}-\vec{2}{1}{2}$ und $\vec{2}{0}{1}=\vec{2}{1}{2}-\vec{2}{1}{1}$\\
 	$\Rightarrow\vec{2}{1}{0},\vec{2}{0}{1}\in\langle B_2\rangle_\R\Rightarrow\R^2=\langle B_1\rangle_\R\subseteq\langle B_2\rangle_\R$
 \end{itemize}
 \subsection{Satz (Existenz von Basen)}
 \label{1.20}
-$V$ \underline{andlich} erzeugter $\R$-VR $\Rightarrow$ Jedes endliche Erzeugendensystem enthält Basis.
+$V$ \underline{endlich} erzeugter $\R$-VR $\Rightarrow$ Jedes endliche Erzeugendensystem enthält Basis.
 \subsubsection*{Beweis}
 Sei $M\subseteq V$ endlich, $\langle M\rangle_\R=V$
 \begin{itemize}
@@ -1454,7 +1454,7 @@ Ist i.A. keine Gruppe:
 	Hat $z \neq 0$ eine Inverse bzgl. $\odot$? \\
 	\\
 	$\bar{z}$ invers zu $z$, wenn $\bar{z} \cdot z \equiv 1\pmod{n}$ \\
-	z.B. in $\mathds{Z}_15$ gilt: 
+	z.B. in $\mathds{Z}_{15}$ gilt: 
 	\begin{itemize}
 		\item $2 \cdot 8 = \quad16 \equiv 1 \pmod{15}$, d.h. 2 und 8 sind zueinander invers
 		\item Alle Vielfachen von 5 haben Rest $0,5,10$, d.h. \\
@@ -1504,7 +1504,7 @@ $G$ Gruppe.
 	\item[iii)] 
 	\begin{itemize}
 		\item[$\ast$] $(ab)^{-1} \cdot (ab) \underset{\textrm{Vor.}}{=} (b^{-1}a^{-1})(ab) = b^{-1}\underbrace{(a^{-1}a)}_e b = \underbrace{b^{-1}b}_e = e$
-		\item[$\ast$] $(ab)(ab^{-1})$ analog
+		\item[$\ast$] $(ab)(ab)^{-1}$ analog
 	\end{itemize}
 \hfill$\square$
 \end{itemize}
@@ -1783,7 +1783,7 @@ Sei $\mathcal{R} \neq \emptyset$ eine Menge mit 2 Verknüpfungen + und $\cdot$.
 	\end{itemize}
 \subsection{Beispiel}
 \begin{itemize}
-	\item[a)] Trivialer Ring $(\{0\},+,0)$
+	\item[a)] Trivialer Ring $(\{0\},+,\cdot)$
 	\item[b)] $(\mathbb{Z}, +,\cdot)$ kommutativer Ring mit Eins. \\
 	Einheiten: $1, -1\Rightarrow \underbrace{\mathbb{Z}^* = \{-1,1\}}_{\text{kein Ring!}}$\\
 	Ebenso $(\mathbb{Q},+,\cdot)$ und $(\mathbb{R},+,\cdot)$ \\
