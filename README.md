@@ -2,8 +2,10 @@
 Skript zur Vorlesung Mathematik 3 im WS16/17 bei Rüdiger Zeller, Uni Tübingen
 
 -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
+
 Thanks to:
 Procope (typos)
+
 -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
 
 Falls jemand beim kompilieren der .tex Datei Probleme hat, das liegt an einem eingebundenen
