@@ -3013,6 +3013,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				      \end{align*}
 		      			\end{itemize}
 		      			\subsection{Korollar}
+		      			\label{6.15}
 		      			$V,W ~~\K-$Vekorräume mit $\dim(V) = \dim(W) = n, ~~\phi: V \rightarrow W$ lineare Abbildung. Dann sind äquivalent:
 		      			\begin{itemize}
 		      				\item[i)] $\phi$ surjektiv,
@@ -3030,6 +3031,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      			\noindent\hspace*{12mm}$\overset{\hyperref[6.6]{6.6}}{\Rightarrow} \mathcal{L} = x_0 + \ker\phi, ~~~\phi: \K^n \rightarrow \K^m,~~ x \mapsto Ax$\\
 		      			D.h. Größe von $\mathcal{L}$ gegeben durch $\dim(\ker \phi)$.
 		      			\subsection{Bemerkung}
+		      			\label{6.16}
 		      			$\dim(\ker \phi) = n - \underbrace{\rg\phi}_{= \dim(\phi(\K^n))}$ \qquad\quad (\hyperref[6.14]{6.14})\\
 		      			$\phi(\K^n) = \vecspace{\phi(e_1),...,\phi(e_n)}{\K} = \vecspace{\underbrace{Ae_1,...Ae_n}_{\textrm{Spalten von } A}}{\K}$ \\
 		      			$\Rightarrow \rg\phi =$ Anzahl der linear unabhängigen Spalten von $A$ = \uline{Spaltenrang} von $A$\\
@@ -3336,6 +3338,7 @@ $\begin{pmatrix}
 \label{7.14}
 Idee: $A \in \M_n(\K)$ kann als Darstellungsmatrix $A_\phi^B$ der linearen Abbildung $\phi: \K^n \rightarrow \K^n,~~ \phi(v) = Av$ bezüglich Basis $B$ aufgefasst werden.
 \subsection{Satz}
+\label{7.15}
 $V~~\K$-Vektorraum, $\dim(V) = n,~~~ B$ Basis, $\phi: V \rightarrow V$ linear mit Darstellungsmatrix $A_\phi^B$. Dann:
 \begin{center}
 	$\phi$ invertierbar $\Leftrightarrow A^B_\phi$ invertierbar
@@ -3355,5 +3358,198 @@ Das heißt:  $A_{\phi^{-1}}^B = (A_\phi^B)^{-1}$
 	\end{cases}\\
 	\Rightarrow \phi \circ \psi = \psi \circ \phi = id_v\\
 	\Rightarrow \phi$ hat Inverse $\psi$ \qed
+\end{itemize}
+\subsection{Satz}
+\label{7.16}
+\marginpar{18.01.2017}
+$A \in \M_n(\K)$ invertierbar $\Leftrightarrow \underbrace{\rg(A) = n}_{\substack{\text{d.h. alle Spalten \& Zeilen}\\\text{linear unabhängig}}}$
+\subsubsection*{Beweis}
+$\hyperref[7.14]{7.14} \Rightarrow A = A_\phi^B$ für $\phi:\K^n \rightarrow \K^n,~~~ \phi(v) = Av$\\
+\begin{align*}
+A \text{ invertierbar } &\overset{\hyperref[7.15]{7.15}}{\Leftrightarrow} \phi \text{ invertierbar} \\
+&\Leftrightarrow \phi \text{ bijektiv }\\
+&\overset{\hyperref[6.15]{6.15}}{\Leftrightarrow} \phi \text{ surjektiv}\\
+&\Leftrightarrow \rg(\phi) = n\\
+&\overset{\hyperref[6.16]{6.16}}{\Leftrightarrow} \rg(A) = n
+\end{align*}
+\qed
+\subsection{Beispiel}
+$A = \begin{pmatrix}
+1 & 2 \\
+2 & 4 \\
+\end{pmatrix} \Rightarrow \rg(A) = 1 \Rightarrow A$ nicht invertierbar\\
+$A = \underbrace{\begin{pmatrix}
+	1 & -1\\
+	2 & 0 \\
+	\end{pmatrix}}_{\in \M_2(\R)} \Rightarrow \rg(A) = 2 \Rightarrow$ A invertierbar (weil Rang voll).
+\subsection{Berechnung der Matrixinverse ($A^{-1}$)}
+\uline{Gegeben}: Quadratische Matrix $A0\begin{pmatrix}
+a_{11}&...&a_{1n}\\
+\vdots&\ddots&\vdots\\
+a_{n1}&...&a_{nn}
+\end{pmatrix}\in\M_n(\K),~~\K$ Körper.
+\uline{Gesucht}: Matrixinverse $A^{-1}\in\M_n(\K).$
+\subsubsection*{Voraussetzungen}
+Das sogenannte \uline{Gauß-Jordan-Verfahren} zur Berechnung der Matrixinversen baut auf der Berechnung der Lösungen von Gleichungssystemen $Ax=b$ mit \textbf{quadratischer} Matrix $A$ auf. Deswegen werden zunächst einige Regeln angegeben, die zur Lösung linearer Gleichungssysteme benutzt werden. Dabei wird im Folgenden das LGS mit Hilfe der erweitertern Koeffizientenmatrix $(A|b)$ beschrieben: Wenn $b=(b_1,...,b_n)^T\in\K^n$ schreibt man \begingroup
+\centering $(A|b)=\left ( \begin{array}{ccc}
+a_{11}&...&a_{1n}\\
+\vdots&\ddots&\vdots\\
+a_{n1}&...&a_{nn}
+\end{array} \right | \left. \begin{array}{c}
+b_1\\\vdots\\b_n
+\end{array}\right )$.\endgroup\\
+Die Lösungsmenge des LGS ändert sich nicht, wenn man an $(A|b)$ folgende elementaren Zeilenumformungen aus dem Gaußverfahren durchführt:
+\begin{itemize}
+	\item[1.] Erweiterung einer Zeile mit einem Skalar $\lambda\in\K,~~\lambda\neq0$,\item[2.] Addition von Zeilen\item[3.] Tauschen von Zeilen.
+\end{itemize}
+\subsubsection*{Gauß-Jordan-Algorithmus}
+Im Unterschied zum Gauß-Algorithmus bringt man das LGS $Ax=b$ nicht auf Dreiecksform, sondern man formt die Zeilen so um, dass $A$ zur Einheitsmatrix $E_n$ wird. Dabei wird $b$ automatisch zum Lösungsvektor $x$ umgeformt: Man erhält das System $(E_n|x)$.
+\subsubsection*{Berechnung der Inversen $A^{-1}$}
+Zur Berechnung der Inversen muss nun das System $AX=E_n$ gelöst werden. Man erreicht dies, indem der Gauß-Jordan-Algorithmus simultan auf die $n$ LGS $Ay=e_j,~~j=1,...,n$ angewendet wird. Dazu stellt man das System $(A|E_n)$ auf.\\
+Durch Zeilenumformungen überführt man nun $A$ in die Einheitsmatrix, wobei die rechte Seite in die Lösungsmatrix $X$ überführt wird. Man erhält so das System $(E_n|X)$ mit $X=A^{-1}$.\\
+$\Bigg[$\uline{Anmerkung:} Das Verfahren zeigt auch, ob $A$ überhaupt eine Inverse besitzt. Besitzt $A$ keine Inverse, so kann man $A$ nicht in die Einheitsmatrix umformen.$\Bigg]$
+\subsubsection*{Beispiel}
+\uline{Gegeben}: $A = \begin{pmatrix}
+2 & 1  \\
+1 & 3 \\
+\end{pmatrix}$\\
+Algorithmus zur Berechnung von $A^{-1}$ erweitert den Gauß-Algorithmus zur Lösung von LGS.\\
+z.B. $Ax = b$ mit $b = \vec2{10}{15}$ \\
+Gauß-Jordan-Verfahren: \\
+\\
+$\begin{pmatrix}
+2 & 1 & 10 \\
+1 & 3 & 15 \\
+\end{pmatrix} \overset{II = I -2 \cdot II}{\longrightarrow} \begin{pmatrix}
+2 & 1 & 10 \\
+0 & -5 & 20 \\
+\end{pmatrix} \overset{-\frac{1}{5} \cdot II}{\longrightarrow} \begin{pmatrix}
+2 & 1 & 10 \\
+0 & 1 & 4 \\
+\end{pmatrix}\overset{I = I-II}{\longrightarrow} \begin{pmatrix}
+2 & 0 & 6 \\
+0 & 1 & 4 \\
+\end{pmatrix} \overset{\frac{1}{2}}{\rightarrow} \begin{pmatrix}
+1 & 0 & 3 \\
+0 & 1 & 4 \\
+\end{pmatrix}\\
+\Rightarrow x = \vec2{3}{4}$ Lösung\\
+Für Inverse: Suche Matrix, die $A \cdot X = E_n$ löst.\\
+$AX = E_n \Leftrightarrow A\begin{pmatrix}
+x_{11} & x_{12} \\
+x_{21} & x_{22} \\
+\end{pmatrix} = \begin{pmatrix}
+1 & 0 \\
+0 & 1 \\
+\end{pmatrix} \Leftrightarrow \underbrace{A \vec2{x_{11}}{x_{12}} = \vec2{1}{0}}_{(*)}$ und $\underbrace{A\vec2{x_{12}}{x_{22}} = \vec2{0}{1}}_{(**)}$\\
+Wende Gauß-Jordan-Algorithmus simultan auf LGS (*) und (**) an.\\
+$\begin{pmatrix}
+2 & 1 & 1 & 0 \\
+1 & 3 & 0 & 1 \\
+\end{pmatrix} \overset{II = I -2II}{\rightarrow} \begin{pmatrix}
+2 & 1 & 1 & 0 \\
+0 & -5 & 1 & -2 \\
+\end{pmatrix} \overset{-\frac{1}{5}II}{\rightarrow} \begin{pmatrix}
+2 & 1 & 1 & 0 \\
+0 & 1 & -\frac{1}{5} & \frac{2}{5}
+\end{pmatrix} \overset{I = I -II}{\rightarrow} \begin{pmatrix}
+2 & 0 & \frac{6}{5} & -\frac{2}{5} \\
+0 & 1 & -1\frac{1}{5} & \frac{2}{5} \\
+\end{pmatrix} \overset{\frac{1}{2}I}{\rightarrow} \begin{pmatrix}
+1 & 0 & \frac{3}{5} & -\frac{1}{5} \\
+0 & 1 & -\frac{1}{5} & \frac{2}{5} \\
+\end{pmatrix} \Rightarrow \begin{pmatrix}
+\frac{3}{5} & -\frac{1}{5} \\
+-\frac{1}{5} & \frac{2}{5} \\
+\end{pmatrix} = X = A^{-1}$
+\subsection{Lemma}
+\label{7.19}
+$V ~~\K$-Vektorraum, $B,C$ Basen $\Rightarrow S_{B,C} = (S_{C,B})^{-1}$
+\subsubsection*{Beweis}
+Sei $v \in V$.\\
+$S_{C,B} \cdot S_{B,C} \cdot K_B(v) = S_{C,B} \cdot K_C(v) = K_B(v) = E_n$\qed
+\subsection{Beispiel}
+$V=\R^2,~~ B= \Big(\vec2{1}{1},\vec2{1}{0}\Big),~~ C = \Big(\vec2{1}{0}, \vec2{0}{1}\Big)$\\
+Aus \hyperref[7.2]{7.2}: $S_{B,C} = \begin{pmatrix}
+1 & 1 \\
+1 & 0 \\
+\end{pmatrix}$, aus \hyperref[7.9]{7.9}: $S_{C,B} = \begin{pmatrix}
+0 & 1 \\
+1 & -1 \\
+\end{pmatrix}$\\
+Tatsächlich ist $\begin{pmatrix}
+1 & 1 \\
+1 & 0 \\
+\end{pmatrix} \cdot \begin{pmatrix}
+0 & 1 \\
+1 & -1 \\
+\end{pmatrix} = \begin{pmatrix}
+1 & 0 \\
+0 & 1 \\
+\end{pmatrix}$.
+\subsection{Korollar}
+$\phi: V \rightarrow V,~~~ B,C$ Basen von $V,~~~ S := S_{B,C}$\\
+\\
+$\Rightarrow A_\phi^C = S A_\phi^B S^{-1}$
+\subsubsection*{Beweis}
+$S A_\phi^B S^{-1} \overset{\hyperref[7.19]{7.19}}{=} S_{B,C} A_\phi^{B,B} S_{C,B} = A_\phi^{C,C}  = A_\phi^C$\qed
+\subsection{Beispiel}
+$V = \R^2, ~~~B = \Big(\vec2{1}{1},\vec2{1}{0}\Big),~~~ C = \Big(\vec2{1}{0},\vec2{0}{1}\Big)$\\
+Wie sieht Darstellungsmatrix von einer Drehung $\phi: \R^2 \rightarrow \R^2$  um den Winkel $\frac{\pi}{2}$ bzgl. $B$ aus?\\
+Wissen: $D_{\frac{\pi}{2}} = \begin{pmatrix}
+0 & 1 \\
+-1 & 0 \\
+\end{pmatrix} = A_\phi^C$ Drehung um $\frac{\pi}{2}$ bzgl. $C$\\
+\begin{align*}
+A_\phi^B &= S_{C,B} \underbrace{D_{\frac{\pi}{2}}}_{A_\phi^{C,C}} S_{B,C} \\
+&= \begin{pmatrix}
+0 & 1 \\ 
+1 & -1 \\
+\end{pmatrix} \begin{pmatrix}
+0 & 1 \\
+-1 & 0 \\
+\end{pmatrix} \begin{pmatrix}
+1 & 1 \\
+1 & 0 \\
+\end{pmatrix} = \begin{pmatrix}
+-1 & -1 \\
+2 & 1 \\
+\end{pmatrix}
+\end{align*}
+\newpage
+\section{Determinanten}
+$\hyperref[7.16]{7.16}: A \in \M_n(\K)$ invertierbar $\Leftrightarrow \rg(A) = n$\\
+In diesem Kapitel werden invertierbare Matrizen mit Hilfe der Determinante charakterisiert. \\
+Das ist einfacher zu implementieren.
+\subsection{Definition}
+$A \in \M_n(\K),~~~ i,j \in \{1,...,n\}.~~~ A_{i,j} \in \M_{n-1}(\K)$ sei die Matrix, die man aus $A$ durch Streichen der $i-$ten Zeile und $j-$ten Spalte erhält. \\
+z.B.: $A = \begin{pmatrix}
+1 & 2 & -3 \\
+0 & 1 & -1 \\
+-2 & 1 & 1 \\
+\end{pmatrix} \Rightarrow A_{2,3} = \begin{pmatrix}
+1 & 2 \\
+-2 & 1 \\
+\end{pmatrix}$
+\subsection{Definition (Rekursive Definition der Determinante)}
+$A \in \M_n(\K).\\
+\\
+\underline{n = 1:} ~~~~A = (a), \det(A) := a \in \K$\\
+\\
+$\underline{n \geq 2}:~~~~$ Entwicklung nach der 1. Zeile (\hyperref[7.4]{7.4}): \\
+$A = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+\vdots & \ddots &\ddots & \vdots \\
+a_{n1} & \cdots & \cdots & a_{nn} \\
+\end{pmatrix}\\ 
+\\
+\det(A) =+a_{11}\cdot \det(A_{1,1})- a_{12}\cdot \det(A_{1,2}) + a_{13}\cdot \det(A_{1,3}) \pm ... (-1)^{n+1}a_{1n}\cdot \det(A_{1,n})$
+\noindent\hspace*{12mm}$= \sum_{j = 1}^{n} (-1)^{1+j} a_{1j} \cdot \det(A_{1j})$
+\subsection{Beispiel}
+\begin{itemize}
+	\item[a)] $\det\begin{pmatrix}
+	1 & 1 \\
+	2 & -3
+	\end{pmatrix} = 1 \cdot (-3) - 1 \cdot 2 = -5$
 \end{itemize}
 \end{document}
