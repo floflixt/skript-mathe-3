@@ -21,6 +21,7 @@
 \usepackage{algpseudocode}
 \usepackage{upgreek}
 \usepackage{hyperref}
+\usetikzlibrary{tikzmark,calc}
 \usetikzlibrary{decorations.pathreplacing}
 \usetikzlibrary{arrows}
 
@@ -71,6 +72,19 @@
 \newcommand{\vecspace}[2]{\langle#1\rangle_{#2}}
 \newcommand{\vecspaceR}[1]{\vecspace{#1}{\R}}
 \newcommand{\qed}{\hfill$\square$}
+\newcommand*{\verticalline}[2]{%
+	\begin{tikzpicture}[remember picture, overlay]
+	\draw [densely dashed] ($(pic cs:#1) + (1ex,1.8ex)$)
+	-- ($(pic cs:#2) + (1ex,-0.3ex)$);
+	\end{tikzpicture}
+}
+\newcommand\tmark[1]{%
+	\tikz[overlay,remember picture,baseline] \node [anchor=base] (#1) {};}
+
+\newcommand\TikzLine[3][]{%
+	\begin{tikzpicture}[overlay,remember picture]
+	\draw[#1] (#2.north west) -- (#3.south east);
+	\end{tikzpicture}}
 
 %RenewCommands%
 
@@ -2529,6 +2543,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				\item $\frac{\i+1}{2\i -1} = \frac{(\i+1)(2\i+1)}{\underbrace{(2\i-1)}_{z}\underbrace{(2\i+1)}_{\bar{z}}} =\frac{1-2 +\i(2+1)}{2^2 + 1^2} = -\frac{1}{5} + \frac{3}{5}\i$
 		      			\end{itemize}
 		      			\subsection{Rechenregeln (Konjunktion, Betrag)}
+		      			\label{5.11}
 		      			$w,z \in \C$
 		      			\begin{itemize}
 		      				\item[a)] $\overline{w \pm z} = \overline{w} \pm \overline{z}$\\
@@ -3265,15 +3280,15 @@ $\Bigg[$Bemerkung: in \hyperref[7.9]{7.9}: $A_\phi^{C,B} = S_{C,B}  \cdot A_\phi
 \subsubsection*{Beweis:}
 Sei $v \in V$.\\
 \begin{align*}
-A_\phi^{B',C'} \cdot K_{B'}(v) &\overset{\hyperref[7.7]{7.7}}{=} K_{C'}(\phi(v)) \\
-&\overset{\hyperref[7.4]{7.4}}{=} S_{C,C'} \cdot \overbrace{K_C(\phi(v))}\\
-&\overset{\hyperref[7.7]{7.7}}{=} S_{C,C'} \cdot \overbrace{A_\phi^{B,C} \cdot \underbracket{K_B(v)}} \\
-&\overset{\hyperref[7.4]{7.4}}{=} S_{C,C'} \* A_\phi^{B,C} \cdot \underbracket{S_{B',B} \cdot K_{B'}(v)} 
+A_\phi^{B',C'} \cdot \text{K}_{B'}(v) &\overset{\hyperref[7.7]{7.7}}{=} \text{K}_{C'}(\phi(v)) \\
+&\overset{\hyperref[7.4]{7.4}}{=} S_{C,C'} \cdot \overbrace{\text{K}_C(\phi(v))}\\
+&\overset{\hyperref[7.7]{7.7}}{=} S_{C,C'} \cdot \overbrace{A_\phi^{B,C} \cdot \underbracket{\text{K}_B(v)}} \\
+&\overset{\hyperref[7.4]{7.4}}{=} S_{C,C'} \* A_\phi^{B,C} \cdot \underbracket{S_{B',B} \cdot \text{K}_{B'}(v)} 
 \end{align*} \qed
 \subsection{Bemerkung zu Darstellungsmatrizen}
-$V$ bzw. $W $ K-VR mit Basen $B = \{v_1,..,v_n\}$ bzw. $C = \{w_1,...,w_n\}, \phi: V \rightarrow W$ lin. Abbildung.\\
-Für $v \in W$ kann $K_B(v)$ aufgefasst werden als Bild der Koordinatenabbildung. \\
-$K_B: V \rightarrow K^n, v = \sum_{i = 1}^{n} \lambda_i v_i \mapsto \vec3{\lambda_1}{\vdots}{\lambda_n}$\\
+$V$ bzw. $W $ $\K$-Vektorraum mit Basen $B = \{v_1,..,v_n\}$ bzw. $C = \{w_1,...,w_n\},~~ \phi: V \rightarrow W$ lineare Abbildung.\\
+Für $v \in W$ kann $\text{K}_B(v)$ aufgefasst werden als Bild der Koordinatenabbildung. \\
+$\text{K}_B: V \rightarrow \K^n,~~~ v = \sum_{i = 1}^{n} \lambda_i v_i \mapsto \vec3{\lambda_1}{\vdots}{\lambda_n}$\\
 Daraus ergibt sich folgendet Übersicht:\\
 \begin{tikzpicture}[scale=0.5]
 \node (v1) at (-3,3) {$V$};
@@ -3292,7 +3307,7 @@ Daraus ergibt sich folgendet Übersicht:\\
 $\Rightarrow$ Jede lineare Abbildung $\phi: \K^n \rightarrow \K^m $ ($\K$ Körper) ist von der Form $\phi(x) = A \cdot x$ für eine geeignete Matrix $A \in \M_{m,n}(\K)$.
 \subsubsection*{Beweis}
 Wenn $V = \K^n$ und $W = \K^m$, benutze für $B$ und $C$ kanonische Basis.\\
-$\Rightarrow K_C(\phi(v))  = \phi(v) \overset{\hyperref[7.4]{7.4}}{=} A_\phi^{B,C} \cdot K_B(v) = \underbracket{A_\phi^{B,C} \cdot v}_{\textrm{Matrix }\*\textrm{ Vektor}}$ \qed
+$\Rightarrow \text{K}_C(\phi(v))  = \phi(v) \overset{\hyperref[7.4]{7.4}}{=} A_\phi^{B,C} \cdot \text{K}_B(v) = \underbracket{A_\phi^{B,C} \cdot v}_{\textrm{Matrix }\*\textrm{ Vektor}}$ \qed
 \subsection{Satz (Eigenschaften von Darstellungsmatrizen)}
 \label{7.12}
 $U,V,W$ Vektorräume mit Basen $B,C,D;~~~ \phi,\psi$ lineare Abbildungen.
@@ -3417,22 +3432,28 @@ Algorithmus zur Berechnung von $A^{-1}$ erweitert den Gauß-Algorithmus zur Lös
 z.B. $Ax = b$ mit $b = \vec2{10}{15}$ \\
 Gauß-Jordan-Verfahren: \\
 \\
-$\begin{pmatrix}
-2 & 1 & 10 \\
-1 & 3 & 15 \\
-\end{pmatrix} \overset{II = I -2 \cdot II}{\longrightarrow} \begin{pmatrix}
-2 & 1 & 10 \\
-0 & -5 & 20 \\
-\end{pmatrix} \overset{-\frac{1}{5} \cdot II}{\longrightarrow} \begin{pmatrix}
-2 & 1 & 10 \\
-0 & 1 & 4 \\
-\end{pmatrix}\overset{I = I-II}{\longrightarrow} \begin{pmatrix}
-2 & 0 & 6 \\
-0 & 1 & 4 \\
-\end{pmatrix} \overset{\frac{1}{2}}{\rightarrow} \begin{pmatrix}
-1 & 0 & 3 \\
-0 & 1 & 4 \\
-\end{pmatrix}\\
+$\left ( \begin{array}{cc}
+2&1\\1&3
+\end{array} \right | \left. \begin{array}{c}
+10\\15
+\end{array}\right ) \overset{II = I -2 \cdot II}{\longrightarrow} \left ( \begin{array}{cc}
+2&1\\0&-5
+\end{array} \right | \left. \begin{array}{c}
+10\\20
+\end{array}\right ) \overset{-\frac{1}{5} \cdot II}{\longrightarrow} \left ( \begin{array}{cc}
+2&1\\0&1
+\end{array} \right | \left. \begin{array}{c}
+10\\4
+\end{array}\right )\overset{I = I-II}{\longrightarrow} 
+\left ( \begin{array}{cc}
+2&0\\0&1
+\end{array} \right | \left. \begin{array}{c}
+6\\4
+\end{array}\right ) \overset{\frac{1}{2}}{\rightarrow}\left ( \begin{array}{cc}
+1&0\\0&1
+\end{array} \right | \left. \begin{array}{c}
+3\\4
+\end{array}\right )\\
 \Rightarrow x = \vec2{3}{4}$ Lösung\\
 Für Inverse: Suche Matrix, die $A \cdot X = E_n$ löst.\\
 $AX = E_n \Leftrightarrow A\begin{pmatrix}
@@ -3443,22 +3464,27 @@ x_{21} & x_{22} \\
 0 & 1 \\
 \end{pmatrix} \Leftrightarrow \underbrace{A \vec2{x_{11}}{x_{12}} = \vec2{1}{0}}_{(*)}$ und $\underbrace{A\vec2{x_{12}}{x_{22}} = \vec2{0}{1}}_{(**)}$\\
 Wende Gauß-Jordan-Algorithmus simultan auf LGS (*) und (**) an.\\
-$\begin{pmatrix}
-2 & 1 & 1 & 0 \\
-1 & 3 & 0 & 1 \\
-\end{pmatrix} \overset{II = I -2II}{\rightarrow} \begin{pmatrix}
-2 & 1 & 1 & 0 \\
-0 & -5 & 1 & -2 \\
-\end{pmatrix} \overset{-\frac{1}{5}II}{\rightarrow} \begin{pmatrix}
-2 & 1 & 1 & 0 \\
-0 & 1 & -\frac{1}{5} & \frac{2}{5}
-\end{pmatrix} \overset{I = I -II}{\rightarrow} \begin{pmatrix}
-2 & 0 & \frac{6}{5} & -\frac{2}{5} \\
-0 & 1 & -1\frac{1}{5} & \frac{2}{5} \\
-\end{pmatrix} \overset{\frac{1}{2}I}{\rightarrow} \begin{pmatrix}
-1 & 0 & \frac{3}{5} & -\frac{1}{5} \\
-0 & 1 & -\frac{1}{5} & \frac{2}{5} \\
-\end{pmatrix} \Rightarrow \begin{pmatrix}
+$\left ( \begin{array}{cc}
+2&1\\1&3
+\end{array} \right | \left. \begin{array}{cc}
+1&0\\0&1
+\end{array}\right ) \overset{II = I -2II}{\rightarrow} \left ( \begin{array}{cc}
+2&1\\0&-5
+\end{array} \right | \left. \begin{array}{cc}
+1&0\\1&-2
+\end{array}\right ) \overset{-\frac{1}{5}II}{\rightarrow} \left ( \begin{array}{cc}
+2&1\\0&1
+\end{array} \right | \left. \begin{array}{cc}
+1&0\\-\frac{1}{5}&\frac{2}{5}
+\end{array}\right ) \overset{I = I -II}{\rightarrow} \left ( \begin{array}{cc}
+2&0\\0&1
+\end{array} \right | \left. \begin{array}{cc}
+\frac{6}{5}&-\frac{2}{5}\\-1\frac{1}{5}&\frac{2}{5}
+\end{array}\right ) \overset{\frac{1}{2}I}{\rightarrow}  \left ( \begin{array}{cc}
+1&0\\0&1
+\end{array} \right | \left. \begin{array}{cc}
+\frac{3}{5}&-\frac{1}{5}\\-1\frac{1}{5}&\frac{2}{5}
+\end{array}\right ) \Rightarrow \begin{pmatrix}
 \frac{3}{5} & -\frac{1}{5} \\
 -\frac{1}{5} & \frac{2}{5} \\
 \end{pmatrix} = X = A^{-1}$
@@ -3467,7 +3493,7 @@ $\begin{pmatrix}
 $V ~~\K$-Vektorraum, $B,C$ Basen $\Rightarrow S_{B,C} = (S_{C,B})^{-1}$
 \subsubsection*{Beweis}
 Sei $v \in V$.\\
-$S_{C,B} \cdot S_{B,C} \cdot K_B(v) = S_{C,B} \cdot K_C(v) = K_B(v) = E_n$\qed
+$S_{C,B} \cdot S_{B,C} \cdot \text{K}_B(v) = S_{C,B} \cdot \text{K}_C(v) = \text{K}_B(v) = E_n$\qed
 \subsection{Beispiel}
 $V=\R^2,~~ B= \Big(\vec2{1}{1},\vec2{1}{0}\Big),~~ C = \Big(\vec2{1}{0}, \vec2{0}{1}\Big)$\\
 Aus \hyperref[7.2]{7.2}: $S_{B,C} = \begin{pmatrix}
@@ -3532,6 +3558,8 @@ z.B.: $A = \begin{pmatrix}
 -2 & 1 \\
 \end{pmatrix}$
 \subsection{Definition (Rekursive Definition der Determinante)}
+\label{8.2}
+\marginpar{24.01.2017}
 $A \in \M_n(\K).\\
 \\
 \underline{n = 1:} ~~~~A = (a), \det(A) := a \in \K$\\
@@ -3550,6 +3578,600 @@ a_{n1} & \cdots & \cdots & a_{nn} \\
 	\item[a)] $\det\begin{pmatrix}
 	1 & 1 \\
 	2 & -3
-	\end{pmatrix} = 1 \cdot (-3) - 1 \cdot 2 = -5$
+	\end{pmatrix} = 1 \cdot (-3) - 1 \cdot 2 = -5$\\
+	$\det\begin{pmatrix}
+	\overbracket{a_{11}}^{+} & \overbracket{a_{12}}^{-} \\
+	a_{21} & a_{22} \\
+	\end{pmatrix} = a_{11} \cdot a_{22} - a_{12} \cdot a_{21}$  \\
+	 Man multipliziert die Werte auf der Hauptdiagonale und zieht die der Nebendiagonale ab.
+	\item[b)] $\det\begin{pmatrix}
+	\overbracket{a_{11}}^{+} &\overbracket{a_{12}}^{-} & \overbracket{a_{13}}^{+} \\
+	a_{21} &a_{22} & a_{23} \\
+	a_{31} &a_{32} & a_{33} \\
+	\end{pmatrix} = a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + \\
+	\noindent\hspace*{41mm}a_{13}(a_{21}a_{33} - a_{22}a_{31}) \\\noindent\hspace*{35mm}= ...$\\
 \end{itemize}
+\subsubsection*{Regel von Sarrus:}
+$\begin{pmatrix}
+a\tmark{a}_{11} &a\tmark{c}_{12} & a\tmark{e}_{13} ~\tikzmark{oben}& a\tmark{h}_{11} & a\tmark{j}_{12}\\
+a_{21} &a_{22} & a_{23} & a_{21} & a_{22}\\
+\underset{-}{a\tmark{g}_{31}} &\underset{-}{a\tmark{i}_{32}} & \underset{\nicefrac{-}{+}}{a\tmark{b}_{33}} ~\tikzmark{unten}& \underset{+}{a\tmark{d}_{31}} & \underset{+}{a\tmark{f}_{32}}\\
+\end{pmatrix}$
+\verticalline{oben}{unten}\\
+\TikzLine[cyan, thin]{a}{b}
+\TikzLine[red, thin]{c}{d}
+\TikzLine[green, thin]{e}{f}
+\TikzLine[orange, thin]{e}{g}
+\TikzLine[purple, thin]{h}{i}
+\TikzLine[brown, thin]{j}{b}
+\\
+Zum Beispiel:
+$\det\begin{pmatrix}
+1 & 2 & -1 \\
+0 & 1 & 2 \\
+1 & 0 & 3 \\
+\end{pmatrix} = 3 +4+ 0 -(-1) -0 - 0 = 8$
+\begin{itemize}
+	\item[c)] Für $n \times n-$Matrix gibt es im Allgemeinen $n!$ Summanden.\\
+	Viele Nullen in der Matrix machen die Berechnung einfacher, z.B.:\\
+	$\det\begin{pmatrix}
+	\overset{+}{0} & \overset{-}{-2} & \overset{+}{0} \\
+	1 & 2 & -3 \\
+	4 & 1 & 1 \\
+	\end{pmatrix} = 0 - (-2)\*\det\begin{pmatrix}
+	1 & -3 \\
+	4 & 1 \\
+	\end{pmatrix} + 0 = 26$\\
+	Falls Nullen nicht in 1. Zeile stehen: Man kann nach jeder beliebigen Zeile oder Spalte entwickeln:
+\end{itemize}
+\subsection*{Regeln zur Berechenung der Determinante}
+\subsection{Satz (Entwicklungssatz von Laplace)}
+\label{8.4}
+$A \in \M_n(\K)$
+\begin{itemize}
+	\item[i)] Entwicklung nach $i$-ter Zeile: \\
+	$\det(A) = \sum_{j = 1}^{n} (-1)^{i+j}a_{ij}\*\det(A_{ij})$
+	\item[ii)] Entwicklung nach $j$-ter Spalte: \\
+	$\det(A)  = \sum_{i = 1}^{n}(-1)^{i+j} a_{ij} \*\det(A_{ij})$
+\end{itemize}
+\subsubsection*{8.4 hier ohne Beweis, zu lang.}
+\newpage
+\subsection{Beispiel}
+\begin{itemize}
+\item[a)] $A = \begin{pmatrix}
+2 & -1 & 1 \\
+-1 & 0 & 3 \\
+2 & 0 & 4 \\
+\end{pmatrix} \qquad\rightarrow\qquad \begin{pmatrix}
++ & - & + \\
+- & + & - \\
++ & - & + \\
+\end{pmatrix}\leftarrow$(Vorzeichen, $(-1)^{i+j}$,\\ \noindent\hspace*{84mm}Schachbrettmuster)
+\begin{itemize}
+	\item nach 1. Spalte: \\
+	$\det(A) = 2 \cdot \det\begin{pmatrix}
+	0 & 3 \\
+	0 & 4 \\
+	\end{pmatrix} - (-1) \det\begin{pmatrix}
+	-1 & 1 \\
+	0 & 4 \\
+	\end{pmatrix} + 2 \cdot \det\begin{pmatrix}
+	-1 & 1 \\
+	0 & 3 \\
+	\end{pmatrix} \\
+	\noindent\hspace*{11mm}= 2 \cdot 0 + 1 \cdot (-4) + 2 \cdot (-3) \\
+	\noindent\hspace*{11mm}= -10$
+	\item nach 2. Spalte: \\
+	$\det(A) = -(-1) \cdot \det\begin{pmatrix}
+	-1 & 3 \\ 
+	2 & 4 \\
+	\end{pmatrix}  + 0 + 0 \\
+	\noindent\hspace*{11mm}= -10$
+\end{itemize}
+Also: Am Besten, man entwickelt nach Zeile oder Spalte, in der viele Nullen stehen.\\
+\item[b)] Falls es nur wenige Nullen gibt: Erzeuge möglichst viele Nullen mit Gauß, denn: \\
+$A = \underbrace{\begin{pmatrix}
+a_{11} &  \cdots & \cdots & a_{1n} \\
+0 & \ddots &   & \vdots \\
+\vdots & \ddots & \ddots &  \vdots \\
+0 & \cdots & 0 & a_{nn}
+\end{pmatrix}}_{\textrm{obere Dreiecksmatrix}} \\
+\noindent\hspace*{15mm}\Rightarrow \det(A) = a_{11} \cdot \det\begin{pmatrix}
+a_{22}&\cdots&\cdots&a_{2n}\\
+0&\ddots&&\vdots\\
+\vdots&\ddots&\ddots&\vdots\\
+0&\cdots&0&a_{nn}
+\end{pmatrix} \\
+\noindent\hspace*{32mm}= a_{11} \cdot a_{22} \cdot \det\begin{pmatrix}
+a_{33}&\cdots&\cdots&a_{3n}\\
+0&\ddots&&\vdots\\
+\vdots&\ddots&\ddots&\vdots\\
+0&\cdots&0&a_{nn}
+\end{pmatrix}\\
+\noindent\hspace*{32mm}=... \\
+\noindent\hspace*{32mm}= a_{11} \cdot a_{22} \cdot a_{33} \cdot ... \cdot a_{nn}$\\
+\\
+Analog für unter Dreiecksmatrix: \\
+$\det\begin{pmatrix}
+a_{11} &  0 & \cdots & 0 \\
+\vdots & \ddots &  \ddots & \vdots \\
+\vdots &  & \ddots &  0 \\
+a_{n1} & \cdots & \cdots & a_{nn}
+\end{pmatrix} = a_{11} \cdot ... \cdot a_{nn}$\\
+Für den Gauß-Algorithmus müssen folgende Regeln beachtet werden:
+\end{itemize}
+\subsection{Satz (Eigenschaften von Determinanten)}
+\label{8.6}
+$A,B  \in \M_n(\K),~~~ A = (S_1,...,S_n), ~~~s_1,...,s_n \in \K^n,~~~ s_i' \in \K^n$\\
+\\
+Folgende Eigenschaften gelten sowohl für Spalten als auch für Zeilen:
+\begin{itemize}
+	\item[D1)] $\det(s_1,~...,\underbrace{s_i + s_i'}_{i-\text{te Spalte}},~...,~s_n) = \det(s_1,~...,~s_i,~...,~s_n) + \det(s_1,~...,~s_i',~...,~s_n)$\\
+	\textbf{Beweis:} Nach Spalte $i$ entwickeln.
+	\item[D2)] Beim Vertauschen von 2 Spalten ändert sich das Vorzeichen der Determinante.\\
+	\textbf{Beweis} Hier ohne Beweis.
+	\item[D3)] $\det(s_1,~...,~\lambda s_i,~...,~s_n) = \lambda \cdot \det(s_1,~...,~s_n),\qquad \lambda \in \K$\\
+	\textbf{Beweis:} Nach Spalte $i$ entwickeln.
+	\item[D4)] $\det(\lambda \cdot A) = \det(\lambda s_1,~...,~\lambda s_n) \overset{D3}{=} \lambda^n \det(A)$
+	\item[D5)] Ist $s_i = \vec3{0}{\vdots}{0}$, so ist $\det(A) = 0$\\
+	\textbf{Beweis:} Nach Spalte $i$ entwickeln.
+	\item[D6)] Besitzt $A$ zwei identische Spalten, so ist $\det(A) = 0$.\\
+	\textbf{Beweis:} Vertausche Spalten und erhalte Matrix $A'$ mit $A'= A$.\\
+	Nach D2: $\det(A) = -\det(A) \Rightarrow \det(A) = 0$, falls $\K \neq \Z_2$.\\
+	Falls $\K = \Z_2:$ Es gilt auch $\det(A) = 0$ mit vollständiger Induktion.
+	\item[D7)] $\det(s_1,~...,~\underbrace{s_i+\lambda s_j}_{i-\text{te Spalte}},~...,~s_n) = \det(A) \qquad(i \neq j,~j\in[1,n])$\\
+	\textbf{Beweis:} D1, D3, D6.
+	\item[D8)] $\det(A \cdot B) = \det(A) \cdot \det(B)$\\
+	\textbf{Beweis} Hier ohne Beweis.
+	\item[D9)] $\det(A^T) = \det(A)$\\
+	\textbf{Beweis:} Folgt aus \hyperref[8.4]{8.4}.
+\end{itemize}
+\subsection{Beispiel}
+$\det\begin{pmatrix}
+0 & 1 & 2 \\
+-2 & 0 & 3 \\
+0 & -2 & 3 \\
+\end{pmatrix} \overset{z_1 \leftrightarrow z_2}{=} -\det\begin{pmatrix}
+-2 & 0 & 3 \\
+0 & 1 & 2 \\
+0 & -2 & 3 \\
+\end{pmatrix} \overset{III = III + 2II}{=} -\det\begin{pmatrix}
+-2 & 0 & 3 \\
+0 & 1 & 2 \\
+0 & 0 & 7 \\
+\end{pmatrix}\\
+\noindent\hspace*{34.5mm} = - 14$
+\subsection*{Charakterisierung invertierbarer Matrizen}
+\subsection{Satz (Invertierbarkeit von Matrizen)}
+$A \in \M_n(\K)$ invertierbar $\Leftrightarrow \det(A) \neq 0$\\
+In diesem Fall gilt: $\det(A^{-1}) = (\det(A))^{-1}$.
+\subsubsection*{Beweis}
+\begin{itemize}
+	\item[($\Rightarrow$)] $\det(A) \cdot \det(A^-1) \overset{\hyperref[8.6]{D8}}{=} \det(A \cdot A^{-1}) = \det(E) = 1\\
+	\noindent\hspace*{25mm} \Rightarrow \det(A) \neq 0 ,~~ \det(A^{-1}) = \det(A)$
+	\item[$(\Leftarrow)$] Sei $A$ nicht invertierbar $\overset{\hyperref[7.16]{7.16}}{\Rightarrow} \rg(A) < n \\
+	\noindent\hspace*{40.5mm}\Rightarrow$ Spalten von $A$ sind linear abhängig, d.h.:\\
+	\\
+	\noindent\hspace*{40.5mm}$\qquad\exists i: s_i = \sum_{k = 1, k\neq i}^{n} \lambda_k s_k\\\noindent\hspace*{40.5mm}\qquad s_1,...,s_n$ Spalten von $A$ \\
+	\noindent\hspace*{40.5mm}$\Rightarrow \det(A) \overset{\hyperref[8.6]{D7}}{=} \det(s_1,~...,~\underbrace{s_i - \sum_{k = 1, k\neq i}^{n} \lambda_k s_k}_{i-\text{te Spalte}},~...,~s_n)$\\
+	\noindent\hspace*{57.5mm}$= \det(s_1,...,\underbrace{0}_{i\text{-te Spalte}},...,s_n) \overset{\hyperref[8.6]{D5}}{=} 0$\qed
+\end{itemize}
+\subsection{Bemerkung}
+\label{8.9}
+\begin{itemize}
+	\item[a)] Seien $v_1,v_2,v_3 \in \R^3,$ z.B. \\
+	$v_1 = \vec3{1}{0}{0},~~ v_2 = \vec3{0}{1}{0},~~ v_3 = \vec3{1}{0}{2}$\\
+	%Zeichnung
+	Das von $v_1,v_2,v_3$ gebildete Parallelepiped $P$.\\
+	Man kann ausrechnen, dass $| \det(v_1,v_2,v_3) |$ das Volumen von $P$ ist. Es ist $\Bigg|\det\begin{pmatrix}
+	1 & 0 & 1 \\
+	0 & 1 & 0 \\
+	0 & 0 & 2 \\
+	\end{pmatrix} \Bigg|= 2$. Dies gilt in analoger Weise in $\R^2$ für ein Parallelogramm, das von $v_1, v_2 \in \R^2$ gebildet wird und für höhere Dimensionen $ n \geq 4$.
+	\item[b)] Es gibt eine alternative Berechnung von $A^{-1}$, z.B. wenn $A = \begin{pmatrix}
+	a & b \\
+	c & d \\
+	\end{pmatrix} \in \M_2(\K) \Rightarrow A^{-1} = (\det(A))^{-1} \cdot \begin{pmatrix}
+	d & -b \\
+	-c & a \\
+	\end{pmatrix}$, denn $\begin{pmatrix}
+	a & b \\
+	c & d \\
+	\end{pmatrix} \cdot \begin{pmatrix}
+	d & -b \\
+	-c & a \\
+	\end{pmatrix} = \begin{pmatrix}
+	ad - bc & 0 \\
+	0 & \underbrace{ad-bc}_{\det(A)}
+	\end{pmatrix}$\\
+	Allgemeine Formel für $A \in \M_n(\K)$ komplizierter (auf unserem Level nicht verständlich).
+\end{itemize}
+\newpage
+\section{Eigenwerte und Eigenvektoren}
+\subsubsection*{Anwendungen} Markov-Ketten (Kaufverhalten), Eigenfaces, Page-Rank-Algorithm, etc.
+\subsection{Beispiel}
+$A = \begin{pmatrix}
+2 & 0 \\
+0 & \frac{1}{3}
+\end{pmatrix}	 \in \M_2(\R)$. \\
+Da $A\vec2{1}{0} = 2 \cdot \vec2{1}{0}$ und $A\vec2{0}{1} = \frac{1}{3}\vec2{0}{1}$, streckt $A$ in Richtung $\vec2{1}{0}$ um den Faktor 2 und staucht in Richtung $\vec2{0}{1}$ um den Faktor $\frac{1}{3}$.\\
+%Zeichung
+Man nennt $\vec2{1}{0}$ Eigenvektor (EV) von $A$ zum Eigenwert (EW) 2 und $\vec2{0}{1}$ Eigenvektor zum Eigenwert $\frac{1}{3}$.
+\subsection{Definition}
+Sei $A \in \M_n(\K),~~ v \in \K^n,~~ v \neq \mathcal{O}$, heißt \uline{Eigenvektor (EV)} zum \uline{Eigenwert (EW)} $\lambda \in \K$, falls $Av = \lambda v$.\\
+\\
+Die Menge $Eig(\lambda) := \{v \in \K^n | Av = \lambda v \}$ heißt \uline{Eigenraum} von $\lambda$.\\
+$\Bigg[$z.B. ist $\vec2{4}{0}$ auch EV zum EW 2 von $A = \begin{pmatrix}
+2 & 0 \\
+0 & \frac{1}{3}
+\end{pmatrix}\Bigg]$
+\subsection{Beispiel}
+Konstruiere Matrix $A \in \M_2(\R)$, die in Richtung $v_1 = \vec2{1}{1}$ um $\lambda_1 = 2$ streckt und in Richtung $v_2 = \vec2{3}{-1}$ um $\lambda_2 = \frac{2}{3}$ staucht. \\
+%Zeichung
+Man erhält: 
+\begin{itemize}
+	\item[a)] $A\vec2{1}{1} = 2 \vec2{1}{1} \Rightarrow \begin{cases}
+	I \qquad a_{11} + a_{12} = 2 \\
+	II \qquad a_{21} + a_{22} = 2\\
+	\end{cases}$
+	\item[b)] $A \vec2{3}{-1} = \frac{2}{3}\vec2{3}{-1} \Rightarrow \begin{cases}
+	III \qquad 3a_{11} - a_{12} = 2\\
+	IV \qquad 3a_{21} - a_{22} = -\frac{2}{3}\\
+	\end{cases}$
+\end{itemize}
+$III = III +1: \quad 4a_{11} = 4,~~~~~ a_{11} = 1 \overset{I}{\Rightarrow} a_{12} = 1 \\
+IV = IV + II:\quad 4a_{21} = \frac{4}{3},~~~~~ a_{21} = \frac{1}{3} \overset{II}{\Rightarrow} a_{22} = \frac{5}{3}\\
+\Rightarrow A = \begin{pmatrix}
+1 & 1 \\
+\frac{1}{3} & \frac{5}{3} \\
+\end{pmatrix}$
+\subsection*{Eigenwertproblem}
+Geg.: $A \in \M_n(\K)$. Ges.: Eigenvektor und Eigenwert \\
+\underline{Grundidee} zur Berechnung von EV + EW:\\
+Ang. $v \neq 0$ ist EV von $A$ zum EW $\lambda \in \K$.
+\begin{align*}
+Av = \lambda v &\Leftrightarrow Av=(\lambda \cdot E_n) v\\
+&\Leftrightarrow Av - \lambda E_n v = 0 \\
+&\Leftrightarrow \underbrace{(A - \lambda E_n)}_{\in \M_n(\K)} v = 0 \\
+\end{align*}
+D.h. $v \in \ker(A - \lambda E_n)!$ Da $v \neq 0$, ist $\ker(A - \lambda E_n) \neq \{\O\}$ und somit $A - \lambda E_n$ weder injektiv (\hyperref[6.9]{6.9}) noch umkehrbar (\hyperref[6.15]{6.15}). Ergebnis: 
+\subsection{Satz}
+\label{9.4}
+Sei $A \in \M_n(\K)$.
+\begin{itemize}
+	\item[1)] $\lambda$ EW von $A \Leftrightarrow \det(A- \lambda E_n) = 0$
+	\item[2)] $Eig(\lambda) = \ker(A -\lambda E_n)$
+	\item[3)] EV $v \neq 0$ ist Lösung $(A -\lambda E_n)v = 0$.
+\end{itemize}
+\subsubsection*{Beweis}
+Siehe oben.\qed
+\subsection{Beispiel}
+\label{9.5}
+\uline{Gegeben:} $A = \begin{pmatrix}
+1 & 1 \\
+-2 & 4\\
+\end{pmatrix} \in \M_2(\R)$\\
+\uline{Gesucht:} EW + EV \\
+\\\\
+Benutze \hyperref[9.4]{9.4.1)}: Es ist $\det(A- \lambda E_2) = det\begin{pmatrix}
+1- \lambda & 1 \\
+-2 & 4 - \lambda
+\end{pmatrix} = (1- \lambda)(4 -\lambda) +2\\
+\noindent\hspace*{60mm} =  \lambda^2 - 5\lambda  + 6 \\
+\noindent\hspace*{58mm}\overset{\hyperref[9.4]{9.4.1)}}{=} 0$\\
+$\Rightarrow \lambda_1 = 3,~~~ \lambda_2 = 2 \overset{\hyperref[9.4]{9.4.1)}}{\Rightarrow} A$ hat EW $\lambda_1$ und $\lambda_2$.\\
+\\
+Die EV $v_1,v_2 \in \R^2$ erfüllen somit 
+\begin{itemize}
+	\item[a)] $(A - \lambda_1 E_2)v_1 = 0 \\
+	\Leftrightarrow \begin{pmatrix}
+	1 -3 & 1 \\
+	-2 & 4-3 \\
+	\end{pmatrix} \cdot \vec2{x}{y} = 0 \Leftrightarrow I: -2x +y = 0, ~~~II: -2x +y = 0\\
+	\noindent\hspace*{49mm} \Leftrightarrow y = 2x$\\
+	\noindent\hspace*{49mm}$\overset{x = 1}{\Rightarrow} v_1 = \vec2{1}{2}$ EV zum EW $\lambda_1 = 3.\\
+	\noindent\hspace*{55mm} Eig(3) = \vecspaceR{\vec2{1}{2}}$
+	\item[b)] Analog für $\lambda_2 = 2$. Zu Lösen $\begin{pmatrix}
+	-1 & 1 \\
+	-2 & 2
+	\end{pmatrix} \cdot \underbrace{\vec2{x'}{y'}}_{v_2} = 0 \Rightarrow v_2 = \vec2{1}{1}.\\
+	 Eig(2) = \vecspaceR{\vec2{1}{1}}$
+\end{itemize}
+\subsection{Definition}
+\marginpar{31.01.2017}
+Für $A \in \M_n(\K)$ heißt $P_A(\lambda) = \det(A)-(\lambda E_n)$ das \uline{charakteristische Polynom} von $A$.
+\subsection{Bemerkung}
+$P_A(\lambda)$ ist Polynom vom Grad $n$, falls $A \in \M_n(\K)$ (folgt aus Definition der Determinante \hyperref[8.2]{8.2}). Die Nullstelle von $P_A(\lambda)$ sind die Eigenwerte von $A$.\\
+$\Rightarrow $ für $\K = \R:~~A $ hat $ \geq n$ Eigenwerte.\\
+$K = \C: $ genau $n$ Eigenwerte ( nicht notwendigerweise verschieden), \hyperref[5.11]{5.11 b)}.
+\subsection*{Diagonalisierbarkeit von Matrizen}
+\subsection{Definition}
+$D \in \M_(\K)$ heißt \uline{Diagonalmatrix}, wenn $D = \begin{pmatrix}
+\lambda_1 & \cdots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \cdots & \lambda_n \\
+\end{pmatrix}$
+\subsection{Bemerkung}
+\begin{itemize}
+	\item[a)] Mit Diagonalmatrizen kann man leichter rechnen, denn:
+	\begin{itemize}
+		\item $\begin{pmatrix}
+		\lambda_1 & \cdots & 0 \\
+		\vdots & \ddots & \vdots \\
+		0 & \cdots & \lambda_n \\
+		\end{pmatrix} \cdot \begin{pmatrix}
+		\mu_1 & \cdots & 0 \\
+		\vdots & \ddots & \vdots \\
+		0 & \cdots & \mu_n \\
+		\end{pmatrix} = \begin{pmatrix}
+		\lambda_1\mu_1 & \cdots & 0 \\
+		\vdots & \ddots & \vdots \\
+		0 & \cdots & \lambda_n\mu_1 \\
+		\end{pmatrix}$
+		\item $\begin{pmatrix}
+		\lambda_1 & \cdots & 0 \\
+		\vdots & \ddots & \vdots \\
+		0 & \cdots & \lambda_n \\
+		\end{pmatrix}^k = \begin{pmatrix}
+		\lambda_1^k & \cdots & 0 \\
+		\vdots & \ddots & \vdots \\
+		0 & \cdots & \lambda_n^k \\
+		\end{pmatrix}, \qquad k \in \N$
+	\end{itemize}
+	\item[b)]
+	Deswegen folgende Grundidee:\\
+	Sei $A \in \M_n(\K)$.\\
+	 Bringe $A$ auf Diagonalgestalt: Fasse dazu $A$ als Darstellungsmatrix von $\phi(v) = Av$ bzgl. Standardbasis $E$ auf, d.h. $A = A_\phi^E$. Suche Basis $B$, so dass $A_\phi^B$ Diagonalmatrix ist. Wenn es eine solche Basis $B$ gibt, dann gilt:
+	%Zeichung
+\end{itemize}
+\subsection{Beispiel}
+$A = \begin{pmatrix}
+1 & 1 \\
+-2 & 4 \\
+\end{pmatrix} \in \M_2(\R)$.\\
+Aus \hyperref[9.5]{9.5} EV: $v_1 = \vec2{1}{2}, ~~v_2 = \vec2{1}{1}.$ EW: $\lambda_1 = 3,~~ \lambda_2 = 2$.\\
+Wähle als Basis $B = \{v_1,v_2\}$.\\
+$\Rightarrow S_{B,E} =\begin{pmatrix}
+1 & 1 \\
+2 & 1 \\
+\end{pmatrix} = S \Rightarrow S_{E,B} = S^{-1} \overset{\hyperref[8.9]{8.9b)}}{=} \begin{pmatrix}
+-1 & 1 \\
+2 & -1 \\
+\end{pmatrix}\\
+\Rightarrow D = S^{-1}AS = \begin{pmatrix}
+-1 & 1 \\
+2 & -1 \\
+\end{pmatrix}\cdot \begin{pmatrix}
+1 & 1 \\
+2 & 4 \\
+\end{pmatrix} \cdot \begin{pmatrix}
+1 & 1 \\
+2 & 1 \\
+\end{pmatrix} = \underbrace{\begin{pmatrix}
+	3 & 0 \\
+	0 & 2 \\
+	\end{pmatrix}}_{\begin{pmatrix}
+	\lambda_1 & 0 \\ 0 & \lambda_2 \\
+	\end{pmatrix}}$\\
+Somit ist z.B. $A^5 = \underbrace{SDS^{-1}}_{A} \cdot \underbrace{SDS^{-1}}_{A} \cdot ... \cdot \underbrace{SDS^{-1}}_{A}\\
+\noindent\hspace*{29.5mm}= SD^5S^{-1} =  \begin{pmatrix}
+1 & 1 \\
+2 & 1 \\
+\end{pmatrix}\cdot \begin{pmatrix}
+243 & 0 \\
+0 & 32 \\
+\end{pmatrix} \cdot \begin{pmatrix}
+-1 & 1 \\
+2 & -1 \\
+\end{pmatrix} = \begin{pmatrix}
+irgendwas
+\end{pmatrix}$
+\underline{Fragen:}
+\begin{itemize}
+	\item[1)] Ist jeder $A \in \M_n(\K)$ diagonalisierbar?
+	\item[2)] Wie diagonalisiert man $A$?
+\end{itemize}
+\subsection{Definition}
+\label{9.11}
+\begin{itemize}
+	\item[i)] $A \in \M_n(\K)$ heißt \uline{diagonalisierbar}, wenn es eine invertierbare Matrix \\$S \in \M_n(\K)$ gibt, so dass $A = SDS^{-1},~~~ D$ Diagonalmatrix.
+	\item[ii)] Eine lineare Abbildung $\phi:  V \rightarrow V,~~ dim(V) < \infty$, heißt diagonalisierbar, falls es eine Basis $B$ gibt, so dass $A_\phi^B$ Diagonalmatrix.
+\end{itemize}
+\subsection{Satz (Spektralsatz)}
+\begin{itemize}
+	\item[i)] $A \in \M_n(\K)$ diagonalisierbar $\Leftrightarrow \exists n$ linear unabhängig EV $\underbrace{v_1,...,v_n}_{\text{Basis von }\K^n}$. In diesem Fall ist $A = SDS^{-1}$, wobei $S = (v_1,...,v_n)$ und $D = \begin{pmatrix}
+	\lambda_1 & \cdots & 0 \\
+	\vdots & \ddots & \vdots \\
+	0 & \cdots & \lambda_n \\
+	\end{pmatrix}$ mit $v_i$ EV zum EW $\lambda_i$ von $A$.
+	\item[ii)] $A$ hat $n$ verschiedene EW $\lambda_1,...,\lambda_n \Rightarrow A$ diagonalisierbar.
+\end{itemize}
+\subsubsection*{Beweis}
+\begin{itemize}
+\item[i)] $A$ diagonalisierbar $\overset{\hyperref[9.11]{9.11i)}}{\Leftrightarrow} \exists S$ mit $S^{-1}AS = \begin{pmatrix}
+\mu_1 & \cdots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \cdots & \mu_n \\
+\end{pmatrix}$\\
+$\Leftrightarrow AS = S \cdot \begin{pmatrix}
+\mu_1 & \cdots & 0 \\
+\vdots & \ddots & \vdots \\
+0 & \cdots & \mu_n \\
+\end{pmatrix}$.\\
+Sei $S = (s_1,...,s_n)$. Für Spalte $i: As_i = \mu_is_i \qquad i = 1,..., n$\\
+$\Leftrightarrow s_i$ EV zum EW $\mu_i$, damit muss $s_i = v_i, ~~\mu_i = \lambda_i$.\\
+Insgesamt: $\underbrace{S\text{ invertierbar}}_{A \text{ diagonalisierbar}} \Leftrightarrow \underbrace{ \rg(S) = n}_{\text{d.h. Spalten l.u.}}$
+\item[ii)]
+$\lambda_1,...,\lambda_n$ sind paarweise verschiedene EW. Zeige per Induktion, dass EV linear unabhängig:\\
+$n = 1 \rightarrow\checkmark$\\
+Induktion: $n -1 \rightarrow n$\\
+IV: $\underbrace{v_1,...,v_{n-1}}_{\text{EV}}$ linear unabhängig\\
+IA: $v_1,...,v_n$ linear unabhängig \\
+Angenommen nicht, dann ist $v_n = \sum_{i = 1}^{n-1}a_iv_i ~~~~~\big(*\big)$
+$\Rightarrow$ \begin{itemize}
+	\item[a)] $\lambda_nv_n = \sum_{i = 1}^{n-1}a_i\lambda_n v_i$
+	\item[b)] $\lambda_nv_n = Av_n \overset{(*)}{=} \sum_{i = 1}^{n-1}a_iA v_i = \sum_{i = 1}^{n -1}a_i\lambda_iv_i$
+\end{itemize}
+IV: $v_1,...,v_{n-1}$ linear unabhängig $\Rightarrow$ mind. ein $a_i \neq 0$\\
+$\overset{a) = b)}{\Rightarrow} \lambda_i = \lambda_n$ \Lightning\qed	
+\end{itemize}
+\subsection{Beispiel}
+\begin{itemize}
+	\item[a)] $A = \begin{pmatrix}
+	0 & -1 \\
+	1 & 0 \\
+	\end{pmatrix}$ ist nicht diagonalisierbar, da $P_A(\lambda) = \lambda^2 +1$ keine Nullstellen in $\R$ hat.
+	\item[b)]
+	Nicht jede Matrix hat $n$ verschiedene EW, z.B. $A = \begin{pmatrix}
+	2 & 0 & 0 \\
+	0 & 2 & 0 \\
+	0 & 0 & 1 \\
+	\end{pmatrix}$ hat EW $\lambda_1 = 2,~~ \lambda_2 = 1$ mit EV $v_1 = \vec3{1}{0}{0},~~ v_1' = \vec3{0}{1}{0},~~ v_2 = \vec3{0}{0}{1}$ \\
+	wobei $Eig(2) = \Bigg\langle\vec3{1}{0}{0}, \vec3{0}{1}{0}\Bigg\rangle_\R,~~~ Eig(1) = \Bigg\langle\vec3{0}{0}{1}\Bigg\rangle_\R$
+\end{itemize}
+\newpage
+\section{Norm und Skalarprodukt}
+\subsection{Beispiel}
+\label{10.1}
+Im $\R^2$ hat man folgende Möglichkeiten:
+\begin{itemize}
+	\item Längenmessung: Norm eines Vektors $v \in \R^2,~~ v = \vec2{x}{y}$
+	\begin{center}
+		$\| v \| := \sqrt{x^2 + y^2}$
+	\end{center}
+	\item Abstandsmessung zwischen 2 Elementen $v = \vec2{x}{y},~~ v' = \vec2{x'}{y'}$
+	\begin{center}
+		$d(v,v') := \|v- v'\|$
+	\end{center}
+	\item Winkelberechnung mit Skalarprodukt: Sei $\alpha$ der Winkel, der von $v$ und $v'$ eingeschlossen wird und \begin{center}
+		$(v | v') = \Big(\vec2{x}{y} \Big| \vec2{x'}{y'}\Big) := xx' + yy'$
+	\end{center} das Skalarpodukt von $v$ und $v'$. Dann ist 
+	\begin{center}
+		$\cos(\alpha) = \frac{(v | v')}{\|v\| \cdot \|v'\|}$
+	\end{center}
+	Wenn $\|v\| = \|v'\| = 1$, so ist $\cos(\alpha) = (v|v')$.\\
+	\\
+	 Es ist für $v=\vec2{1}{1}$ und $v'=\vec2{0}{1}$: $\|v\| = \sqrt{1^2 + 1^2} = \sqrt{2},~~ \\\|v'\| = \sqrt{1^2 + 0^2} = 1,~~ d(v,v') = \Big\| \vec2{1}{1}- \vec2{1}{0}\Big\| = \Big\| \vec2{0}{1}\Big\| = 1,\\ (v|v') = 1 \cdot 1 + 1 \cdot 0 = 1, ~~\cos(\alpha) = \frac{(v|v')}{\|v\| \cdot \|v'\|} = \frac{1}{2} \Rightarrow \alpha = \frac{\pi}{4} (45\degree)$
+\end{itemize}
+Wie kann man Norm (Länge, Abstand) und Skalarprodukt (Winkel) für beliebige $\R$-Vektorräume verallgemeinern?
+\subsection{Definition}
+\label{10.2}
+\marginpar{01.02.2017}
+Sei $V ~~\R-$Vektorraum.
+\begin{itemize}
+	\item[a)] Eine Abbildung $(\cdot | \cdot): V \times V \rightarrow \R,~~ (v,w)\mapsto (v|w)$\\
+	heißt \uline{Skalarprodukt}, falls:
+	\begin{itemize}
+		\item[i)] (Positive Definitheit)\\
+		$(v|v) \geq 0 ~~\forall v \in v$\\
+		$(v|v) = 0 \Leftrightarrow v= 0$ 
+		\item[ii)] (Symmetrie)\\$(v|w) = (w|v)~~ \forall v,w \in V$ 
+		\item[iii)] (Bilinearität)
+		\begin{itemize}
+			\item $(\lambda v|w) = (v|\lambda w) = \lambda(v|w)~~ \forall \lambda \in \R ~~\forall v,w \in V$
+			\item $(u+v | w) = (u|w) + (v|w) ~~\forall u,v,w \in V$
+		\end{itemize}
+		
+	\end{itemize}
+	\item[b)] Ein $\R-$Vektorraum mit Skalarprodukt heißt \uline{Euklidischer Vektorraum}.
+	\item[c)] $\|v\| := \sqrt{(v|v)}$ heißt \uline{(Euklidische) Norm} und $d(v,w) = \|v -w\|$ \uline{(Euklidischer) Abstand}.
+\end{itemize}
+\subsection{Beispiel}
+\begin{itemize}
+	\item[a)] Das Skalarprodukt in \hyperref[10.1]{10.1} erfüllt a)i)-iii) von Def \hyperref[10.2]{10.2}
+	\begin{itemize}
+		\item[i)] $(v|v) = \Big(\vec2{x}{y}| \vec2{x}{y}\Big) = x^2 + y^2 \geq 0 ~~\forall v \in \R$ und \\$(v|v) = 0 \Leftrightarrow x = y = 0 \Leftrightarrow v = 0$\checkmark
+		\item[ii),iii)] nachrechnen \checkmark
+	\end{itemize}
+	\item[b)] Allgemein heißt im $\R^n ~~~(v|w) := \sum_{i = 1}^{n}v_i w_i, ~~v = \vec3{v_1}{\vdots}{v_n},~~ w = \vec3{w_1}{\vdots}{w_n}$ das Standardskalarprodukt
+	$\|v\| = \sqrt{(v|v)} = \sqrt{v_1^2 + ... + v_n^2}$.
+	\item[c)] Für $V = \mathcal{C}[a,b] = \{f:[a,b]\rightarrow \R\mid f \text{ ist stetig} \}$ kann man leicht nachrechnen, dass \begin{center}
+		$(f|g) := \int_{a}^{b} f(t) \cdot g(t) dt$
+	\end{center} 
+	ein  Skalarprodukt ist. Die Norm ist dann 
+	\begin{center}
+		$\|f\| = \sqrt{\int_{a}^{b} f^2(t)dt}$
+	\end{center}
+	und erfüllt folgende Eigenschaften:
+\end{itemize}
+\subsection{Satz}
+\label{10.4}
+$V ~~\R-$Vektorraum.
+\begin{itemize}
+	\item[i)] (Positive Definitheit)\\ $\|v\| \geq 0 \qquad \forall v\in V$\\
+	$\|v\| = 0 \Leftrightarrow v = \mathcal{O}$ 
+	\item[ii)] $\|\lambda v\| = |\lambda| \cdot \|v\| \qquad \forall\lambda \in \R ~~\forall v \in V$
+	\item[iii)]($\triangle-$Ungleichung)\\
+	 $\|v+w\| \leq \|v\| + \|w\| \qquad \forall v,w \in V$ 
+	%Zeichnung
+\end{itemize}
+\subsubsection*{Bemerkung}
+\begin{itemize}
+	\item[i) und ii)] sind klar.
+	\item[iii)] beweist man mit \hyperref[10.5]{10.5}, Cauchy-Schwarz-Ungleichung (C-S).
+\end{itemize}
+\subsection{Satz (Cauchy-Schwarz-Ungleichung)}
+\label{10.5}
+$|(v|w)| \leq \|v\| \cdot \|w\| \qquad \forall v,w \in V,~~ V~~\R-$Vektorraum\\
+Gleichheit $\Leftrightarrow v,w$ linear abhängig
+\subsubsection*{Beweis}
+Hier ohne Beweis, siehe Literatur oder Wikipedia: \href{https://de.wikipedia.org/wiki/Cauchy-Schwarzsche_Ungleichung#Reeller_Fall}{Cauchy-Schwartzsche Ungleichung}.\qed
+\subsubsection*{Beweis von $\triangle-$Ungleichung aus \hyperref[10.4]{10.4}}
+\begin{align*}
+\|v+w\|^2 &= (v+w |v+w) \\
+&= \underbrace{(v|v)}_{\|v\|^2} + \underbrace{2(v|w)}_{\leq 2\|v\|\cdot ||w||} + \underbrace{(w|w)}_{\|w\|^2} \\
+&\overset{C-S}{\leq}(\|v\| + \|w\|)^2
+\end{align*}\qed
+\subsection{Bemerkung}
+Es ist $(v|w) = \underbrace{v^T \cdot w}_{\text{Matrixprodukt}}$ für $v,w \in \R^n$\\
+z.B $\Bigg(\vec3{1}{0}{3}\Bigg|\vec3{-1}{2}{1}\Bigg) = (1,0,3) \cdot \vec3{-1}{2}{1}=-1+0+3=2$
+\subsection{Beispiel}
+$v = \vec3{-1}{2}{1}, ~~~w = \vec3{2}{2}{4} \in \R^3$\\
+$(v|w) = -2 + 4 + 4 = 6\\
+ \|v\| = \sqrt{1+4+1} = \sqrt{6}\\
+ \|w\|=\sqrt{4+4+16}=\sqrt{24}\\
+  d(v,w) = \|v -w\| = \sqrt{9 + 0 +9} = \sqrt{18}\\
+   \cos(\alpha) = \frac{(v|w)}{\|v\| \cdot \|w\|} = \frac{6}{\sqrt{6}\cdot \sqrt{24}} = \frac{1}{2} \Leftrightarrow \alpha = \frac{\pi}{3}$
+   \newpage
+   \section{Orthonormalsysteme}
+   \subsection{Definition (Grundbegriffe)}
+   $V$ euklidischer Vektorraum
+   \begin{itemize}
+   	\item[i)] $v,w$ heißen orthogonal (senkrecht), $v \perp w,$ falls $(v|w) = 0$, ($\mathcal{O}$ ist $\perp$ zu allen $v \in V$).
+   	\item[ii)] $M \subseteq V$ heißt \uline{Orthogonalsystem (OGS)}, falls $(v|w) = 0 \qquad \forall v,w \in M$ und $v \neq w$.\\
+   	 Wenn zusätzlich $\|v\| = 1 \qquad \forall v \in M$, so heißt $M$ \uline{Orthonormalsystem (ONS)}.
+   	\item[iii)] Ist $\dim(V) < \infty$, so heißt $M$ \uline{Orthonormalbasis} von $V$, falls $M$ ONS und $M$ ist Basis von $V$.
+   \end{itemize}
+\subsection{Bemerkung}
+Jedes ONS ist linear unabhängig: $\{v_1,...,v_n\} \subseteq V$ ONS.\\
+$\mathcal{O} = \lambda_1v_1 + ... + \lambda_kv_k$, zu zeigen: $\lambda_1 = ... = \lambda_k = 0$\\
+$\Leftrightarrow0 = (v_1|\lambda_1v_1 + ... + \lambda_kv_k) = \lambda_1\underbrace{(v_1|v_1)}_{=\|v\|=1} + \lambda_2\underbrace{(v_1|v_2)}_{\perp,\text{ also }0} + ... + \lambda_k\underbrace{(v_1| v_k)}_{\perp,\text{ also }0} = \lambda_1 \Rightarrow \lambda_1 = 0$\\
+Analog für $\lambda_2,...,\lambda_k$
+\subsection*{Gram-Schmidtsches Orthogonalisierungsverfahren}
+Grundidee im $\R^n$ mit 3 Vektoren $v_1,v_2,v_3 \in \R^n$:\\
+\uline{Gegeben:} $v_1,v_2,v_3 \in \R^n$\\
+\uline{Gesucht:} OGS $\{w_1,w_2,w_3\}$ mit $\vecspaceR{w_1,w_2,w_3} = \vecspaceR{v_1,v_2,v_3}$
+%Zeichung
+\begin{enumerate}
+	\item $w_1 = v_1$
+	\item $w_2 = \lambda \cdot w_1 + v_2$\\
+	(verlängere/verkürze $w_!$, so dass $w_2\perp w_1$)
+	$\mathcal{O} = (w_1|w_2) = (w_1| \lambda w_1 + v_2) = \lambda \|w_1\|^2 + (w_1|v_2) \Leftrightarrow \lambda = -\frac{(w_1|v_2)}{\|w_1\|^2}$
+	\item $w_3 = \lambda_1'w_1 + \lambda_2'w_2 + v_3$\\
+	$\mathcal{O} = (w_3|w_2) = (\lambda_1'w_1 + \lambda_2'w_2 + v_3| w_2) = \lambda_2' \|w_2\|^2 + (v_3|w_2) \Rightarrow \lambda_2' = -\frac{(v_3|w_2)}{\|w_2\|^2}$\\
+	$\mathcal{O} = (w_3|w_1) \Leftrightarrow \lambda_1' = -\frac{(w_1|v_3)}{\|w_1\|^2}$
+\end{enumerate}
+Allgemein:
+\subsection{Satz (Gram-Schmidt)}
+\uline{Gegeben:} $v_1,...,v_k \in V, ~~V$ euklidischer Vektorraum. \\
+\uline{Gesucht:} ONS von $\vecspaceR{v_1,...,v_k}$. \\
+\\
+Definiere dazu $w_1 := v_1,~~ w_{r+1} = v_{r+1} + \sum_{i = 1}^{r} \lambda_i^{(r+1)} w_i$ mit $\lambda_i^{(r+1)} = -\frac{(w_i|v_{r+1})}{\|w_i\|^2}$ (falls $w_i \neq \mathcal{O}$) und $y_r := \frac{w_r}{\|w_r\|}$ (falls $w_r \neq \mathcal{O}$).\\
+Dann gilt
+\begin{itemize}
+	\item[1)] Bricht die Iteration $\overbrace{\text{nach } i \text{ Schritten}}^{\text{d.h. } w_i \neq 0 \text{ für } i = 1,...,k}$ ab mit $i \leq k$ \underline{nicht} ab, so ist $\{w_1,...,w_k\}$ OGS und $\{y_1,...,y_k\}$ ONS von $\vecspaceR{v_1,...,v_k}$
+	\item[2)] Bricht die Iteration nach $r$ Schritten ab (d.h. $w_r = 0$), so gilt: $v_1,...,v_{r-1}$ linear unabhängig und $v_1,...,v_r$ linear abhängig
+\end{itemize}
+\subsubsection*{Beweis}
+Wie oben, vollständige Induktion.\qed 
 \end{document}
