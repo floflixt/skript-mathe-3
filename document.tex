@@ -280,7 +280,7 @@ Man sagt: $U$ ist abgeschlossen bezüglich der Vektoraddition und der Multiplika
 	\item[e)] $I\subseteq\R$ Intervall\\Menge $C(I)$ ($C$: continuous, stetig) der stetigen Funktionen auf $I$ ist Unterraum von $\mathcal{F}(I,\R)$ (vgl. \hyperref[1.2]{Beispiel 1.2}d)).\\
 	      Menge der diffbaren Funktionen auf $I$ ist Unterraum von $C(I)$.
 \end{itemize}
-\subsection{Satz}
+\subsection{Satz (Verknüpfungen von UVR)}
 $V$ ist ein $\R$.Vektorraum, $U_1,U_2$ sind Unterräume von $V$.
 \begin{itemize}
 	\item[a)] $U_1\cap U_2=\{u\in V|u\in U_1\wedge u\in U_2\}$ ist Unterraum von $V$.
@@ -378,7 +378,7 @@ Prüfe \hyperref[1.6]{Unterraumkriterium 1.6}
 	\\
 	$\Rightarrow \vec3{0}{0}{1} \notin E$
 \end{itemize}
-\subsection*{Fortsetzung Bsp. 1.11}
+\subsubsection*{Beispiel}
 \marginpar{(Nachtrag vom 19.10.2016)}
 \begin{itemize}
 	\item[a)] $E = \Bigg\langle \vec3{0}{1}{1}, \vec3{2}{0}{0} \Bigg\rangle_{\R}$
@@ -401,7 +401,7 @@ Prüfe \hyperref[1.6]{Unterraumkriterium 1.6}
 	      Nein, denn $\vec2{3}{6}$ ist $3 \cdot \vec2{1}{2} \Rightarrow \Big\langle\vec2{1}{2}, \vec2{3}{6} \Big\rangle_{\R} =  \Big\langle \vec2{1}{2} \Big\rangle_{\R} 
 	      = \Big\{\lambda \cdot \vec2{1}{2}\Big|~ \lambda \in \R \Big\} \subsetneq \R^2$
 	\item[e)]
-	      $\Big\langle \vec2{0}{1}, \vec2{0}{1} \Big\rangle_{\R} = \Big\langle \vec2{1}{1}, \vec2{1}{2} \Big\rangle_{\R} = \R^2$, d.h. Erzeugendensysteme sind \uline{nicht} eindeutig!
+	      $\Big\langle \vec2{1}{0}, \vec2{0}{1} \Big\rangle_{\R} = \Big\langle \vec2{1}{1}, \vec2{1}{2} \Big\rangle_{\R} = \R^2$, d.h. Erzeugendensysteme sind \uline{nicht} eindeutig!
 	\item[f)] 
 	      $\Big\langle \vec2{1}{1}, \vec2{1}{2}, \vec2{2}{3} \Big\rangle_{\R} = \Big\langle \vec2{1}{1}, \vec2{1}{2} \Big\rangle_{\R}$, da $\vec2{2}{3} = 
 	      \vec2{1}{1} + \vec2{1}{2}$.\\
@@ -436,9 +436,9 @@ $M \subseteq V \Rightarrow \langle M \rangle_{\R}$ ist der kleinste UVR von $V$,
 	      Wegen \hyperref[1.6]{1.6} enthält $U$ alle Linearkombinationen von Vektoren aus M. \\
 	      $\Rightarrow \langle M \rangle_{\R} \subseteq U \Rightarrow U$ kann nicht kleiner sein als $\langle M \rangle_{\R} \Rightarrow \langle M \rangle_{\R} = U$\hfill$\square$
 \end{itemize}
-\subsection*{Ergänzung zu 1.13}
+\subsubsection*{Beispiel}
 \marginpar{19.10.16}
-Bsp: $M = \Bigg\{\vec3{0}{1}{1} \Bigg\} \Rightarrow \vecspaceR{M} = \Bigg\{ \lambda \vec3{0}{1}{1} \Bigg|~  \lambda  \in  \R\Bigg \}$ Gerade 
+$M = \Bigg\{\vec3{0}{1}{1} \Bigg\} \Rightarrow \vecspaceR{M} = \Bigg\{ \lambda \vec3{0}{1}{1} \Bigg|~  \lambda  \in  \R\Bigg \}$ Gerade 
 \begin{itemize}
 	\item $\vecspaceR{M} \supseteq M$
 	\item $ E = \Bigg\{\lambda_1 \vec3{0}{1}{1}  + \lambda_2 \vec3{2}{0}{0} \Bigg|~ \lambda_1, \lambda_2 \in \R \Bigg\} \supseteq M $
@@ -492,7 +492,7 @@ $\vecspaceR{M}$ ist der kleinste UVR von $\R^3$, der M enthält.
 	      	      \end{align*}
 	      \end{itemize}
 \end{itemize}
-\subsection{Satz}
+\subsection{Satz (Lineare Unabhängigkeit)}
 \label{1.16}
 $M = \{v_1,...,v_n \} \subseteq V$\\
 \begin{itemize}
@@ -517,7 +517,7 @@ $M = \{v_1,...,v_n \} \subseteq V$\\
 	      \noindent\hspace*{29mm}$\Rightarrow v \in \vecspaceR{M}$\Lightning. Also $\lambda = 0$ \\
 	      $\lambda_i = 0$, weil M linear unabhängig.\hfill$\square$
 \end{itemize}
-\subsection{Satz}
+\subsection{Satz (Lineare Unabhängigkeit)}
 \label{1.17}
 $M \subseteq V$ linear unabhängig genau dann, wenn gilt:
 \begin{align*}
@@ -656,7 +656,7 @@ $V$ endlich erzeugter $\R$-VR
 	      $\Rightarrow|B|=|\tilde{B}|$
 	\item[ii)] Wähle beliebige Basis von $V$ und tausche aus(\hyperref[1.22]{1.22}a)).
 \end{itemize}
-\subsection{Satz}
+\subsection{Satz (Basis)}
 \label{1.24}
 $V$ endlich erzeugter $\R$-VR, $B\subseteq V$.\\
 Dann sind äquivalent:
@@ -670,7 +670,7 @@ Dann sind äquivalent:
 	\item[i)$\Rightarrow$ii)] Wegen \hyperref[1.23]{1.23} (linear unabhängige Menge zu Basis ergänzen, alle Basen gleich groß)
 	\item[ii)$\Rightarrow$i)] (Bzw. $\neg$i)$\Rightarrow\neg$ii).) $B$ keine Basis, $B$ linear unabhängig\\
 	      $\Rightarrow\langle B\rangle_\R\subsetneq V\Rightarrow\exists v\in V\setminus\langle B\rangle_\R\colon B\cup\{v\}$ linear unabhängig
-	\item[i)$\Rightarrow$iii)] \hyperref[1.17]{Satz 1.17} 
+	\item[i)$\Rightarrow$iii)] Satz \hyperref[1.17]{1.17} 
 \end{itemize}\hfill$\square$
 \subsection{Definition (Dimension)}
 \marginpar{26.10.16}
@@ -861,7 +861,7 @@ Matrizen können nicht nur zur Lösung von LGS verwendet werden, sondern auch in
 \subsection{Beispiel:}
 \label{2.4}
 \begin{itemize}
-	\item[a)] Spiegelung $S_y$ ain $\R^2$ an $y$-Achse\\
+	\item[a)] Spiegelung $S_y$ in $\R^2$ an $y$-Achse\\
 	      \begin{minipage}[c]{0.5\textwidth}
 	      	\InitGraph{6}{3.5}{2.5}{0}{1cm}
 	      	\Coordinates(4,2)(4,2)
@@ -986,7 +986,7 @@ Matrizen können nicht nur zur Lösung von LGS verwendet werden, sondern auch in
 Aus \hyperref[2.4]{Beispiel 2.4} b) und \hyperref[2.2]{Definition 2.2} ergibt sich: \\
 $A \cdot e_j = 1 \cdot \vec3{a_{1j}}{\vdots}{a_{mj}}\quad$ ($j$-te Spalte von $A\in\mathcal{M}_{m,n}(\R)$) \\
 $\Rightarrow A = (\underbrace{A_{e_1}, A_{e_2},...,A_{e_n}}_{\textrm{Spalten}})$
-\subsection{Satz}
+\subsection{Satz (Rechenregeln)}
 \label{2.6}
 $A \in \mathcal{M}_{m,n}(\R)\qquad x,y \in \R^n$\\
 \begin{itemize}
@@ -1002,16 +1002,58 @@ $A \in \mathcal{M}_{m,n}(\R)\qquad x,y \in \R^n$\\
 	\end{align*}
 	\item[ii)] Übung
 \end{itemize}
-\subsection{Beispiel (Folien 02.11.2016)}
+\subsection{Beispiel}
 \begin{itemize}
-	\item[a)] $A \cdot x = (D_\pi \circ S_y) \cdot x = D_\pi \vec2{-x_1}{x_2} = \begin{pmatrix}
+	\item[a)]~\\ \begin{minipage}[c]{0.5\textwidth}
+		$A \cdot x = (D_\pi \circ S_y) \cdot x \\
+		\noindent\hspace*{6.5mm}= D_\pi \vec2{-x_1}{x_2} \\
+		 \noindent\hspace*{6.5mm}=\begin{pmatrix}
 	      -1& 0 \\
 	      0 &1 \\
-	\end{pmatrix} \vec2{-x_1}{x_2} = \vec2{x_1}{-x_2}\\
-	\Rightarrow \vec2{x_1}{x_2} \overset{A}{\mapsto} \vec2{x_1}{-x_2} \qquad A = \begin{pmatrix}
+	\end{pmatrix} \vec2{-x_1}{x_2} \\
+	\noindent\hspace*{6.5mm}= \vec2{x_1}{-x_2}\\
+	\\
+	\Rightarrow \vec2{x_1}{x_2} \overset{A}{\mapsto} \vec2{x_1}{-x_2}\\
+	 A = \begin{pmatrix}
 	1  &0 \\
 	0 &-1 \\
-	\end{pmatrix}$
+	\end{pmatrix}$\\
+	\\
+	 $A=D_\pi\circ S_y$ bildet $D$ auf $D''$ ab.
+\end{minipage}
+	\begin{minipage}[c]{0.5\textwidth}
+		\InitGraph{6}{6}{2.5}{2.5}{0.75cm}
+		\Coordinates(4,2)(4,2)
+		\SetDarkgrey
+		\TextAt(3.5,0)[b]{$x$}
+		\TextAt(0,3.5)[l]{$y$}
+		\MoveTo(0,0)
+		\PaintTriangle(2,0)(0,2)(0,0)
+		\Text[tr]{$D$}
+		\SetWheat
+		\PaintTriangle(-2,0)(0,2)(0,0)
+		\Text[tl]{$D'$}
+		\SetBlack
+		\MoveTo(1.5,1.5)
+		\Text[r]{$\vec2{x_1}{x_2}$}
+		\MoveTo(1,2)
+		\Text[t]{$S_y$}
+		\Bezier(-1.5,1.5)(1,3)(1.5,1.5)
+		\MoveTo(-1.5,1.5)
+		\ArrowDirection(200,0.1)
+		\Text[l]{$\vec2{-x_1}{x_2}$}
+		\SetOrange
+		\PaintTriangle(0,0)(2,0)(0,-2)
+		\TextAt(0.75,-0.75)[c]{$D''$} 
+		\MoveTo(1.5,-1.5)
+		\Text[r]{$\vec2{x_1}{-x_2}$}
+		\SetBlack
+		\Bezier(1.5,-1.75)(-1,-3)(-1.5,1)
+		\MoveTo(1.5,-1.75)
+		\ArrowDirection(20,0.1)
+		\TextAt(-1.5,-1.5)[c]{$D_\pi$}
+		\CloseGraph
+	\end{minipage}
 	\item[b)]
 	      Berechnung Matrixprodukt (Verknüpfung) $A\*B$ \\
 	      \begin{align*}
@@ -1052,7 +1094,7 @@ A \cdot B = \begin{pmatrix}
 2 & 3 & -2 \\
 \end{pmatrix}$\\
 $B\cdot A$ nicht definiert!
-\subsection{Satz + Definition}
+\subsection{Satz + Definition (Vektorraum $\M_{m,n}(\R)$)}
 $\mathcal{M}_{m,n}(\R)$ ist Vektorraum mit 
 \begin{itemize}
 	\item $A + B = (a_{ij} + b_{ij}) \qquad A,B \in \mathcal{M}_{m,n}(\R)$
@@ -1159,7 +1201,7 @@ $\pi(x)$&A & C & B \\
 	\end{pmatrix}$ oder als geordnete Liste der Werte $\pi = \pi(1)... \pi(n)$ 
 	\item $\mathscr{S}_n$- Menge aller Permutationen von $\{1,...,n \},\qquad | \mathscr{S}_n| = n!$
 \end{itemize}
-Beispiel: $\mathscr{S}_2=\{\id,(AB)\}=\{\id,(12)\},\quad|\mathscr{S}_2|=2!=2$\\ mit $\id=\begin{pmatrix}
+\subsubsection*{Beispiel} $\mathscr{S}_2=\{\id,(AB)\}=\{\id,(12)\},\quad|\mathscr{S}_2|=2!=2$\\ mit $\id=\begin{pmatrix}
 AB\\AB
 \end{pmatrix},\qquad \pi=\begin{pmatrix}
 AB\\BA
@@ -1339,11 +1381,12 @@ z.B.: $\pi = (123)(45)$
 Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abgeschlossen bzgl. der Verkettung von Permutationen \\
 \subsubsection*{Bemerkung} Die Verknüpfung von Elementen einer endlichen Menge stellt man anhand der Verknüpfungstafel dar, siehe \hyperref[3.7]{Beispiel 3.7}.
 \subsection{Definition (Gruppe)}
+\label{3.9}
 \begin{itemize}
 	\item[a)] Eine \uline{Gruppe} ist ein Paar $(G, \cdot) $ mit Menge $G \neq \emptyset$ und einer Verknüpfung $\cdot : \underbrace{G \times G \rightarrow G}_{\text{abgeschlossen!}}$, die folgende Eigenschaften erfüllt:
 	      \begin{itemize}
 	      	\item[1)] $(a \cdot b) \cdot c = a \cdot (b \cdot c) \qquad \forall a,b,c \in G\qquad~$ Assoziativität
-	      	\item[2)] $\exists e \in G: a \cdot e = e \cdot a = a \qquad \forall a \in G\qquad$ Neutralelement
+	      	\item[2)] $\exists e \in G: a \cdot e = e \cdot a = a \qquad \forall a \in G\qquad$ Neutralelement $\upharpoonleft$
 	      	\item[3)] $\forall a \in G\quad \exists a^{-1} \in G: a \cdot a^{-1} = a^{-1}\*a = e\qquad$ Inverse
 	      \end{itemize}
 	      Falls zusätzlich 
@@ -1371,7 +1414,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 	      	      $\mathscr{S}_3 = \{\id, (12), (23),(13),(123),(132)\}$ sind Gruppen (s. \hyperref[3.11]{3.11})
 	      	\item[f)] $V_4 = \{\id, \pi, \sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist die Symmetriegruppe des Rechtecks und heißt 'Kleinsche Vierergruppe' ($V_4$ Gruppe: s. \hyperref[3.16]{3.16} e).
 	      \end{itemize}
-	      \subsection{Satz}
+	      \subsection{Satz (Symmetrische Gruppe)}
 	      \label{3.11}
 	      $\mathscr{S}_n$ ist eine \uline{nicht} abelsche Gruppe. (Name: Symmetrische Gruppe) \\
 	      \subsubsection*{Beweis}
@@ -1403,7 +1446,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 	      	      $\sigma = (1678)(23)\Rightarrow\sigma^{-1} = (1876)(23)$\\
 	      	      Setzt man die Pfeile von den Graphen $\pi$ und $\pi^{-1}$ zusammen, ändert sich nichts, d.h. $\pi \cdot  \pi^{-1}(i) = i \Rightarrow \pi \cdot  \pi^{-1} = \id = \pi \cdot  \pi^{-1}$
 	      	\item nicht abelsch: \hyperref[3.6]{Bemerkung 3.6}d)
-	      \end{itemize}\newpage
+	      \end{itemize}\qed\newpage
 	      \marginpar{15.11.2016}
 	      \subsection{Beispiel}	
 	      \label{3.12}
@@ -1538,7 +1581,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 	      	\item[iii)] $a = a\underbrace{(xx^{-1})}_{e} = (ax)x^{-1} = (bx)x^{-1} = b\underbrace{(xx^{-1})}_{e} = b$ 
 	      \end{itemize}
 	      \hfill$\square$
-	      \subsubsection*{Untergruppen und Nebenklassen}
+	      \subsection*{Untergruppen und Nebenklassen}
 	      \subsection{Definition (Untergruppe)}
 	      $(G, \cdot)$ Gruppe, $\emptyset \neq U \subseteq G$.\\
 	      $U$ heißt \uline{Untergruppe} von $G$ $(U \leq G)$, wenn $U$ bzgl. '$\cdot$' eine Gruppe ist.
@@ -1699,11 +1742,11 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 	      \subsubsection*{Beweis} Seien $U_{x_1},..., U_{x_q}$ die $q$ verschiedenen Rechtsnebenklassen von $U$ in $G$. \\
 	      $\Rightarrow G = \dot{\bigcup}^q_{i=1} Ux_i \Rightarrow |G| =  \sum_{i = 1}^{q}  \underbrace{|Ux_i|}_{=|U|} = q \cdot |U|.$
 	      \hfill$\square$
-	      \subsubsection*{Ordnung und zyklische Gruppen}
-	      \subsection{Definition}
+	      \subsection*{Ordnung und zyklische Gruppen}
+	      \subsection{Definition (Potenzen)}
 	      $(G, \cdot )$ Gruppe, $a \in G$.\\ Definiere $a^0 := e,\quad a^1 := a,\quad \underbrace{a^m := (a^{m-1}) \cdot a}_{\textrm{für }m \in \mathds{N}},\quad a^m := \underbrace{ (a^{-1})^{-m}}_{\textrm{für }m \in \mathds{Z}^-}$\\
 	      als \uline{Potenzen} von $a \in G$.
-	      \subsection{Satz}
+	      \subsection{Satz (Rechenregeln)}
 	      $G$ Gruppe, $a \in G$. Es gilt:
 	      \begin{itemize}
 	      	\item[i)] $(a^{-1})^m = (a^m)^{-1} = a^{-m} \qquad \forall m \in \mathds{Z}$
@@ -1776,14 +1819,14 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 	      \hfill$\square$
 	      \newpage
 	      \section{Ringe und Körper}
-	      \subsubsection*{Grundlegende Eigenschaften}
+	      \subsection*{Grundlegende Eigenschaften}
 	      \subsection{Definition (Ring)}
 	      Sei $\mathcal{R} \neq \emptyset$ eine Menge mit 2 Verknüpfungen + und $\cdot$.
 	      \begin{itemize}
 	      	\item[i)] Man nennt $(\mathcal{R}, + , \cdot)$ einen \uline{Ring}, wenn gilt: 
 	      	      \begin{itemize}
-	      	      	\item[1)] $(\R, + )$ ist abelsche Gruppe mit Neutralelement 0 und Inverse $-a$ von $a$.
-	      	      	\item[2)] $(\R, \cdot)$ ist abgeschlossen und assoziativ (Halbgruppe).
+	      	      	\item[1)] $(\mathcal{R}, + )$ ist abelsche Gruppe mit Neutralelement 0 und Inverse $-a$ von $a$.
+	      	      	\item[2)] $(\mathcal{R}, \cdot)$ ist abgeschlossen und assoziativ (Halbgruppe).
 	      	      	\item[3)] Distributivgesetze: $a \cdot (b+c) = ab + ac$\\
 	      	      	      \noindent\hspace*{32.5mm}$ (a+b) \cdot c = ac + bc \qquad \forall a,b,c \in \mathcal{R}$
 	      	      \end{itemize}
@@ -1882,7 +1925,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 	      	\item[b)]  $(\{w,f\}, \text{XOR}, \land) \cong (\mathds{Z}_2, \oplus, \odot)$\\
 	      	      Boolsche Algebra, siehe PÜ
 	      \end{itemize}
-	      \subsubsection*{Chinesischer Restsatz}
+	      \subsection*{Chinesischer Restsatz}
 	      \subsection{Bemerkung}
 	      \label{4.10}
 	      Gegeben: $m_1,...,m_n \in \mathds{N},~~ a \in \mathds{Z},~~ M = m_1 \cdot ... \cdot m_n$ \\
@@ -1986,7 +2029,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      	\qed
 		      	\subsection{Beispiel}
 		      	Gilt $\phi (a \cdot b) = \phi(a) \cdot \phi(b)$ ? Nein.\\
-		      	z.B. $\underbrace{\mathds{Z}_2^* = \{1\}}_{\phi(2 = 1)},~~~ \underbrace{\mathds{Z}_4^* = \{1,3\}}_{\phi(4)= 2}$\\
+		      	z.B. $\underbrace{\mathds{Z}_2^* = \{1\}}_{\phi(2) = 1},~~~ \underbrace{\mathds{Z}_4^* = \{1,3\}}_{\phi(4)= 2}$\\
 		      	Aber: $\mathds{Z}_8^* =\{1,3,5,7\}$ und $4 = \phi(8) \neq \phi(2) \cdot \phi(4)$
 		      	\subsection{Korollar}
 		      	\begin{itemize}
@@ -2007,7 +2050,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      		2   & $p^2$                & $k\cdot p,~ \underbrace{0\leq k \leq p -1}_{p\text{ Möglichkeiten}}$        & $p^2 - p^1$                        \\
 		      		3   & $p^3$                & $kp + k'p^2,~ \underbrace{0 \leq k,k' \leq p-1}_{p^2\text{ Möglichkeiten}}$ & $p^3 - p^2$                        \\
 		      	\end{tabular}~~~ \qed
-		      	\subsubsection*{Polynomringe}
+		      	\subsection*{Polynomringe}
 		      	\marginpar{06.12.2016}
 		      	In Mathe I wurde für den Ring $(\mathds{Z},+,\*)$ folgendes eingeführt:
 		      	\begin{itemize}
@@ -2035,7 +2078,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      		\item[a)] $f(x) = f = 3x^2 - \frac{2}{3}x +1  \substack{\in\mathds{Q}[x]\\ \in \mathds{R}[x]}$
 		      		\item[b)] $g = x^7 + x^2 \in \mathds{Z}_2[x]$, d.h. Koeffizienten $\in \{0,1\}$
 		      	\end{itemize}
-		      	\subsection{Satz + Definition}
+		      	\subsection{Satz + Definition (Polynomring)}
 		      	$\mathcal{K}$ Körper.\\
 		      	$\mathcal{K}[x]$ ist kommutativer Ring mit Eins. Dabei ist für $f = \sum_{i=0}^{n}a_ix^i,$\\$g = \sum_{j = 0}^{m} b_j x^j$
 		      	\begin{itemize}
@@ -2062,12 +2105,12 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      		\item $f+g = 2x^3 + x + \underbrace{1+2}_{\equiv 0 \pmod 3} = 2x^3 + x$
 		      		\item $f \cdot g = (2x^3 + 1)(x+2) = 2x^4 + x + \underbrace{4x^3}_{\equiv 1\pmod{3}} + 2 = 2x^4 + x + x^3 + 2$
 		      	\end{itemize}
-		      	\subsubsection*{Grad eines Polynoms}
-		      	\subsection{Definition}
+		      	\subsection*{Grad eines Polynoms}
+		      	\subsection{Definition (Grad)}
 		      	$f \in \K[x], ~~f = a_0 + ... + a_nx^n  \qquad a_n \neq 0$\\
 		      	$n$ heißt der \uline{Grad} von $f$, $\grad{f}= n$\\
 		      	$\grad{0}= -\infty,~~~\grad{g}= 0$, falls $g$ konstant
-		      	\subsection{Satz}
+		      	\subsection{Satz (Grad verknüpfter Funktionen)}
 		      	\label{4.22}
 		      	$\K$ Körper, $f,g \in \K[x]$.\\
 		      	$\Rightarrow$ $\grad{f\*g} = \grad{f}+\grad{g}$ \\
@@ -2084,13 +2127,13 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      	\subsubsection*{Beweis}
 		      	$f \cdot f^{-1} = 1 \Rightarrow\grad{ff^{-1}}=\grad{f}+\grad{f^{-1}}\overset{\textrm{\hyperref[4.22]{4.22}}}{=}\grad{1}=0$\\
 		      	\noindent\hspace*{19mm}$\Leftrightarrow\grad{f}=\grad{f^{-1}}=0$ \qed
-		      	\subsubsection*{Polynomdivision mit Rest}
+		      	\subsection*{Polynomdivision mit Rest}
 		      	\subsection{Bemerkung}
 		      	Für $b \in \K$ ist $f(b) = \sum_{i = 0}^{n} a_i \cdot b^i$, falls $f = \sum_{i = 0}^{n} a_i \cdot x^i \in \K[x]$.\\
 		      	Man kann zeigen, dass $\psi_b : \K[x] \rightarrow \K$\\
 		      	\noindent\hspace*{52mm}$ f \mapsto f(b)$ ein surjektiver Homomorphismus ist.
-		      	\subsection{Definition}
-		      	$\K$ Körper, $f,g \in \K[x].$\\$ f \vert g,$ falls $q \in \K[x]$ existiert mit $g = gf$ (nach \hyperref[4.22]{4.22}: $\grad{f}\leq\grad{g}$).
+		      	\subsection{Definition (Teilbarkeit)}
+		      	$\K$ Körper, $f,g \in \K[x].$\\$ f \vert g,$ falls $q \in \K[x]$ existiert mit $g = qf$ (nach \hyperref[4.22]{4.22}: $\grad{f}\leq\grad{g}$).
 		      	\subsection{Satz (Division mit Rest in $\K[x])$}
 		      	$\K$ Körper, $f \in \K[x], ~~0 \neq g \in \K[x]$.\\
 		      	Dann existieren eindeutig bestimmte Polynome $q,r \in \K[x]$ mit $f = qg + r$ und $\grad{r}<\grad{g}$.\\
@@ -2164,7 +2207,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      	\text{grad } (q) = 0 \Rightarrow q = c \neq 0,~~ c \in \K \\
 		      	\Rightarrow f' = cf\\
 		      	f,f'$ normiert $\Rightarrow c = 1$\qed
-		      	\subsection{Satz: Euklidischer Algorithmus EA in $\K[x]$}
+		      	\subsection{Satz (Euklidischer Algorithmus EA in $\K[x]$)}
 		      	\begin{algorithmic}[1]
 		      		\algrenewcommand\algorithmicrequire{\textbf{Eingabe:}}
 		      		\algrenewcommand\algorithmicensure{\textbf{Ausgabe:}}
@@ -2186,7 +2229,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      	Wie für $\Z$ in Mathe I.\\
 		      	Hinweis: $d\vert g$ und $d\vert h\Leftrightarrow d\vert (g\mod h)$ und $d\vert h$.\\
 		      	Begründung: $g=qh+(g\mod h)$.
-		      	\subsection{Satz: Erweiterter Euklidischer Algorithmus EEA  in $\K[x]$}
+		      	\subsection{Satz (Erweiterter Euklidischer Algorithmus EEA  in $\K[x]$)}
 		      	\label{4.33}
 		      	\begin{algorithmic}[1]
 		      		\algrenewcommand\algorithmicrequire{\textbf{Eingabe:}}
@@ -2220,9 +2263,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      		h        & $x^2 +x$                                      & 0     & 1      & 1      & 1      & $2x+1$ & $2x+1$ & $x+2$ & $x^2 +x$ \\
 		      		$x^2 +x$ & $\underbrace{2x+2}_{\textrm{ggT unnormiert}}$ & 1     & $2x+2$ & $2x+2$ & $2x+1$ & $x^2$  & $x^2$  & $x+1$ & $2x +2$  \\
 		      	\end{tabular} \\	
-		      	\\	
-		      	\\
-		      	NR: (\uline{Achtung:} Polynomdivision in $\mathds{Z}_3[x]$, nicht normale Polynomdivision!)\\
+		      	\subsubsection*{Nebenrechnung} \uline{Achtung:} Polynomdivision in $\mathds{Z}_3[x]$, nicht normale Polynomdivision!\\
 		      	\begin{itemize}
 		      		\item ~\\
 		      		      $\begin{array}{r@{}c@{}r@{}c@{}r@{}c@{}r@{}c@{}rl}
@@ -2281,14 +2322,14 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      		      \Rightarrow x^2 -2$ hat auch Nullstelle $-\frac{b}{a} \in \mathds{Q}$~\Lightning\\
 		      		      Widerspruch: Nullstelle von $x^2 -2$ sind aus $\R$
 		      		\item[c)] $x^2 -2 \in \R[x]$ nicht irreduzibel: \\
-		      		      $x^2 - 2 = \underbrace{(x\sqrt{2})}_{\in \R[x]} \cdot \underbrace{(x+\sqrt{2})}_{\in \R[x]}$
+		      		      $x^2 - 2 = \underbrace{(x-\sqrt{2})}_{\in \R[x]} \cdot \underbrace{(x+\sqrt{2})}_{\in \R[x]}$
 		      		\item[d)] $x^2+1$ hat in $\R$ keine Nullstelle und ist somit irreduzibel in $\R[x]$. \\
 		      		      \uline{Anmerkung:} In $\mathds{C}[x]$ ist $x^2 +1$ kein Primelement (siehe \hyperref[5]{Kapitel 5})
 		      		\item[e)]
 		      		      $x^2 +1 = (x+2)(x+3)$ in $\mathds{Z}_5[x]$\\
 		      		      $\rightarrow$ nicht irreduzibel in $\mathds{Z}_5[x]$ 
 		      	\end{itemize}
-		      	\subsection{Satz}
+		      	\subsection{Satz (Irreduzibles Polynom)}
 		      	$f \in \K[x], ~~\grad{f} \geq 1$. Dann sind äquivalent: 
 		      	\begin{itemize}
 		      		\item[(1)] $f$ irreduzibel
@@ -2296,7 +2337,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      	\end{itemize}
 		      	\subsubsection*{Beweis}
 		      	\begin{itemize}
-		      		\item[$(1)\Rightarrow (2)$] 
+		      		\item[(1)$\Rightarrow$ (2)] 
 		      		      \begin{align*}
 		      		      	\text{Angenommen }f \nmid g & \overset{(1)}{\Rightarrow} \text{ggT}(f,g) = 1                                                     \\&~~\mathclap{\overset{\textrm{Bézout}}{\Rightarrow}} ~~~~ \exists s,t \in \K[x]: sf  + tg = 1\\
 		      		      	                            & \Rightarrow sfh + tgh = h                                                                          \\
@@ -2330,7 +2371,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      		      $x -b$ irreduzibel, $(x-b) \not \vert (x-a) \Rightarrow (x-b) \vert g\\ \Rightarrow b$ Nullstelle von $g$ 
 		      	\end{itemize}
 		      	Per Induktion hat $g \quad n-1$ Nullstellen. Behauptung folgt.\qed
-		      	\subsection{Satz}
+		      	\subsection{Satz (Existenz eindeutiger irreduzibler Polynome)}
 		      	$f \in \K[x]$ mit Leitterm $a_nx^n, ~~n \geq 1$ \\
 		      	$\Rightarrow$ Es existieren eindeutig bestimmte irreduzible Polynome $p_1,...,p_l$ und $m_1,...,m_l\in \N$ mit $f = a_n p_1^{m_1} \cdot ... \cdot p_l^{m_l}$ 
 		      	\subsubsection*{Beweis} Wie in $\mathds{Z}$.\qed
@@ -2362,7 +2403,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      		\item $x^4 = 1$ hat zwei reelle Lösungen $x = \pm 1$ und zwei imaginäre Lösungen $x = \pm \sqrt{-1}$
 		      		\item $x^2 + 2x +2$ hat die imaginären Lösungen $-1 \pm \sqrt{-1}$
 		      	\end{itemize}
-		      	\subsection{Definition}
+		      	\subsection{Definition (Grundbegriffe)}
 		      	\begin{itemize}
 		      		\item $\i  := \sqrt{-1}$ heißt \uline{imaginäre Einheit} (Euler 1777)
 		      		\item $\mathds{C} := \{a +b\i \mid a,b \in \R \}$ Menge der komplexen Zahlen
@@ -2420,9 +2461,9 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      	Daraus ergibt sich die Darstellung in Polarkoordinaten: \\
 		      	$r \geq 0, \quad \phi \in [0,2 \pi)$ bzw. $(r,\phi)\in[0,\infty)\times[0,2\pi)$\\
 		      		$\Rightarrow a+b\i = r(\cos(\phi) + \i \sin(\phi))$
-		      		\subsection{Definition}
+		      		\subsection{Definition (Betrag)}
 		      		\marginpar{14.12.2016}
-		      		Für $z = a+b\i \in \C$ ist $|z| := \sqrt{a^2 + b^2}$ der Betrag von $z$.
+		      		Für $z = a+b\i \in \C$ ist $|z| := \sqrt{a^2 + b^2}$ der \uline{Betrag} von $z$.
 		      		\subsection{Bemerkung}
 		      		Jede Zahl $z = a+b\i \in \C \setminus \{0\} $ lässt sich durch den Winkel $\phi \in [0,2\pi)$ und durch den Betrag $|z|$ eineindeutig darstellen: 
 		      			$z = |z|\underbrace{(\cos(\phi) + \i \sin(\phi)}_{e^{\i\phi}})$
@@ -2491,7 +2532,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				      In der Schreibweise $z= a+b\i,~~ z' = a' + b'\i$ ergibt sich:\\ $zz' = (a +b\i)(a' + b'\i) = aa' -bb' + (ab' + ba')\i$, denn \\$a = r \cos \phi,~~ b= r \sin\phi,~~ a' = r' \cos\phi',~~ b' = r' \sin\phi'$.\\ \\
 		      				      Für $z = a +b\i \in \C$ ist die Inverse\\ $z^{-1} = \frac{1}{a+b\i} = \frac{a -b\i}{(a+ b\i)(a -b\i)}= \frac{a-b\i}{a^2 - \i^2 b^2} = \frac{a-b\i}{a^2 +b^2}$
 		      			\end{itemize}
-		      			\subsection{Definition}
+		      			\subsection{Definition (Konjugierte)}
 		      			Falls $z = a+b\i \in \C,$ heißt $\bar{z} := a-b\i$ die zu $z$ \uline{Konjugierte}.
 		      				
 		      			\subsection{Bemerkung}
@@ -2525,7 +2566,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      					\node[below] at (2.1125,-2.1097) {$\frac{\overline{z}}{|z|}$};
 		      				\end{tikzpicture}
 		      			\end{minipage}
-		      			\subsection{Satz}
+		      			\subsection{Satz ($\C$ Körper)}
 		      			$(\C, + , \cdot)$ mit 
 		      			\begin{itemize}
 		      				\item $(a+b\i)+(a' +b'\i) = (a + a') + (b + b')\i$ und 
@@ -2644,7 +2685,8 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				      	a \leq b, ~~~r \geq 0 & \Rightarrow ra \leq rb     
 		      				      \end{align*}
 		      			\end{itemize}
-		      			\subsection*{Wdh. zu $\C$ (falls Skizzen aus der Vorlesung gewünscht: Mail schreiben, wird dann hinzugefügt)}
+		      			\subsection{Wiederholung/Zusammenfassung zu $\C$}
+		      			(Selbst Zeichnungen analog zu 5.x anfertigen ist hilfreich)
 		      			\begin{itemize}
 		      				\item Komplexe Zahl: $z = a +bi, a,b \in \R, i^2 = -1$\\
 		      				      Im Folgenden ist $z = a +bi, z' = a' + b'i \in \C$\\
@@ -2697,13 +2739,13 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				\item $\lambda v = \vec2{\lambda v_1 \mod 2}{\lambda v_2 \mod 2} \qquad  \lambda \in \Z_2, ~~v \in \Z_2^2$
 		      				\item Nullelement: $\vec2{0}{0}$
 		      			\end{itemize}
-		      			\subsection{Definition}
+		      			\subsection{Definition (Lineare Abbildung, Isomorphismus)}
 		      			$V,W ~\K-$Vektorräume.\\
 		      			\begin{itemize}
 		      				\item[i)] $\phi: V \rightarrow W$ heißt \uline{lineare Abbildung}, falls
 		      				      \begin{itemize}
-		      				      	\item[a)] $\phi(v_1 + v_2) = \phi(v_1) + \phi(v_2)~~~ \forall v_1,v_2 \in V$
-		      				      	\item[b)] $\phi(\lambda v) = \lambda \phi(v)~~~ \forall v \in V~~ \forall \lambda \in \K$
+		      				      	\item[a)] $\phi(v_1 + v_2) = \phi(v_1) + \phi(v_2)\qquad \forall v_1,v_2 \in V$
+		      				      	\item[b)] $\phi(\lambda v) = \lambda \phi(v)\qquad\qquad\qquad~~~~ \forall v \in V~~ \forall \lambda \in \K$
 		      				      \end{itemize}
 		      				\item[ii)]
 		      				      Ist die lineare Abbildung $\phi: V \rightarrow W$ bijektiv, so heißt $\phi$ \uline{(Vektorraum-)Isomorphismus}, man schreibt $V \cong W ~~~(V$ isomorph zu $W)$
@@ -2736,10 +2778,10 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      			Spezielle Lösung: $x_0 = \vec3{1}{0}{0}$. Da $A\vec3{0}{0}{\lambda} = \vec3{0}{0}{0}$, ist auch\\ $A\underbrace{\vec3{1}{0}{\lambda}}_{\textrm{Gerade}} = A\Bigg(x_0 + \vec3{0}{0}{\lambda}\Bigg) = \underbrace{Ax_0}_{b} + \underbrace{A\vec3{0}{0}{\lambda}}_{\O} = b\Rightarrow\vec3{0}{0}{\lambda}$ ist Lösung von $Ax = b$\\
 		      			$\Rightarrow H'=\Bigg\{\vec3{1}{0}{\lambda}\Bigg|~\lambda\in\R\Bigg\},~~~H=\Bigg\{\vec3
 		      			{0}{0}{\lambda}\Bigg|~\lambda\in\R\Bigg\}$ (s.u.)
-		      			\subsection{Definition}
+		      			\subsection{Definition (Homogenes LGS, Lösungsraum)}
 		      			$A h = \O, ~~h \in \K^n$ heißt \uline{homogenes LGS}.\\
 		      			$\underbrace{H}_{\ker A\textrm{ , vgl. \hyperref[6.8]{6.8}}} := \{h \in \K^n \mid Ah = \O \}$ \uline{Lösungsraum} des homogenen LGS.
-		      			\subsection{Satz}
+		      			\subsection{Satz (Lösung eines LGS)}
 		      			\label{6.6}
 		      			\marginpar{21.12.2016}
 		      			Angenommen, es existiert eine Lösung $x_0$ von $Ax = b$. Dann ist\\ $x$ Lösung $\Leftrightarrow x = x_0 +h,~~ h \in H$ 
@@ -2755,7 +2797,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				      dim(Lösungsraum) = dim($H$)
 		      				\item $H$ heißt Kern von $A$
 		      			\end{itemize}
-		      			\subsection{Satz}
+		      			\subsection{Satz (Lineare Abbildung UVR)}
 		      			\label{6.7}
 		      			$\phi: V \rightarrow W$ linear
 		      			\begin{itemize}
@@ -2775,7 +2817,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				      $\{u_1,...,u_k\}$ Basis von $U$ $[u \in U \Rightarrow u = \lambda_1 u_1 + ... + \lambda_k u_k]$\\
 		      				      $\Rightarrow \{ \phi(u_1),...,\phi(u_k)\}$ Erzeugendensystem von $U$, enthält Basis von $U \Rightarrow$ Behauptung \qed
 		      			\end{itemize}
-		      			\subsection{Definition}
+		      			\subsection{Definition (Rang, Kern)}
 		      			\label{6.8}
 		      			\begin{itemize}
 		      				\item[i)] $\phi: V \rightarrow W$ linear, dim($V) < \infty$.\\
@@ -2787,7 +2829,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				      ker($\phi) =  \{v \in V \mid \phi(v) = \O\}$ heißt \uline{Kern von $\phi$}. \\
 		      				      Im Beispiel (Motivation) ist $H = \Bigg\{\vec3{0}{0}{\lambda} \Bigg|~  \lambda \in \R \Bigg\} =$ ker($A$), da jeder Gerade dieser Form auf den Nullvektor, $\mathcal{O}$, abgebildet wird.
 		      			\end{itemize}
-		      			\subsection{Satz}
+		      			\subsection{Satz (Kern)}
 		      			\label{6.9}
 		      			$\phi: V \rightarrow W$ linear
 		      			\begin{itemize}
@@ -2828,12 +2870,11 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				  & \dim(\ker(\phi)) & + & \textrm{rg}(\phi) & = & \dim(\R^3) \\
 		      				  & 1                & + & 2                 & = & 3          
 		      			\end{align*}
-		      			\subsection{Satz}
+		      			\subsection{Satz (Lineare Abbildung)}
 		      			$V,W$ sind $\K-$Vektorräume, dim($V) = n$\\
 		      			Gegeben: $\{v_1,...,v_n\}$ Basis von $V$,~ $w_1,...,w_n \in W$ nicht notw. verschieden \\
 		      			\\
-		      			$\exists!$ lin.Abb. $\phi: V \rightarrow W$ mit $\phi(v_i) = w_i ~\forall i$,\\
-		      			und zwar 
+		      			$\exists!$ lin.Abb. $\phi: V \rightarrow W$ mit $\phi(v_i) = w_i ~\forall i$, und zwar 
 		      			\begin{center}
 		      				$(\triangle) \qquad v = \sum_{i = 1}^{n} \lambda_i v_i \overset{\phi}{\rightarrow} w = \sum_{i = 1}^{n} \lambda_i \underbrace{\phi(v_i)}_{w_i}$
 		      			\end{center}
@@ -3192,13 +3233,13 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				\underbracket{a_{m1}} & \cdots & a_{mn}
 		      				\end{pmatrix}$ \uline{Darstellungsmatrix von $\phi$} bzgl. $B$ und $C$.\\
 		      				\\
-		      				Schreibweisen:
+		      				\subsubsection*{Schreibweisen}
 		      				\begin{itemize}
 		      					\item[1)] $A_\phi^{B,B} = A_\phi^B$
 		      					\item[2)] Falls $B = \{e_1,...,e_n\} = C \textrm{, (also }V = W)$, schreibe $A_\phi$
 		      				\end{itemize}
 		      				$\Bigg[$Bem.: $\phi$ durch $A_\phi^{B,C}$ eindeutig bestimmt.$\Bigg]$
-		      				\subsection{Satz}
+		      				\subsection{Satz (Koordinatenvektor und Lineare Abbildung)}
 		      				\label{7.7}
 		      				$V,W,B,C,\phi$ wie in \hyperref[7.6]{7.6}\\
 		      				\uline{Gegeben}: $v \in V,~~ \text{K}_B(v)$.\\
@@ -3228,10 +3269,10 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				2 & 0 & 3 \\
 		      				\end{pmatrix} \cdot \text{K}_B(\phi(v)) = \vec2{-5}{22}$
 	
-\subsection*{Bemerkung}
+\subsection*{Bemerkung (Geordnete Basen)}
 \marginpar{17.01.2017}
 In \hyperref[7.3]{7.3} und \hyperref[7.6]{7.6} haben die Basisvektoren von $B = \{v_1,..,v_n\}$ und $C = \{w_1,...,w_m\}$ eine bestimmte Reihenfolge (Nummerierung). Man sagt es sind \underline{geordnete Basen} und schreibt dafür $B = (v_1,...,v_n),~~~ C=(w-1,...,w_m)$, um anzuzeigen, dass die Basiselemente nicht vertauscht werden dürfen.
-\subsection*{Beispiel}
+\subsubsection*{Beispiel}
 $B = \Bigg(\vec3{1}{0}{0},\vec3{0}{1}{0},\vec3{0}{0}{1}\Bigg),~~~ C = \Bigg(\vec3{0}{1}{0},\vec3{0}{0}{1},\vec3{1}{0}{0}\Bigg) \\
 \Rightarrow S_{B,C} = \begin{pmatrix}
 0 & 1 & 0 \\
@@ -3352,7 +3393,7 @@ $\begin{pmatrix}
 \subsection{Bemerkung}
 \label{7.14}
 Idee: $A \in \M_n(\K)$ kann als Darstellungsmatrix $A_\phi^B$ der linearen Abbildung $\phi: \K^n \rightarrow \K^n,~~ \phi(v) = Av$ bezüglich Basis $B$ aufgefasst werden.
-\subsection{Satz}
+\subsection{Satz (Invertierbarkeit)}
 \label{7.15}
 $V~~\K$-Vektorraum, $\dim(V) = n,~~~ B$ Basis, $\phi: V \rightarrow V$ linear mit Darstellungsmatrix $A_\phi^B$. Dann:
 \begin{center}
@@ -3362,7 +3403,7 @@ Das heißt:  $A_{\phi^{-1}}^B = (A_\phi^B)^{-1}$
 \subsubsection*{Beweis}
 \begin{itemize}
 	\item[($\Rightarrow$)] Zeige: $(A_\phi^B) \cdot (A_{\phi^{-1}}^B) = E_n$\\
-	$\phi$ invertierbar $\Rightarrow A_\phi^B \cdot A_{\phi{-1}}^B \overset{\hyperref[7.12]{7.12}}{=} A_{\phi \circ \phi^{-1}}^B = E_n$\\
+	$\phi$ invertierbar $\Rightarrow A_\phi^B \cdot A_{\phi^{-1}}^B \overset{\hyperref[7.12]{7.12}}{=} A_{\phi \circ \phi^{-1}}^B = E_n$\\
 	Analog: $A_{\phi^{-1}}^B \cdot A_\phi^B = E_n$
 	\item[($\Leftarrow$)] Sei nun $A_\phi^B$ invertierbar. \\
 	$\Rightarrow \exists Y \in \M_n(\K): A_\phi^B \cdot Y = Y \cdot A_\phi^B = E_n$\\
@@ -3374,7 +3415,7 @@ Das heißt:  $A_{\phi^{-1}}^B = (A_\phi^B)^{-1}$
 	\Rightarrow \phi \circ \psi = \psi \circ \phi = id_v\\
 	\Rightarrow \phi$ hat Inverse $\psi$ \qed
 \end{itemize}
-\subsection{Satz}
+\subsection{Satz (Invertierbarkeit, Rang)}
 \label{7.16}
 \marginpar{18.01.2017}
 $A \in \M_n(\K)$ invertierbar $\Leftrightarrow \underbrace{\rg(A) = n}_{\substack{\text{d.h. alle Spalten \& Zeilen}\\\text{linear unabhängig}}}$
@@ -3493,7 +3534,7 @@ $\left ( \begin{array}{cc}
 $V ~~\K$-Vektorraum, $B,C$ Basen $\Rightarrow S_{B,C} = (S_{C,B})^{-1}$
 \subsubsection*{Beweis}
 Sei $v \in V$.\\
-$S_{C,B} \cdot S_{B,C} \cdot \text{K}_B(v) = S_{C,B} \cdot \text{K}_C(v) = \text{K}_B(v) = E_n$\qed
+$\underbrace{S_{C,B} \*\bigg( S_{B,C}}_{= E_n} \cdot \text{K}_B(v)\bigg) = S_{C,B} \cdot \text{K}_C(v) = \text{K}_B(v)$\qed
 \subsection{Beispiel}
 $V=\R^2,~~ B= \Big(\vec2{1}{1},\vec2{1}{0}\Big),~~ C = \Big(\vec2{1}{0}, \vec2{0}{1}\Big)$\\
 Aus \hyperref[7.2]{7.2}: $S_{B,C} = \begin{pmatrix}
@@ -3547,7 +3588,7 @@ A_\phi^B &= S_{C,B} \underbrace{D_{\frac{\pi}{2}}}_{A_\phi^{C,C}} S_{B,C} \\
 $\hyperref[7.16]{7.16}: A \in \M_n(\K)$ invertierbar $\Leftrightarrow \rg(A) = n$\\
 In diesem Kapitel werden invertierbare Matrizen mit Hilfe der Determinante charakterisiert. \\
 Das ist einfacher zu implementieren.
-\subsection{Definition}
+\subsection{Definition ($A_{i,j}$)}
 $A \in \M_n(\K),~~~ i,j \in \{1,...,n\}.~~~ A_{i,j} \in \M_{n-1}(\K)$ sei die Matrix, die man aus $A$ durch Streichen der $i-$ten Zeile und $j-$ten Spalte erhält. \\
 z.B.: $A = \begin{pmatrix}
 1 & 2 & -3 \\
@@ -3564,7 +3605,8 @@ $A \in \M_n(\K).\\
 \\
 \underline{n = 1:} ~~~~A = (a), \det(A) := a \in \K$\\
 \\
-$\underline{n \geq 2}:~~~~$ Entwicklung nach der 1. Zeile (\hyperref[7.4]{7.4}): \\
+$\underline{n \geq 2:}~~~~$ Entwicklung nach der 1. Zeile (\hyperref[7.4]{7.4}): \\
+
 $A = \begin{pmatrix}
 a_{11} & a_{12} & \cdots & a_{1n} \\
 \vdots & \ddots &\ddots & \vdots \\
@@ -3747,7 +3789,7 @@ $A \in \M_n(\K)$ invertierbar $\Leftrightarrow \det(A) \neq 0$\\
 In diesem Fall gilt: $\det(A^{-1}) = (\det(A))^{-1}$.
 \subsubsection*{Beweis}
 \begin{itemize}
-	\item[($\Rightarrow$)] $\det(A) \cdot \det(A^-1) \overset{\hyperref[8.6]{D8}}{=} \det(A \cdot A^{-1}) = \det(E) = 1\\
+	\item[($\Rightarrow$)] $\det(A) \cdot \det(A^{-1}) \overset{\hyperref[8.6]{D8}}{=} \det(A \cdot A^{-1}) = \det(E) = 1\\
 	\noindent\hspace*{25mm} \Rightarrow \det(A) \neq 0 ,~~ \det(A^{-1}) = \det(A)$
 	\item[$(\Leftarrow)$] Sei $A$ nicht invertierbar $\overset{\hyperref[7.16]{7.16}}{\Rightarrow} \rg(A) < n \\
 	\noindent\hspace*{40.5mm}\Rightarrow$ Spalten von $A$ sind linear abhängig, d.h.:\\
@@ -3761,8 +3803,37 @@ In diesem Fall gilt: $\det(A^{-1}) = (\det(A))^{-1}$.
 \begin{itemize}
 	\item[a)] Seien $v_1,v_2,v_3 \in \R^3,$ z.B. \\
 	$v_1 = \vec3{1}{0}{0},~~ v_2 = \vec3{0}{1}{0},~~ v_3 = \vec3{1}{0}{2}$\\
-	%Zeichnung
-	Das von $v_1,v_2,v_3$ gebildete Parallelepiped $P$.\\
+	\\
+	\\
+	Das von $v_1,v_2,v_3$ gebildete Parallelepiped $P$:\\
+	\InitGraph{4}{6}{4}{1.25	}{1cm}
+	\Viewpoint(300,60,10,20)[1]
+	%
+	\DDArrowAt(0,0,0)(1,0,0)
+	\DDArrowAt(0,0,0)(0,1,0)
+	\DDArrowAt(0,0,0)(1,0,2)
+	%linksrechts
+	\DDLineAt(1,0,2)(2,0,2)
+	\DDLineAt(0,1,0)(1,1,0)
+	\DDLineAt(1,1,2)(2,1,2)
+	%vornhinten
+	\DDLineAt(1,0,0)(1,1,0)
+	\DDLineAt(1,0,2)(1,1,2)
+	\DDLineAt(2,0,2)(2,1,2)
+	%untenoben
+	\DDLineAt(1,0,0)(2,0,2)
+	\DDLineAt(0,1,0)(1,1,2)
+	\DDLineAt(1,1,0)(2,1,2)
+	%Text
+	\DDMoveTo(1,0.5,1)
+	\Text[c]{$P$}
+	\DDMoveTo(0.5,0,0)
+	\Text[b]{$v_1$}
+	\DDMoveTo(0,0.5,0)
+	\Text[r]{$v_2$}
+	\DDMoveTo(0.5,0,1)
+	\Text[l]{$v_3$}
+	\CloseGraph\\
 	Man kann ausrechnen, dass $| \det(v_1,v_2,v_3) |$ das Volumen von $P$ ist. Es ist $\Bigg|\det\begin{pmatrix}
 	1 & 0 & 1 \\
 	0 & 1 & 0 \\
@@ -3796,8 +3867,31 @@ $A = \begin{pmatrix}
 \end{pmatrix}	 \in \M_2(\R)$. \\
 Da $A\vec2{1}{0} = 2 \cdot \vec2{1}{0}$ und $A\vec2{0}{1} = \frac{1}{3}\vec2{0}{1}$, streckt $A$ in Richtung $\vec2{1}{0}$ um den Faktor 2 und staucht in Richtung $\vec2{0}{1}$ um den Faktor $\frac{1}{3}$.\\
 %Zeichung
-Man nennt $\vec2{1}{0}$ Eigenvektor (EV) von $A$ zum Eigenwert (EW) 2 und $\vec2{0}{1}$ Eigenvektor zum Eigenwert $\frac{1}{3}$.
-\subsection{Definition}
+Man nennt $\vec2{1}{0}$ Eigenvektor (EV) von $A$ zum Eigenwert (EW) 2 und $\vec2{0}{1}$ Eigenvektor zum Eigenwert $\frac{1}{3}$.\\
+\\
+\begin{minipage}[c]{0.5\textwidth}
+	\InitGraph{4}{4}{2}{2}{1cm}
+	\Coordinates(0.8,1)(0.8,1)
+	\TextAt(2,0)[b]{$x$}
+	\TextAt(0,2)[l]{$y$}
+	\MoveTo(0,0)
+	\Circle(0.8)
+	\CloseGraph
+\end{minipage}
+$\longrightarrow$~~~~~~~~~~~~~~~~~
+\begin{minipage}[c]{0.5\textwidth}
+	\InitGraph{4}{4}{2}{2}{1cm}
+	\Coordinates(0.8,1)(0.8,1)
+	\TextAt(2,0)[b]{$x$}
+	\TextAt(0,2)[l]{$y$}
+	\TextAt(-0.2,0.4)[c]{$\frac{1}{3}$}
+	\MoveTo(0,0)
+	\SetDarkgrey
+	\Ellipse(1.6,0.3)
+	\CloseGraph
+\end{minipage}
+	
+\subsection{Definition (Eigenvektor, Eigenwert, Eigenraum)}
 Sei $A \in \M_n(\K),~~ v \in \K^n,~~ v \neq \mathcal{O}$, heißt \uline{Eigenvektor (EV)} zum \uline{Eigenwert (EW)} $\lambda \in \K$, falls $Av = \lambda v$.\\
 \\
 Die Menge $Eig(\lambda) := \{v \in \K^n | Av = \lambda v \}$ heißt \uline{Eigenraum} von $\lambda$.\\
@@ -3819,12 +3913,39 @@ Man erhält:
 	IV \qquad 3a_{21} - a_{22} = -\frac{2}{3}\\
 	\end{cases}$
 \end{itemize}
-$III = III +1: \quad 4a_{11} = 4,~~~~~ a_{11} = 1 \overset{I}{\Rightarrow} a_{12} = 1 \\
+$III = III +I: \quad 4a_{11} = 4,~~~~~ a_{11} = 1 \overset{I}{\Rightarrow} a_{12} = 1 \\
 IV = IV + II:\quad 4a_{21} = \frac{4}{3},~~~~~ a_{21} = \frac{1}{3} \overset{II}{\Rightarrow} a_{22} = \frac{5}{3}\\
 \Rightarrow A = \begin{pmatrix}
 1 & 1 \\
 \frac{1}{3} & \frac{5}{3} \\
-\end{pmatrix}$
+\end{pmatrix}$\\
+\\
+\\
+\begin{minipage}[c]{0.5\textwidth}
+	\InitGraph{4}{4}{2}{2}{1cm}
+	\Coordinates(0.8,1)(0.8,1)
+	\TextAt(2,0)[b]{$x$}
+	\TextAt(0,2)[l]{$y$}
+	\MoveTo(0,0)
+	\Circle(0.8)
+	\CloseGraph
+\end{minipage}
+$\longrightarrow$~~~~~~~~~~~~~~~~~
+\begin{minipage}[c]{0.5\textwidth}
+	\InitGraph{4}{4}{2}{2}{1cm}
+	\Coordinates(1,1)(1,1)
+	\TextAt(2,0)[b]{$x$}
+	\TextAt(0,2)[l]{$y$}
+	\MoveTo(0,0)
+	\LineAt(-2,-2,2,2)
+	\TextAt(2,2)[t]{$Eig(2)=\Big\langle\vec2{1}{1}\Big\rangle_\R$}
+	\LineAt(-3,1,3,-1)
+	\TextAt(2,-2)[c]{$Eig(\frac{2}{3})=\Big\langle\vec2{3}{-1}\Big\rangle_\R$}
+	\begin{Transform}{1}{1}{0.33333}{1.66666}
+		\CircleAt(0,0)(1)
+	\end{Transform}
+	\CloseGraph
+\end{minipage}
 \subsection*{Eigenwertproblem}
 Geg.: $A \in \M_n(\K)$. Ges.: Eigenvektor und Eigenwert \\
 \underline{Grundidee} zur Berechnung von EV + EW:\\
@@ -3835,7 +3956,7 @@ Av = \lambda v &\Leftrightarrow Av=(\lambda \cdot E_n) v\\
 &\Leftrightarrow \underbrace{(A - \lambda E_n)}_{\in \M_n(\K)} v = 0 \\
 \end{align*}
 D.h. $v \in \ker(A - \lambda E_n)!$ Da $v \neq 0$, ist $\ker(A - \lambda E_n) \neq \{\O\}$ und somit $A - \lambda E_n$ weder injektiv (\hyperref[6.9]{6.9}) noch umkehrbar (\hyperref[6.15]{6.15}). Ergebnis: 
-\subsection{Satz}
+\subsection{Satz ($A-\lambda E_n$)}
 \label{9.4}
 Sei $A \in \M_n(\K)$.
 \begin{itemize}
@@ -3877,7 +3998,7 @@ Die EV $v_1,v_2 \in \R^2$ erfüllen somit
 	\end{pmatrix} \cdot \underbrace{\vec2{x'}{y'}}_{v_2} = 0 \Rightarrow v_2 = \vec2{1}{1}.\\
 	 Eig(2) = \vecspaceR{\vec2{1}{1}}$
 \end{itemize}
-\subsection{Definition}
+\subsection{Definition (charakteristisches Polynom)}
 \marginpar{31.01.2017}
 Für $A \in \M_n(\K)$ heißt $P_A(\lambda) = \det(A)-(\lambda E_n)$ das \uline{charakteristische Polynom} von $A$.
 \subsection{Bemerkung}
@@ -3885,7 +4006,7 @@ $P_A(\lambda)$ ist Polynom vom Grad $n$, falls $A \in \M_n(\K)$ (folgt aus Defin
 $\Rightarrow $ für $\K = \R:~~A $ hat $ \geq n$ Eigenwerte.\\
 $K = \C: $ genau $n$ Eigenwerte ( nicht notwendigerweise verschieden), \hyperref[5.11]{5.11 b)}.
 \subsection*{Diagonalisierbarkeit von Matrizen}
-\subsection{Definition}
+\subsection{Definition (Diagonalmatrix)}
 $D \in \M_(\K)$ heißt \uline{Diagonalmatrix}, wenn $D = \begin{pmatrix}
 \lambda_1 & \cdots & 0 \\
 \vdots & \ddots & \vdots \\
@@ -3922,7 +4043,20 @@ $D \in \M_(\K)$ heißt \uline{Diagonalmatrix}, wenn $D = \begin{pmatrix}
 	Deswegen folgende Grundidee:\\
 	Sei $A \in \M_n(\K)$.\\
 	 Bringe $A$ auf Diagonalgestalt: Fasse dazu $A$ als Darstellungsmatrix von $\phi(v) = Av$ bzgl. Standardbasis $E$ auf, d.h. $A = A_\phi^E$. Suche Basis $B$, so dass $A_\phi^B$ Diagonalmatrix ist. Wenn es eine solche Basis $B$ gibt, dann gilt:
-	%Zeichung
+	\begin{tikzpicture}[scale=0.75]
+	\node (v1) at (-3,3) {$\K^n$};
+	\node (v2) at (1,3) {$\K^n$};
+	\node (v3) at (1,-0.5) {$\K^n$};
+	\node (v4) at (-3,-0.5) {$\K^n$};
+	\draw  [-latex] (v1) edge (v2);
+	\draw  [-latex] (v3) edge (v2);
+	\draw  [-latex] (v1) edge (v4);
+	\draw  [-latex]  (v4) edge (v3);
+	\node at (-1.0999,3.6082) {$\substack{A=A_\phi^E}$};
+	\node at (-1.1175,-0.9476) {$\substack{A_\phi^B=D}$};
+	\node at (-4.0525,1.302) {$\substack{S^{-1}=S_{EB}}$};
+	\node at (1.2589,1.3196) {~~~~~~$\substack{S_{BE}=S}$};
+	\end{tikzpicture}
 \end{itemize}
 \subsection{Beispiel}
 $A = \begin{pmatrix}
@@ -3943,7 +4077,7 @@ $\Rightarrow S_{B,E} =\begin{pmatrix}
 2 & -1 \\
 \end{pmatrix}\cdot \begin{pmatrix}
 1 & 1 \\
-2 & 4 \\
+-2 & 4 \\
 \end{pmatrix} \cdot \begin{pmatrix}
 1 & 1 \\
 2 & 1 \\
@@ -3964,18 +4098,19 @@ Somit ist z.B. $A^5 = \underbrace{SDS^{-1}}_{A} \cdot \underbrace{SDS^{-1}}_{A} 
 -1 & 1 \\
 2 & -1 \\
 \end{pmatrix} = \begin{pmatrix}
-irgendwas
+-179 & 211 \\
+-422 & 454 \\
 \end{pmatrix}$
-\underline{Fragen:}
+\subsection*{Fragen}
 \begin{itemize}
 	\item[1)] Ist jeder $A \in \M_n(\K)$ diagonalisierbar?
 	\item[2)] Wie diagonalisiert man $A$?
 \end{itemize}
-\subsection{Definition}
+\subsection{Definition (Diagonalisierbarkeit)}
 \label{9.11}
 \begin{itemize}
 	\item[i)] $A \in \M_n(\K)$ heißt \uline{diagonalisierbar}, wenn es eine invertierbare Matrix \\$S \in \M_n(\K)$ gibt, so dass $A = SDS^{-1},~~~ D$ Diagonalmatrix.
-	\item[ii)] Eine lineare Abbildung $\phi:  V \rightarrow V,~~ dim(V) < \infty$, heißt diagonalisierbar, falls es eine Basis $B$ gibt, so dass $A_\phi^B$ Diagonalmatrix.
+	\item[ii)] Eine lineare Abbildung $\phi:  V \rightarrow V,~~ \dim(V) < \infty$, heißt diagonalisierbar, falls es eine Basis $B$ gibt, so dass $A_\phi^B$ Diagonalmatrix.
 \end{itemize}
 \subsection{Satz (Spektralsatz)}
 \begin{itemize}
@@ -4054,7 +4189,7 @@ Im $\R^2$ hat man folgende Möglichkeiten:
 	 Es ist für $v=\vec2{1}{1}$ und $v'=\vec2{0}{1}$: $\|v\| = \sqrt{1^2 + 1^2} = \sqrt{2},~~ \\\|v'\| = \sqrt{1^2 + 0^2} = 1,~~ d(v,v') = \Big\| \vec2{1}{1}- \vec2{1}{0}\Big\| = \Big\| \vec2{0}{1}\Big\| = 1,\\ (v|v') = 1 \cdot 1 + 1 \cdot 0 = 1, ~~\cos(\alpha) = \frac{(v|v')}{\|v\| \cdot \|v'\|} = \frac{1}{2} \Rightarrow \alpha = \frac{\pi}{4} (45\degree)$
 \end{itemize}
 Wie kann man Norm (Länge, Abstand) und Skalarprodukt (Winkel) für beliebige $\R$-Vektorräume verallgemeinern?
-\subsection{Definition}
+\subsection{Definition (Skalarprodukt, Norm, Abstand, Vektorraum)}
 \label{10.2}
 \marginpar{01.02.2017}
 Sei $V ~~\R-$Vektorraum.
@@ -4094,7 +4229,7 @@ Sei $V ~~\R-$Vektorraum.
 	\end{center}
 	und erfüllt folgende Eigenschaften:
 \end{itemize}
-\subsection{Satz}
+\subsection{Satz (Eigenschaften Norm)}
 \label{10.4}
 $V ~~\R-$Vektorraum.
 \begin{itemize}
@@ -4174,4 +4309,179 @@ Dann gilt
 \end{itemize}
 \subsubsection*{Beweis}
 Wie oben, vollständige Induktion.\qed 
+\subsection{Beispiel}
+\marginpar{07.02.2017}
+$v_1,v_2 \in \R^3,~~ v_1 = \vec3{1}{1}{0},~ v_2 = \vec3{1}{3}{2}$\\
+Suche ONB der Ebene $\vecspaceR{v_1,v_2}$.\\
+Gram-Schmidt:
+\begin{enumerate}
+	\item $w_1 = v_1 = \vec3{1}{1}{0}$
+	\item $w_2 = v_2 + \lambda_1 w_1$ mit $\lambda_1 = -\frac{(v_2,w_1)}{\|w_1\|^2} = -\frac{4}{2} = -2\\
+	\Rightarrow w_2 = \vec3{1}{3}{2} - 2\cdot \vec3{1}{1}{0} = \vec3{-1}{1}{2}\\
+	\Rightarrow \text{OGB}: \Bigg\{\vec3{1}{1}{0},~\vec3{-1}{1}{2}\Bigg\}\\
+	\text{ONB}: \Bigg\{\frac{1}{\sqrt{2}}\vec3{1}{1}{0},~~\frac{1}{\sqrt{6}}\vec3{-1}{1}{2}\Bigg\}$
+\end{enumerate}
+\subsection{Definition (Orthogonale Matrix)}
+$A \in \M_n(\R)$ heißt \uline{orthogonal}, falls ihre Spalten eine Orthogonalbasis des $\R^n$ bilden.\\
+$\mathcal{O}(n) := \{A \in \M_n(\R)\mid A \text{ orthogonal}\}$ heißt orthogonale Gruppe ($\mathcal{O}(n)$ ist tatsächlich Gruppe).
+\subsection{Beispiel}
+$ A = \begin{pmatrix}
+\cos(\phi) & -\sin(\phi) \\
+\sin(\phi) & \cos(\phi) \\
+\end{pmatrix}, ~~~\phi \in \R$\\
+\begin{itemize}
+	\item $\Big(\vec2{\cos(\phi)}{\sin(\phi)}\Big| \vec2{-\sin(\phi)}{\cos(\phi)}\Big) = 0$
+	\item $\Big\|\vec2{\cos(\phi)}{\sin(\phi)}\Big\| = \Big\|\vec2{-\sin(\phi)}{\cos(\phi)}\Big\| = \sqrt{\cos^2(\phi) + \sin^2(\phi)} = 1$
+\end{itemize}
+$E_n$ ist auch orthogonal (Ist die Eins $\upharpoonleft$ in der Gruppe $\mathcal{O}(n)$, \hyperref[3.9]{3.9}).
+\subsection{Satz (Orthogonale Matrix)}
+Für $A \in \mathcal{O}(n)$ gilt:
+\begin{itemize}
+	\item[i)] $A^T\*A = E_n$, d.h. $A^{-1} = A^T$
+	\item[ii)] $\|Av\| = \|v\|$ \qquad Längentreue
+	\item[iii)] $|\underbrace{\det(A)}_{\in \R}| = 1$
+\end{itemize}
+\subsubsection*{Beweis}
+$A = (s_1,...,s_n)$
+\begin{itemize}
+	\item[i)] $\{s_1,...,s_n\}$ ONB $\Rightarrow (s_i,s_j) = \begin{cases}
+	1 \qquad i = j\\
+	0 \qquad u \neq j\\
+	\end{cases}\Rightarrow A^T \cdot A = E_n$
+	\item[ii)] $\|Av\|^2 =(\underbrace{Av}_{\in \R^n},\underbrace{Av}_{\in \R^n}) = (Av)^T \cdot (Av) = v^T \cdot \underbrace{A^T \cdot A}_{= E_n} \cdot v = (v|v) = \|v\|^2$
+	\item[iii)] $1 = \det(E_n) = \det(A^T \cdot A) \overset{\hyperref[8.6]{8.6,~D9}}{=} \det(A^T) \cdot \det(A)\\
+	\noindent\hspace*{20mm} = (\det(A))^2 \Rightarrow \det(A) = \pm 1$
+\end{itemize}\qed
+\subsection{Bemerkung}
+Man kann zeigen, dass jede symmetrische Matrix $A \in \M_n(\R)$\quad $n$ (nicht notwendigerweise verschiedene) reelle Eigenwerte hat und othogonal diagonalisierbar ist, d.h. $\exists ~S \in \mathcal{O}(n): \underbrace{S^{-1} \cdot A \cdot S}_{S^TAS} = D$ ($D$ Diagonalmatrix, die die EW von $A$ enthält).\\
+Die Spalten von $S$ sind die EV von $A$.
+\newpage
+\section{Taylorreihen}
+\subsubsection*{Ziel}
+ Beweis von $e^{\i\phi} = \cos(\phi) + \i\sin(\phi),\qquad (\phi \in \R)$.\\
+Dazu zeigt man
+\begin{enumerate}
+	\item $e^x = \exp(x) = \sum_{j = 0}^{\infty} \frac{x^j}{j!} \qquad (x \in \R)$ 
+	\item Man erweitert für $z \in \C ~~~\exp(z) := \sum_{j = 0}^{\infty}\frac{z^j}{j!}$
+	\item Zum Schluss zeigt man $\exp(\i\phi)= \cos(\phi) + \i \sin(\phi)$, indem man $\cos(\phi)$ und $\sin(\phi)$ als Reihen darstellt.
+\end{enumerate}
+Hier wird nur ein Teil von 1) bewiesen. Dabei wird $(e^x)' = e^x \quad \forall x \in \R$ als bekannt vorrausgesetzt. 3) wird ebenfalls gezeigt.\\
+Dazu Taylorpolynome:\\
+\\
+\begin{tikzpicture}[scale=0.85]
+\draw[->]
+(-0.2,0) -- (4.2,0) node[right] {$x$};
+\draw[->]
+(0,-0.2) -- (0,4.2) node[above] {$f(x)$};
+\draw[color=black, domain=-0.5:3.5]
+plot(\x,0.125*\x*\x*\x-3*0.125*\x*\x+3*0.125*\x+0.5) node[right]{$f$};
+\draw[color=blue, domain=-0.6:3.2, very thin]
+plot(\x,0.08*\x*\x*\x-3*0.08*\x*\x+3*0.08*\x+0.55) node[right]{bessere Näherung, bei der die Ableitung in $x_0$ übereinstimmt ($T_k$)};
+\draw[color=gray,domain=-0.2:4] 
+plot(\x,\x-0.6) node[right]{schlechte Annäherung};
+\end{tikzpicture}
+\\
+Man möchte $k-$mal diffbare Funktion $f: I \rightarrow \R$ durch ein Polynom $T_k(x)$ möglichst gut annähern. Dazu wählt man $T_k$ so, dass $T_k^{(j)}(x_0) = f^{(j)}(x_0)$ für ein $x_0 \in I, ~~~j = 0,~...,~k.$
+\subsection{Definition (Taylorpolynom, Restglied)}
+Sei $I = (a,b),~~ x_0 \in I,~~~ f:I \rightarrow \R~~~~k-$mal differenzierbar, dann heißt \begin{center}
+	$T_k :\R \rightarrow \R,~~~T_k(x) := \sum_{j = 0}^{k}\frac{f^{(j)} (x_0)}{j!}(x-x_0)^j$
+\end{center}
+\uline{$k-$tes Taylerpolynom} von $f$ in $x_o$. \\
+Die Fehlerdifferenz \begin{center}
+	$R_k: I \rightarrow \R,~~~ R_k(x) := f(x) - T_k(x)$
+\end{center} nennt man \uline{$k-$tes Restglied} von $f$ in $x_0$. 
+\subsection{Bemerkung}
+$T_k$ ist das eindeutig bestimmte Polynom vom Grad $\leq k$, das $T_k^{(j)}(x_0) = f^{(j)}(x_0)$ erfüllt $\forall j = 0,~...,~k$:\\
+\\
+$T_k(x) = a_0 + a_1(x-x_0) + ... + a_j(x-x_0)^j + ... + a_k(x-x_0)^k$\\
+$a_j = \frac{f^{(j)}(x_0)}{j!}$\\
+$\Rightarrow T_k^{(j)}(x) = j!a_j + c_j(x-x_0) + ... + c_k(x-x_0)^{k-j}\\
+\Rightarrow T_k^{(j)}(x_0) = j! \cdot a_j = f^{(j)}(x_0)$
+\subsection{Satz von Taylor}
+\label{12.3}
+Sei $x_0 \in I =(a,b),~~~ f: I \rightarrow \R~~~(k+1)$-mal diffbar, $k \in \N_0$. Dann gibt es zu jedem $x \in I$ eine Stelle $\xi$ zwischen $x$ und $x_0$, so dass
+\begin{center}
+	$R_k(x) = \frac{f^{(k+1)}(\xi)}{(k+1)!} (x-x_0)^{k+1}$
+\end{center}
+(Lagrange-Form des Restgliedes).
+\subsubsection*{Beweis}
+Sei $g(x) = (x-x_0)^{k+1}$. Es gilt $g^{(j)}(x_0) = 0$ und $R_k^{(j)}(x_0) = 0 \qquad \forall j = 0,...,k.$ Verwendet wird der 2. Mittelwertsatz (Mathe II).\\
+$\Rightarrow \frac{R_k(x)}{g(x)} = \frac{R_k(x) - \overbrace{R_k(x_0)}^{=0}}{g(x) - \underbrace{g(x_0)}_{=0}} \overset{2.MWS}{=} \frac{R_k'(\xi_1)}{g'(\xi_1)} \qquad \xi_1$ zwischen $x$ und $x_0$\\
+\noindent\hspace*{15mm}$= \frac{R_k'(\xi_1) - R_k'(x_0)}{g'(\xi_1) - g'(x_0)} \overset{2.MWS}{=} \frac{R_k''(\xi_2)}{g''(\xi_2)}\qquad \xi_2$ zwischen $\xi_1$ und $x_0$.\\
+\noindent\hspace*{16mm}$\vdots$\\
+\noindent\hspace*{11.5mm}$\overset{2MWS}{=} \frac{R_k^{(k+1)}(\xi_{k+1})}{g^{k+1}(\xi_{k+1})} = \frac{f^{(k+1)}(\xi_{k+1})}{(k+1)!}\qquad \xi_{k+1}$ zwischen $\xi_k$ und $x_0$\\
+Setze $\xi = \xi_{k+1}$, Behauptung folgt.\qed
+\subsection{Beispiel}
+\marginpar{08.02.2017}
+Berechne $\sin(1)$ mit einer Fehlerdifferenz kleiner als $10^{-3}$.\\
+Aus \hyperref[12.3]{12.3} $f(x) = T_k(x) + \overbrace{R_k(x)}^{\text{Fehler}}$\\
+
+$\Rightarrow |R_k(x)| = \frac{|f^{(k+1)}(\xi)|}{(k+1)!} |x - x_0|^{k+1} < 10^{-3}$ mit $\xi$ zwischen $x$ und $x_0$.\\
+\\
+Suche $k \in \N$, für das Ungleichung erfüllt ist: \\
+$f(x) = \sin(x),~~ f'(x) = \cos(x),~~ f''(x) = -\sin(x),\\ f'''(x) = -\cos(x),~~f^{(4)}(x)=f(x)$\\
+
+$\Rightarrow f^{(2n)}(x) = (-1)^n \sin(x),~~~ f^{(2n+1)}(x) = (-1)^n \cos(x) \qquad n \geq 0$\\
+Wähle als Entwicklungspunkt $x_0 = 0$.\\
+\\
+Damit ist $|R_k(x)| = |R_k(1)| = \frac{|f^{(k+1)}(\xi)|}{(k+1)!} |1-0|^{k+1} \leq \frac{1}{(k+1)!} \overset{!}{<} \frac{1}{1000}$\\
+
+$ \Leftrightarrow (k+1)! > 1000 \Leftrightarrow k \geq 6$\\
+\\
+Wähle $k = 6$:\\
+Dann ist $f(1) = \sin(1)\\
+\noindent\hspace*{22.5mm}\approx T_6(1) = \frac{\sin(0)}{0!}(1-0)^0 +\frac{\cos(0)}{1!}(1-0)^1 + \frac{-\sin(0)}{2!}(1-0)^2\\
+\noindent\hspace*{41mm}+ ... + \frac{-\sin(0)}{6!}(1-0)^6\\
+\noindent\hspace*{36mm} = 0 + 1 + 0+ -\frac{1}{6} + 0 + \frac{1}{120} - 0 = \frac{101}{120}\\
+\noindent\hspace*{36mm}= 0,841\overline{6}$\\
+\\
+Für Funktionen, die unendlich oft differenzierbar sind (z.B. $e^x,\sin x)$, kann man sogar eine Taylorreihe aufstellen:
+\subsection{Definition (Tylorreihe)}
+Sei $x_0 \in I = (a,b), ~~~f: I \rightarrow \R$ unendlich oft diffbar. Dann heißt \begin{center}
+	$T: \R \rightarrow \R,~~~ T(x) = \sum_{j = 0}^{\infty} \frac{f^{(j)}(x_0)}{j!} (x-x_0)^j$
+\end{center}
+\uline{Taylorreihe} von $f$ in $x_0$.
+\subsection{Bemerkung}
+\begin{itemize}
+	\item[1)] $T(x)$ muss nicht konvergent sein.
+	\item[2)] Wenn $T(x)$ konvergiert für ein $x \neq x_0$, so muss $T(x)$ nicht notwendig gegen $f(x)$ konvergieren.
+\end{itemize}
+\subsection{Beispiel}
+Man kann zeigen, dass $f:\R \rightarrow \R$ mit $f(x) = \begin{cases}
+e^{-\frac{1}{x}} \quad x > 0\\
+0 \qquad x \leq 0
+\end{cases}$ beliebig oft diffbar ist.\\
+Da $f^{(j)}(0) = 0 ~~~\forall j \in \N_0$, ist $T(x) = 0 \quad  \forall x \in \R$, aber $f(x) \neq 0$ für $x > 0$.
+\subsection{Satz (Konvergenz Taylorreihe)}
+\label{12.8}
+Seien $x_0, x \in I$ und sei $f$ unendlich oft diffbar. \\
+$T(x)$ konvergiert genau dann gegen $f(x)$, wenn $R_k(x) \overset{k \rightarrow \infty}{\rightarrow} 0$
+\subsubsection*{Beweis}
+Da $T_k(x)$ die $k$-te Partialsumme von $T(x)$ ist und $|f(x) - T_k(x)| = |R_k(x)| \overset{k \rightarrow \infty}{\rightarrow} 0$, ist $f(x)$ der Grenzwert von $T_k(x)$ für $k \rightarrow \infty$. \qed
+\subsection{Beispiel}
+\begin{itemize}
+	\item[a)] $f(x) = \sin(x),~~~ x_0 = 0~\text{ (nur ungerade Ableitungen relevant, sonst }=0):\\
+	\Rightarrow T(x) = \sum_{j = 0}^{\infty} \frac{(-1)^j x^{2j+1}}{(2j+1)!}$\\
+	Da $|R_k(x)| = \frac{|f^{(k+1)} (\xi)}{(k+1)!}|x-x_0|^{k+1} \leq \frac{1}{(k+1)|} |x|^{k+1} \overset{k \rightarrow \infty}{\rightarrow} 0$ (weil Fakultät schneller wächst als jedes Polynom, Mathe II)\\
+	ist $T(x) = \sin(x) \quad \forall x \in \R$
+	\item[b)] Ebenso ist für $f(x) = \cos(x),~~~ x_0 = 0$:\\
+	$\cos(x) =  \sum_{j = 0}^{\infty} \frac{f^{(j)}(0)}{j!} (x-0)^j = \sum_{j = 0}^{\infty} \frac{(-1)^j x^{2j}}{(2j)!}$ \\
+	Beweis Konvergenz analog zu a)
+	\item[c)] $f(x) = e^x,~~~ x_0 = 0$:\\
+	$\Rightarrow T(x) = \sum_{j = 0}^{\infty} \frac{e^0}{j!}x^j = \sum_{j  = 0}^{\infty} \frac{x^j}{j!}$\\
+	Für jedes $x \in \R$ ist $|R_k(x)| = \frac{f^{(k+1)}(\xi)}{(k+1)!}|x|^{k+1} \leq \frac{e^{|x|}}{(k+1)!}|x|^{k+1} \overset{k \rightarrow \infty}{\rightarrow} 0$ (Begründung wie bei a))\\
+	$\overset{\hyperref[12.8]{12.8}}{\Rightarrow} T(x) = e^x \quad \forall x \in \R$. Somit ist $\exp(x) = e^x$ gezeigt.
+	\item[d)] Für $z \in \C$ definiert man nun $e^z := \exp(z) = \sum_{j = 0}^{\infty} \frac{z^j}{j!}$.\\
+	Der Konvergenzradius $\rho$ von $\exp(z)$ ist nach Euler (Mathe II)
+	\begin{center}
+		$\rho = \lim\limits_{j\rightarrow \infty}\Big| \frac{a_j}{a_{j+1}}\Big|$ mit $a_j = \frac{1}{j!}$
+	\end{center}
+	Da $\Big| \frac{a_j}{a_{j+1}}\Big| = \frac{(j+1)!}{j!} = j+1 \overset{j \rightarrow \infty}{\rightarrow}\infty$, ist $\rho = \infty$ und $\exp(z)$ ist absolut konvergent $\forall z \in \C$ (\hyperref[5.11]{5.11 d}).\\
+	Deswegen kann man $\exp(z)$ umordnen und für $z = \i x,~~ x \in \R$, ergibt sich Formel von Euler (\hyperref[5.5]{5.5}) :
+	\begin{center}
+		$e^{\i x} = \exp(\i x) = \sum_{j = 0}^{\infty} \frac{(\i x)^j}{j!} = \underbrace{\sum_{j = 0}^{\infty} \frac{(-1)^j x^{2j}}{(2j)!}}_{\cos(x)}  + \i\underbrace{\sum_{j = 0}^{\infty} \frac{(-1)^j x^{2j+1}}{(2j+1)!}}_{\sin(x)}$,
+	\end{center}
+	da $\i^0 = 1,~~ \i^1 = \i,~~ \i^2 = -1,~~ \i^3 = -1,~~\i^4=\i$
+	\item[e)] Wegen c): $e^1 = e = 1+1+\frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + ...$                                                   
+\end{itemize}
 \end{document}
