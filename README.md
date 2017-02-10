@@ -6,9 +6,13 @@ VOLLSTÄNDIG
 -.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
 
 Thanks to:
+
 Rita Rübchen (artwork)
+
 Procope (typos)
+
 Bille (artwork)
+
 Ella (typos)
 
 
