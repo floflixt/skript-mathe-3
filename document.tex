@@ -1,5 +1,4 @@
-\documentclass[12pt,titlepage, pdf]{article}
-
+\documentclass[a4paper, 12pt,titlepage, pdf, headsepline]{scrartcl}
 %Packages%
 
 \usepackage[ngerman]{babel}
@@ -26,6 +25,10 @@
 \usetikzlibrary{arrows}
 
 %TitlePage%
+\usepackage[automark]{scrpage2}
+\ihead{\headmark}
+\chead{}
+\pagestyle{scrheadings}
 
 \begin{titlepage}
 	\title{Mathematik III}
@@ -2487,7 +2490,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      			\end{itemize}
 		      			\subsection*{Verknüpfungen auf $\C$}
 		      			\begin{itemize}
-		      				\item[1)] $(\C,+) \cong (\R^2, +)$, d.h. $(a+b\i)(a' +b'\i) = (a +a') + (b +b')\i$ (Vektoraddition)
+		      				\item[1)] $(\C,+) \cong (\R^2, +)$, d.h. $(a+b\i)+(a' +b'\i) = (a +a') + (b +b')\i$ (Vektoraddition)
 		      				\item[2)] Wie wählt man Multiplikation, so daß $\C$ Körper wird?\\
 		      				      Man möchte, dass Potenzregel gilt, z.B:\\ $e^{\i \phi} \cdot e^{\i \phi'} = e^{\i(\phi + \phi')} \Leftrightarrow \\
 		      				      (\cos \phi + \i \sin \phi)(\cos\phi' + \i \sin\phi') = \cos(\phi + \phi') + \i \sin(\phi + \phi')$\\
