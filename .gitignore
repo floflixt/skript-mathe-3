@@ -1,0 +1,14 @@
+# Ignore all MGA-TeX files
+*.sty
+
+# Ignore the build directory (Makefile)
+out
+
+# Ignore all auxiliary files
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.aux
+*.synctex.gz
