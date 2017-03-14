@@ -260,7 +260,7 @@ Man sagt: $U$ ist abgeschlossen bezüglich der Vektoraddition und der Multiplika
 	      	      	U_1 & =\Bigg\{\vec3{x_1}{x_2}{x_1+x_2}\Bigg|~ x_1,\quad x_2\in\R\Bigg\}                \\
 	      	      	    & =\Bigg\{x_1\*\vec3{1}{0}{1}+x_2\*\vec3{0}{1}{1}\Bigg|~ x_1,\quad x_2\in\R\Bigg\} 
 	      	      \end{align*}
-	      	      D.h. $U_1$ ist die Ebene durch $O=\vec3{0}{0}{0}$ mit den Richtungsvektoren $\vec3{1}{0}{1}$ und $\vec3{0}{1}{1}$
+	      	      D.h. $U_1$ ist die Ebene durch $\mathcal{O}=\vec3{0}{0}{0}$ mit den Richtungsvektoren $\vec3{1}{0}{1}$ und $\vec3{0}{1}{1}$
 	      \end{itemize}
 	\item[c)] $U_2=\Bigg\{\vec3{x_1}{x_2}{x_3}\in\R^3~\Bigg|~x_1+x_2-x_3=1\Bigg\}$ ist kein Unterraum. Z.B. $\vec3{0}{0}{0}=\O\notin U_2$: $0+0-0=0\neq1$.\\
 	      Anderes Argument: Sei $\lambda\in\R,\quad x=\vec3{x_1}{x_2}{x_3}\in U_2$, d.h. $x_1+x_2-x_3=1$. Gilt $\lambda\*x\in U_2$? $\lambda\*x=\vec3{\lambda x_1}{\lambda x_2}{\lambda x_3}$
@@ -408,7 +408,7 @@ Prüfe \hyperref[1.6]{Unterraumkriterium 1.6}
 	\item[f)] 
 	      $\Big\langle \vec2{1}{1}, \vec2{1}{2}, \vec2{2}{3} \Big\rangle_{\R} = \Big\langle \vec2{1}{1}, \vec2{1}{2} \Big\rangle_{\R}$, da $\vec2{2}{3} = 
 	      \vec2{1}{1} + \vec2{1}{2}$.\\
-	      D.h. $M = \Big\{\vec2{1}{1}, \vec2{1}{2}, \vec2{2}{3}\Big \}$ ist kein \uline{minimales} Erzeugendensystem des $\R^2$, denn $v \in M$ kann immer dargestellt werden als Linearkombination von Vektoren aus $M \setminus {v}$. \\
+	      D.h. $M = \Big\{\vec2{1}{1}, \vec2{1}{2}, \vec2{2}{3}\Big \}$ ist kein \uline{minimales} Erzeugendensystem des $\R^2$, denn $v \in M$ kann immer dargestellt werden als Linearkombination von Vektoren aus $M \setminus \{v\}$. \\
 	      Man sagt: $\vec2{1}{1}, \vec2{1}{2}, \vec2{2}{3}$ sind \uline{linear abhängig}.
 \end{itemize}
 \subsection{Definition (Linearkombination, Erzeugendensystem)}
@@ -421,7 +421,7 @@ $V: \R$-VR (V ist Vektorraum in den reellen Zahlen) \\
 	      \end{center}
 	      der \underline{von $M$ aufgespannte/erzeugte UVR} von V \\
 	      \\
-	      Vereinbarung: $\langle \emptyset \rangle = \{0\}$\\
+	      Vereinbarung: $\langle \emptyset \rangle = \{ \mathcal{O} \}$\\
 	      Schreibweise: $M = \{v_1,...,v_m\}$\\
 	      \noindent\hspace*{22mm}$\langle M \rangle_{\R} = \langle v_1,..., v_m\rangle_{\R} $
 	\item[(iii)]
@@ -456,7 +456,7 @@ $\vecspaceR{M}$ ist der kleinste UVR von $\R^3$, der M enthält.
 	      		\lambda_1 \cdot v_1 + ... + \lambda_m \cdot v_m = 0 \\
 	      		\lambda_1,...,\lambda_m\in\R
 	      	\end{rcases}
-	      	\Rightarrow \underbrace{\lambda = \lambda_2 = ... = \lambda_m = 0}_{\textrm{einzige Lösung!}}$
+	      	\Rightarrow \underbrace{\lambda = \lambda_2 = ... = \lambda_m = \mathcal{O}}_{\textrm{einzige Lösung!}}$
 	      \end{center}
 	\item $M \subseteq V$ heißt linear unabhängig, wenn gilt: \\
 	      Für beliebiges $m \in \N $ und $v_1,...,v_m \in M$ paarweise verschieden sind $v_1,...,v_m$ linear unabhängig
@@ -464,7 +464,7 @@ $\vecspaceR{M}$ ist der kleinste UVR von $\R^3$, der M enthält.
 \end{itemize}
 \subsection{Beispiel}
 \begin{itemize}
-	\item[a)] $\mathcal{O}$ ist linear abhängig, da $\lambda \cdot \mathcal{O} = 0 \qquad \forall \lambda \neq 0$
+	\item[a)] $\mathcal{O}$ ist linear abhängig, da $\lambda \cdot \mathcal{O} = \mathcal{O} \qquad \forall \lambda \neq 0$
 	\item[b)] Sind $\vec2{1}{2} , \vec2{-3}{1}, \vec2{1}{-5}$ linear abhängig in $\R^2$ ? \\
 	      $\lambda_1 \cdot \vec2{1}{2} + \lambda_2 \cdot \vec2{-3}{1} + \lambda_3 \cdot \vec2{1}{-5} = \mathcal{O}$\\
 	      $\begin{cases}
@@ -477,7 +477,7 @@ $\vecspaceR{M}$ ist der kleinste UVR von $\R^3$, der M enthält.
 	      $\vec3{1}{0}{0}, \vec3{0}{1}{0}, \vec3{0}{0}{1}$ linear unabhängig (l.u.) in $\R^3$ 
 	\item[d)]
 	      $v \neq \mathcal{O},\quad v \in V,\quad v$, ist linear unabhängig \\
-	      Angenommen es existiert $\lambda \neq 0$ mit $\lambda \cdot v = 0$. \\
+	      Angenommen es existiert $\lambda \neq 0$ mit $\lambda \cdot v = \mathcal{O}$. \\
 	      $\Rightarrow v = (\frac{1}{\lambda} \cdot \lambda)\* v = \frac{1}{\lambda} \cdot (\lambda \cdot v) = \mathcal{O}$ \Lightning
 	\item[e)]
 	      \begin{align*}
@@ -633,7 +633,7 @@ Es folgt:
 \begin{itemize}
 	\item[a)] \begin{itemize}
 	\item[1)] $w_1\in V\Rightarrow w_1=\sum_{i=1}^{n}\lambda_iv_i$\\
-	      Wären alle $\lambda_i=0$, dann wäre auch $w_1=0$. Da $\mathcal{O}\in V$ linear abhängig ist, wäre also auch $w_1,...,w_m$ linear abhängig. $\Lightning$\\
+	      Wären alle $\lambda_i=0$, dann wäre auch $w_1=\mathcal{O}$. Da $\mathcal{O}\in V$ linear abhängig ist, wäre also auch $w_1,...,w_m$ linear abhängig. $\Lightning$\\
 	      Also: Mindestens ein $\lambda_i\neq 0$\\
 	      O.B.d.A. $\lambda_1\neq 0$ (sonst umnummerieren) $\overset{\textrm{\hyperref[1.20]{1.20}}}{\Rightarrow}\{w_1,v_2,...,v_n\}$ ist Basis von $V$
 	\item[2)]  $w_2\in V\Rightarrow \mu_1w_1+\sum_{i=2}^{n}\mu_iv_i$\\
@@ -850,7 +850,7 @@ Man schreibt $A = (a_{ij})_{\substack{i=1,...,m\\j = 1,...,n}}$ oder nur $A =(a_
 	\item $\mathcal{M}_{n,n}(\R) = M_n (\R)$ - quadratische Matrizen 
 \end{itemize}
 $(\ast\ast)\quad$Dabei ist\\
-$Ax\coloneqq x_1 \vec3{a_{11}}{\vdots}{a_{m1}} + x_2 \vec3{a_{12}}{\vdots}{a_{m2}} + \cdots + x_n \vec3{a_{1m}}{\vdots}{a_{mn}} =
+$Ax\coloneqq x_1 \vec3{a_{11}}{\vdots}{a_{m1}} + x_2 \vec3{a_{12}}{\vdots}{a_{m2}} + \cdots + x_n \vec3{a_{1n}}{\vdots}{a_{mn}} =
 \begin{pmatrix}
 	a_{11}x_1 + a_{12}x_2 + ... + a_{1n}x_n                   \\
 	\vdots\quad+\quad\vdots\quad+\quad\vdots\quad+\quad\vdots \\
@@ -1014,7 +1014,7 @@ $A \in \mathcal{M}_{m,n}(\R)\qquad x,y \in \R^n$\\
 	      -1& 0 \\
 	      0 &1 \\
 	\end{pmatrix} \vec2{-x_1}{x_2} \\
-	\noindent\hspace*{6.5mm}= \vec2{x_1}{-x_2}\\
+	\noindent\hspace*{6.5mm}= \vec2{x_1}{x_2}\\
 	\\
 	\Rightarrow \vec2{x_1}{x_2} \overset{A}{\mapsto} \vec2{x_1}{-x_2}\\
 	 A = \begin{pmatrix}
@@ -1074,7 +1074,7 @@ $A \in \mathcal{M}_{m,n}(\R)\qquad x,y \in \R^n$\\
 	      \end{align*}
 \end{itemize}	
 \subsection{Definition (Matrixprodukt)}
-$A=(a_{ij})\in\mathcal{M}_{m,n}(\R)\qquad B=(b_{ij})\in\mathcal{M}_{m,n}(\R)$
+$A=(a_{ij})\in\mathcal{M}_{m,n}(\R)\qquad B=(b_{jk})\in\mathcal{M}_{m,l}(\R)$
 \begin{align*}
 	A\*B   & =(c_{ik})\quad\in\mathcal{M}_{m,l}(\R)                     \\
 	c_{ik} & =(i\textrm{-te Zeile von }A)\*(k\textrm{-te Spalte von }B) \\
@@ -1094,7 +1094,7 @@ $A = \begin{pmatrix}
 \end{pmatrix}, \qquad
 A \cdot B = \begin{pmatrix}
 1 & \uline{1} & -1 \\
-2 & 3 & -2 \\
+2 & 5 & -2 \\
 \end{pmatrix}$\\
 $B\cdot A$ nicht definiert!
 \subsection{Satz + Definition (Vektorraum $\M_{m,n}(\R)$)}
@@ -1702,7 +1702,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 	      	      \end{itemize} 
 	      \end{itemize}
 	      \subsection{Beispiel}
-	      $\mathds{Z}_3 := \f{\mathds{Z}}{3\mathds{Z}} = \{3\mathds{Z} + 0,~ 3\mathds{Z} + 1, ~3\mathds{Z}  +2\}=\{3\Z+3,~3\Z-2,~3\ Z+11\}$ \\
+	      $\mathds{Z}_3 := \f{\mathds{Z}}{3\mathds{Z}} = \{3\mathds{Z} + 0,~ 3\mathds{Z} + 1, ~3\mathds{Z}  +2\}=\{3\Z+3,~3\Z-2,~3\Z+11\}$ \\
 	      Man schreibt oft $\mathds{Z}_3 = \{\underline{0}, \underline{1},\underline{2}\}$ (wobei $j = 3\mathds{Z} +j$) oder einfach $\mathds{Z}_3 =\{0,1,2\}$\\
 	      Allgemein: $\mathds{Z}_n := \f{\mathds{Z}}{n \cdot \mathds{Z}},~~ n \in \mathds{N}$ \\
 	      Beobachtung in $\mathds{Z}_3:$ Ist $x \in \underline{1}, y \in \underline{2},$ dann ist immer $x + y \in\underline{0}$
@@ -1812,7 +1812,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 	      \subsection{Korollar}
 	      \begin{itemize}
 	      	\item[i)] Satz von Euler:\\ $n \in \mathds{N},~~ a \in \mathds{Z},~~ \text{ggT}(a,n) = 1 \Rightarrow a^{\phi(n)} \equiv 1 \pmod{n}$
-	      	\item[ii)] Kleiner Satz von Fermat:\\ $p$ Primzahl, $a \in \mathds{Z},~~ p \not\vert a \Rightarrow a^{p-1} \equiv 1 \pmod{p}$
+	      	\item[ii)] Kleiner Satz von Fermat:\\ $p$ Primzahl, $a \in \mathds{Z},~~ p \nmid a \Rightarrow a^{p-1} \equiv 1 \pmod{p}$
 	      \end{itemize}
 	      \subsubsection*{Beweis}
 	      Wir können annehmen, dass $1 \leq a < n$, denn \\$a^{\phi(n)} \mod n = {\underbrace{(a \mod n)}_{\{1,...,n-1\}}}^{\phi(n)}\mod n$ \\
