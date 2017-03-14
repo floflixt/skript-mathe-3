@@ -11,6 +11,8 @@ Rita Rübchen (artwork)
 
 Procope (typos)
 
+Primeos (typos, makefile, gitignore)
+
 Bille (artwork)
 
 Ella (typos)
