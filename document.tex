@@ -1854,7 +1854,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 	      	\item[d)] $n \in \mathds{N}_{\geq 2}: (\mathds{Z}_n, \oplus, \odot)$ kommutativer Ring mit Eins
 	      	\item[e)] $(\R^n, + ,\cdot)$ kommutativer Ring mit Eins: ($\cdot$ und + Komponentenweise)\\
 	      	      \uline{Bemerkung:} $\mathcal{R}_1,...,\mathcal{R}_n$ Ringe $\Rightarrow \mathcal{R}_1 \times ... \times \mathcal{R}_n$ Ring
-	      	\item[f)] $(M_n(\R),+, \cdot)$ (für $n\geq 2$) Ring mit Eins $(= E_n)$. Nicht kommutativ! 
+	      	\item[f)] $(\mathcal{M}_n(\R),+, \cdot)$ (für $n\geq 2$) Ring mit Eins $(= E_n)$. Nicht kommutativ!
 	      \end{itemize}
 	      \subsection{Satz (Rechenregeln für Ringe)}
 	      \label{4.3}
@@ -1893,7 +1893,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 	      	\item[a)] $(\mathds{Q},+,\cdot),\quad (\mathds{R},+,\cdot)$ Körper $[(\mathds{C},+,\cdot)$ auch] \\
 	      	      $(\mathds{Z},+,\cdot)$ kein Körper, da $\mathds{Z}^* = \{1,-1\}$.
 	      	\item[b)] $\mathds{Z}_n^* = \{z \in \mathds{Z}_n| \text{ggT}(z,n) = 1\}$ Gruppe bezüglich '$\odot$'\\
-	      	      $\Rightarrow (\mathds{Z}_n, \oplus, \odot)$ Körper $\Leftrightarrow n$ Primzahl
+	      	      $\Rightarrow (\mathds{Z}_n^*, \oplus, \odot)$ Körper $\Leftrightarrow n$ Primzahl
 	      \end{itemize}
 	      	
 	      \subsection{Satz (Rechenregeln für Körper: Nullteilerfreiheit)}
@@ -1968,7 +1968,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 	      0 \pmod{m_j},~ j \neq i\\
 	\end{cases*}$ \\
 	\\
-	$\Rightarrow x \overset{\textrm{\hyperref[4.10]{4.10}}}{=} \sum_{i = 1}^{n}a_i e_i \pmod{M} $ ist Lösung der simultanen Kongruenz.
+	$\Rightarrow x \overset{\textrm{\hyperref[4.10]{4.10}}}{=} \sum_{i = 1}^{n}a_i e_i \mod{M} $ ist Lösung der simultanen Kongruenz.
 	\subsection{Beispiel}
 	\begin{itemize}
 		\item[a)] $m_1 = 3, ~~m_2 = 4, ~~m_3 = 5 \Rightarrow M = 60$\\
@@ -1997,7 +1997,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      		      	\item $2^{1000} \mod 3 = (-1)^{1000} \mod 3 = 1=a_1$
 		      		      	\item $2^{1000} \mod 5 = 4^{500} \mod 5 = (-1)^{500} = 1=a_2$
 		      		      	\item $2^{1000} \mod 7 = \underbracket{2^3}_{=8}~^{\*333+1} \mod 7 = 1 \cdot 2\mod 7 = 2=a_3$
-		      		      	\item $2^{1000} \mod 11 = \underbracket{2^5}_{=32}~{\*200} \mod 11 = (-1)^{200} = 1=a_4$
+		      		      	\item $2^{1000} \mod 11 = \underbracket{2^5}_{=32}~^{\*200} \mod 11 = (-1)^{200} = 1=a_4$
 		      		      \end{itemize}
 		      		\item[2)] Suche $0 \leq x < 1155$ mit $x \equiv \begin{cases*}
 		      		      1 \pmod{3}\\
@@ -2065,13 +2065,13 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      	$\mathcal{K}$ - Körper mit Nullelement $\mathcal{O}$ und Einselement $\upharpoonleft$.
 		      	\begin{itemize}
 		      		\item[i)] Ein \uline{Polynom} über $\mathcal{K}$ ist ein Ausdruck $f = \underbrace{a_0x^0}_{a_0} + \underbrace{a_1x^1}_{a_1x} + ... + a_nx^n $ mit $ n \in \N, ~~a_i \in \mathcal{K}$ Koeffizienten von $f$ (auch $f(x)$ anstatt $f$).\\
-		      		      Ist $a_i = 0 \quad\forall \{1,...,n\}$, so schreibt man $f= 0$ (Nullpolynom)
+		      		      Ist $a_i = 0 \quad\forall i \in \{1,...,n\}$, so schreibt man $f= 0$ (Nullpolynom)
 		      		\item[ii)] $\mathcal{K}[x]$ = Menge aller Polynome über $\mathcal{K}$ in einer Variablen $x$
 		      		\item[iii)] $f,g \in \mathcal{K}[x]$ sind gleich, wenn gilt
 		      		      \begin{itemize}
 		      		      	\item[a)]  $f = a_0 + ... + a_n x^n$ \\
 		      		      	      $g = b_0 +...+ b_mx^m$ mit $a_n \neq 0, ~b_m \neq 0$ \\
-		      		      	      $\Rightarrow m = n$ und $a_i = b_i ~~\forall i = 1,...,n$\\
+                                              $\Rightarrow m = n$ und $a_i = b_i ~~\forall i \in \{1,...,n\}$\\
 		      		      	      oder
 		      		      	\item[b)] $f= 0$ und $g= 0$
 		      		      \end{itemize}
@@ -2086,7 +2086,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      	$\mathcal{K}[x]$ ist kommutativer Ring mit Eins. Dabei ist für $f = \sum_{i=0}^{n}a_ix^i,$\\$g = \sum_{j = 0}^{m} b_j x^j$
 		      	\begin{itemize}
 		      		\item $f+g = \sum_{i = 0}^{\max\{m,n\}} (a_i + b_i)x^i$
-		      		\item $f \cdot g  = (a_0 + a_1x + ... + a_nx^n)(b_0 + b_1x + ... + b_mx m)$\\
+		      		\item $f \cdot g  = (a_0 + a_1x + ... + a_nx^n)(b_0 + b_1x + ... + b_mx^m)$\\
 		      		      \noindent\hspace*{8.5mm}$= \underbrace{a_0 \cdot b_0}_{c_0} + \underbrace{(a_0 \cdot b_1 + a_1 \cdot b_0)}_{c_1}x + ... + \underbrace{a_nb_m}_{c_{n+m}}x^{n+m}$\\
 		      		      mit $c_i = \sum_{k = 0}^{i}a_k \cdot b_{i-k}$ (\uline{Faltungsprodukt})\\
 		      		      $[\textrm{Anmerkung: }a_i = 0 = b_j$ für $i>n\textrm{ bzw. }j>m]$	
@@ -2246,6 +2246,8 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      		\State $y\coloneqq h,~~s\coloneqq 0,~~t\coloneqq1$
 		      		\EndIf
 		      		\If{$h\neq0\wedge h\nmid g$}
+		      		\State $x\coloneqq g,~~y\coloneqq h$
+		      		\State $s_1\coloneqq 1,~s_2\coloneqq 0,~~t_1\coloneqq 0,~t_2\coloneqq 1$
 		      		\While{$(x\mod y)\neq0$}
 		      		\State $q\coloneqq x\div y,~~r\coloneqq x\mod y$
 		      		\State $s\coloneqq s_1-qs_2,~~t\coloneqq t_1-qt_2$
@@ -2256,7 +2258,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      		\EndIf
 		      		\State $d\coloneqq a^{-1}_ny$ (Normierung von $y$, siehe \hyperref[4.30]{4.30})
 		      		\State $s\coloneqq a^{-1}_ns,~~t\coloneqq a^{-1}_nt$ (Normierung von $s,t$, siehe \hyperref[4.30]{4.30})
-		      		\Ensure $d=\ggT{g,h},~~~s,t$ für $\ggT{g,h}=sh+tg$
+		      		\Ensure $d=\ggT{g,h},~~~s,t$ für $\ggT{g,h}=sg+th$
 		      	\end{algorithmic}
 		      	\subsection{Beispiel}
 		      	$g = x^4 + x^3 + 2x^2 +1,~~~ h = x^3 + 2x^2 + 2\qquad  g,h \in \mathds{Z}_3[x]$\\			
