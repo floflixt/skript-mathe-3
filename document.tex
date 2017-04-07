@@ -2471,7 +2471,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      		Für $z = a+b\i \in \C$ ist $|z| := \sqrt{a^2 + b^2}$ der \uline{Betrag} von $z$.
 		      		\subsection{Bemerkung}
 		      		Jede Zahl $z = a+b\i \in \C \setminus \{0\} $ lässt sich durch den Winkel $\phi \in [0,2\pi)$ und durch den Betrag $|z|$ eineindeutig darstellen: 
-		      			$z = |z|\underbrace{(\cos(\phi) + \i \sin(\phi)}_{e^{\i\phi}})$
+		      			$z = |z|\underbrace{(\cos(\phi) + \i \sin(\phi))}_{e^{\i\phi}}$
 		      			\subsection{Formel von Euler}
 		      			\label{5.5}
 		      			$e^{\i\phi} = \cos(\phi) + \i \sin(\phi),~~~ \phi \in \R$
@@ -2484,7 +2484,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      			Damit ergibt sich für $z \in \C$ die Darstellung $z = |z| e^{\i\phi},~~~ \phi$ wie in \hyperref[5.2]{Abbildung 5.2}
 		      			\subsection{Bemerkung}
 		      			$e^{\i\phi}$ liegt für $\phi \in \R$ auf dem Einheitskreis, d.h. $\phi \rightarrow e^{\i\phi}$ ist Kreisfunktion. Für Frequenzanalyse (Fourierreihen): \\
-		      			$t$... Zeit, $\omega \in \Z$... Frequenz. \\
+		      			$t$ - Zeit, $\omega \in \Z$ - Frequenz. \\
 		      			Dann beschreibt $e^{\i(t \cdot 2\pi) \omega}$ eine Schwingung, z.B.:
 		      			\begin{itemize}
 		      				\item $\omega = 1:$ in einer Zeiteinheit (ZE) wird Einheitskreis 1 mal durchlaufen
@@ -2501,7 +2501,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				      \underbrace{\cos\phi \cos\phi' - \sin\phi \sin\phi'}_{\cos(\phi + \phi')} + \i \underbrace{(\sin\phi\cos\phi' + \cos\phi \sin\phi')}_{\sin(\phi + \phi')}$\\
 		      				      \\
 		      				      \begin{minipage}[c]{0.5\textwidth}
-		      				      	Für $z = a+b\i = |z| e^{\i\phi}$ und \\$z' = a' + b'\i = |z'|e^{\i\phi'}$ ist das Produkt $zz' = z |z| e^{\i\phi'} = |z'| |z| e^{\i(\phi + \phi')}$ eine \\Drehstreckung des Vektors $\vec2{a}{b}$
+		      				      	Für $z = a+b\i = |z| e^{\i\phi}$ und \\$z' = a' + b'\i = |z'|e^{\i\phi'}$ ist das Produkt $zz' = z |z'| e^{\i\phi'} = |z'| |z| e^{\i(\phi + \phi')}$ eine \\Drehstreckung des Vektors $\vec2{a}{b}$
 		      				      \end{minipage}
 		      				      \begin{minipage}[c]{0.05\textwidth}
 		      				      	~\\
@@ -2531,7 +2531,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				      		\draw [-latex, very thin](3,-0.5) arc (14.6283:39.0942:2.5);
 		      				      	\end{tikzpicture}
 		      				      \end{minipage}
-		      				\item[3)] Die Inverse einer Drehstreckung $re^{\i\phi}$ ist dann eine Stauchung $\frac{1}{\phi}$ verknüpft mit einer Drehung um $-\phi:$\\
+		      				\item[3)] Die Inverse einer Drehstreckung $re^{\i\phi}$ ist dann eine Stauchung $\frac{1}{r}$ verknüpft mit einer Drehung um $-\phi:$\\
 		      				      $z = re^{\i\phi} \Leftrightarrow z^{-1} = \frac{1}{r} e^{\i-\phi}$, da $zz^{-1} = r \frac{1}{r} e^{\i(\phi - \phi)} = 1 \cdot e^0 = 1$\\
 		      				      \\
 		      				      In der Schreibweise $z= a+b\i,~~ z' = a' + b'\i$ ergibt sich:\\ $zz' = (a +b\i)(a' + b'\i) = aa' -bb' + (ab' + ba')\i$, denn \\$a = r \cos \phi,~~ b= r \sin\phi,~~ a' = r' \cos\phi',~~ b' = r' \sin\phi'$.\\ \\
@@ -2586,7 +2586,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      			\begin{itemize}
 		      				\item $(1+\i) = \sqrt{2} e^{\i\*\frac{\pi}{4}}$
 		      				\item $(2+\i)(3-4\i) = 6 +4 + (3-8)\i = 10 -5\i$
-		      				\item $\frac{\i+1}{2\i -1} = \frac{(\i+1)(2\i+1)}{\underbrace{(2\i-1)}_{z}\underbrace{(2\i+1)}_{\bar{z}}} =\frac{1-2 +\i(2+1)}{2^2 + 1^2} = -\frac{1}{5} + \frac{3}{5}\i$
+                                                \item $\frac{\i+1}{2\i -1} = \frac{(\i+1)(2\i+1)}{\underbrace{(2\i-1)}_{z}\underbrace{(2\i+1)}_{\bar{z}}} =\frac{1-2 +\i(2+1)}{(-1) - 4} = \frac{1}{5} - \frac{3}{5}\i$
 		      			\end{itemize}
 		      			\subsection{Rechenregeln (Konjunktion, Betrag)}
 		      			\label{5.11}
@@ -2710,7 +2710,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				      	      $z^* = \cos(\frac{\pi}{4}) \cdot i \sin(\frac{\pi}{4}) = e^{i\frac{\pi}{4}}$ \\
 		      				      	      $\Rightarrow z = |z| z^* = \sqrt{8} e^{i\frac{\pi}{4}}$
 		      				      \end{itemize} 
-		      				\item Formel von Euler $e^{i\phi} = \cos(\phi) + i \sin(\phi)$
+		      				\item Formel von Euler: $e^{i\phi} = \cos(\phi) + i \sin(\phi)$
 		      				\item Addition: $z + z' = a +a' + (b+ b')i$ \\
 		      				      %Zeichnung \\
 		      				      Man sieht hier : $ |z + z'| \leq |z| + |z'|$
