@@ -2780,7 +2780,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      			0 & 2 & 0 \\
 		      			0 & 1 & 0 \\
 		      			\end{pmatrix},~~ b  = \vec3{3}{0}{0}$ \\
-		      			Spezielle Lösung: $x_0 = \vec3{1}{0}{0}$. Da $A\vec3{0}{0}{\lambda} = \vec3{0}{0}{0}$, ist auch\\ $A\underbrace{\vec3{1}{0}{\lambda}}_{\textrm{Gerade}} = A\Bigg(x_0 + \vec3{0}{0}{\lambda}\Bigg) = \underbrace{Ax_0}_{b} + \underbrace{A\vec3{0}{0}{\lambda}}_{\O} = b\Rightarrow\vec3{0}{0}{\lambda}$ ist Lösung von $Ax = b$\\
+		      			Spezielle Lösung: $x_0 = \vec3{1}{0}{0}$. Da $A\vec3{0}{0}{\lambda} = \vec3{0}{0}{0}$, ist auch\\ $A\underbrace{\vec3{1}{0}{\lambda}}_{\textrm{Gerade}} = A\Bigg(x_0 + \vec3{0}{0}{\lambda}\Bigg) = \underbrace{Ax_0}_{b} + \underbrace{A\vec3{0}{0}{\lambda}}_{\O} = b\Rightarrow\vec3{1}{0}{\lambda}$ ist Lösung von $Ax = b$\\
 		      			$\Rightarrow H'=\Bigg\{\vec3{1}{0}{\lambda}\Bigg|~\lambda\in\R\Bigg\},~~~H=\Bigg\{\vec3
 		      			{0}{0}{\lambda}\Bigg|~\lambda\in\R\Bigg\}$ (s.u.)
 		      			\subsection{Definition (Homogenes LGS, Lösungsraum)}
@@ -2846,7 +2846,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				\item[i)]
 		      				      \begin{itemize}
 		      				      	\item $\phi(\O) = \mathcal{O} \Rightarrow \mathcal{O} \in$ ker$(\phi)$
-		      				      	\item $u,v \in $ker($\phi) \Rightarrow \underbrace{\phi(u)}_{= \O} + \underbrace{\phi(v)}_{=\O} = \O = \phi(u+v) \Rightarrow u+v \in $ ker($\phi$)
+		      				      	\item $u,v \in $ ker($\phi) \Rightarrow \underbrace{\phi(u)}_{= \O} + \underbrace{\phi(v)}_{=\O} = \O = \phi(u+v) \Rightarrow u+v \in $ ker($\phi$)
 		      				      	\item $\lambda \in \K, v \in $ ker($\phi) \Rightarrow \O = \lambda \phi(v) = \phi(\lambda v) \Rightarrow \lambda v \in $ ker($\phi)$
 		      				      \end{itemize}
 		      				\item[ii)]
@@ -2993,7 +2993,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				\Viewpoint(45,70,10,8)[1]
 		      				\SetCMYKColor(0.5,0,0,0)
 		      				\ShowFullPlaneThrough(0,0,0)NormalTo(0,1,0)(2.1)
-		      				\Text[t]{$\ker\phi$}
+                                                \Text[t]{$\ker(\phi)$}
 		      				\SetCMYKColor(0,0,0,255)
 		      				\DDArrowAt(-6,0,0)(4,0,0)
 		      				\Text[b]{$x$}
@@ -3005,7 +3005,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				\SetCMYKColor(0,1,1,0)
 		      				\DDLineAt(-8,-16,0)(-5.5,-11,0)
 		      				\DDArrowAt(0,0,0)(2,4,0)
-		      				\Text[b]{$\langle v\rangle_\R,~~v\notin\ker\phi$}
+		      				\Text[b]{$\langle v\rangle_\R,~~v\notin\ker(\phi)$}
 		      				\SetDashed
 		      				\DDLineAt(-5.5,-11,0)(0,0,0)%dashed
 		      				\CloseGraph
@@ -3034,7 +3034,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				\DDMoveTo(0,-2,-5)
 		      				\Text[c]{$\phi(\langle v\rangle)$}
 		      				\DDMoveTo(0,1,-0.5)
-		      				\Text[c]{$\ker\phi$}
+		      				\Text[c]{$\ker(\phi)$}
 		      				\DDMoveTo(0,0,0)
 		      				\SetCMYKColor(0.5,0,0,0)
 		      				\BigPoint
@@ -3048,19 +3048,19 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      			$V,W ~~\K-$Vektorräume, $dim(V) = n,~~ \phi: V \rightarrow W$ lineare Abbildung.\\
 		      			Dann ist 
 		      			\begin{center}
-		      				$\dim(V)= \underbrace{\dim(\ker\phi)}_{\text{'Defekt von }\phi'} + \rg(\phi)$
+                                                $\dim(V)= \underbrace{\dim(\ker(\phi))}_{\text{'Defekt von }\phi'} + \rg(\phi)$
 		      			\end{center}
 		      			\subsubsection*{Beweis:}
-		      			Sei $\{u_1, ..., u_k\}$ Basis von $\ker \phi$. Ergänze zu Basis $\{u_1,...,u_n\}$ von $V$ und setze $U := \vecspace{u_{k+1},...,u_n}{\K}$\\
-		      			Da $\ker\phi \cap U = \{\O\}
-		      			$ und $V = U + \ker\phi$, ist 
+                                        Sei $\{u_1, ..., u_k\}$ Basis von $\ker(\phi)$. Ergänze zu Basis $\{u_1,...,u_n\}$ von $V$ und setze $U := \vecspace{u_{k+1},...,u_n}{\K}$\\
+                                        Da $\ker(\phi) \cap U = \{\O\}
+		      			$ und $V = U + \ker(\phi)$, ist 
 		      			\begin{center}
-		      				$\dim(V) = \dim(\ker\phi) + \dim(U) - \underbrace{\dim(U \cap \ker\phi)}_{= 0}$
+                                                $\dim(V) = \dim(\ker(\phi)) + \dim(U) - \underbrace{\dim(U \cap \ker(\phi))}_{= 0}$
 		      			\end{center}
 		      			Zeige: $\dim(U) \overset{1)}{=} \dim(\phi(U)) \overset{2)}{=} \underbrace{\dim(\phi(V))}_{\rg(\phi)}$\\
 		      			\begin{itemize}
 		      				\item[1)] \begin{align*}
-		      				      \ker\phi \cap U= \{\O\} &\Rightarrow \ker(\nicefrac{\phi}{U}) = \{\O\}\\
+		      				      \ker(\phi) \cap U= \{\O\} &\Rightarrow \ker(\nicefrac{\phi}{U}) = \{\O\}\\
 		      				      &\overset{\hyperref[6.9]{6.9}}{\Rightarrow} \nicefrac{\phi}{U} \text{ injektiv}\\
 		      				      &\Rightarrow \dim(U) = \dim(\phi(U))\\
 		      				      \Bigg[\text{Bem:}~~~ \{u_{k+1,...,u_n}\} \text{Basis von }U~~~~~~ &~~~\mathclap{\overset{\nicefrac{\phi}{U}{\text{ injektiv}}}{\Rightarrow}}~~~~~~ \{\phi(u_{k+1}),...,\phi(u_n)\} \text{ Basis von }\phi(U)\Bigg]
@@ -3082,24 +3082,24 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				\item[iii)] $\phi$ bijektiv.
 		      			\end{itemize}
 		      			\subsubsection*{Beweis}
-		      			$\hyperref[6.14]{6.14} \Rightarrow n = \dim(\ker\phi) + \rg\phi$\\
-		      			$\phi \textrm{ surjektiv } \Leftrightarrow \rg \phi = n \Leftrightarrow \dim(\ker \phi) = 0\overset{\hyperref[6.9]{6.9}}{\Leftrightarrow} \phi \textrm{ injektiv}$ \qed
+                                        $\hyperref[6.14]{6.14} \Rightarrow n = \dim(\ker(\phi)) + \rg(\phi)$\\
+                                        $\phi \textrm{ surjektiv } \Leftrightarrow \rg(\phi) = n \Leftrightarrow \dim(\ker(\phi)) = 0\overset{\hyperref[6.9]{6.9}}{\Leftrightarrow} \phi \textrm{ injektiv}$ \qed
 		      			\subsection*{Lösungen von LGS, Rang von Matrizen}
 		      			\uline{Gegeben}: LGS mit $Ax = b, ~~A \in \M_{m,n}(\K),~~ b \in \K^m, ~~\K$ Körper.\\
 		      			\uline{Gesucht}: $\mathcal{L} := \{x \in \K^n \mid Ax = b \}$ Lösungsraum\\
 		      			\\
 		      			Sei $x_0 \in \mathcal{L}$ eine spezielle Lösung.\\
-		      			\noindent\hspace*{12mm}$\overset{\hyperref[6.6]{6.6}}{\Rightarrow} \mathcal{L} = x_0 + \ker\phi, ~~~\phi: \K^n \rightarrow \K^m,~~ x \mapsto Ax$\\
-		      			D.h. Größe von $\mathcal{L}$ gegeben durch $\dim(\ker \phi)$.
+                                        \noindent\hspace*{12mm}$\overset{\hyperref[6.6]{6.6}}{\Rightarrow} \mathcal{L} = x_0 + \ker(\phi), ~~~\phi: \K^n \rightarrow \K^m,~~ x \mapsto Ax$\\
+                                        D.h. Größe von $\mathcal{L}$ gegeben durch $\dim(\ker(\phi))$.
 		      			\subsection{Bemerkung}
 		      			\label{6.16}
-		      			$\dim(\ker \phi) = n - \underbrace{\rg\phi}_{= \dim(\phi(\K^n))}$ \qquad\quad (\hyperref[6.14]{6.14})\\
-		      			$\phi(\K^n) = \vecspace{\phi(e_1),...,\phi(e_n)}{\K} = \vecspace{\underbrace{Ae_1,...Ae_n}_{\textrm{Spalten von } A}}{\K}$ \\
-		      			$\Rightarrow \rg\phi =$ Anzahl der linear unabhängigen Spalten von $A$ = \uline{Spaltenrang} von $A$\\
+                                        $\dim(\ker(\phi)) = n - \underbrace{\rg(\phi)}_{= \dim(\phi(\K^n))}$ \qquad\quad (\hyperref[6.14]{6.14})\\
+		      			$\phi(\K^n) = \vecspace{\phi(e_1),...,\phi(e_n)}{\K} = \vecspace{\underbrace{Ae_1,...,Ae_n}_{\textrm{Spalten von } A}}{\K}$ \\
+                                        $\Rightarrow \rg(\phi) =$ Anzahl der linear unabhängigen Spalten von $A$ = \uline{Spaltenrang} von $A$\\
 		      			\\
 		      			Man kann zeigen: Spaltenrang von $A$ = Zeilenrang von $A$ (Anzahl linear unabhängiger Zeilen von $A$)\\
 		      			\uline{Insgesamt:}
-		      			$\dim(\ker \phi) = n -$ Spaltenrang von $A = n-$ Zeilenrang von $A$
+                                        $\dim(\ker(\phi)) = n -$ Spaltenrang von $A = n-$ Zeilenrang von $A$
 		      			\newpage
 		      			\section{Lineare Abbildungen und Matrizen}
 		      			\subsubsection*{Erinnerung} (\hyperref[1.29]{1.29}): Ein Vektor hat bezüglich unterschiedlicher Basen unterschiedliche Linearkombinationen und damit auch unterschiedliche Koordinaten, z.B.\\
