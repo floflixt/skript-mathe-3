@@ -3355,16 +3355,13 @@ $\Rightarrow$ Jede lineare Abbildung $\phi: \K^n \rightarrow \K^m $ ($\K$ Körpe
 Wenn $V = \K^n$ und $W = \K^m$, benutze für $B$ und $C$ kanonische Basis.\\
 $\Rightarrow \text{K}_C(\phi(v))  = \phi(v) \overset{\hyperref[7.4]{7.4}}{=} A_\phi^{B,C} \cdot \text{K}_B(v) = \underbracket{A_\phi^{B,C} \cdot v}_{\textrm{Matrix }\*\textrm{ Vektor}}$ \qed
 \subsection{Satz (Eigenschaften von Darstellungsmatrizen)}
+% TODO (optional): "Bild" (wie bei 7.11, aber mit U,V,W - K_B,K_C,K_D - \phi,\psi - ...)
 \label{7.12}
-$U,V,W$ Vektorräume mit Basen $B,C,D;~~~ \phi,\psi$ lineare Abbildungen.
+$U,V,W$ Vektorräume mit Basen $B,C,D,\\ \phi,\phi{}': U \rightarrow V,~~ \psi: V \rightarrow W$ lineare Abbildungen.
 \begin{itemize}
-	\item[i)] Sei $\phi,\psi: V \rightarrow W$. Dann ist\\
-	$A_{\phi + \psi}^{B,C} = A^{B,C}_\phi + A^{B,C}_\psi$
-	\item[ii)] Sei $\phi:U\rightarrow W$. Dann ist \\
-	$A_{\lambda\phi}^{B,C} =  \lambda A^{B,C}_\phi,~~~~ \lambda \in \K$
-	\item[iii)] 
-	Sei $\phi: U \rightarrow V, ~~~\psi: V \rightarrow W$. Dann ist \\
-	$A_{ \psi\circ\phi }^{B,D} = A_\psi^{C,D} \cdot A_\phi^{B,C}$\\
+        \item[i)]   $A_{\phi + \phi{}'}^{B,C} = A^{B,C}_\phi + A^{B,C}_{\phi{}'}$
+        \item[ii)]  $A_{\lambda\cdot\phi}^{B,C} =  \lambda \cdot A^{B,C}_\phi,~~~~ \lambda \in \K$
+	\item[iii)] $A_{\psi\circ\phi}^{B,D} = A_\psi^{C,D} \cdot A_\phi^{B,C}$\\
 	$\Big[$Bemerkung: Verknüpfung linearer Abbildungen entspricht dem Matrixprodukt der Darstellungsmatrizen. $\Big]$
 \end{itemize} 
 \subsubsection*{7.12 hier ohne Beweis.}
