@@ -3269,14 +3269,14 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				2 & 0 & 3 \\
 		      				\end{pmatrix}$.\\
 		      				Angenommen, $v \in V$ mit K$_B(v) = \vec3{5}{-2}{4}$. \\
-		      				$\Rightarrow \underbrace{\text{K}_C(v)}_{\substack{\textrm{Koordinaten bzgl. }C,\\\textrm{nachdem }\phi\textrm{ ausgeführt wurde}}} = \begin{pmatrix}
+		      				$\Rightarrow \underbrace{\text{K}_C(\phi(v))}_{\substack{\textrm{Koordinaten bzgl. }C,\\\textrm{nachdem }\phi\textrm{ ausgeführt wurde}}} = \begin{pmatrix}
 		      				1 & 1 & -2 \\
 		      				2 & 0 & 3 \\
-		      				\end{pmatrix} \cdot \text{K}_B(\phi(v)) = \vec2{-5}{22}$
+		      				\end{pmatrix} \cdot \text{K}_B(v) = \vec2{-5}{22}$
 	
 \subsection*{Bemerkung (Geordnete Basen)}
 \marginpar{17.01.17}
-In \hyperref[7.3]{7.3} und \hyperref[7.6]{7.6} haben die Basisvektoren von $B = \{v_1,..,v_n\}$ und $C = \{w_1,...,w_m\}$ eine bestimmte Reihenfolge (Nummerierung). Man sagt es sind \underline{geordnete Basen} und schreibt dafür $B = (v_1,...,v_n),~~~ C=(w-1,...,w_m)$, um anzuzeigen, dass die Basiselemente nicht vertauscht werden dürfen.
+In \hyperref[7.3]{7.3} und \hyperref[7.6]{7.6} haben die Basisvektoren von $B = \{v_1,..,v_n\}$ und $C = \{w_1,...,w_m\}$ eine bestimmte Reihenfolge (Nummerierung). Man sagt es sind \underline{geordnete Basen} und schreibt dafür $B = (v_1,...,v_n),~~~ C=(w_1,...,w_m)$, um anzuzeigen, dass die Basiselemente nicht vertauscht werden dürfen.
 \subsubsection*{Beispiel}
 $B = \Bigg(\vec3{1}{0}{0},\vec3{0}{1}{0},\vec3{0}{0}{1}\Bigg),~~~ C = \Bigg(\vec3{0}{1}{0},\vec3{0}{0}{1},\vec3{1}{0}{0}\Bigg) \\
 \Rightarrow S_{B,C} = \begin{pmatrix}
@@ -3291,7 +3291,7 @@ $B = \Bigg(\vec3{1}{0}{0},\vec3{0}{1}{0},\vec3{0}{0}{1}\Bigg),~~~ C = \Bigg(\vec
 \label{7.9}
 In \hyperref[7.5]{7.5} ist $A_\phi^{C,B} = \underbrace{S_{C,B}}_{2)} \cdot \underbrace{A_\phi^C}_{1)}$\\
 \begin{itemize}
-	\item[1)] Streckung im Faktor 2 bezüglich $C = \{e_1,e_2\}$\\
+	\item[1)] Streckung im Faktor 2 bezüglich $C = (e_1,e_2)$\\
 	$A_\phi^C = \begin{pmatrix}
 	2 & 0 \\
 	0 & 2 \\
@@ -3332,21 +3332,21 @@ A_\phi^{B',C'} \cdot \text{K}_{B'}(v) &\overset{\hyperref[7.7]{7.7}}{=} \text{K}
 &\overset{\hyperref[7.4]{7.4}}{=} S_{C,C'} \* A_\phi^{B,C} \cdot \underbracket{S_{B',B} \cdot \text{K}_{B'}(v)} 
 \end{align*} \qed
 \subsection{Bemerkung zu Darstellungsmatrizen}
-$V$ bzw. $W $ $\K$-Vektorraum mit Basen $B = \{v_1,..,v_n\}$ bzw. $C = \{w_1,...,w_n\},~~ \phi: V \rightarrow W$ lineare Abbildung.\\
+$V$ bzw. $W $ $\K$-Vektorraum mit Basen $B = (v_1,..,v_n)$ bzw. $C = (w_1,...,w_m),\\ \phi: V \rightarrow W$ lineare Abbildung.\\
 Für $v \in W$ kann $\text{K}_B(v)$ aufgefasst werden als Bild der Koordinatenabbildung. \\
 $\text{K}_B: V \rightarrow \K^n,~~~ v = \sum_{i = 1}^{n} \lambda_i v_i \mapsto \vec3{\lambda_1}{\vdots}{\lambda_n}$\\
 Daraus ergibt sich folgendet Übersicht:\\
 \begin{tikzpicture}[scale=0.5]
 \node (v1) at (-3,3) {$V$};
 \node (v2) at (1,3) {$W$};
-\node (v3) at (1,-0.5) {$\K^n$};
-\node (v4) at (-3,-0.5) {$\K^m$};
+\node (v3) at (1,-0.5) {$\K^m$};
+\node (v4) at (-3,-0.5) {$\K^n$};
 \draw  [-latex] (v1) edge (v2);
 \draw  [-latex] (v2) edge (v3);
 \draw  [-latex] (v1) edge (v4);
 \draw  [-latex]  (v4) edge (v3);
 \node at (-1.0999,3.6082) {$\substack{\phi}$};
-\node at (-1.1175,-0.9476) {$\substack{~\\A_\phi^{BC}}$};
+\node at (-1.1175,-0.9476) {$\substack{~\\A_\phi^{B,C}}$};
 \node at (-4.0525,1.302) {$\substack{\text{K}_B}$};
 \node at (1.2589,1.3196) {~~~$\substack{\text{K}_C}$};
 \end{tikzpicture}\\
@@ -3368,7 +3368,7 @@ $U,V,W$ Vektorräume mit Basen $B,C,D,\\ \phi,\phi{}': U \rightarrow V,~~ \psi: 
 ~~
 \subsection*{Matrixinversen}
 \subsubsection*{Erinnerung} (\hyperref[4.2]{4.2}): $ \M_n(\K)$ mit Matrixaddition und -multiplikation ist ein Ring mit Eins $(=E_n)$. D.h. $A \in \M_n(\K)$ kann Inverse $A^{-1}$ besitzen.\\
-Für $A^{-1}$ gilt: $A \cdot A^{-1} = A^{-1}A = E_n$.\\
+Für $A^{-1}$ gilt: $A \cdot A^{-1} = A^{-1} \cdot A = E_n$.\\
 \\
 Fragen: \begin{itemize}
 	\item Welche $A \in \M_n(\K)$ besitzen Inverse $A^{-1} \in \M_n(\K)$?
@@ -3441,11 +3441,11 @@ $A = \underbrace{\begin{pmatrix}
 	2 & 0 \\
 	\end{pmatrix}}_{\in \M_2(\R)} \Rightarrow \rg(A) = 2 \Rightarrow$ A invertierbar (weil Rang voll).
 \subsection{Berechnung der Matrixinverse ($A^{-1}$)}
-\uline{Gegeben}: Quadratische Matrix $A0\begin{pmatrix}
+\uline{Gegeben}: Quadratische Matrix $A=\begin{pmatrix}
 a_{11}&...&a_{1n}\\
 \vdots&\ddots&\vdots\\
 a_{n1}&...&a_{nn}
-\end{pmatrix}\in\M_n(\K),~~\K$ Körper.
+\end{pmatrix}\in\M_n(\K),~~\K$ Körper.\vspace{1mm}\\
 \uline{Gesucht}: Matrixinverse $A^{-1}\in\M_n(\K).$
 \subsubsection*{Voraussetzungen}
 Das sogenannte \uline{Gauß-Jordan-Verfahren} zur Berechnung der Matrixinversen baut auf der Berechnung der Lösungen von Gleichungssystemen $Ax=b$ mit \textbf{quadratischer} Matrix $A$ auf. Deswegen werden zunächst einige Regeln angegeben, die zur Lösung linearer Gleichungssysteme benutzt werden. Dabei wird im Folgenden das LGS mit Hilfe der erweitertern Koeffizientenmatrix $(A|b)$ beschrieben: Wenn $b=(b_1,...,b_n)^T\in\K^n$ schreibt man \begingroup
@@ -3458,12 +3458,12 @@ b_1\\\vdots\\b_n
 \end{array}\right )$.\endgroup\\
 Die Lösungsmenge des LGS ändert sich nicht, wenn man an $(A|b)$ folgende elementaren Zeilenumformungen aus dem Gaußverfahren durchführt:
 \begin{itemize}
-	\item[1.] Erweiterung einer Zeile mit einem Skalar $\lambda\in\K,~~\lambda\neq0$,\item[2.] Addition von Zeilen\item[3.] Tauschen von Zeilen.
+	\item[1.] Erweiterung einer Zeile mit einem Skalar $\lambda\in\K,~~\lambda\neq0$,\item[2.] Addition von Zeilen,\item[3.] Tauschen von Zeilen.
 \end{itemize}
 \subsubsection*{Gauß-Jordan-Algorithmus}
 Im Unterschied zum Gauß-Algorithmus bringt man das LGS $Ax=b$ nicht auf Dreiecksform, sondern man formt die Zeilen so um, dass $A$ zur Einheitsmatrix $E_n$ wird. Dabei wird $b$ automatisch zum Lösungsvektor $x$ umgeformt: Man erhält das System $(E_n|x)$.
 \subsubsection*{Berechnung der Inversen $A^{-1}$}
-Zur Berechnung der Inversen muss nun das System $AX=E_n$ gelöst werden. Man erreicht dies, indem der Gauß-Jordan-Algorithmus simultan auf die $n$ LGS $Ay=e_j,~~j=1,...,n$ angewendet wird. Dazu stellt man das System $(A|E_n)$ auf.\\
+Zur Berechnung der Inversen muss nun das System $Ax=E_n$ gelöst werden. Man erreicht dies, indem der Gauß-Jordan-Algorithmus simultan auf die $n$ LGS $Ax=e_j,~~j=1,...,n$ angewendet wird. Dazu stellt man das System $(A|E_n)$ auf.\\
 Durch Zeilenumformungen überführt man nun $A$ in die Einheitsmatrix, wobei die rechte Seite in die Lösungsmatrix $X$ überführt wird. Man erhält so das System $(E_n|X)$ mit $X=A^{-1}$.\\
 $\Bigg[$\uline{Anmerkung:} Das Verfahren zeigt auch, ob $A$ überhaupt eine Inverse besitzt. Besitzt $A$ keine Inverse, so kann man $A$ nicht in die Einheitsmatrix umformen.$\Bigg]$
 \subsubsection*{Beispiel}
@@ -3482,7 +3482,7 @@ $\left ( \begin{array}{cc}
 \end{array}\right ) \overset{II = I -2 \cdot II}{\longrightarrow} \left ( \begin{array}{cc}
 2&1\\0&-5
 \end{array} \right | \left. \begin{array}{c}
-10\\20
+10\\-20
 \end{array}\right ) \overset{-\frac{1}{5} \cdot II}{\longrightarrow} \left ( \begin{array}{cc}
 2&1\\0&1
 \end{array} \right | \left. \begin{array}{c}
@@ -3492,7 +3492,7 @@ $\left ( \begin{array}{cc}
 2&0\\0&1
 \end{array} \right | \left. \begin{array}{c}
 6\\4
-\end{array}\right ) \overset{\frac{1}{2}}{\rightarrow}\left ( \begin{array}{cc}
+\end{array}\right ) \overset{\frac{1}{2} \cdot I}{\rightarrow}\left ( \begin{array}{cc}
 1&0\\0&1
 \end{array} \right | \left. \begin{array}{c}
 3\\4
