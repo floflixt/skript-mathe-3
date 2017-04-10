@@ -3590,13 +3590,13 @@ A_\phi^B &= S_{C,B} \underbrace{D_{\frac{\pi}{2}}}_{A_\phi^{C,C}} S_{B,C} \\
 $\hyperref[7.16]{7.16}: A \in \M_n(\K)$ invertierbar $\Leftrightarrow \rg(A) = n$\\
 In diesem Kapitel werden invertierbare Matrizen mit Hilfe der Determinante charakterisiert. \\
 Das ist einfacher zu implementieren.
-\subsection{Definition ($A_{i,j}$)}
-$A \in \M_n(\K),~~~ i,j \in \{1,...,n\}.~~~ A_{i,j} \in \M_{n-1}(\K)$ sei die Matrix, die man aus $A$ durch Streichen der $i-$ten Zeile und $j-$ten Spalte erhält. \\
+\subsection{Definition ($A_{ij}$)}
+$A \in \M_n(\K),~~~ i,j \in \{1,...,n\}.~~~ A_{ij} \in \M_{n-1}(\K)$ sei die Matrix, die man aus $A$ durch Streichen der $i-$ten Zeile und $j-$ten Spalte erhält. \\
 z.B.: $A = \begin{pmatrix}
 1 & 2 & -3 \\
 0 & 1 & -1 \\
 -2 & 1 & 1 \\
-\end{pmatrix} \Rightarrow A_{2,3} = \begin{pmatrix}
+\end{pmatrix} \Rightarrow A_{23} = \begin{pmatrix}
 1 & 2 \\
 -2 & 1 \\
 \end{pmatrix}$
@@ -3615,7 +3615,7 @@ a_{11} & a_{12} & \cdots & a_{1n} \\
 a_{n1} & \cdots & \cdots & a_{nn} \\
 \end{pmatrix}\\ 
 \\
-\det(A) =+a_{11}\cdot \det(A_{1,1})- a_{12}\cdot \det(A_{1,2}) + a_{13}\cdot \det(A_{1,3}) \pm ... (-1)^{n+1}a_{1n}\cdot \det(A_{1,n})$
+\det(A) =+a_{11}\cdot \det(A_{11})- a_{12}\cdot \det(A_{12}) + a_{13}\cdot \det(A_{13}) \pm ... (-1)^{n+1}a_{1n}\cdot \det(A_{1n})$
 \noindent\hspace*{12mm}$= \sum_{j = 1}^{n} (-1)^{1+j} a_{1j} \cdot \det(A_{1j})$
 \subsection{Beispiel}
 \begin{itemize}
@@ -3656,7 +3656,7 @@ $\det\begin{pmatrix}
 1 & 0 & 3 \\
 \end{pmatrix} = 3 +4+ 0 -(-1) -0 - 0 = 8$
 \begin{itemize}
-	\item[c)] Für $n \times n-$Matrix gibt es im Allgemeinen $n!$ Summanden.\\
+	\item[c)] Für $n \times n-$Matrizen gibt es im Allgemeinen $n!$ Summanden.\\
 	Viele Nullen in der Matrix machen die Berechnung einfacher, z.B.:\\
 	$\det\begin{pmatrix}
 	\overset{+}{0} & \overset{-}{-2} & \overset{+}{0} \\
