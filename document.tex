@@ -3951,20 +3951,20 @@ $\longrightarrow$~~~~~~~~~~~~~~~~~
 \subsection*{Eigenwertproblem}
 Geg.: $A \in \M_n(\K)$. Ges.: Eigenvektor und Eigenwert \\
 \underline{Grundidee} zur Berechnung von EV + EW:\\
-Ang. $v \neq 0$ ist EV von $A$ zum EW $\lambda \in \K$.
+Ang. $v \neq \O$ ist EV von $A$ zum EW $\lambda \in \K$.
 \begin{align*}
 Av = \lambda v &\Leftrightarrow Av=(\lambda \cdot E_n) v\\
-&\Leftrightarrow Av - \lambda E_n v = 0 \\
-&\Leftrightarrow \underbrace{(A - \lambda E_n)}_{\in \M_n(\K)} v = 0 \\
+&\Leftrightarrow Av - \lambda E_n v = \O \\
+&\Leftrightarrow \underbrace{(A - \lambda E_n)}_{\in \M_n(\K)} v = \O \\
 \end{align*}
-D.h. $v \in \ker(A - \lambda E_n)!$ Da $v \neq 0$, ist $\ker(A - \lambda E_n) \neq \{\O\}$ und somit $A - \lambda E_n$ weder injektiv (\hyperref[6.9]{6.9}) noch umkehrbar (\hyperref[6.15]{6.15}). Ergebnis: 
+D.h. $v \in \ker(A - \lambda E_n)!$ Da $v \neq \O$, ist $\ker(A - \lambda E_n) \neq \{\O\}$ und somit $A - \lambda E_n$ weder injektiv (\hyperref[6.9]{6.9}) noch umkehrbar (\hyperref[6.15]{6.15}). Ergebnis: 
 \subsection{Satz ($A-\lambda E_n$)}
 \label{9.4}
 Sei $A \in \M_n(\K)$.
 \begin{itemize}
 	\item[1)] $\lambda$ EW von $A \Leftrightarrow \det(A- \lambda E_n) = 0$
 	\item[2)] $Eig(\lambda) = \ker(A -\lambda E_n)$
-	\item[3)] EV $v \neq 0$ ist Lösung $(A -\lambda E_n)v = 0$.
+	\item[3)] EV $v \neq \O$ ist Lösung $(A -\lambda E_n)v = \O$.
 \end{itemize}
 \subsubsection*{Beweis}
 Siehe oben.\qed
@@ -3986,7 +3986,7 @@ $\Rightarrow \lambda_1 = 3,~~~ \lambda_2 = 2 \overset{\hyperref[9.4]{9.4.1)}}{\R
 \\
 Die EV $v_1,v_2 \in \R^2$ erfüllen somit 
 \begin{itemize}
-	\item[a)] $(A - \lambda_1 E_2)v_1 = 0 \\
+	\item[a)] $(A - \lambda_1 E_2)v_1 = \O \\
 	\Leftrightarrow \begin{pmatrix}
 	1 -3 & 1 \\
 	-2 & 4-3 \\
@@ -3997,19 +3997,19 @@ Die EV $v_1,v_2 \in \R^2$ erfüllen somit
 	\item[b)] Analog für $\lambda_2 = 2$. Zu Lösen $\begin{pmatrix}
 	-1 & 1 \\
 	-2 & 2
-	\end{pmatrix} \cdot \underbrace{\vec2{x'}{y'}}_{v_2} = 0 \Rightarrow v_2 = \vec2{1}{1}.\\
+	\end{pmatrix} \cdot \underbrace{\vec2{x'}{y'}}_{v_2} = \O \Rightarrow v_2 = \vec2{1}{1}.\\
 	 Eig(2) = \vecspaceR{\vec2{1}{1}}$
 \end{itemize}
 \subsection{Definition (charakteristisches Polynom)}
 \marginpar{31.01.17}
-Für $A \in \M_n(\K)$ heißt $P_A(\lambda) = \det(A)-(\lambda E_n)$ das \uline{charakteristische Polynom} von $A$.
+Für $A \in \M_n(\K)$ heißt $P_A(\lambda) = \det(A - \lambda E_n)$ das \uline{charakteristische Polynom} von $A$.
 \subsection{Bemerkung}
-$P_A(\lambda)$ ist Polynom vom Grad $n$, falls $A \in \M_n(\K)$ (folgt aus Definition der Determinante \hyperref[8.2]{8.2}). Die Nullstelle von $P_A(\lambda)$ sind die Eigenwerte von $A$.\\
-$\Rightarrow $ für $\K = \R:~~A $ hat $ \geq n$ Eigenwerte.\\
+$P_A(\lambda)$ ist Polynom vom Grad $n$, falls $A \in \M_n(\K)$ (folgt aus Definition der Determinante \hyperref[8.2]{8.2}). Die Nullstellen von $P_A(\lambda)$ sind die Eigenwerte von $A$.\\
+$\Rightarrow $ für $\K = \R:~~A $ hat $ \leq n$ Eigenwerte.\\
 $K = \C: $ genau $n$ Eigenwerte ( nicht notwendigerweise verschieden), \hyperref[5.11]{5.11 b)}.
 \subsection*{Diagonalisierbarkeit von Matrizen}
 \subsection{Definition (Diagonalmatrix)}
-$D \in \M_(\K)$ heißt \uline{Diagonalmatrix}, wenn $D = \begin{pmatrix}
+$D \in \M_n(\K)$ heißt \uline{Diagonalmatrix}, wenn $D = \begin{pmatrix}
 \lambda_1 & \cdots & 0 \\
 \vdots & \ddots & \vdots \\
 0 & \cdots & \lambda_n \\
@@ -4018,7 +4018,7 @@ $D \in \M_(\K)$ heißt \uline{Diagonalmatrix}, wenn $D = \begin{pmatrix}
 \begin{itemize}
 	\item[a)] Mit Diagonalmatrizen kann man leichter rechnen, denn:
 	\begin{itemize}
-		\item $\begin{pmatrix}
+		\item[$\bullet$] $\begin{pmatrix}
 		\lambda_1 & \cdots & 0 \\
 		\vdots & \ddots & \vdots \\
 		0 & \cdots & \lambda_n \\
@@ -4029,9 +4029,9 @@ $D \in \M_(\K)$ heißt \uline{Diagonalmatrix}, wenn $D = \begin{pmatrix}
 		\end{pmatrix} = \begin{pmatrix}
 		\lambda_1\mu_1 & \cdots & 0 \\
 		\vdots & \ddots & \vdots \\
-		0 & \cdots & \lambda_n\mu_1 \\
+		0 & \cdots & \lambda_n\mu_n \\
 		\end{pmatrix}$
-		\item $\begin{pmatrix}
+		\item[$\bullet$] $\begin{pmatrix}
 		\lambda_1 & \cdots & 0 \\
 		\vdots & \ddots & \vdots \\
 		0 & \cdots & \lambda_n \\
@@ -4056,8 +4056,10 @@ $D \in \M_(\K)$ heißt \uline{Diagonalmatrix}, wenn $D = \begin{pmatrix}
 	\draw  [-latex]  (v4) edge (v3);
 	\node at (-1.0999,3.6082) {$\substack{A=A_\phi^E}$};
 	\node at (-1.1175,-0.9476) {$\substack{A_\phi^B=D}$};
-	\node at (-4.0525,1.302) {$\substack{S^{-1}=S_{EB}}$};
-	\node at (1.2589,1.3196) {~~~~~~$\substack{S_{BE}=S}$};
+	\node at (-4.0525,1.302) {$\substack{S^{-1}=S_{E,B}}$};
+	\node at (1.2589,1.3196) {~~~~~~$\substack{S_{B,E}=S}$};
+        \node[text width=5cm, right] at (5,2)
+          {$A = S D S^-1$};
 	\end{tikzpicture}
 \end{itemize}
 \subsection{Beispiel}
@@ -4066,7 +4068,7 @@ $A = \begin{pmatrix}
 -2 & 4 \\
 \end{pmatrix} \in \M_2(\R)$.\\
 Aus \hyperref[9.5]{9.5} EV: $v_1 = \vec2{1}{2}, ~~v_2 = \vec2{1}{1}.$ EW: $\lambda_1 = 3,~~ \lambda_2 = 2$.\\
-Wähle als Basis $B = \{v_1,v_2\}$.\\
+Wähle als Basis $B = (v_1,v_2)$.\\
 $\Rightarrow S_{B,E} =\begin{pmatrix}
 1 & 1 \\
 2 & 1 \\
@@ -4105,7 +4107,7 @@ Somit ist z.B. $A^5 = \underbrace{SDS^{-1}}_{A} \cdot \underbrace{SDS^{-1}}_{A} 
 \end{pmatrix}$
 \subsection*{Fragen}
 \begin{itemize}
-	\item[1)] Ist jeder $A \in \M_n(\K)$ diagonalisierbar?
+	\item[1)] Ist jede Matrix $A \in \M_n(\K)$ diagonalisierbar?
 	\item[2)] Wie diagonalisiert man $A$?
 \end{itemize}
 \subsection{Definition (Diagonalisierbarkeit)}
