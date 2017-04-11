@@ -1854,7 +1854,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 	      	\item[d)] $n \in \mathds{N}_{\geq 2}: (\mathds{Z}_n, \oplus, \odot)$ kommutativer Ring mit Eins
 	      	\item[e)] $(\R^n, + ,\cdot)$ kommutativer Ring mit Eins: ($\cdot$ und + Komponentenweise)\\
 	      	      \uline{Bemerkung:} $\mathcal{R}_1,...,\mathcal{R}_n$ Ringe $\Rightarrow \mathcal{R}_1 \times ... \times \mathcal{R}_n$ Ring
-	      	\item[f)] $(M_n(\R),+, \cdot)$ (für $n\geq 2$) Ring mit Eins $(= E_n)$. Nicht kommutativ! 
+	      	\item[f)] $(\mathcal{M}_n(\R),+, \cdot)$ (für $n\geq 2$) Ring mit Eins $(= E_n)$. Nicht kommutativ!
 	      \end{itemize}
 	      \subsection{Satz (Rechenregeln für Ringe)}
 	      \label{4.3}
@@ -1893,7 +1893,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 	      	\item[a)] $(\mathds{Q},+,\cdot),\quad (\mathds{R},+,\cdot)$ Körper $[(\mathds{C},+,\cdot)$ auch] \\
 	      	      $(\mathds{Z},+,\cdot)$ kein Körper, da $\mathds{Z}^* = \{1,-1\}$.
 	      	\item[b)] $\mathds{Z}_n^* = \{z \in \mathds{Z}_n| \text{ggT}(z,n) = 1\}$ Gruppe bezüglich '$\odot$'\\
-	      	      $\Rightarrow (\mathds{Z}_n, \oplus, \odot)$ Körper $\Leftrightarrow n$ Primzahl
+	      	      $\Rightarrow (\mathds{Z}_n^*, \oplus, \odot)$ Körper $\Leftrightarrow n$ Primzahl
 	      \end{itemize}
 	      	
 	      \subsection{Satz (Rechenregeln für Körper: Nullteilerfreiheit)}
@@ -1968,7 +1968,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 	      0 \pmod{m_j},~ j \neq i\\
 	\end{cases*}$ \\
 	\\
-	$\Rightarrow x \overset{\textrm{\hyperref[4.10]{4.10}}}{=} \sum_{i = 1}^{n}a_i e_i \pmod{M} $ ist Lösung der simultanen Kongruenz.
+	$\Rightarrow x \overset{\textrm{\hyperref[4.10]{4.10}}}{=} \sum_{i = 1}^{n}a_i e_i \mod{M} $ ist Lösung der simultanen Kongruenz.
 	\subsection{Beispiel}
 	\begin{itemize}
 		\item[a)] $m_1 = 3, ~~m_2 = 4, ~~m_3 = 5 \Rightarrow M = 60$\\
@@ -1997,7 +1997,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      		      	\item $2^{1000} \mod 3 = (-1)^{1000} \mod 3 = 1=a_1$
 		      		      	\item $2^{1000} \mod 5 = 4^{500} \mod 5 = (-1)^{500} = 1=a_2$
 		      		      	\item $2^{1000} \mod 7 = \underbracket{2^3}_{=8}~^{\*333+1} \mod 7 = 1 \cdot 2\mod 7 = 2=a_3$
-		      		      	\item $2^{1000} \mod 11 = \underbracket{2^5}_{=32}~{\*200} \mod 11 = (-1)^{200} = 1=a_4$
+		      		      	\item $2^{1000} \mod 11 = \underbracket{2^5}_{=32}~^{\*200} \mod 11 = (-1)^{200} = 1=a_4$
 		      		      \end{itemize}
 		      		\item[2)] Suche $0 \leq x < 1155$ mit $x \equiv \begin{cases*}
 		      		      1 \pmod{3}\\
@@ -2065,13 +2065,13 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      	$\mathcal{K}$ - Körper mit Nullelement $\mathcal{O}$ und Einselement $\upharpoonleft$.
 		      	\begin{itemize}
 		      		\item[i)] Ein \uline{Polynom} über $\mathcal{K}$ ist ein Ausdruck $f = \underbrace{a_0x^0}_{a_0} + \underbrace{a_1x^1}_{a_1x} + ... + a_nx^n $ mit $ n \in \N, ~~a_i \in \mathcal{K}$ Koeffizienten von $f$ (auch $f(x)$ anstatt $f$).\\
-		      		      Ist $a_i = 0 \quad\forall \{1,...,n\}$, so schreibt man $f= 0$ (Nullpolynom)
+		      		      Ist $a_i = 0 \quad\forall i \in \{1,...,n\}$, so schreibt man $f= 0$ (Nullpolynom)
 		      		\item[ii)] $\mathcal{K}[x]$ = Menge aller Polynome über $\mathcal{K}$ in einer Variablen $x$
 		      		\item[iii)] $f,g \in \mathcal{K}[x]$ sind gleich, wenn gilt
 		      		      \begin{itemize}
 		      		      	\item[a)]  $f = a_0 + ... + a_n x^n$ \\
 		      		      	      $g = b_0 +...+ b_mx^m$ mit $a_n \neq 0, ~b_m \neq 0$ \\
-		      		      	      $\Rightarrow m = n$ und $a_i = b_i ~~\forall i = 1,...,n$\\
+                                              $\Rightarrow m = n$ und $a_i = b_i ~~\forall i \in \{1,...,n\}$\\
 		      		      	      oder
 		      		      	\item[b)] $f= 0$ und $g= 0$
 		      		      \end{itemize}
@@ -2086,7 +2086,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      	$\mathcal{K}[x]$ ist kommutativer Ring mit Eins. Dabei ist für $f = \sum_{i=0}^{n}a_ix^i,$\\$g = \sum_{j = 0}^{m} b_j x^j$
 		      	\begin{itemize}
 		      		\item $f+g = \sum_{i = 0}^{\max\{m,n\}} (a_i + b_i)x^i$
-		      		\item $f \cdot g  = (a_0 + a_1x + ... + a_nx^n)(b_0 + b_1x + ... + b_mx m)$\\
+		      		\item $f \cdot g  = (a_0 + a_1x + ... + a_nx^n)(b_0 + b_1x + ... + b_mx^m)$\\
 		      		      \noindent\hspace*{8.5mm}$= \underbrace{a_0 \cdot b_0}_{c_0} + \underbrace{(a_0 \cdot b_1 + a_1 \cdot b_0)}_{c_1}x + ... + \underbrace{a_nb_m}_{c_{n+m}}x^{n+m}$\\
 		      		      mit $c_i = \sum_{k = 0}^{i}a_k \cdot b_{i-k}$ (\uline{Faltungsprodukt})\\
 		      		      $[\textrm{Anmerkung: }a_i = 0 = b_j$ für $i>n\textrm{ bzw. }j>m]$	
@@ -2246,6 +2246,8 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      		\State $y\coloneqq h,~~s\coloneqq 0,~~t\coloneqq1$
 		      		\EndIf
 		      		\If{$h\neq0\wedge h\nmid g$}
+		      		\State $x\coloneqq g,~~y\coloneqq h$
+		      		\State $s_1\coloneqq 1,~s_2\coloneqq 0,~~t_1\coloneqq 0,~t_2\coloneqq 1$
 		      		\While{$(x\mod y)\neq0$}
 		      		\State $q\coloneqq x\div y,~~r\coloneqq x\mod y$
 		      		\State $s\coloneqq s_1-qs_2,~~t\coloneqq t_1-qt_2$
@@ -2256,7 +2258,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      		\EndIf
 		      		\State $d\coloneqq a^{-1}_ny$ (Normierung von $y$, siehe \hyperref[4.30]{4.30})
 		      		\State $s\coloneqq a^{-1}_ns,~~t\coloneqq a^{-1}_nt$ (Normierung von $s,t$, siehe \hyperref[4.30]{4.30})
-		      		\Ensure $d=\ggT{g,h},~~~s,t$ für $\ggT{g,h}=sh+tg$
+		      		\Ensure $d=\ggT{g,h},~~~s,t$ für $\ggT{g,h}=sg+th$
 		      	\end{algorithmic}
 		      	\subsection{Beispiel}
 		      	$g = x^4 + x^3 + 2x^2 +1,~~~ h = x^3 + 2x^2 + 2\qquad  g,h \in \mathds{Z}_3[x]$\\			
@@ -2469,7 +2471,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      		Für $z = a+b\i \in \C$ ist $|z| := \sqrt{a^2 + b^2}$ der \uline{Betrag} von $z$.
 		      		\subsection{Bemerkung}
 		      		Jede Zahl $z = a+b\i \in \C \setminus \{0\} $ lässt sich durch den Winkel $\phi \in [0,2\pi)$ und durch den Betrag $|z|$ eineindeutig darstellen: 
-		      			$z = |z|\underbrace{(\cos(\phi) + \i \sin(\phi)}_{e^{\i\phi}})$
+		      			$z = |z|\underbrace{(\cos(\phi) + \i \sin(\phi))}_{e^{\i\phi}}$
 		      			\subsection{Formel von Euler}
 		      			\label{5.5}
 		      			$e^{\i\phi} = \cos(\phi) + \i \sin(\phi),~~~ \phi \in \R$
@@ -2482,7 +2484,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      			Damit ergibt sich für $z \in \C$ die Darstellung $z = |z| e^{\i\phi},~~~ \phi$ wie in \hyperref[5.2]{Abbildung 5.2}
 		      			\subsection{Bemerkung}
 		      			$e^{\i\phi}$ liegt für $\phi \in \R$ auf dem Einheitskreis, d.h. $\phi \rightarrow e^{\i\phi}$ ist Kreisfunktion. Für Frequenzanalyse (Fourierreihen): \\
-		      			$t$... Zeit, $\omega \in \Z$... Frequenz. \\
+		      			$t$ - Zeit, $\omega \in \Z$ - Frequenz. \\
 		      			Dann beschreibt $e^{\i(t \cdot 2\pi) \omega}$ eine Schwingung, z.B.:
 		      			\begin{itemize}
 		      				\item $\omega = 1:$ in einer Zeiteinheit (ZE) wird Einheitskreis 1 mal durchlaufen
@@ -2499,7 +2501,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				      \underbrace{\cos\phi \cos\phi' - \sin\phi \sin\phi'}_{\cos(\phi + \phi')} + \i \underbrace{(\sin\phi\cos\phi' + \cos\phi \sin\phi')}_{\sin(\phi + \phi')}$\\
 		      				      \\
 		      				      \begin{minipage}[c]{0.5\textwidth}
-		      				      	Für $z = a+b\i = |z| e^{\i\phi}$ und \\$z' = a' + b'\i = |z'|e^{\i\phi'}$ ist das Produkt $zz' = z |z| e^{\i\phi'} = |z'| |z| e^{\i(\phi + \phi')}$ eine \\Drehstreckung des Vektors $\vec2{a}{b}$
+		      				      	Für $z = a+b\i = |z| e^{\i\phi}$ und \\$z' = a' + b'\i = |z'|e^{\i\phi'}$ ist das Produkt $zz' = z |z'| e^{\i\phi'} = |z'| |z| e^{\i(\phi + \phi')}$ eine \\Drehstreckung des Vektors $\vec2{a}{b}$
 		      				      \end{minipage}
 		      				      \begin{minipage}[c]{0.05\textwidth}
 		      				      	~\\
@@ -2529,7 +2531,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				      		\draw [-latex, very thin](3,-0.5) arc (14.6283:39.0942:2.5);
 		      				      	\end{tikzpicture}
 		      				      \end{minipage}
-		      				\item[3)] Die Inverse einer Drehstreckung $re^{\i\phi}$ ist dann eine Stauchung $\frac{1}{\phi}$ verknüpft mit einer Drehung um $-\phi:$\\
+		      				\item[3)] Die Inverse einer Drehstreckung $re^{\i\phi}$ ist dann eine Stauchung $\frac{1}{r}$ verknüpft mit einer Drehung um $-\phi:$\\
 		      				      $z = re^{\i\phi} \Leftrightarrow z^{-1} = \frac{1}{r} e^{\i-\phi}$, da $zz^{-1} = r \frac{1}{r} e^{\i(\phi - \phi)} = 1 \cdot e^0 = 1$\\
 		      				      \\
 		      				      In der Schreibweise $z= a+b\i,~~ z' = a' + b'\i$ ergibt sich:\\ $zz' = (a +b\i)(a' + b'\i) = aa' -bb' + (ab' + ba')\i$, denn \\$a = r \cos \phi,~~ b= r \sin\phi,~~ a' = r' \cos\phi',~~ b' = r' \sin\phi'$.\\ \\
@@ -2584,7 +2586,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      			\begin{itemize}
 		      				\item $(1+\i) = \sqrt{2} e^{\i\*\frac{\pi}{4}}$
 		      				\item $(2+\i)(3-4\i) = 6 +4 + (3-8)\i = 10 -5\i$
-		      				\item $\frac{\i+1}{2\i -1} = \frac{(\i+1)(2\i+1)}{\underbrace{(2\i-1)}_{z}\underbrace{(2\i+1)}_{\bar{z}}} =\frac{1-2 +\i(2+1)}{2^2 + 1^2} = -\frac{1}{5} + \frac{3}{5}\i$
+                                                \item $\frac{\i+1}{2\i -1} = \frac{(\i+1)(2\i+1)}{\underbrace{(2\i-1)}_{z}\underbrace{(2\i+1)}_{\bar{z}}} =\frac{1-2 +\i(2+1)}{(-1) - 4} = \frac{1}{5} - \frac{3}{5}\i$
 		      			\end{itemize}
 		      			\subsection{Rechenregeln (Konjunktion, Betrag)}
 		      			\label{5.11}
@@ -2708,7 +2710,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				      	      $z^* = \cos(\frac{\pi}{4}) \cdot i \sin(\frac{\pi}{4}) = e^{i\frac{\pi}{4}}$ \\
 		      				      	      $\Rightarrow z = |z| z^* = \sqrt{8} e^{i\frac{\pi}{4}}$
 		      				      \end{itemize} 
-		      				\item Formel von Euler $e^{i\phi} = \cos(\phi) + i \sin(\phi)$
+		      				\item Formel von Euler: $e^{i\phi} = \cos(\phi) + i \sin(\phi)$
 		      				\item Addition: $z + z' = a +a' + (b+ b')i$ \\
 		      				      %Zeichnung \\
 		      				      Man sieht hier : $ |z + z'| \leq |z| + |z'|$
@@ -2778,7 +2780,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      			0 & 2 & 0 \\
 		      			0 & 1 & 0 \\
 		      			\end{pmatrix},~~ b  = \vec3{3}{0}{0}$ \\
-		      			Spezielle Lösung: $x_0 = \vec3{1}{0}{0}$. Da $A\vec3{0}{0}{\lambda} = \vec3{0}{0}{0}$, ist auch\\ $A\underbrace{\vec3{1}{0}{\lambda}}_{\textrm{Gerade}} = A\Bigg(x_0 + \vec3{0}{0}{\lambda}\Bigg) = \underbrace{Ax_0}_{b} + \underbrace{A\vec3{0}{0}{\lambda}}_{\O} = b\Rightarrow\vec3{0}{0}{\lambda}$ ist Lösung von $Ax = b$\\
+		      			Spezielle Lösung: $x_0 = \vec3{1}{0}{0}$. Da $A\vec3{0}{0}{\lambda} = \vec3{0}{0}{0}$, ist auch\\ $A\underbrace{\vec3{1}{0}{\lambda}}_{\textrm{Gerade}} = A\Bigg(x_0 + \vec3{0}{0}{\lambda}\Bigg) = \underbrace{Ax_0}_{b} + \underbrace{A\vec3{0}{0}{\lambda}}_{\O} = b\Rightarrow\vec3{1}{0}{\lambda}$ ist Lösung von $Ax = b$\\
 		      			$\Rightarrow H'=\Bigg\{\vec3{1}{0}{\lambda}\Bigg|~\lambda\in\R\Bigg\},~~~H=\Bigg\{\vec3
 		      			{0}{0}{\lambda}\Bigg|~\lambda\in\R\Bigg\}$ (s.u.)
 		      			\subsection{Definition (Homogenes LGS, Lösungsraum)}
@@ -2844,7 +2846,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				\item[i)]
 		      				      \begin{itemize}
 		      				      	\item $\phi(\O) = \mathcal{O} \Rightarrow \mathcal{O} \in$ ker$(\phi)$
-		      				      	\item $u,v \in $ker($\phi) \Rightarrow \underbrace{\phi(u)}_{= \O} + \underbrace{\phi(v)}_{=\O} = \O = \phi(u+v) \Rightarrow u+v \in $ ker($\phi$)
+		      				      	\item $u,v \in $ ker($\phi) \Rightarrow \underbrace{\phi(u)}_{= \O} + \underbrace{\phi(v)}_{=\O} = \O = \phi(u+v) \Rightarrow u+v \in $ ker($\phi$)
 		      				      	\item $\lambda \in \K, v \in $ ker($\phi) \Rightarrow \O = \lambda \phi(v) = \phi(\lambda v) \Rightarrow \lambda v \in $ ker($\phi)$
 		      				      \end{itemize}
 		      				\item[ii)]
@@ -2991,7 +2993,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				\Viewpoint(45,70,10,8)[1]
 		      				\SetCMYKColor(0.5,0,0,0)
 		      				\ShowFullPlaneThrough(0,0,0)NormalTo(0,1,0)(2.1)
-		      				\Text[t]{$\ker\phi$}
+                                                \Text[t]{$\ker(\phi)$}
 		      				\SetCMYKColor(0,0,0,255)
 		      				\DDArrowAt(-6,0,0)(4,0,0)
 		      				\Text[b]{$x$}
@@ -3003,7 +3005,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				\SetCMYKColor(0,1,1,0)
 		      				\DDLineAt(-8,-16,0)(-5.5,-11,0)
 		      				\DDArrowAt(0,0,0)(2,4,0)
-		      				\Text[b]{$\langle v\rangle_\R,~~v\notin\ker\phi$}
+		      				\Text[b]{$\langle v\rangle_\R,~~v\notin\ker(\phi)$}
 		      				\SetDashed
 		      				\DDLineAt(-5.5,-11,0)(0,0,0)%dashed
 		      				\CloseGraph
@@ -3032,7 +3034,7 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				\DDMoveTo(0,-2,-5)
 		      				\Text[c]{$\phi(\langle v\rangle)$}
 		      				\DDMoveTo(0,1,-0.5)
-		      				\Text[c]{$\ker\phi$}
+		      				\Text[c]{$\ker(\phi)$}
 		      				\DDMoveTo(0,0,0)
 		      				\SetCMYKColor(0.5,0,0,0)
 		      				\BigPoint
@@ -3046,19 +3048,19 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      			$V,W ~~\K-$Vektorräume, $dim(V) = n,~~ \phi: V \rightarrow W$ lineare Abbildung.\\
 		      			Dann ist 
 		      			\begin{center}
-		      				$\dim(V)= \underbrace{\dim(\ker\phi)}_{\text{'Defekt von }\phi'} + \rg(\phi)$
+                                                $\dim(V)= \underbrace{\dim(\ker(\phi))}_{\text{'Defekt von }\phi'} + \rg(\phi)$
 		      			\end{center}
 		      			\subsubsection*{Beweis:}
-		      			Sei $\{u_1, ..., u_k\}$ Basis von $\ker \phi$. Ergänze zu Basis $\{u_1,...,u_n\}$ von $V$ und setze $U := \vecspace{u_{k+1},...,u_n}{\K}$\\
-		      			Da $\ker\phi \cap U = \{\O\}
-		      			$ und $V = U + \ker\phi$, ist 
+                                        Sei $\{u_1, ..., u_k\}$ Basis von $\ker(\phi)$. Ergänze zu Basis $\{u_1,...,u_n\}$ von $V$ und setze $U := \vecspace{u_{k+1},...,u_n}{\K}$\\
+                                        Da $\ker(\phi) \cap U = \{\O\}
+		      			$ und $V = U + \ker(\phi)$, ist 
 		      			\begin{center}
-		      				$\dim(V) = \dim(\ker\phi) + \dim(U) - \underbrace{\dim(U \cap \ker\phi)}_{= 0}$
+                                                $\dim(V) = \dim(\ker(\phi)) + \dim(U) - \underbrace{\dim(U \cap \ker(\phi))}_{= 0}$
 		      			\end{center}
 		      			Zeige: $\dim(U) \overset{1)}{=} \dim(\phi(U)) \overset{2)}{=} \underbrace{\dim(\phi(V))}_{\rg(\phi)}$\\
 		      			\begin{itemize}
 		      				\item[1)] \begin{align*}
-		      				      \ker\phi \cap U= \{\O\} &\Rightarrow \ker(\nicefrac{\phi}{U}) = \{\O\}\\
+		      				      \ker(\phi) \cap U= \{\O\} &\Rightarrow \ker(\nicefrac{\phi}{U}) = \{\O\}\\
 		      				      &\overset{\hyperref[6.9]{6.9}}{\Rightarrow} \nicefrac{\phi}{U} \text{ injektiv}\\
 		      				      &\Rightarrow \dim(U) = \dim(\phi(U))\\
 		      				      \Bigg[\text{Bem:}~~~ \{u_{k+1,...,u_n}\} \text{Basis von }U~~~~~~ &~~~\mathclap{\overset{\nicefrac{\phi}{U}{\text{ injektiv}}}{\Rightarrow}}~~~~~~ \{\phi(u_{k+1}),...,\phi(u_n)\} \text{ Basis von }\phi(U)\Bigg]
@@ -3080,24 +3082,24 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				\item[iii)] $\phi$ bijektiv.
 		      			\end{itemize}
 		      			\subsubsection*{Beweis}
-		      			$\hyperref[6.14]{6.14} \Rightarrow n = \dim(\ker\phi) + \rg\phi$\\
-		      			$\phi \textrm{ surjektiv } \Leftrightarrow \rg \phi = n \Leftrightarrow \dim(\ker \phi) = 0\overset{\hyperref[6.9]{6.9}}{\Leftrightarrow} \phi \textrm{ injektiv}$ \qed
+                                        $\hyperref[6.14]{6.14} \Rightarrow n = \dim(\ker(\phi)) + \rg(\phi)$\\
+                                        $\phi \textrm{ surjektiv } \Leftrightarrow \rg(\phi) = n \Leftrightarrow \dim(\ker(\phi)) = 0\overset{\hyperref[6.9]{6.9}}{\Leftrightarrow} \phi \textrm{ injektiv}$ \qed
 		      			\subsection*{Lösungen von LGS, Rang von Matrizen}
 		      			\uline{Gegeben}: LGS mit $Ax = b, ~~A \in \M_{m,n}(\K),~~ b \in \K^m, ~~\K$ Körper.\\
 		      			\uline{Gesucht}: $\mathcal{L} := \{x \in \K^n \mid Ax = b \}$ Lösungsraum\\
 		      			\\
 		      			Sei $x_0 \in \mathcal{L}$ eine spezielle Lösung.\\
-		      			\noindent\hspace*{12mm}$\overset{\hyperref[6.6]{6.6}}{\Rightarrow} \mathcal{L} = x_0 + \ker\phi, ~~~\phi: \K^n \rightarrow \K^m,~~ x \mapsto Ax$\\
-		      			D.h. Größe von $\mathcal{L}$ gegeben durch $\dim(\ker \phi)$.
+                                        \noindent\hspace*{12mm}$\overset{\hyperref[6.6]{6.6}}{\Rightarrow} \mathcal{L} = x_0 + \ker(\phi), ~~~\phi: \K^n \rightarrow \K^m,~~ x \mapsto Ax$\\
+                                        D.h. Größe von $\mathcal{L}$ gegeben durch $\dim(\ker(\phi))$.
 		      			\subsection{Bemerkung}
 		      			\label{6.16}
-		      			$\dim(\ker \phi) = n - \underbrace{\rg\phi}_{= \dim(\phi(\K^n))}$ \qquad\quad (\hyperref[6.14]{6.14})\\
-		      			$\phi(\K^n) = \vecspace{\phi(e_1),...,\phi(e_n)}{\K} = \vecspace{\underbrace{Ae_1,...Ae_n}_{\textrm{Spalten von } A}}{\K}$ \\
-		      			$\Rightarrow \rg\phi =$ Anzahl der linear unabhängigen Spalten von $A$ = \uline{Spaltenrang} von $A$\\
+                                        $\dim(\ker(\phi)) = n - \underbrace{\rg(\phi)}_{= \dim(\phi(\K^n))}$ \qquad\quad (\hyperref[6.14]{6.14})\\
+		      			$\phi(\K^n) = \vecspace{\phi(e_1),...,\phi(e_n)}{\K} = \vecspace{\underbrace{Ae_1,...,Ae_n}_{\textrm{Spalten von } A}}{\K}$ \\
+                                        $\Rightarrow \rg(\phi) =$ Anzahl der linear unabhängigen Spalten von $A$ = \uline{Spaltenrang} von $A$\\
 		      			\\
 		      			Man kann zeigen: Spaltenrang von $A$ = Zeilenrang von $A$ (Anzahl linear unabhängiger Zeilen von $A$)\\
 		      			\uline{Insgesamt:}
-		      			$\dim(\ker \phi) = n -$ Spaltenrang von $A = n-$ Zeilenrang von $A$
+                                        $\dim(\ker(\phi)) = n -$ Spaltenrang von $A = n-$ Zeilenrang von $A$
 		      			\newpage
 		      			\section{Lineare Abbildungen und Matrizen}
 		      			\subsubsection*{Erinnerung} (\hyperref[1.29]{1.29}): Ein Vektor hat bezüglich unterschiedlicher Basen unterschiedliche Linearkombinationen und damit auch unterschiedliche Koordinaten, z.B.\\
@@ -3267,14 +3269,14 @@ Die Menge $\{id, \pi ,\sigma, \eta \}$ aus \hyperref[3.7]{Beispiel 3.7} ist abge
 		      				2 & 0 & 3 \\
 		      				\end{pmatrix}$.\\
 		      				Angenommen, $v \in V$ mit K$_B(v) = \vec3{5}{-2}{4}$. \\
-		      				$\Rightarrow \underbrace{\text{K}_C(v)}_{\substack{\textrm{Koordinaten bzgl. }C,\\\textrm{nachdem }\phi\textrm{ ausgeführt wurde}}} = \begin{pmatrix}
+		      				$\Rightarrow \underbrace{\text{K}_C(\phi(v))}_{\substack{\textrm{Koordinaten bzgl. }C,\\\textrm{nachdem }\phi\textrm{ ausgeführt wurde}}} = \begin{pmatrix}
 		      				1 & 1 & -2 \\
 		      				2 & 0 & 3 \\
-		      				\end{pmatrix} \cdot \text{K}_B(\phi(v)) = \vec2{-5}{22}$
+		      				\end{pmatrix} \cdot \text{K}_B(v) = \vec2{-5}{22}$
 	
 \subsection*{Bemerkung (Geordnete Basen)}
 \marginpar{17.01.17}
-In \hyperref[7.3]{7.3} und \hyperref[7.6]{7.6} haben die Basisvektoren von $B = \{v_1,..,v_n\}$ und $C = \{w_1,...,w_m\}$ eine bestimmte Reihenfolge (Nummerierung). Man sagt es sind \underline{geordnete Basen} und schreibt dafür $B = (v_1,...,v_n),~~~ C=(w-1,...,w_m)$, um anzuzeigen, dass die Basiselemente nicht vertauscht werden dürfen.
+In \hyperref[7.3]{7.3} und \hyperref[7.6]{7.6} haben die Basisvektoren von $B = \{v_1,..,v_n\}$ und $C = \{w_1,...,w_m\}$ eine bestimmte Reihenfolge (Nummerierung). Man sagt es sind \underline{geordnete Basen} und schreibt dafür $B = (v_1,...,v_n),~~~ C=(w_1,...,w_m)$, um anzuzeigen, dass die Basiselemente nicht vertauscht werden dürfen.
 \subsubsection*{Beispiel}
 $B = \Bigg(\vec3{1}{0}{0},\vec3{0}{1}{0},\vec3{0}{0}{1}\Bigg),~~~ C = \Bigg(\vec3{0}{1}{0},\vec3{0}{0}{1},\vec3{1}{0}{0}\Bigg) \\
 \Rightarrow S_{B,C} = \begin{pmatrix}
@@ -3289,7 +3291,7 @@ $B = \Bigg(\vec3{1}{0}{0},\vec3{0}{1}{0},\vec3{0}{0}{1}\Bigg),~~~ C = \Bigg(\vec
 \label{7.9}
 In \hyperref[7.5]{7.5} ist $A_\phi^{C,B} = \underbrace{S_{C,B}}_{2)} \cdot \underbrace{A_\phi^C}_{1)}$\\
 \begin{itemize}
-	\item[1)] Streckung im Faktor 2 bezüglich $C = \{e_1,e_2\}$\\
+	\item[1)] Streckung im Faktor 2 bezüglich $C = (e_1,e_2)$\\
 	$A_\phi^C = \begin{pmatrix}
 	2 & 0 \\
 	0 & 2 \\
@@ -3330,21 +3332,21 @@ A_\phi^{B',C'} \cdot \text{K}_{B'}(v) &\overset{\hyperref[7.7]{7.7}}{=} \text{K}
 &\overset{\hyperref[7.4]{7.4}}{=} S_{C,C'} \* A_\phi^{B,C} \cdot \underbracket{S_{B',B} \cdot \text{K}_{B'}(v)} 
 \end{align*} \qed
 \subsection{Bemerkung zu Darstellungsmatrizen}
-$V$ bzw. $W $ $\K$-Vektorraum mit Basen $B = \{v_1,..,v_n\}$ bzw. $C = \{w_1,...,w_n\},~~ \phi: V \rightarrow W$ lineare Abbildung.\\
+$V$ bzw. $W $ $\K$-Vektorraum mit Basen $B = (v_1,..,v_n)$ bzw. $C = (w_1,...,w_m),\\ \phi: V \rightarrow W$ lineare Abbildung.\\
 Für $v \in W$ kann $\text{K}_B(v)$ aufgefasst werden als Bild der Koordinatenabbildung. \\
 $\text{K}_B: V \rightarrow \K^n,~~~ v = \sum_{i = 1}^{n} \lambda_i v_i \mapsto \vec3{\lambda_1}{\vdots}{\lambda_n}$\\
 Daraus ergibt sich folgendet Übersicht:\\
 \begin{tikzpicture}[scale=0.5]
 \node (v1) at (-3,3) {$V$};
 \node (v2) at (1,3) {$W$};
-\node (v3) at (1,-0.5) {$\K^n$};
-\node (v4) at (-3,-0.5) {$\K^m$};
+\node (v3) at (1,-0.5) {$\K^m$};
+\node (v4) at (-3,-0.5) {$\K^n$};
 \draw  [-latex] (v1) edge (v2);
 \draw  [-latex] (v2) edge (v3);
 \draw  [-latex] (v1) edge (v4);
 \draw  [-latex]  (v4) edge (v3);
 \node at (-1.0999,3.6082) {$\substack{\phi}$};
-\node at (-1.1175,-0.9476) {$\substack{~\\A_\phi^{BC}}$};
+\node at (-1.1175,-0.9476) {$\substack{~\\A_\phi^{B,C}}$};
 \node at (-4.0525,1.302) {$\substack{\text{K}_B}$};
 \node at (1.2589,1.3196) {~~~$\substack{\text{K}_C}$};
 \end{tikzpicture}\\
@@ -3353,23 +3355,20 @@ $\Rightarrow$ Jede lineare Abbildung $\phi: \K^n \rightarrow \K^m $ ($\K$ Körpe
 Wenn $V = \K^n$ und $W = \K^m$, benutze für $B$ und $C$ kanonische Basis.\\
 $\Rightarrow \text{K}_C(\phi(v))  = \phi(v) \overset{\hyperref[7.4]{7.4}}{=} A_\phi^{B,C} \cdot \text{K}_B(v) = \underbracket{A_\phi^{B,C} \cdot v}_{\textrm{Matrix }\*\textrm{ Vektor}}$ \qed
 \subsection{Satz (Eigenschaften von Darstellungsmatrizen)}
+% TODO (optional): "Bild" (wie bei 7.11, aber mit U,V,W - K_B,K_C,K_D - \phi,\psi - ...)
 \label{7.12}
-$U,V,W$ Vektorräume mit Basen $B,C,D;~~~ \phi,\psi$ lineare Abbildungen.
+$U,V,W$ Vektorräume mit Basen $B,C,D,\\ \phi,\phi{}': U \rightarrow V,~~ \psi: V \rightarrow W$ lineare Abbildungen.
 \begin{itemize}
-	\item[i)] Sei $\phi,\psi: V \rightarrow W$. Dann ist\\
-	$A_{\phi + \psi}^{B,C} = A^{B,C}_\phi + A^{B,C}_\psi$
-	\item[ii)] Sei $\phi:U\rightarrow W$. Dann ist \\
-	$A_{\lambda\phi}^{B,C} =  \lambda A^{B,C}_\phi,~~~~ \lambda \in \K$
-	\item[iii)] 
-	Sei $\phi: U \rightarrow V, ~~~\psi: V \rightarrow W$. Dann ist \\
-	$A_{ \psi\circ\phi }^{B,D} = A_\psi^{C,D} \cdot A_\phi^{B,C}$\\
+        \item[i)]   $A_{\phi + \phi{}'}^{B,C} = A^{B,C}_\phi + A^{B,C}_{\phi{}'}$
+        \item[ii)]  $A_{\lambda\cdot\phi}^{B,C} =  \lambda \cdot A^{B,C}_\phi,~~~~ \lambda \in \K$
+	\item[iii)] $A_{\psi\circ\phi}^{B,D} = A_\psi^{C,D} \cdot A_\phi^{B,C}$\\
 	$\Big[$Bemerkung: Verknüpfung linearer Abbildungen entspricht dem Matrixprodukt der Darstellungsmatrizen. $\Big]$
 \end{itemize} 
 \subsubsection*{7.12 hier ohne Beweis.}
 ~~
 \subsection*{Matrixinversen}
 \subsubsection*{Erinnerung} (\hyperref[4.2]{4.2}): $ \M_n(\K)$ mit Matrixaddition und -multiplikation ist ein Ring mit Eins $(=E_n)$. D.h. $A \in \M_n(\K)$ kann Inverse $A^{-1}$ besitzen.\\
-Für $A^{-1}$ gilt: $A \cdot A^{-1} = A^{-1}A = E_n$.\\
+Für $A^{-1}$ gilt: $A \cdot A^{-1} = A^{-1} \cdot A = E_n$.\\
 \\
 Fragen: \begin{itemize}
 	\item Welche $A \in \M_n(\K)$ besitzen Inverse $A^{-1} \in \M_n(\K)$?
@@ -3442,11 +3441,11 @@ $A = \underbrace{\begin{pmatrix}
 	2 & 0 \\
 	\end{pmatrix}}_{\in \M_2(\R)} \Rightarrow \rg(A) = 2 \Rightarrow$ A invertierbar (weil Rang voll).
 \subsection{Berechnung der Matrixinverse ($A^{-1}$)}
-\uline{Gegeben}: Quadratische Matrix $A0\begin{pmatrix}
+\uline{Gegeben}: Quadratische Matrix $A=\begin{pmatrix}
 a_{11}&...&a_{1n}\\
 \vdots&\ddots&\vdots\\
 a_{n1}&...&a_{nn}
-\end{pmatrix}\in\M_n(\K),~~\K$ Körper.
+\end{pmatrix}\in\M_n(\K),~~\K$ Körper.\vspace{1mm}\\
 \uline{Gesucht}: Matrixinverse $A^{-1}\in\M_n(\K).$
 \subsubsection*{Voraussetzungen}
 Das sogenannte \uline{Gauß-Jordan-Verfahren} zur Berechnung der Matrixinversen baut auf der Berechnung der Lösungen von Gleichungssystemen $Ax=b$ mit \textbf{quadratischer} Matrix $A$ auf. Deswegen werden zunächst einige Regeln angegeben, die zur Lösung linearer Gleichungssysteme benutzt werden. Dabei wird im Folgenden das LGS mit Hilfe der erweitertern Koeffizientenmatrix $(A|b)$ beschrieben: Wenn $b=(b_1,...,b_n)^T\in\K^n$ schreibt man \begingroup
@@ -3459,12 +3458,12 @@ b_1\\\vdots\\b_n
 \end{array}\right )$.\endgroup\\
 Die Lösungsmenge des LGS ändert sich nicht, wenn man an $(A|b)$ folgende elementaren Zeilenumformungen aus dem Gaußverfahren durchführt:
 \begin{itemize}
-	\item[1.] Erweiterung einer Zeile mit einem Skalar $\lambda\in\K,~~\lambda\neq0$,\item[2.] Addition von Zeilen\item[3.] Tauschen von Zeilen.
+	\item[1.] Erweiterung einer Zeile mit einem Skalar $\lambda\in\K,~~\lambda\neq0$,\item[2.] Addition von Zeilen,\item[3.] Tauschen von Zeilen.
 \end{itemize}
 \subsubsection*{Gauß-Jordan-Algorithmus}
 Im Unterschied zum Gauß-Algorithmus bringt man das LGS $Ax=b$ nicht auf Dreiecksform, sondern man formt die Zeilen so um, dass $A$ zur Einheitsmatrix $E_n$ wird. Dabei wird $b$ automatisch zum Lösungsvektor $x$ umgeformt: Man erhält das System $(E_n|x)$.
 \subsubsection*{Berechnung der Inversen $A^{-1}$}
-Zur Berechnung der Inversen muss nun das System $AX=E_n$ gelöst werden. Man erreicht dies, indem der Gauß-Jordan-Algorithmus simultan auf die $n$ LGS $Ay=e_j,~~j=1,...,n$ angewendet wird. Dazu stellt man das System $(A|E_n)$ auf.\\
+Zur Berechnung der Inversen muss nun das System $Ax=E_n$ gelöst werden. Man erreicht dies, indem der Gauß-Jordan-Algorithmus simultan auf die $n$ LGS $Ax=e_j,~~j=1,...,n$ angewendet wird. Dazu stellt man das System $(A|E_n)$ auf.\\
 Durch Zeilenumformungen überführt man nun $A$ in die Einheitsmatrix, wobei die rechte Seite in die Lösungsmatrix $X$ überführt wird. Man erhält so das System $(E_n|X)$ mit $X=A^{-1}$.\\
 $\Bigg[$\uline{Anmerkung:} Das Verfahren zeigt auch, ob $A$ überhaupt eine Inverse besitzt. Besitzt $A$ keine Inverse, so kann man $A$ nicht in die Einheitsmatrix umformen.$\Bigg]$
 \subsubsection*{Beispiel}
@@ -3483,7 +3482,7 @@ $\left ( \begin{array}{cc}
 \end{array}\right ) \overset{II = I -2 \cdot II}{\longrightarrow} \left ( \begin{array}{cc}
 2&1\\0&-5
 \end{array} \right | \left. \begin{array}{c}
-10\\20
+10\\-20
 \end{array}\right ) \overset{-\frac{1}{5} \cdot II}{\longrightarrow} \left ( \begin{array}{cc}
 2&1\\0&1
 \end{array} \right | \left. \begin{array}{c}
@@ -3493,7 +3492,7 @@ $\left ( \begin{array}{cc}
 2&0\\0&1
 \end{array} \right | \left. \begin{array}{c}
 6\\4
-\end{array}\right ) \overset{\frac{1}{2}}{\rightarrow}\left ( \begin{array}{cc}
+\end{array}\right ) \overset{\frac{1}{2} \cdot I}{\rightarrow}\left ( \begin{array}{cc}
 1&0\\0&1
 \end{array} \right | \left. \begin{array}{c}
 3\\4
@@ -3591,13 +3590,13 @@ A_\phi^B &= S_{C,B} \underbrace{D_{\frac{\pi}{2}}}_{A_\phi^{C,C}} S_{B,C} \\
 $\hyperref[7.16]{7.16}: A \in \M_n(\K)$ invertierbar $\Leftrightarrow \rg(A) = n$\\
 In diesem Kapitel werden invertierbare Matrizen mit Hilfe der Determinante charakterisiert. \\
 Das ist einfacher zu implementieren.
-\subsection{Definition ($A_{i,j}$)}
-$A \in \M_n(\K),~~~ i,j \in \{1,...,n\}.~~~ A_{i,j} \in \M_{n-1}(\K)$ sei die Matrix, die man aus $A$ durch Streichen der $i-$ten Zeile und $j-$ten Spalte erhält. \\
+\subsection{Definition ($A_{ij}$)}
+$A \in \M_n(\K),~~~ i,j \in \{1,...,n\}.~~~ A_{ij} \in \M_{n-1}(\K)$ sei die Matrix, die man aus $A$ durch Streichen der $i-$ten Zeile und $j-$ten Spalte erhält. \\
 z.B.: $A = \begin{pmatrix}
 1 & 2 & -3 \\
 0 & 1 & -1 \\
 -2 & 1 & 1 \\
-\end{pmatrix} \Rightarrow A_{2,3} = \begin{pmatrix}
+\end{pmatrix} \Rightarrow A_{23} = \begin{pmatrix}
 1 & 2 \\
 -2 & 1 \\
 \end{pmatrix}$
@@ -3616,7 +3615,7 @@ a_{11} & a_{12} & \cdots & a_{1n} \\
 a_{n1} & \cdots & \cdots & a_{nn} \\
 \end{pmatrix}\\ 
 \\
-\det(A) =+a_{11}\cdot \det(A_{1,1})- a_{12}\cdot \det(A_{1,2}) + a_{13}\cdot \det(A_{1,3}) \pm ... (-1)^{n+1}a_{1n}\cdot \det(A_{1,n})$
+\det(A) =+a_{11}\cdot \det(A_{11})- a_{12}\cdot \det(A_{12}) + a_{13}\cdot \det(A_{13}) \pm ... (-1)^{n+1}a_{1n}\cdot \det(A_{1n})$
 \noindent\hspace*{12mm}$= \sum_{j = 1}^{n} (-1)^{1+j} a_{1j} \cdot \det(A_{1j})$
 \subsection{Beispiel}
 \begin{itemize}
@@ -3657,7 +3656,7 @@ $\det\begin{pmatrix}
 1 & 0 & 3 \\
 \end{pmatrix} = 3 +4+ 0 -(-1) -0 - 0 = 8$
 \begin{itemize}
-	\item[c)] Für $n \times n-$Matrix gibt es im Allgemeinen $n!$ Summanden.\\
+	\item[c)] Für $n \times n-$Matrizen gibt es im Allgemeinen $n!$ Summanden.\\
 	Viele Nullen in der Matrix machen die Berechnung einfacher, z.B.:\\
 	$\det\begin{pmatrix}
 	\overset{+}{0} & \overset{-}{-2} & \overset{+}{0} \\
@@ -3952,20 +3951,20 @@ $\longrightarrow$~~~~~~~~~~~~~~~~~
 \subsection*{Eigenwertproblem}
 Geg.: $A \in \M_n(\K)$. Ges.: Eigenvektor und Eigenwert \\
 \underline{Grundidee} zur Berechnung von EV + EW:\\
-Ang. $v \neq 0$ ist EV von $A$ zum EW $\lambda \in \K$.
+Ang. $v \neq \O$ ist EV von $A$ zum EW $\lambda \in \K$.
 \begin{align*}
 Av = \lambda v &\Leftrightarrow Av=(\lambda \cdot E_n) v\\
-&\Leftrightarrow Av - \lambda E_n v = 0 \\
-&\Leftrightarrow \underbrace{(A - \lambda E_n)}_{\in \M_n(\K)} v = 0 \\
+&\Leftrightarrow Av - \lambda E_n v = \O \\
+&\Leftrightarrow \underbrace{(A - \lambda E_n)}_{\in \M_n(\K)} v = \O \\
 \end{align*}
-D.h. $v \in \ker(A - \lambda E_n)!$ Da $v \neq 0$, ist $\ker(A - \lambda E_n) \neq \{\O\}$ und somit $A - \lambda E_n$ weder injektiv (\hyperref[6.9]{6.9}) noch umkehrbar (\hyperref[6.15]{6.15}). Ergebnis: 
+D.h. $v \in \ker(A - \lambda E_n)!$ Da $v \neq \O$, ist $\ker(A - \lambda E_n) \neq \{\O\}$ und somit $A - \lambda E_n$ weder injektiv (\hyperref[6.9]{6.9}) noch umkehrbar (\hyperref[6.15]{6.15}). Ergebnis: 
 \subsection{Satz ($A-\lambda E_n$)}
 \label{9.4}
 Sei $A \in \M_n(\K)$.
 \begin{itemize}
 	\item[1)] $\lambda$ EW von $A \Leftrightarrow \det(A- \lambda E_n) = 0$
 	\item[2)] $Eig(\lambda) = \ker(A -\lambda E_n)$
-	\item[3)] EV $v \neq 0$ ist Lösung $(A -\lambda E_n)v = 0$.
+	\item[3)] EV $v \neq \O$ ist Lösung $(A -\lambda E_n)v = \O$.
 \end{itemize}
 \subsubsection*{Beweis}
 Siehe oben.\qed
@@ -3987,7 +3986,7 @@ $\Rightarrow \lambda_1 = 3,~~~ \lambda_2 = 2 \overset{\hyperref[9.4]{9.4.1)}}{\R
 \\
 Die EV $v_1,v_2 \in \R^2$ erfüllen somit 
 \begin{itemize}
-	\item[a)] $(A - \lambda_1 E_2)v_1 = 0 \\
+	\item[a)] $(A - \lambda_1 E_2)v_1 = \O \\
 	\Leftrightarrow \begin{pmatrix}
 	1 -3 & 1 \\
 	-2 & 4-3 \\
@@ -3998,19 +3997,19 @@ Die EV $v_1,v_2 \in \R^2$ erfüllen somit
 	\item[b)] Analog für $\lambda_2 = 2$. Zu Lösen $\begin{pmatrix}
 	-1 & 1 \\
 	-2 & 2
-	\end{pmatrix} \cdot \underbrace{\vec2{x'}{y'}}_{v_2} = 0 \Rightarrow v_2 = \vec2{1}{1}.\\
+	\end{pmatrix} \cdot \underbrace{\vec2{x'}{y'}}_{v_2} = \O \Rightarrow v_2 = \vec2{1}{1}.\\
 	 Eig(2) = \vecspaceR{\vec2{1}{1}}$
 \end{itemize}
 \subsection{Definition (charakteristisches Polynom)}
 \marginpar{31.01.17}
-Für $A \in \M_n(\K)$ heißt $P_A(\lambda) = \det(A)-(\lambda E_n)$ das \uline{charakteristische Polynom} von $A$.
+Für $A \in \M_n(\K)$ heißt $P_A(\lambda) = \det(A - \lambda E_n)$ das \uline{charakteristische Polynom} von $A$.
 \subsection{Bemerkung}
-$P_A(\lambda)$ ist Polynom vom Grad $n$, falls $A \in \M_n(\K)$ (folgt aus Definition der Determinante \hyperref[8.2]{8.2}). Die Nullstelle von $P_A(\lambda)$ sind die Eigenwerte von $A$.\\
-$\Rightarrow $ für $\K = \R:~~A $ hat $ \geq n$ Eigenwerte.\\
+$P_A(\lambda)$ ist Polynom vom Grad $n$, falls $A \in \M_n(\K)$ (folgt aus Definition der Determinante \hyperref[8.2]{8.2}). Die Nullstellen von $P_A(\lambda)$ sind die Eigenwerte von $A$.\\
+$\Rightarrow $ für $\K = \R:~~A $ hat $ \leq n$ Eigenwerte.\\
 $K = \C: $ genau $n$ Eigenwerte ( nicht notwendigerweise verschieden), \hyperref[5.11]{5.11 b)}.
 \subsection*{Diagonalisierbarkeit von Matrizen}
 \subsection{Definition (Diagonalmatrix)}
-$D \in \M_(\K)$ heißt \uline{Diagonalmatrix}, wenn $D = \begin{pmatrix}
+$D \in \M_n(\K)$ heißt \uline{Diagonalmatrix}, wenn $D = \begin{pmatrix}
 \lambda_1 & \cdots & 0 \\
 \vdots & \ddots & \vdots \\
 0 & \cdots & \lambda_n \\
@@ -4019,7 +4018,7 @@ $D \in \M_(\K)$ heißt \uline{Diagonalmatrix}, wenn $D = \begin{pmatrix}
 \begin{itemize}
 	\item[a)] Mit Diagonalmatrizen kann man leichter rechnen, denn:
 	\begin{itemize}
-		\item $\begin{pmatrix}
+		\item[$\bullet$] $\begin{pmatrix}
 		\lambda_1 & \cdots & 0 \\
 		\vdots & \ddots & \vdots \\
 		0 & \cdots & \lambda_n \\
@@ -4030,9 +4029,9 @@ $D \in \M_(\K)$ heißt \uline{Diagonalmatrix}, wenn $D = \begin{pmatrix}
 		\end{pmatrix} = \begin{pmatrix}
 		\lambda_1\mu_1 & \cdots & 0 \\
 		\vdots & \ddots & \vdots \\
-		0 & \cdots & \lambda_n\mu_1 \\
+		0 & \cdots & \lambda_n\mu_n \\
 		\end{pmatrix}$
-		\item $\begin{pmatrix}
+		\item[$\bullet$] $\begin{pmatrix}
 		\lambda_1 & \cdots & 0 \\
 		\vdots & \ddots & \vdots \\
 		0 & \cdots & \lambda_n \\
@@ -4057,8 +4056,10 @@ $D \in \M_(\K)$ heißt \uline{Diagonalmatrix}, wenn $D = \begin{pmatrix}
 	\draw  [-latex]  (v4) edge (v3);
 	\node at (-1.0999,3.6082) {$\substack{A=A_\phi^E}$};
 	\node at (-1.1175,-0.9476) {$\substack{A_\phi^B=D}$};
-	\node at (-4.0525,1.302) {$\substack{S^{-1}=S_{EB}}$};
-	\node at (1.2589,1.3196) {~~~~~~$\substack{S_{BE}=S}$};
+	\node at (-4.0525,1.302) {$\substack{S^{-1}=S_{E,B}}$};
+	\node at (1.2589,1.3196) {~~~~~~$\substack{S_{B,E}=S}$};
+        \node[text width=5cm, right] at (5,2)
+          {$A = S D S^-1$};
 	\end{tikzpicture}
 \end{itemize}
 \subsection{Beispiel}
@@ -4067,7 +4068,7 @@ $A = \begin{pmatrix}
 -2 & 4 \\
 \end{pmatrix} \in \M_2(\R)$.\\
 Aus \hyperref[9.5]{9.5} EV: $v_1 = \vec2{1}{2}, ~~v_2 = \vec2{1}{1}.$ EW: $\lambda_1 = 3,~~ \lambda_2 = 2$.\\
-Wähle als Basis $B = \{v_1,v_2\}$.\\
+Wähle als Basis $B = (v_1,v_2)$.\\
 $\Rightarrow S_{B,E} =\begin{pmatrix}
 1 & 1 \\
 2 & 1 \\
@@ -4106,7 +4107,7 @@ Somit ist z.B. $A^5 = \underbrace{SDS^{-1}}_{A} \cdot \underbrace{SDS^{-1}}_{A} 
 \end{pmatrix}$
 \subsection*{Fragen}
 \begin{itemize}
-	\item[1)] Ist jeder $A \in \M_n(\K)$ diagonalisierbar?
+	\item[1)] Ist jede Matrix $A \in \M_n(\K)$ diagonalisierbar?
 	\item[2)] Wie diagonalisiert man $A$?
 \end{itemize}
 \subsection{Definition (Diagonalisierbarkeit)}
