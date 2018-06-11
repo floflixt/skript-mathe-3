@@ -7,11 +7,11 @@ VOLLSTÄNDIG
 
 Thanks to:
 
-Rita Rübchen (artwork)
+[Rita Rübchen](https://github.com/RitaRuebchen) (artwork)
 
-Procope (typos)
+[Procope](https://github.com/Procope) (typos)
 
-Primeos (typos, makefile, gitignore)
+[Primeos](https://github.com/Primeos) (typos, makefile, gitignore)
 
 Bille (artwork)
 
